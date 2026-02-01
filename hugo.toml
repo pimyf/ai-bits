@@ -1,0 +1,36 @@
+baseURL = 'https://ai-bits.pages.dev/'
+languageCode = 'zh-cn'
+title = 'AI Bits - AI 知识碎片'
+theme = 'PaperMod'
+
+[params]
+  author = "Gavin"
+  description = "分享 AI 知识、工具和实践经验"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  defaultTheme = "auto"
+  
+[params.homeInfoParams]
+  Title = "👋 欢迎来到 AI Bits"
+  Content = "这里分享 AI 知识、工具使用技巧和实践经验"
+
+[[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/pimyf"
+
+[menu]
+[[menu.main]]
+  name = "文章"
+  url = "/posts/"
+  weight = 1
+[[menu.main]]
+  name = "标签"
+  url = "/tags/"
+  weight = 2
+[[menu.main]]
+  name = "关于"
+  url = "/about/"
+  weight = 3
