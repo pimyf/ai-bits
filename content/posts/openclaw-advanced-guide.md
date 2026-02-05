@@ -2,28 +2,16 @@
 title: "OpenClaw 高级使用指南"
 date: 2026-02-06
 draft: false
-tags: ["OpenClaw", "多Agent", "Cron", "沙盒", "插件", "教程"]
-description: "深入探索 OpenClaw 的高级功能：多 Agent 架构、定时任务、沙盒隔离、Hooks、插件系统等。"
+tags: ["OpenClaw", "AI", "教程", "Claude"]
+description: "OpenClaw 的高级功能详解：多 Agent、定时任务、沙盒隔离、Hooks、插件系统等"
+author: "Gavin"
 ---
 
-> 版本：OpenClaw 2026.2.x  
-> 文档整理：阿拉 🎭
+> 本文整理了 OpenClaw 的高级功能，帮助你充分发挥这个 AI 助手框架的潜力。
 
-OpenClaw 不只是个聊天机器人——它支持多 Agent、定时任务、沙盒隔离、插件扩展等高级功能。本文带你深入探索。
+## 什么是 OpenClaw？
 
----
-
-## 目录
-
-1. [多 Agent 架构](#1-多-agent-架构)
-2. [定时任务：Cron vs Heartbeat](#2-定时任务cron-vs-heartbeat)
-3. [沙盒隔离](#3-沙盒隔离sandboxing)
-4. [Hooks 事件钩子](#4-hooks事件钩子)
-5. [插件系统](#5-插件系统plugins)
-6. [Session 管理](#6-session-管理)
-7. [子 Agent](#7-子-agentsub-agents)
-8. [CLI 命令速查](#8-实用-cli-命令速查)
-9. [完整配置示例](#9-完整配置示例)
+OpenClaw 是一个开源的 AI 助手框架，可以让你通过 WhatsApp、Telegram、Discord 等渠道与 Claude/GPT 等大模型对话。但它远不止是个聊天机器人——它支持多 Agent、定时任务、沙盒隔离、插件扩展等高级功能。
 
 ---
 
@@ -186,7 +174,7 @@ OpenClaw 可以在 Docker 容器中执行工具，限制文件和进程访问，
 - `non-main`：只沙盒非主会话（群聊、频道等）
 - `all`：所有会话都沙盒化
 
-### Per-Agent 工具限制
+##Per-Agent 工具限制
 
 可以为特定 Agent 限制可用工具：
 
@@ -202,6 +190,7 @@ OpenClaw 可以在 Docker 容器中执行工具，限制文件和进程访问，
 ```
 
 ### 构建沙盒镜像
+
 ```bash
 # 构建基础沙盒镜像
 scripts/sandbox-setup.sh
@@ -241,7 +230,7 @@ my-hook/
 
 ---
 
-## 5. 插件系统（Plns）
+## 5. 插件系统（Plugins）
 
 插件可以扩展 OpenClaw 的功能：新渠道、新工具、新命令。
 
@@ -307,7 +296,7 @@ openclaw plugins doctor
 
 **选项说明**：
 
-- `main`：所有 DM 共享主会话（默认，保持连续性）
+- `main`：所有 DM 共会话（默认，保持连续性）
 - `per-peer`：按发送者隔离
 - `per-channel-peer`：按渠道+发送者隔离（推荐多用户场景）
 - `per-account-channel-peer`：按账号+渠道+发送者隔离
@@ -358,7 +347,6 @@ sessions_spawn({
 ```
 
 子 agent 特点：
-
 - 在独立会话中运行，不影响主会话
 - 完成后自动通知主会话
 - 可以指定不同的模型和思考级别
@@ -388,7 +376,7 @@ openclaw gateway call config.get
 
 # Cron 任务
 openclaw cron list                 # 列出所有任务
-openclaw cron runs --id <jobId>    查看运行历史
+openclaw cron runs --id <jobId>    # 查看运行历史
 
 # 插件管理
 openclaw plugins list
@@ -469,11 +457,10 @@ OpenClaw 的高级功能让它从一个简单的聊天机器人变成了一个�
 - **插件**：无限扩展可能
 
 更多信息请参考：
-
 - 官方文档：https://docs.openclaw.ai
 - GitHub：https://github.com/openclaw/openclaw
 - Discord 社区：https://discord.com/invite/clawd
 
 ---
 
-*本文由 OpenClaw年2月6日*
+*本文由 OpenClaw 阿拉整理，2026年2月6日*
