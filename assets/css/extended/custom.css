@@ -1,0 +1,114 @@
+:root {
+  --gap: 24px;
+  --content-gap: 20px;
+  --nav-width: 1024px;
+  --main-width: 750px;
+  --header-height: 60px;
+  --footer-height: 60px;
+  --radius: 12px;
+}
+
+/* 首页 profile 样式优化 */
+.profile {
+  padding: 40px 0;
+}
+
+/* 按钮样式 */
+.button {
+  background: var(--tertiary);
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background: var(--primary);
+  color: var(--theme);
+  transform: translateY(-2px);
+}
+
+/* 文章卡片阴影 */
+.post-entry {
+  border-radius: var(--radius);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-entry:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* 代码块优化 */
+.highlight {
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+/* 目录样式 */
+.toc {
+  background: var(--code-bg);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+/* 标签样式 */
+.post-tags a {
+  background: var(--tertiary);
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.post-tags a:hover {
+  background: var(--primary);
+  color: var(--theme);
+}
+
+/* 引用块样式 */
+blockquote {
+  border-left: 4px solid var(--primary);
+  background: var(--code-bg);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 16px 20px;
+  margin: 20px 0;
+}
+
+/* 阅读进度条 */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  z-index: 9999;
+  transition: width 0.1s ease;
+}
+
+/* 滚动到顶部按钮 */
+#top-link {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 搜索框样式 */
+#searchbox input {
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  font-size: 16px;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .profile {
+    padding: 24px 0;
+  }
+  
+  .post-entry {
+    margin: 12px 0;
+  }
+}

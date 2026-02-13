@@ -1,36 +1,99 @@
-baseURL = 'https://ai-bits.pages.dev/'
+baseURL = 'https://getaibits.com/'
 languageCode = 'zh-cn'
-title = 'AI Bits - AI 知识碎片'
+title = 'AI Bits'
 theme = 'PaperMod'
+
+# 启用搜索
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
 
 [params]
   author = "Gavin"
-  description = "分享 AI 知识、工具和实践经验"
+  description = "AI 知识、工具、实践 —— 每一个小知识点，都可能带来大启发"
   ShowReadingTime = true
-  ShowShareButtons = true
+  ShowShareButtons = false
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
+  ShowToc = true
+  TocOpen = false
   defaultTheme = "auto"
+  disableSpecial1stPost = false
+  hidemeta = false
+  comments = true
   
-[params.homeInfoParams]
-  Title = "👋 欢迎来到 AI Bits"
-  Content = "这里分享 AI 知识、工具使用技巧和实践经验"
+  # 首页模式：profile
+  [params.profileMode]
+    enabled = true
+    title = "AI Bits"
+    subtitle = "🤖 AI 知识碎片 · 工具技巧 · 实践经验"
+    imageUrl = "/images/avatar.png"
+    imageWidth = 140
+    imageHeight = 140
+    
+    [[params.profileMode.buttons]]
+      name = "📚 所有文章"
+      url = "/posts/"
+    [[params.profileMode.buttons]]
+      name = "🏷️ 标签"
+      url = "/tags/"
 
-[[params.socialIcons]]
-  name = "github"
-  url = "https://github.com/pimyf"
+  # 搜索
+  [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    location = 0
+    distance = 1000
+    threshold = 0.4
+    minMatchCharLength = 0
+    keys = ["title", "permalink", "summary", "content"]
 
+  # 封面图默认设置
+  [params.cover]
+    hidden = false
+    hiddenInList = false
+    hiddenInSingle = false
+    linkFullImages = true
+
+  # 社交图标
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/pimyf"
+  [[params.socialIcons]]
+    name = "rss"
+    url = "/index.xml"
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:gavin@example.com"
+
+# 菜单
 [menu]
-[[menu.main]]
-  name = "文章"
-  url = "/posts/"
-  weight = 1
-[[menu.main]]
-  name = "标签"
-  url = "/tags/"
-  weight = 2
-[[menu.main]]
-  name = "关于"
-  url = "/about/"
-  weight = 3
+  [[menu.main]]
+    name = "🏠 首页"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "📚 文章"
+    url = "/posts/"
+    weight = 2
+  [[menu.main]]
+    name = "🔍 搜索"
+    url = "/search/"
+    weight = 3
+  [[menu.main]]
+    name = "🏷️ 标签"
+    url = "/tags/"
+    weight = 4
+  [[menu.main]]
+    name = "👤 关于"
+    url = "/about/"
+    weight = 5
+
+# Markdown 渲染
+[markup]
+  [markup.highlight]
+    style = "dracula"
+    lineNos = false
+    noClasses = false
+  [markup.goldmark.renderer]
+    unsafe = true
