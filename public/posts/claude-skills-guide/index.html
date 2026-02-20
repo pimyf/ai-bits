@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Claude Skills 神级用法指南 | AI Bits</title>
+<meta name="keywords" content="Claude, AI, Skills, 教程, Claude Code">
+<meta name="description" content="Claude Skills 完整指南：10 个神级技巧、实战示例、最佳实践，让 Claude 从通用助手变成专属专家">
+<meta name="author" content="Gavin">
+<link rel="canonical" href="https://getaibits.com/posts/claude-skills-guide/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.44e854f43d58f6dac184d229a83426e7437723b428a6ee8aa1367a80078e3bef.css" integrity="sha256-ROhU9D1Y9trBhNIpqDQm50N3I7Qopu6KoTZ6gAeOO&#43;8=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://getaibits.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://getaibits.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://getaibits.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://getaibits.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://getaibits.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://getaibits.com/posts/claude-skills-guide/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+
+<style>
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  z-index: 9999;
+  transition: width 0.05s ease;
+}
+</style>
+<meta property="og:url" content="https://getaibits.com/posts/claude-skills-guide/">
+  <meta property="og:site_name" content="AI Bits">
+  <meta property="og:title" content="Claude Skills 神级用法指南">
+  <meta property="og:description" content="Claude Skills 完整指南：10 个神级技巧、实战示例、最佳实践，让 Claude 从通用助手变成专属专家">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-14T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-02-14T00:00:00+00:00">
+    <meta property="article:tag" content="Claude">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="Skills">
+    <meta property="article:tag" content="教程">
+    <meta property="article:tag" content="Claude Code">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Claude Skills 神级用法指南">
+<meta name="twitter:description" content="Claude Skills 完整指南：10 个神级技巧、实战示例、最佳实践，让 Claude 从通用助手变成专属专家">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://getaibits.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Claude Skills 神级用法指南",
+      "item": "https://getaibits.com/posts/claude-skills-guide/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Claude Skills 神级用法指南",
+  "name": "Claude Skills 神级用法指南",
+  "description": "Claude Skills 完整指南：10 个神级技巧、实战示例、最佳实践，让 Claude 从通用助手变成专属专家",
+  "keywords": [
+    "Claude", "AI", "Skills", "教程", "Claude Code"
+  ],
+  "articleBody": " 整理自 Anthropic 官方文档、GitHub 社区和实战经验\n一、Skills 是什么？ Skills 是自定义指令，扩展 Claude 的能力。通过 SKILL.md 文件，你可以：\n编码机构知识和最佳实践 标准化输出格式 处理复杂的多步骤工作流 二、Skills vs 其他扩展方式 类型 用途 特点 Skills 可复用的知识/工作流 便携、可跨项目共享 Subagents 独立的专用代理 隔离上下文、受限工具 Commands 快捷操作 用户手动触发 Hooks 自动化脚本 在特定时机自动执行 MCP Servers 外部工具集成 连接第三方服务 三、神级技巧 1. 🎯 精准触发：写好 description 差的写法：\ndescription: 帮助处理 PDF 和文档 神级写法：\ndescription: \"PDF 操作工具包：提取文本和表格、创建新 PDF、合并/拆分文档、处理表单。当需要填写 PDF 表单或批量处理 PDF 时使用。不用于简单查看或基本转换。\" 关键：具体动词 + 使用场景 + 明确边界\n2. 🔒 控制调用权限 --- name: deploy description: 部署应用到生产环境 disable-model-invocation: true # 只能手动触发，防止 Claude 自作主张 --- 配置 你能调用 Claude 能调用 默认 ✅ ✅ disable-model-invocation: true ✅ ❌ user-invocable: false ❌ ✅ 3. 🍴 Fork 模式：隔离执行 --- name: deep-research description: 深度研究某个主题 context: fork # 在隔离的子代理中运行 agent: Explore # 使用只读探索代理 --- 研究 $ARGUMENTS： 1. 用 Glob 和 Grep 找相关文件 2. 阅读分析代码 3. 总结发现，附带文件引用 4. 💉 动态注入上下文 用 !`command` 语法在 skill 执行前运行命令：\n--- name: pr-summary description: 总结 PR 变更 context: fork --- ## PR 上下文 - PR diff: !`gh pr diff` - PR 评论: !`gh pr view --comments` - 变更文件: !`gh pr diff --name-only` ## 任务 总结这个 PR... 命令输出会替换占位符，Claude 看到的是实际数据！\n5. 🔧 限制工具访问 --- name: safe-reader description: 只读模式浏览文件 allowed-tools: Read, Grep, Glob # 只能读，不能写 --- 6. 📁 多文件 Skill 结构 \\ill/ ├── SKILL.md # 主入口（必需） ├── reference.md # 详细 API 文档（按需加载） ├── examples.md # 使用示例 ├── templates/ │ └── output.md # 输出模板 └── scripts/ └── validate.sh # 可执行脚本\n在 SKILL.md 中引用： ```markdown ## 资源 - 完整 API 详情见 [reference.md](reference.md) - 使用示例见 [examples.md](examples.md) 7. 🎭 参数传递 --- name: migrate-component description: 迁移组件到新框架 --- 将 $0 组件从 $1 迁移到 $2。 保留所有现有行为和测试。 调用：/migrate-component SearchBar React Vue\n8. 🪝 Hooks：确定性自动化 Hooks 比 CLAUDE.md 指令更可靠——它们是确定性的，保证执行：\n# 让 Claude 帮你写 hook \"写一个 hook，在每次文件编辑后运行 eslint\" \"写一个 hook，阻止对 migrations 文件夹的写入\" 9. 🧠 Subagent 记忆指令 在 subagent 的 markdown 中加入记忆指令：\n## 记忆维护 发现代码路径、模式、库位置和关键架构决策时，更新你的代理记忆。 这会在对话间积累机构知识。 简洁记录你发现了什么、在哪里。 10. 🎯 用 Gemini CLI 作为后备 Claude 的 WebFetch 无法访问某些网站（如 Reddit）。创建一个 skill 让 Claude 用 Gemini CLI 作为后备：\n--- name: web-fallback description: 当 WebFetch 失败时使用 Gemini CLI 获取网页内容 --- 如果 WebFetch 无法访问某个 URL，使用 Gemini CLI 作为后备： gemini \"请获取并总结这个网页的内容: [URL]\" 四、实战 Skill 示例 代码可视化器 --- name: codebase-visualizer description: 生成项目文件结构的交互式 HTML 树视图 allowed-tools: Bash(python *) --- # 代码库可视化器 生成交互式 HTML 树视图，显示项目文件结构和可折叠目录。 ## 使用 从项目根目录运行： ```bash python ~/.claude/skills/codebase-visualizer/scripts/visualize.py . ### 业务定位参考 ```yaml --- name: business-context description: 业务定位和品牌信息参考 user-invocable: false # 只让 Claude 自动调用 --- # 业务定位 - 目标客户：... - 核心价值：... - 差异化：... 写 CTA、关于页面、销售文案时参考此文件。 Git 提交规范 --- name: commit description: 按规范创建 git commit disable-model-invocation: true --- 创建符合规范的 commit： 1. 运行 `git diff --staged` 查看变更 2. 按 Conventional Commits 格式写 commit message 3. 类型：feat/fix/docs/style/refactor/test/chore 4. 执行 `git commit -m \"...\"` 五、最佳实践 从真实用例开始 - 至少做过 5 次、还会做 10 次以上的任务才值得写 skill 定义成功标准 - 告诉 Claude 好的输出长什么样 用 skill-creator - Anthropic 官方的 skill-creator 帮你写结构良好的 skill 测试三种场景：正常操作、边缘情况、超出范围的请求 迭代优化 - 根据实际使用不断改进 六、资源链接 官方 Skills 文档 Anthropic Skills 仓库 Awesome Claude Skills 45 Claude Code Tips 36 Skills 实例 ",
+  "wordCount" : "451",
+  "inLanguage": "en",
+  "datePublished": "2026-02-14T00:00:00Z",
+  "dateModified": "2026-02-14T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Gavin"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getaibits.com/posts/claude-skills-guide/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Bits",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getaibits.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://getaibits.com/" accesskey="h" title="AI Bits (Alt + H)">AI Bits</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://getaibits.com/" title="🏠 首页">
+                    <span>🏠 首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/posts/" title="📚 文章">
+                    <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/search/" title="🔍 搜索">
+                    <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/tags/" title="🏷️ 标签">
+                    <span>🏷️ 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/about/" title="👤 关于">
+                    <span>👤 关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://getaibits.com/">Home</a>&nbsp;»&nbsp;<a href="https://getaibits.com/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Claude Skills 神级用法指南
+    </h1>
+    <div class="post-description">
+      Claude Skills 完整指南：10 个神级技巧、实战示例、最佳实践，让 Claude 从通用助手变成专属专家
+    </div>
+    <div class="post-meta"><span title='2026-02-14 00:00:00 +0000 UTC'>February 14, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Gavin</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e4%b8%80skills-%e6%98%af%e4%bb%80%e4%b9%88" aria-label="一、Skills 是什么？">一、Skills 是什么？</a></li>
+                <li>
+                    <a href="#%e4%ba%8cskills-vs-%e5%85%b6%e4%bb%96%e6%89%a9%e5%b1%95%e6%96%b9%e5%bc%8f" aria-label="二、Skills vs 其他扩展方式">二、Skills vs 其他扩展方式</a></li>
+                <li>
+                    <a href="#%e4%b8%89%e7%a5%9e%e7%ba%a7%e6%8a%80%e5%b7%a7" aria-label="三、神级技巧">三、神级技巧</a><ul>
+                        
+                <li>
+                    <a href="#1--%e7%b2%be%e5%87%86%e8%a7%a6%e5%8f%91%e5%86%99%e5%a5%bd-description" aria-label="1. 🎯 精准触发：写好 description">1. 🎯 精准触发：写好 description</a></li>
+                <li>
+                    <a href="#2--%e6%8e%a7%e5%88%b6%e8%b0%83%e7%94%a8%e6%9d%83%e9%99%90" aria-label="2. 🔒 控制调用权限">2. 🔒 控制调用权限</a></li>
+                <li>
+                    <a href="#3--fork-%e6%a8%a1%e5%bc%8f%e9%9a%94%e7%a6%bb%e6%89%a7%e8%a1%8c" aria-label="3. 🍴 Fork 模式：隔离执行">3. 🍴 Fork 模式：隔离执行</a></li>
+                <li>
+                    <a href="#4--%e5%8a%a8%e6%80%81%e6%b3%a8%e5%85%a5%e4%b8%8a%e4%b8%8b%e6%96%87" aria-label="4. 💉 动态注入上下文">4. 💉 动态注入上下文</a></li>
+                <li>
+                    <a href="#5--%e9%99%90%e5%88%b6%e5%b7%a5%e5%85%b7%e8%ae%bf%e9%97%ae" aria-label="5. 🔧 限制工具访问">5. 🔧 限制工具访问</a></li>
+                <li>
+                    <a href="#6--%e5%a4%9a%e6%96%87%e4%bb%b6-skill-%e7%bb%93%e6%9e%84" aria-label="6. 📁 多文件 Skill 结构">6. 📁 多文件 Skill 结构</a></li>
+                <li>
+                    <a href="#7--%e5%8f%82%e6%95%b0%e4%bc%a0%e9%80%92" aria-label="7. 🎭 参数传递">7. 🎭 参数传递</a></li>
+                <li>
+                    <a href="#8--hooks%e7%a1%ae%e5%ae%9a%e6%80%a7%e8%87%aa%e5%8a%a8%e5%8c%96" aria-label="8. 🪝 Hooks：确定性自动化">8. 🪝 Hooks：确定性自动化</a></li>
+                <li>
+                    <a href="#9--subagent-%e8%ae%b0%e5%bf%86%e6%8c%87%e4%bb%a4" aria-label="9. 🧠 Subagent 记忆指令">9. 🧠 Subagent 记忆指令</a></li>
+                <li>
+                    <a href="#10--%e7%94%a8-gemini-cli-%e4%bd%9c%e4%b8%ba%e5%90%8e%e5%a4%87" aria-label="10. 🎯 用 Gemini CLI 作为后备">10. 🎯 用 Gemini CLI 作为后备</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%9b%9b%e5%ae%9e%e6%88%98-skill-%e7%a4%ba%e4%be%8b" aria-label="四、实战 Skill 示例">四、实战 Skill 示例</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bb%a3%e7%a0%81%e5%8f%af%e8%a7%86%e5%8c%96%e5%99%a8" aria-label="代码可视化器">代码可视化器</a></li>
+                <li>
+                    <a href="#git-%e6%8f%90%e4%ba%a4%e8%a7%84%e8%8c%83" aria-label="Git 提交规范">Git 提交规范</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%ba%94%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5" aria-label="五、最佳实践">五、最佳实践</a></li>
+                <li>
+                    <a href="#%e5%85%ad%e8%b5%84%e6%ba%90%e9%93%be%e6%8e%a5" aria-label="六、资源链接">六、资源链接</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><blockquote>
+<p>整理自 Anthropic 官方文档、GitHub 社区和实战经验</p>
+</blockquote>
+<h2 id="一skills-是什么">一、Skills 是什么？<a hidden class="anchor" aria-hidden="true" href="#一skills-是什么">#</a></h2>
+<p>Skills 是自定义指令，扩展 Claude 的能力。通过 <code>SKILL.md</code> 文件，你可以：</p>
+<ul>
+<li>编码机构知识和最佳实践</li>
+<li>标准化输出格式</li>
+<li>处理复杂的多步骤工作流</li>
+</ul>
+<h2 id="二skills-vs-其他扩展方式">二、Skills vs 其他扩展方式<a hidden class="anchor" aria-hidden="true" href="#二skills-vs-其他扩展方式">#</a></h2>
+<table>
+  <thead>
+      <tr>
+          <th>类型</th>
+          <th>用途</th>
+          <th>特点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Skills</strong></td>
+          <td>可复用的知识/工作流</td>
+          <td>便携、可跨项目共享</td>
+      </tr>
+      <tr>
+          <td><strong>Subagents</strong></td>
+          <td>独立的专用代理</td>
+          <td>隔离上下文、受限工具</td>
+      </tr>
+      <tr>
+          <td><strong>Commands</strong></td>
+          <td>快捷操作</td>
+          <td>用户手动触发</td>
+      </tr>
+      <tr>
+          <td><strong>Hooks</strong></td>
+          <td>自动化脚本</td>
+          <td>在特定时机自动执行</td>
+      </tr>
+      <tr>
+          <td><strong>MCP Servers</strong></td>
+          <td>外部工具集成</td>
+          <td>连接第三方服务</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="三神级技巧">三、神级技巧<a hidden class="anchor" aria-hidden="true" href="#三神级技巧">#</a></h2>
+<h3 id="1--精准触发写好-description">1. 🎯 精准触发：写好 description<a hidden class="anchor" aria-hidden="true" href="#1--精准触发写好-description">#</a></h3>
+<p><strong>差的写法：</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">帮助处理 PDF 和文档</span><span class="w">
+</span></span></span></code></pre></div><p><strong>神级写法：</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;PDF 操作工具包：提取文本和表格、创建新 PDF、合并/拆分文档、处理表单。当需要填写 PDF 表单或批量处理 PDF 时使用。不用于简单查看或基本转换。&#34;</span><span class="w">
+</span></span></span></code></pre></div><p>关键：具体动词 + 使用场景 + 明确边界</p>
+<h3 id="2--控制调用权限">2. 🔒 控制调用权限<a hidden class="anchor" aria-hidden="true" href="#2--控制调用权限">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">deploy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">部署应用到生产环境</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">disable-model-invocation</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span><span class="c"># 只能手动触发，防止 Claude 自作主张</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th>配置</th>
+          <th>你能调用</th>
+          <th>Claude 能调用</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>默认</td>
+          <td>✅</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td><code>disable-model-invocation: true</code></td>
+          <td>✅</td>
+          <td>❌</td>
+      </tr>
+      <tr>
+          <td><code>user-invocable: false</code></td>
+          <td>❌</td>
+          <td>✅</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="3--fork-模式隔离执行">3. 🍴 Fork 模式：隔离执行<a hidden class="anchor" aria-hidden="true" href="#3--fork-模式隔离执行">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">deep-research</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">深度研究某个主题</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l">fork       </span><span class="w"> </span><span class="c"># 在隔离的子代理中运行</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">agent</span><span class="p">:</span><span class="w"> </span><span class="l">Explore      </span><span class="w"> </span><span class="c"># 使用只读探索代理</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">研究 $ARGUMENTS：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="m">1</span><span class="l">. 用 Glob 和 Grep 找相关文件</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="m">2</span><span class="l">. 阅读分析代码</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="m">3</span><span class="l">. 总结发现，附带文件引用</span><span class="w">
+</span></span></span></code></pre></div><h3 id="4--动态注入上下文">4. 💉 动态注入上下文<a hidden class="anchor" aria-hidden="true" href="#4--动态注入上下文">#</a></h3>
+<p>用 <code>!`command`</code> 语法在 skill 执行前运行命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">pr-summary</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">总结 PR 变更</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l">fork</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c">## PR 上下文</span><span class="w">
+</span></span></span><span class="line"><span class="cl">- <span class="nt">PR diff</span><span class="p">:</span><span class="w"> </span>!<span class="l">`gh pr diff`</span><span class="w">
+</span></span></span><span class="line"><span class="cl">- <span class="nt">PR 评论</span><span class="p">:</span><span class="w"> </span>!<span class="l">`gh pr view --comments`</span><span class="w">
+</span></span></span><span class="line"><span class="cl">- <span class="nt">变更文件</span><span class="p">:</span><span class="w"> </span>!<span class="l">`gh pr diff --name-only`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c">## 任务</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">总结这个 PR...</span><span class="w">
+</span></span></span></code></pre></div><p>命令输出会替换占位符，Claude 看到的是实际数据！</p>
+<h3 id="5--限制工具访问">5. 🔧 限制工具访问<a hidden class="anchor" aria-hidden="true" href="#5--限制工具访问">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">safe-reader</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">只读模式浏览文件</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">allowed-tools</span><span class="p">:</span><span class="w"> </span><span class="l">Read, Grep, Glob </span><span class="w"> </span><span class="c"># 只能读，不能写</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span></code></pre></div><h3 id="6--多文件-skill-结构">6. 📁 多文件 Skill 结构<a hidden class="anchor" aria-hidden="true" href="#6--多文件-skill-结构">#</a></h3>
+<p>\ill/
+├── SKILL.md          # 主入口（必需）
+├── reference.md      # 详细 API 文档（按需加载）
+├── examples.md       # 使用示例
+├── templates/
+│   └── output.md     # 输出模板
+└── scripts/
+└── validate.sh   # 可执行脚本</p>
+<pre tabindex="0"><code>
+在 SKILL.md 中引用：
+```markdown
+## 资源
+- 完整 API 详情见 [reference.md](reference.md)
+- 使用示例见 [examples.md](examples.md)
+</code></pre><h3 id="7--参数传递">7. 🎭 参数传递<a hidden class="anchor" aria-hidden="true" href="#7--参数传递">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">migrate-component</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">迁移组件到新框架</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">将 $0 组件从 $1 迁移到 $2。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">保留所有现有行为和测试。</span><span class="w">
+</span></span></span></code></pre></div><p>调用：<code>/migrate-component SearchBar React Vue</code></p>
+<h3 id="8--hooks确定性自动化">8. 🪝 Hooks：确定性自动化<a hidden class="anchor" aria-hidden="true" href="#8--hooks确定性自动化">#</a></h3>
+<p>Hooks 比 CLAUDE.md 指令更可靠——它们是确定性的，保证执行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 让 Claude 帮你写 hook</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;写一个 hook，在每次文件编辑后运行 eslint&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;写一个 hook，阻止对 migrations 文件夹的写入&#34;</span>
+</span></span></code></pre></div><h3 id="9--subagent-记忆指令">9. 🧠 Subagent 记忆指令<a hidden class="anchor" aria-hidden="true" href="#9--subagent-记忆指令">#</a></h3>
+<p>在 subagent 的 markdown 中加入记忆指令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="gu">## 记忆维护
+</span></span></span><span class="line"><span class="cl">发现代码路径、模式、库位置和关键架构决策时，更新你的代理记忆。
+</span></span><span class="line"><span class="cl">这会在对话间积累机构知识。
+</span></span><span class="line"><span class="cl">简洁记录你发现了什么、在哪里。
+</span></span></code></pre></div><h3 id="10--用-gemini-cli-作为后备">10. 🎯 用 Gemini CLI 作为后备<a hidden class="anchor" aria-hidden="true" href="#10--用-gemini-cli-作为后备">#</a></h3>
+<p>Claude 的 WebFetch 无法访问某些网站（如 Reddit）。创建一个 skill 让 Claude 用 Gemini CLI 作为后备：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">web-fallback</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">当 WebFetch 失败时使用 Gemini CLI 获取网页内容</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">如果 WebFetch 无法访问某个 URL，使用 Gemini CLI 作为后备：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">gemini &#34;请获取并总结这个网页的内容: [URL]&#34;</span><span class="w">
+</span></span></span></code></pre></div><h2 id="四实战-skill-示例">四、实战 Skill 示例<a hidden class="anchor" aria-hidden="true" href="#四实战-skill-示例">#</a></h2>
+<h3 id="代码可视化器">代码可视化器<a hidden class="anchor" aria-hidden="true" href="#代码可视化器">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">codebase-visualizer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">生成项目文件结构的交互式 HTML 树视图</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">allowed-tools</span><span class="p">:</span><span class="w"> </span><span class="l">Bash(python *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c"># 代码库可视化器</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">生成交互式 HTML 树视图，显示项目文件结构和可折叠目录。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c">## 使用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">从项目根目录运行：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">```bash</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">python ~/.claude/skills/codebase-visualizer/scripts/visualize.py .</span><span class="w">
+</span></span></span></code></pre></div><pre tabindex="0"><code>
+### 业务定位参考
+
+```yaml
+---
+name: business-context
+description: 业务定位和品牌信息参考
+user-invocable: false  # 只让 Claude 自动调用
+---
+
+# 业务定位
+- 目标客户：...
+- 核心价值：...
+- 差异化：...
+
+写 CTA、关于页面、销售文案时参考此文件。
+</code></pre><h3 id="git-提交规范">Git 提交规范<a hidden class="anchor" aria-hidden="true" href="#git-提交规范">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">commit</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">按规范创建 git commit</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">disable-model-invocation</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="l">创建符合规范的 commit：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="m">1</span><span class="l">. 运行 `git diff --staged` 查看变更</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="m">2</span><span class="l">. 按 Conventional Commits 格式写 commit message</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="m">3</span><span class="l">. 类型：feat/fix/docs/style/refactor/test/chore</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="m">4</span><span class="l">. 执行 `git commit -m &#34;...&#34;` </span><span class="w">
+</span></span></span></code></pre></div><h2 id="五最佳实践">五、最佳实践<a hidden class="anchor" aria-hidden="true" href="#五最佳实践">#</a></h2>
+<ol>
+<li><strong>从真实用例开始</strong> - 至少做过 5 次、还会做 10 次以上的任务才值得写 skill</li>
+<li><strong>定义成功标准</strong> - 告诉 Claude 好的输出长什么样</li>
+<li><strong>用 skill-creator</strong> - Anthropic 官方的 <a href="https://github.com/anthropics/skills/tree/main/skill-creator">skill-creator</a> 帮你写结构良好的 skill</li>
+<li><strong>测试三种场景</strong>：正常操作、边缘情况、超出范围的请求</li>
+<li><strong>迭代优化</strong> - 根据实际使用不断改进</li>
+</ol>
+<h2 id="六资源链接">六、资源链接<a hidden class="anchor" aria-hidden="true" href="#六资源链接">#</a></h2>
+<ul>
+<li><a href="https://code.claude.com/docs/en/skills">官方 Skills 文档</a></li>
+<li><a href="https://github.com/anthropics/skills">Anthropic Skills 仓库</a></li>
+<li><a href="https://github.com/travisvn/awesome-claude-skills">Awesome Claude Skills</a></li>
+<li><a href="https://github.com/ykdojo/claude-code-tips">45 Claude Code Tips</a></li>
+<li><a href="https://aiblewmymind.substack.com/p/claude-skills-36-examples">36 Skills 实例</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://getaibits.com/tags/claude/">Claude</a></li>
+      <li><a href="https://getaibits.com/tags/ai/">AI</a></li>
+      <li><a href="https://getaibits.com/tags/skills/">Skills</a></li>
+      <li><a href="https://getaibits.com/tags/%E6%95%99%E7%A8%8B/">教程</a></li>
+      <li><a href="https://getaibits.com/tags/claude-code/">Claude Code</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://getaibits.com/posts/openclaw-agent-patterns/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>OpenClaw Agent 策略设计大神级汇总</span>
+  </a>
+  <a class="next" href="https://getaibits.com/posts/ai-coding-tools-2026-feb/">
+    <span class="title">Next »</span>
+    <br>
+    <span>2026年2月 AI 编程工具大盘点：各花入各眼，总有一款适合你</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://getaibits.com/">AI Bits</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<div class="reading-progress" id="reading-progress"></div>
+
+<script>
+
+window.addEventListener('scroll', function() {
+  const article = document.querySelector('.post-content');
+  if (!article) return;
+  
+  const scrollTop = window.scrollY;
+  const docHeight = article.offsetHeight;
+  const winHeight = window.innerHeight;
+  const scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
+  
+  document.getElementById('reading-progress').style.width = Math.min(scrollPercent, 100) + '%';
+});
+</script>
+
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
