@@ -112,7 +112,7 @@ rssLimit = 20
     weight = 2
   [[menu.main]]
     name = "🔧 技能"
-    url = "/skills.html"
+    url = "/skills/"
     weight = 3
   [[menu.main]]
     name = "🔍 搜索"
