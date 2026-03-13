@@ -8,7 +8,7 @@ image: "/images/posts/openclaw-uninstall-cover.png"
 author: "Gavin"
 ---
 
-![封面图](https://ywxk2-1324402541.cos.ap-shanghai.myqcloud.com/openclaw-uninstall-cover.png)
+![封面图](https://img.getaibits.com/posts/openclaw-uninstall-cover.png)
 
 最近看到个有意思的新闻。
 
@@ -24,7 +24,7 @@ author: "Gavin"
 
 它是CLI工具，没有图标，没有卸载按钮。你以为 `npm uninstall` 就完事了，但后台服务还在跑——launchd、systemd、计划任务……这些玩意儿普通用户根本不知道在哪。
 
-![为什么卸载难](https://ywxk2-1324402541.cos.ap-shanghai.myqcloud.com/openclaw-uninstall-problem.png)
+![为什么卸载难](https://img.getaibits.com/posts/openclaw-uninstall-problem.png)
 
 更麻烦的是：
 
@@ -40,7 +40,7 @@ author: "Gavin"
 
 ## 其实官方有卸载命令
 
-![一行命令搞定](https://ywxk2-1324402541.cos.ap-shanghai.myqcloud.com/openclaw-uninstall-solution.png)
+![一行命令搞定](https://img.getaibits.com/posts/openclaw-uninstall-solution.png)
 
 **一行命令搞定：**
 
@@ -74,7 +74,7 @@ AI 会自动执行卸载命令，不用你自己敲代码。
 
 如果你已经把CLI删了，但后台服务还在跑，那就手动清理。
 
-![各平台命令速查](https://ywxk2-1324402541.cos.ap-shanghai.myqcloud.com/openclaw-uninstall-platforms.png)
+![各平台命令速查](https://img.getaibits.com/posts/openclaw-uninstall-platforms.png)
 
 ### macOS
 
