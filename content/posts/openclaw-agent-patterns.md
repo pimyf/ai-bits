@@ -4,6 +4,7 @@ date: 2026-02-20
 draft: false
 tags: ["OpenClaw", "AI Agent", "架构设计", "最佳实践"]
 description: "OpenClaw 社区最佳实践、架构模式和官方 RFC 汇总：四层架构、Lane Queue、十大开发模式、Agent Teams RFC、Skills 系统、Memory 架构等"
+image: "/images/posts/openclaw-patterns.png"
 author: "Gavin"
 ---
 

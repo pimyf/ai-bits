@@ -4,6 +4,7 @@ date: 2026-02-04
 draft: false
 tags: ["OpenClaw", "CLI", "命令行", "教程", "指南"]
 description: "OpenClaw 所有终端命令的完整参考手册，从基础配置到高级功能一网打尽。"
+image: "/images/posts/openclaw-cli-cover.png"
 ---
 
 > 版本：OpenClaw 2026.2.2  

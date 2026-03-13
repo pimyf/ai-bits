@@ -4,6 +4,7 @@ date: 2026-03-06
 draft: false
 tags: ["Kubernetes", "DevOps", "零停机部署", "云原生", "微服务"]
 description: "深入介绍 Kubernetes 零停机部署的完整方案，包括滚动更新策略、健康检查机制、优雅终止流程、Pod中断预算配置，以及实战 YAML 示例和常见问题排查"
+image: "/images/posts/kubernetes-cover.png"
 author: "Gavin"
 ---
 

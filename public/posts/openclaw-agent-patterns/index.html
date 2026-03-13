@@ -1,464 +1,76 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>OpenClaw Agent 策略设计大神级汇总 | AI Bits</title>
-<meta name="keywords" content="OpenClaw, AI Agent, 架构设计, 最佳实践">
-<meta name="description" content="OpenClaw 社区最佳实践、架构模式和官方 RFC 汇总：四层架构、Lane Queue、十大开发模式、Agent Teams RFC、Skills 系统、Memory 架构等">
-<meta name="author" content="Gavin">
-<link rel="canonical" href="https://getaibits.com/posts/openclaw-agent-patterns/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.44e854f43d58f6dac184d229a83426e7437723b428a6ee8aa1367a80078e3bef.css" integrity="sha256-ROhU9D1Y9trBhNIpqDQm50N3I7Qopu6KoTZ6gAeOO&#43;8=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://getaibits.com/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://getaibits.com/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://getaibits.com/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://getaibits.com/apple-touch-icon.png">
-<link rel="mask-icon" href="https://getaibits.com/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://getaibits.com/posts/openclaw-agent-patterns/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script>
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-
-
-<style>
-.reading-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 3px;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6);
-  z-index: 9999;
-  transition: width 0.05s ease;
-}
-</style>
-<meta property="og:url" content="https://getaibits.com/posts/openclaw-agent-patterns/">
-  <meta property="og:site_name" content="AI Bits">
-  <meta property="og:title" content="OpenClaw Agent 策略设计大神级汇总">
-  <meta property="og:description" content="OpenClaw 社区最佳实践、架构模式和官方 RFC 汇总：四层架构、Lane Queue、十大开发模式、Agent Teams RFC、Skills 系统、Memory 架构等">
-  <meta property="og:locale" content="zh-cn">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2026-02-20T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-02-20T00:00:00+00:00">
-    <meta property="article:tag" content="OpenClaw">
-    <meta property="article:tag" content="AI Agent">
-    <meta property="article:tag" content="架构设计">
-    <meta property="article:tag" content="最佳实践">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OpenClaw Agent 策略设计大神级汇总">
-<meta name="twitter:description" content="OpenClaw 社区最佳实践、架构模式和官方 RFC 汇总：四层架构、Lane Queue、十大开发模式、Agent Teams RFC、Skills 系统、Memory 架构等">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "https://getaibits.com/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "OpenClaw Agent 策略设计大神级汇总",
-      "item": "https://getaibits.com/posts/openclaw-agent-patterns/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "OpenClaw Agent 策略设计大神级汇总",
-  "name": "OpenClaw Agent 策略设计大神级汇总",
-  "description": "OpenClaw 社区最佳实践、架构模式和官方 RFC 汇总：四层架构、Lane Queue、十大开发模式、Agent Teams RFC、Skills 系统、Memory 架构等",
-  "keywords": [
-    "OpenClaw", "AI Agent", "架构设计", "最佳实践"
-  ],
-  "articleBody": " 本文档整理自 2026 年 2 月最新的 OpenClaw 社区最佳实践、架构模式和官方 RFC。\n一、核心架构模式 1. 四层架构设计 OpenClaw 的架构分为四个独立的层，每层有明确的职责：\n层级 职责 关键模式 Gateway 连接管理、路由、认证 单进程多路复用 Execution 任务排序、并发控制 Lane Queue（会话串行队列） Integration 平台归一化 Channel Adapters Intelligence Agent 行为、知识、主动性 Skills + Memory + Heartbeat 设计洞察：OpenClaw 不是框架，是一个 Gateway —— 一个运行在你本地设备和外部世界之间的单进程运行时。\n2. Lane Queue - 核心创新 如果只从本文带走一个模式，那就是它。\n问题：大多数 Agent 系统允许多个请求并发执行，导致：\n三个工具调用同时写入同一个文件 API 请求使用矛盾的假设 交错的日志无法调试 解决方案：每个 Session 获得独立队列，任务串行执行。\ntype SessionKey = `${string}:${string}:${string}` // workspace:channel:userId class LaneQueue { private queues = new Map\u003cSessionKey, Task[]\u003e() async enqueue(sessionKey: SessionKey, task: Task) { const queue = this.queues.get(sessionKey) ?? [] this.queues.set(sessionKey, queue) queue.push(task) if (queue.length === 1) { // 没有其他任务在运行，立即执行 await this.process(sessionKey) } // 否则排队等待 } } 关键决策：\nSession Key 结构化：workspace:channel:userId，防止跨上下文数据泄露 并行是可选的：额外的 Lane（如 cron、subagent）允许后台任务 内置背压：队列增长时可以实施超时或溢出策略 二、十大开发模式 模式 1: Cloudflare moltworker（边缘部署）⭐ 8,833 // 边缘部署架构 export default { async initialize(env) { this.agent = await OpenClaw.bootstrap({ memory: env.MEMORY_KV, cache: env.CACHE, }); this.warm = true; }, async fetch(request) { if (!this.warm) await this.initialize(env); return this.agent.process(await request.json()); } }; 优势：冷启动 \u003c 100ms、全球分布、按需付费、自动扩展\n模式 2: HKUDS nanobot（极简代理）⭐ 20,577 class NanoAgent: def __init__(self): self.memory = InMemoryStorage(size=1000) self.skills = self._load_core_skills() def process(self, input_text): result = self._understand(input_text) result = self._plan(result) result = self._execute(result) return result 特点：最小内存占用、单线程处理、仅核心功能\n模式 3: Zero-Trust Enterprise ⭐ 1,534 class ZeroTrustAgent { async execute(action, context) { const identity = await this.identity.verify(context); const decision = await this.policy.evaluate({ action, identity, context }); if (!decision.allowed) throw new Error('Access denied'); const encrypted = await this.crypto.encrypt(action); const result = await this.run(action, encrypted); await this.audit.log('action_executed', { action, result }); return result; } } 安全特性：持续验证、动态策略评估、端到端加密、全面审计日志\n模式 4: MemOS 分层记忆 ⭐ 9,960+ class LayeredMemorySystem: def __init__(self): self.layers = { 'working': WorkingMemory(capacity=7, ttl='15min'), 'short_term': ShortTermMemory(capacity=1000, ttl='24h'), 'long_term': LongTermMemory(persistence='db'), 'semantic': SemanticMemory(vector_store='qdrant') } 记忆创新：分层存储、自动整合、语义搜索、跨会话持久化\n模式 5: NagaAgent 多代理编排 ⭐ 1,370 class AgentOrchestrator: async def execute_workflow(self, workflow): plan = await self.planner.plan(workflow) for step in plan.dependencies: candidates = self.find_capable_agents(step.required_skills) agent = self.select_agent(candidates, step.priority) result = await self.tasks.execute(Task(agent_id=agent.id, step=step)) return workflow.context 编排特性：动态代理分配、负载均衡、依赖管理、容错处理\n三、Agent Teams RFC（即将推出） 这是 OpenClaw 正在开发的 多代理协作系统，计划在 2.x 版本推出。\n核心概念 Team: \"pr-142-review\" ├── Lead: 协调、综合、向用户报告 ├── Teammate: security-reviewer ├── Teammate: performance-analyst └── Teammate: test-coverage-checker 共享状态: ├── tasks.json (带依赖的任务列表) └── mailbox/ (代理间消息) 新工具集 工具 功能 team_create 创建团队 teammate_spawn 生成队友 teammate_message 点对点消息 task_add 添加任务（支持依赖） task_claim 认领任务 task_complete 完成任务 协调模式 Normal 模式：Lead 可以参与实现工作，队友并行处理任务\nDelegate 模式：Lead 只负责协调，不能认领任务，专注于大局编排\n四、Skills 系统（Markdown 即代码） 为什么用 Markdown？ 特性 Skills (Markdown) 插件 (代码) 扩展语言 自然语言 + YAML TypeScript/Python 谁能编写 任何人（包括 Agent） 仅开发者 安全面 低（作为上下文注入） 高（任意代码执行） 热重载 简单（重读文件） 需要重启 可调试性 读文件即读 Prompt 堆栈跟踪 Self-Writing Agent Agent 可以创建和编辑自己的 SKILL.md 文件：\n观察用户请求模式 识别重复工作流 编写 Skill 以便下次更好处理 五、Memory 架构（人类可读） 目录结构 ~/.openclaw/ ├── memory/ │ ├── MEMORY.md # 长笔记和上下文 │ └── memory/*.md # 分类笔记 ├── workspace/ │ └── AGENTS.md # Agent 配置 └── sessions/ └── *.jsonl # 对话历史 混合搜索策略 搜索类型 技术 用途 向量搜索 sqlite-vec 语义相似性 关键词搜索 FTS5 精确匹配 最佳实践：两者结合效果最佳。\n六、最佳实践清单 ✅ 多代理决策树 你需要多代理吗？ ├── 安全上下文不同？ → YES ├── 专业领域分离？ → YES ├── 频道行为差异？ → YES ├── 资源管理需求？ → YES └── 都不满足？ → 单代理足够 ✅ 安全要点 漏洞 根因 教训 CVE-2026-25253 (RCE) WebSocket 无 Origin 验证 始终认证网络接口 ClawHub 恶意 Skills 无内容扫描 第三方 Prompt 视为不可信 明文凭据存储 未使用 OS 密钥链 使用平台原生凭据存储 七、推荐架构模式 1. 单代理模式（默认推荐） 适合 95% 的用例：个人助理、开发伴侣、小团队部署。\n2. Opus Orchestrator + Codex Workers ┌─────────────────────────────────────┐ │ Orchestrator (Opus) │ │ 接收请求 → 分解任务 → 委派 → 综合 │ └─────────────────┬───────────────────┘ ┌───────────┼───────────┐ ▼ ▼ ▼ ┌─────────┐ ┌─────────┐ ┌─────────┐ │ Worker │ │ Worker │ │ Worker │ │ (Haiku) │ │ (Sonnet)│ │ (Haiku) │ └─────────┘ └─────────┘ └─────────┘ 适合：开发工作流、复杂任务分解\n3. Dream Team（14+ 代理） 适合：有清晰领域边界、可预测的代理间通信\n八、资源链接 OpenClaw GitHub: https://github.com/openclaw/openclaw 官方文档: https://docs.openclaw.ai ClawHub 技能市场: https://clawhub.com RFC: Agent Teams: https://github.com/openclaw/openclaw/discussions/10036 参考文献 Top 10 OpenClaw Development Patterns - DEV Community, 2026 Lessons from OpenClaw’s Architecture - Agent Tailor Blog, 2026 RFC: Agent Teams - GitHub Discussions, 2026 OpenClaw Multi-Agent Orchestration Guide - Zen van Riel, 2026 整理时间：2026-02-20\n",
-  "wordCount" : "586",
-  "inLanguage": "en",
-  "datePublished": "2026-02-20T00:00:00Z",
-  "dateModified": "2026-02-20T00:00:00Z",
-  "author":{
-    "@type": "Person",
-    "name": "Gavin"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://getaibits.com/posts/openclaw-agent-patterns/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "AI Bits",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://getaibits.com/favicon.ico"
-    }
-  }
-}
-</script>
-</head>
-<body id="top">
-    <header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://getaibits.com/" accesskey="h" title="AI Bits (Alt + H)">AI Bits</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="https://getaibits.com/" title="🏠 首页">
-                    <span>🏠 首页</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://getaibits.com/posts/" title="📚 文章">
-                    <span>📚 文章</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://getaibits.com/search/" title="🔍 搜索">
-                    <span>🔍 搜索</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://getaibits.com/tags/" title="🏷️ 标签">
-                    <span>🏷️ 标签</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://getaibits.com/about/" title="👤 关于">
-                    <span>👤 关于</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    <div class="breadcrumbs"><a href="https://getaibits.com/">Home</a>&nbsp;»&nbsp;<a href="https://getaibits.com/posts/">Posts</a></div>
-    <h1 class="post-title entry-hint-parent">
-      OpenClaw Agent 策略设计大神级汇总
-    </h1>
-    <div class="post-description">
-      OpenClaw 社区最佳实践、架构模式和官方 RFC 汇总：四层架构、Lane Queue、十大开发模式、Agent Teams RFC、Skills 系统、Memory 架构等
-    </div>
-    <div class="post-meta"><span title='2026-02-20 00:00:00 +0000 UTC'>February 20, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Gavin</span>
-
-</div>
-  </header> <div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
-
-        <div class="inner"><ul>
-                <li>
-                    <a href="#%e4%b8%80%e6%a0%b8%e5%bf%83%e6%9e%b6%e6%9e%84%e6%a8%a1%e5%bc%8f" aria-label="一、核心架构模式">一、核心架构模式</a><ul>
-                        
-                <li>
-                    <a href="#1-%e5%9b%9b%e5%b1%82%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1" aria-label="1. 四层架构设计">1. 四层架构设计</a></li>
-                <li>
-                    <a href="#2-lane-queue---%e6%a0%b8%e5%bf%83%e5%88%9b%e6%96%b0" aria-label="2. Lane Queue - 核心创新">2. Lane Queue - 核心创新</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e4%ba%8c%e5%8d%81%e5%a4%a7%e5%bc%80%e5%8f%91%e6%a8%a1%e5%bc%8f" aria-label="二、十大开发模式">二、十大开发模式</a><ul>
-                        
-                <li>
-                    <a href="#%e6%a8%a1%e5%bc%8f-1-cloudflare-moltworker%e8%be%b9%e7%bc%98%e9%83%a8%e7%bd%b2-8833" aria-label="模式 1: Cloudflare moltworker（边缘部署）⭐ 8,833">模式 1: Cloudflare moltworker（边缘部署）⭐ 8,833</a></li>
-                <li>
-                    <a href="#%e6%a8%a1%e5%bc%8f-2-hkuds-nanobot%e6%9e%81%e7%ae%80%e4%bb%a3%e7%90%86-20577" aria-label="模式 2: HKUDS nanobot（极简代理）⭐ 20,577">模式 2: HKUDS nanobot（极简代理）⭐ 20,577</a></li>
-                <li>
-                    <a href="#%e6%a8%a1%e5%bc%8f-3-zero-trust-enterprise--1534" aria-label="模式 3: Zero-Trust Enterprise ⭐ 1,534">模式 3: Zero-Trust Enterprise ⭐ 1,534</a></li>
-                <li>
-                    <a href="#%e6%a8%a1%e5%bc%8f-4-memos-%e5%88%86%e5%b1%82%e8%ae%b0%e5%bf%86--9960" aria-label="模式 4: MemOS 分层记忆 ⭐ 9,960&#43;">模式 4: MemOS 分层记忆 ⭐ 9,960+</a></li>
-                <li>
-                    <a href="#%e6%a8%a1%e5%bc%8f-5-nagaagent-%e5%a4%9a%e4%bb%a3%e7%90%86%e7%bc%96%e6%8e%92--1370" aria-label="模式 5: NagaAgent 多代理编排 ⭐ 1,370">模式 5: NagaAgent 多代理编排 ⭐ 1,370</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e4%b8%89agent-teams-rfc%e5%8d%b3%e5%b0%86%e6%8e%a8%e5%87%ba" aria-label="三、Agent Teams RFC（即将推出）">三、Agent Teams RFC（即将推出）</a><ul>
-                        
-                <li>
-                    <a href="#%e6%a0%b8%e5%bf%83%e6%a6%82%e5%bf%b5" aria-label="核心概念">核心概念</a></li>
-                <li>
-                    <a href="#%e6%96%b0%e5%b7%a5%e5%85%b7%e9%9b%86" aria-label="新工具集">新工具集</a></li>
-                <li>
-                    <a href="#%e5%8d%8f%e8%b0%83%e6%a8%a1%e5%bc%8f" aria-label="协调模式">协调模式</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e5%9b%9bskills-%e7%b3%bb%e7%bb%9fmarkdown-%e5%8d%b3%e4%bb%a3%e7%a0%81" aria-label="四、Skills 系统（Markdown 即代码）">四、Skills 系统（Markdown 即代码）</a><ul>
-                        
-                <li>
-                    <a href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e7%94%a8-markdown" aria-label="为什么用 Markdown？">为什么用 Markdown？</a></li>
-                <li>
-                    <a href="#self-writing-agent" aria-label="Self-Writing Agent">Self-Writing Agent</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e4%ba%94memory-%e6%9e%b6%e6%9e%84%e4%ba%ba%e7%b1%bb%e5%8f%af%e8%af%bb" aria-label="五、Memory 架构（人类可读）">五、Memory 架构（人类可读）</a><ul>
-                        
-                <li>
-                    <a href="#%e7%9b%ae%e5%bd%95%e7%bb%93%e6%9e%84" aria-label="目录结构">目录结构</a></li>
-                <li>
-                    <a href="#%e6%b7%b7%e5%90%88%e6%90%9c%e7%b4%a2%e7%ad%96%e7%95%a5" aria-label="混合搜索策略">混合搜索策略</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e5%85%ad%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5%e6%b8%85%e5%8d%95" aria-label="六、最佳实践清单">六、最佳实践清单</a><ul>
-                        
-                <li>
-                    <a href="#-%e5%a4%9a%e4%bb%a3%e7%90%86%e5%86%b3%e7%ad%96%e6%a0%91" aria-label="✅ 多代理决策树">✅ 多代理决策树</a></li>
-                <li>
-                    <a href="#-%e5%ae%89%e5%85%a8%e8%a6%81%e7%82%b9" aria-label="✅ 安全要点">✅ 安全要点</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e4%b8%83%e6%8e%a8%e8%8d%90%e6%9e%b6%e6%9e%84%e6%a8%a1%e5%bc%8f" aria-label="七、推荐架构模式">七、推荐架构模式</a><ul>
-                        
-                <li>
-                    <a href="#1-%e5%8d%95%e4%bb%a3%e7%90%86%e6%a8%a1%e5%bc%8f%e9%bb%98%e8%ae%a4%e6%8e%a8%e8%8d%90" aria-label="1. 单代理模式（默认推荐）">1. 单代理模式（默认推荐）</a></li>
-                <li>
-                    <a href="#2-opus-orchestrator--codex-workers" aria-label="2. Opus Orchestrator &#43; Codex Workers">2. Opus Orchestrator + Codex Workers</a></li>
-                <li>
-                    <a href="#3-dream-team14-%e4%bb%a3%e7%90%86" aria-label="3. Dream Team（14&#43; 代理）">3. Dream Team（14+ 代理）</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e5%85%ab%e8%b5%84%e6%ba%90%e9%93%be%e6%8e%a5" aria-label="八、资源链接">八、资源链接</a></li>
-                <li>
-                    <a href="#%e5%8f%82%e8%80%83%e6%96%87%e7%8c%ae" aria-label="参考文献">参考文献</a>
-                </li>
-            </ul>
-        </div>
-    </details>
-</div>
-
-  <div class="post-content"><blockquote>
-<p>本文档整理自 2026 年 2 月最新的 OpenClaw 社区最佳实践、架构模式和官方 RFC。</p>
-</blockquote>
-<hr>
-<h2 id="一核心架构模式">一、核心架构模式<a hidden class="anchor" aria-hidden="true" href="#一核心架构模式">#</a></h2>
-<h3 id="1-四层架构设计">1. 四层架构设计<a hidden class="anchor" aria-hidden="true" href="#1-四层架构设计">#</a></h3>
-<p>OpenClaw 的架构分为四个独立的层，每层有明确的职责：</p>
-<table>
-  <thead>
-      <tr>
-          <th>层级</th>
-          <th>职责</th>
-          <th>关键模式</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Gateway</strong></td>
-          <td>连接管理、路由、认证</td>
-          <td>单进程多路复用</td>
-      </tr>
-      <tr>
-          <td><strong>Execution</strong></td>
-          <td>任务排序、并发控制</td>
-          <td>Lane Queue（会话串行队列）</td>
-      </tr>
-      <tr>
-          <td><strong>Integration</strong></td>
-          <td>平台归一化</td>
-          <td>Channel Adapters</td>
-      </tr>
-      <tr>
-          <td><strong>Intelligence</strong></td>
-          <td>Agent 行为、知识、主动性</td>
-          <td>Skills + Memory + Heartbeat</td>
-      </tr>
-  </tbody>
-</table>
-<blockquote>
-<p><strong>设计洞察</strong>：OpenClaw 不是框架，是一个 Gateway —— 一个运行在你本地设备和外部世界之间的单进程运行时。</p>
-</blockquote>
-<h3 id="2-lane-queue---核心创新">2. Lane Queue - 核心创新<a hidden class="anchor" aria-hidden="true" href="#2-lane-queue---核心创新">#</a></h3>
-<p>如果只从本文带走一个模式，那就是它。</p>
-<p><strong>问题</strong>：大多数 Agent 系统允许多个请求并发执行，导致：</p>
-<ul>
-<li>三个工具调用同时写入同一个文件</li>
-<li>API 请求使用矛盾的假设</li>
-<li>交错的日志无法调试</li>
-</ul>
-<p><strong>解决方案</strong>：每个 Session 获得独立队列，任务串行执行。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">type</span> <span class="nx">SessionKey</span> <span class="o">=</span> <span class="sb">`</span><span class="si">${</span><span class="kt">string</span><span class="si">}</span><span class="sb">:</span><span class="si">${</span><span class="kt">string</span><span class="si">}</span><span class="sb">:</span><span class="si">${</span><span class="kt">string</span><span class="si">}</span><span class="sb">`</span> <span class="c1">// workspace:channel:userId
-</span></span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">LaneQueue</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kr">private</span> <span class="nx">queues</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">&lt;</span><span class="nt">SessionKey</span><span class="p">,</span> <span class="na">Task</span><span class="err">[]</span><span class="p">&gt;()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="kr">async</span> <span class="nx">enqueue</span><span class="p">(</span><span class="nx">sessionKey</span>: <span class="kt">SessionKey</span><span class="p">,</span> <span class="nx">task</span>: <span class="kt">Task</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">queue</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">queues</span><span class="p">.</span><span class="kr">get</span><span class="p">(</span><span class="nx">sessionKey</span><span class="p">)</span> <span class="o">??</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">queues</span><span class="p">.</span><span class="kr">set</span><span class="p">(</span><span class="nx">sessionKey</span><span class="p">,</span> <span class="nx">queue</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">queue</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">queue</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="c1">// 没有其他任务在运行，立即执行
-</span></span></span><span class="line"><span class="cl">      <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">process</span><span class="p">(</span><span class="nx">sessionKey</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 否则排队等待
-</span></span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p><strong>关键决策</strong>：</p>
-<ul>
-<li>Session Key 结构化：<code>workspace:channel:userId</code>，防止跨上下文数据泄露</li>
-<li>并行是可选的：额外的 Lane（如 cron、subagent）允许后台任务</li>
-<li>内置背压：队列增长时可以实施超时或溢出策略</li>
-</ul>
-<hr>
-<h2 id="二十大开发模式">二、十大开发模式<a hidden class="anchor" aria-hidden="true" href="#二十大开发模式">#</a></h2>
-<h3 id="模式-1-cloudflare-moltworker边缘部署-8833">模式 1: Cloudflare moltworker（边缘部署）⭐ 8,833<a hidden class="anchor" aria-hidden="true" href="#模式-1-cloudflare-moltworker边缘部署-8833">#</a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">// 边缘部署架构
-</span></span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kr">async</span> <span class="nx">initialize</span><span class="p">(</span><span class="nx">env</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">agent</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">OpenClaw</span><span class="p">.</span><span class="nx">bootstrap</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">      <span class="nx">memory</span><span class="o">:</span> <span class="nx">env</span><span class="p">.</span><span class="nx">MEMORY_KV</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nx">cache</span><span class="o">:</span> <span class="nx">env</span><span class="p">.</span><span class="nx">CACHE</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="p">});</span>
-</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">warm</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="kr">async</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">warm</span><span class="p">)</span> <span class="kr">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">initialize</span><span class="p">(</span><span class="nx">env</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">agent</span><span class="p">.</span><span class="nx">process</span><span class="p">(</span><span class="kr">await</span> <span class="nx">request</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></div><p><strong>优势</strong>：冷启动 &lt; 100ms、全球分布、按需付费、自动扩展</p>
-<hr>
-<h3 id="模式-2-hkuds-nanobot极简代理-20577">模式 2: HKUDS nanobot（极简代理）⭐ 20,577<a hidden class="anchor" aria-hidden="true" href="#模式-2-hkuds-nanobot极简代理-20577">#</a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">NanoAgent</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="bp">self</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="n">InMemoryStorage</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="bp">self</span><span class="o">.</span><span class="n">skills</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_core_skills</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_text</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_understand</span><span class="p">(</span><span class="n">input_text</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plan</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_execute</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">result</span>
-</span></span></code></pre></div><p><strong>特点</strong>：最小内存占用、单线程处理、仅核心功能</p>
-<hr>
-<h3 id="模式-3-zero-trust-enterprise--1534">模式 3: Zero-Trust Enterprise ⭐ 1,534<a hidden class="anchor" aria-hidden="true" href="#模式-3-zero-trust-enterprise--1534">#</a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">ZeroTrustAgent</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kr">async</span> <span class="nx">execute</span><span class="p">(</span><span class="nx">action</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">identity</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">identity</span><span class="p">.</span><span class="nx">verify</span><span class="p">(</span><span class="nx">context</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">decision</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">policy</span><span class="p">.</span><span class="nx">evaluate</span><span class="p">({</span> <span class="nx">action</span><span class="p">,</span> <span class="nx">identity</span><span class="p">,</span> <span class="nx">context</span> <span class="p">});</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">decision</span><span class="p">.</span><span class="nx">allowed</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Access denied&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">encrypted</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">crypto</span><span class="p">.</span><span class="nx">encrypt</span><span class="p">(</span><span class="nx">action</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">action</span><span class="p">,</span> <span class="nx">encrypted</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">audit</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;action_executed&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">action</span><span class="p">,</span> <span class="nx">result</span> <span class="p">});</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p><strong>安全特性</strong>：持续验证、动态策略评估、端到端加密、全面审计日志</p>
-<hr>
-<h3 id="模式-4-memos-分层记忆--9960">模式 4: MemOS 分层记忆 ⭐ 9,960+<a hidden class="anchor" aria-hidden="true" href="#模式-4-memos-分层记忆--9960">#</a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">LayeredMemorySystem</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="bp">self</span><span class="o">.</span><span class="n">layers</span> <span class="o">=</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="s1">&#39;working&#39;</span><span class="p">:</span> <span class="n">WorkingMemory</span><span class="p">(</span><span class="n">capacity</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">ttl</span><span class="o">=</span><span class="s1">&#39;15min&#39;</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">      <span class="s1">&#39;short_term&#39;</span><span class="p">:</span> <span class="n">ShortTermMemory</span><span class="p">(</span><span class="n">capacity</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">ttl</span><span class="o">=</span><span class="s1">&#39;24h&#39;</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">      <span class="s1">&#39;long_term&#39;</span><span class="p">:</span> <span class="n">LongTermMemory</span><span class="p">(</span><span class="n">persistence</span><span class="o">=</span><span class="s1">&#39;db&#39;</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">      <span class="s1">&#39;semantic&#39;</span><span class="p">:</span> <span class="n">SemanticMemory</span><span class="p">(</span><span class="n">vector_store</span><span class="o">=</span><span class="s1">&#39;qdrant&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span></code></pre></div><p><strong>记忆创新</strong>：分层存储、自动整合、语义搜索、跨会话持久化</p>
-<hr>
-<h3 id="模式-5-nagaagent-多代理编排--1370">模式 5: NagaAgent 多代理编排 ⭐ 1,370<a hidden class="anchor" aria-hidden="true" href="#模式-5-nagaagent-多代理编排--1370">#</a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">AgentOrchestrator</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">  <span class="k">async</span> <span class="k">def</span> <span class="nf">execute_workflow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">workflow</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">plan</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">planner</span><span class="o">.</span><span class="n">plan</span><span class="p">(</span><span class="n">workflow</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">plan</span><span class="o">.</span><span class="n">dependencies</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">      <span class="n">candidates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_capable_agents</span><span class="p">(</span><span class="n">step</span><span class="o">.</span><span class="n">required_skills</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">      <span class="n">agent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">select_agent</span><span class="p">(</span><span class="n">candidates</span><span class="p">,</span> <span class="n">step</span><span class="o">.</span><span class="n">priority</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">      <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">tasks</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">Task</span><span class="p">(</span><span class="n">agent_id</span><span class="o">=</span><span class="n">agent</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">step</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">workflow</span><span class="o">.</span><span class="n">context</span>
-</span></span></code></pre></div><p><strong>编排特性</strong>：动态代理分配、负载均衡、依赖管理、容错处理</p>
-<hr>
-<h2 id="三agent-teams-rfc即将推出">三、Agent Teams RFC（即将推出）<a hidden class="anchor" aria-hidden="true" href="#三agent-teams-rfc即将推出">#</a></h2>
-<p>这是 OpenClaw 正在开发的 <strong>多代理协作系统</strong>，计划在 2.x 版本推出。</p>
-<h3 id="核心概念">核心概念<a hidden class="anchor" aria-hidden="true" href="#核心概念">#</a></h3>
-<pre tabindex="0"><code>Team: &#34;pr-142-review&#34;
+<!doctype html><html lang=zh-cn dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>OpenClaw Agent 策略设计大神级汇总 | AI Bits</title><meta name=keywords content="OpenClaw,AI Agent,架构设计,最佳实践"><meta name=description content="OpenClaw 社区最佳实践、架构模式和官方 RFC 汇总：四层架构、Lane Queue、十大开发模式、Agent Teams RFC、Skills 系统、Memory 架构等"><meta name=author content="Gavin"><link rel=canonical href=https://getaibits.com/posts/openclaw-agent-patterns/><link crossorigin=anonymous href=https://getaibits.com/assets/css/stylesheet.44e854f43d58f6dac184d229a83426e7437723b428a6ee8aa1367a80078e3bef.css integrity="sha256-ROhU9D1Y9trBhNIpqDQm50N3I7Qopu6KoTZ6gAeOO+8=" rel="preload stylesheet" as=style><link rel=icon href=https://getaibits.com/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://getaibits.com/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://getaibits.com/favicon-32x32.png><link rel=apple-touch-icon href=https://getaibits.com/apple-touch-icon.png><link rel=mask-icon href=https://getaibits.com/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh-cn href=https://getaibits.com/posts/openclaw-agent-patterns/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://getaibits.com/posts/openclaw-agent-patterns/"},"headline":"OpenClaw Agent 策略设计大神级汇总","image":"https://getaibits.com/images/posts/openclaw-patterns.png","datePublished":"2026-02-20T00:00:00Z","dateModified":"2026-02-20T00:00:00Z","author":{"@type":"Person","name":"Gavin"},"publisher":{"@type":"Organization","name":"AI Bits","logo":{"@type":"ImageObject","url":"https://getaibits.com/images/avatar.png"}},"description":"OpenClaw 社区最佳实践、架构模式和官方 RFC 汇总：四层架构、Lane Queue、十大开发模式、Agent Teams RFC、Skills 系统、Memory 架构等","keywords":"OpenClaw, AI Agent, 架构设计, 最佳实践"}</script><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="OpenClaw Agent 策略设计大神级汇总"><meta name=twitter:description content="OpenClaw 社区最佳实践、架构模式和官方 RFC 汇总：四层架构、Lane Queue、十大开发模式、Agent Teams RFC、Skills 系统、Memory 架构等"><meta name=twitter:image content="https://getaibits.com/images/posts/openclaw-patterns.png"><meta property="og:image" content="https://getaibits.com/images/posts/openclaw-patterns.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="OpenClaw Agent 策略设计大神级汇总"><meta property="og:url" content="https://getaibits.com/posts/openclaw-agent-patterns/"><meta property="og:site_name" content="AI Bits"><meta property="og:title" content="OpenClaw Agent 策略设计大神级汇总"><meta property="og:description" content="OpenClaw 社区最佳实践、架构模式和官方 RFC 汇总：四层架构、Lane Queue、十大开发模式、Agent Teams RFC、Skills 系统、Memory 架构等"><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-02-20T00:00:00+00:00"><meta property="article:modified_time" content="2026-02-20T00:00:00+00:00"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="AI Agent"><meta property="article:tag" content="架构设计"><meta property="article:tag" content="最佳实践"><meta property="og:image" content="https://getaibits.com/images/og-default.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://getaibits.com/images/og-default.png"><meta name=twitter:title content="OpenClaw Agent 策略设计大神级汇总"><meta name=twitter:description content="OpenClaw 社区最佳实践、架构模式和官方 RFC 汇总：四层架构、Lane Queue、十大开发模式、Agent Teams RFC、Skills 系统、Memory 架构等"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://getaibits.com/posts/"},{"@type":"ListItem","position":2,"name":"OpenClaw Agent 策略设计大神级汇总","item":"https://getaibits.com/posts/openclaw-agent-patterns/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"OpenClaw Agent 策略设计大神级汇总","name":"OpenClaw Agent 策略设计大神级汇总","description":"OpenClaw 社区最佳实践、架构模式和官方 RFC 汇总：四层架构、Lane Queue、十大开发模式、Agent Teams RFC、Skills 系统、Memory 架构等","keywords":["OpenClaw","AI Agent","架构设计","最佳实践"],"articleBody":" 本文档整理自 2026 年 2 月最新的 OpenClaw 社区最佳实践、架构模式和官方 RFC。\n一、核心架构模式 1. 四层架构设计 OpenClaw 的架构分为四个独立的层，每层有明确的职责：\n层级 职责 关键模式 Gateway 连接管理、路由、认证 单进程多路复用 Execution 任务排序、并发控制 Lane Queue（会话串行队列） Integration 平台归一化 Channel Adapters Intelligence Agent 行为、知识、主动性 Skills + Memory + Heartbeat 设计洞察：OpenClaw 不是框架，是一个 Gateway —— 一个运行在你本地设备和外部世界之间的单进程运行时。\n2. Lane Queue - 核心创新 如果只从本文带走一个模式，那就是它。\n问题：大多数 Agent 系统允许多个请求并发执行，导致：\n三个工具调用同时写入同一个文件 API 请求使用矛盾的假设 交错的日志无法调试 解决方案：每个 Session 获得独立队列，任务串行执行。\ntype SessionKey = `${string}:${string}:${string}` // workspace:channel:userId class LaneQueue { private queues = new Map\u003cSessionKey, Task[]\u003e() async enqueue(sessionKey: SessionKey, task: Task) { const queue = this.queues.get(sessionKey) ?? [] this.queues.set(sessionKey, queue) queue.push(task) if (queue.length === 1) { // 没有其他任务在运行，立即执行 await this.process(sessionKey) } // 否则排队等待 } } 关键决策：\nSession Key 结构化：workspace:channel:userId，防止跨上下文数据泄露 并行是可选的：额外的 Lane（如 cron、subagent）允许后台任务 内置背压：队列增长时可以实施超时或溢出策略 二、十大开发模式 模式 1: Cloudflare moltworker（边缘部署）⭐ 8,833 // 边缘部署架构 export default { async initialize(env) { this.agent = await OpenClaw.bootstrap({ memory: env.MEMORY_KV, cache: env.CACHE, }); this.warm = true; }, async fetch(request) { if (!this.warm) await this.initialize(env); return this.agent.process(await request.json()); } }; 优势：冷启动 \u003c 100ms、全球分布、按需付费、自动扩展\n模式 2: HKUDS nanobot（极简代理）⭐ 20,577 class NanoAgent: def __init__(self): self.memory = InMemoryStorage(size=1000) self.skills = self._load_core_skills() def process(self, input_text): result = self._understand(input_text) result = self._plan(result) result = self._execute(result) return result 特点：最小内存占用、单线程处理、仅核心功能\n模式 3: Zero-Trust Enterprise ⭐ 1,534 class ZeroTrustAgent { async execute(action, context) { const identity = await this.identity.verify(context); const decision = await this.policy.evaluate({ action, identity, context }); if (!decision.allowed) throw new Error('Access denied'); const encrypted = await this.crypto.encrypt(action); const result = await this.run(action, encrypted); await this.audit.log('action_executed', { action, result }); return result; } } 安全特性：持续验证、动态策略评估、端到端加密、全面审计日志\n模式 4: MemOS 分层记忆 ⭐ 9,960+ class LayeredMemorySystem: def __init__(self): self.layers = { 'working': WorkingMemory(capacity=7, ttl='15min'), 'short_term': ShortTermMemory(capacity=1000, ttl='24h'), 'long_term': LongTermMemory(persistence='db'), 'semantic': SemanticMemory(vector_store='qdrant') } 记忆创新：分层存储、自动整合、语义搜索、跨会话持久化\n模式 5: NagaAgent 多代理编排 ⭐ 1,370 class AgentOrchestrator: async def execute_workflow(self, workflow): plan = await self.planner.plan(workflow) for step in plan.dependencies: candidates = self.find_capable_agents(step.required_skills) agent = self.select_agent(candidates, step.priority) result = await self.tasks.execute(Task(agent_id=agent.id, step=step)) return workflow.context 编排特性：动态代理分配、负载均衡、依赖管理、容错处理\n三、Agent Teams RFC（即将推出） 这是 OpenClaw 正在开发的 多代理协作系统，计划在 2.x 版本推出。\n核心概念 Team: \"pr-142-review\" ├── Lead: 协调、综合、向用户报告 ├── Teammate: security-reviewer ├── Teammate: performance-analyst └── Teammate: test-coverage-checker 共享状态: ├── tasks.json (带依赖的任务列表) └── mailbox/ (代理间消息) 新工具集 工具 功能 team_create 创建团队 teammate_spawn 生成队友 teammate_message 点对点消息 task_add 添加任务（支持依赖） task_claim 认领任务 task_complete 完成任务 协调模式 Normal 模式：Lead 可以参与实现工作，队友并行处理任务\nDelegate 模式：Lead 只负责协调，不能认领任务，专注于大局编排\n四、Skills 系统（Markdown 即代码） 为什么用 Markdown？ 特性 Skills (Markdown) 插件 (代码) 扩展语言 自然语言 + YAML TypeScript/Python 谁能编写 任何人（包括 Agent） 仅开发者 安全面 低（作为上下文注入） 高（任意代码执行） 热重载 简单（重读文件） 需要重启 可调试性 读文件即读 Prompt 堆栈跟踪 Self-Writing Agent Agent 可以创建和编辑自己的 SKILL.md 文件：\n观察用户请求模式 识别重复工作流 编写 Skill 以便下次更好处理 五、Memory 架构（人类可读） 目录结构 ~/.openclaw/ ├── memory/ │ ├── MEMORY.md # 长笔记和上下文 │ └── memory/*.md # 分类笔记 ├── workspace/ │ └── AGENTS.md # Agent 配置 └── sessions/ └── *.jsonl # 对话历史 混合搜索策略 搜索类型 技术 用途 向量搜索 sqlite-vec 语义相似性 关键词搜索 FTS5 精确匹配 最佳实践：两者结合效果最佳。\n六、最佳实践清单 ✅ 多代理决策树 你需要多代理吗？ ├── 安全上下文不同？ → YES ├── 专业领域分离？ → YES ├── 频道行为差异？ → YES ├── 资源管理需求？ → YES └── 都不满足？ → 单代理足够 ✅ 安全要点 漏洞 根因 教训 CVE-2026-25253 (RCE) WebSocket 无 Origin 验证 始终认证网络接口 ClawHub 恶意 Skills 无内容扫描 第三方 Prompt 视为不可信 明文凭据存储 未使用 OS 密钥链 使用平台原生凭据存储 七、推荐架构模式 1. 单代理模式（默认推荐） 适合 95% 的用例：个人助理、开发伴侣、小团队部署。\n2. Opus Orchestrator + Codex Workers ┌─────────────────────────────────────┐ │ Orchestrator (Opus) │ │ 接收请求 → 分解任务 → 委派 → 综合 │ └─────────────────┬───────────────────┘ ┌───────────┼───────────┐ ▼ ▼ ▼ ┌─────────┐ ┌─────────┐ ┌─────────┐ │ Worker │ │ Worker │ │ Worker │ │ (Haiku) │ │ (Sonnet)│ │ (Haiku) │ └─────────┘ └─────────┘ └─────────┘ 适合：开发工作流、复杂任务分解\n3. Dream Team（14+ 代理） 适合：有清晰领域边界、可预测的代理间通信\n八、资源链接 OpenClaw GitHub: https://github.com/openclaw/openclaw 官方文档: https://docs.openclaw.ai ClawHub 技能市场: https://clawhub.com RFC: Agent Teams: https://github.com/openclaw/openclaw/discussions/10036 参考文献 Top 10 OpenClaw Development Patterns - DEV Community, 2026 Lessons from OpenClaw’s Architecture - Agent Tailor Blog, 2026 RFC: Agent Teams - GitHub Discussions, 2026 OpenClaw Multi-Agent Orchestration Guide - Zen van Riel, 2026 整理时间：2026-02-20\n","wordCount":"586","inLanguage":"zh-cn","image":"https://getaibits.com/images/og-default.png","datePublished":"2026-02-20T00:00:00Z","dateModified":"2026-02-20T00:00:00Z","author":{"@type":"Person","name":"Gavin"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://getaibits.com/posts/openclaw-agent-patterns/"},"publisher":{"@type":"Organization","name":"AI Bits","logo":{"@type":"ImageObject","url":"https://getaibits.com/favicon.ico"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo><a href=https://getaibits.com/ accesskey=h title="AI Bits (Alt + H)">AI Bits</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://getaibits.com/ title="🏠 首页"><span>🏠 首页</span></a></li><li><a href=https://getaibits.com/posts/ title="📚 文章"><span>📚 文章</span></a></li><li><a href=https://getaibits.com/skills.html title="🔧 技能"><span>🔧 技能</span></a></li><li><a href=https://getaibits.com/search/ title="🔍 搜索"><span>🔍 搜索</span></a></li><li><a href=https://getaibits.com/tags/ title="🏷️ 标签"><span>🏷️ 标签</span></a></li><li><a href=https://getaibits.com/about/ title="👤 关于"><span>👤 关于</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">OpenClaw Agent 策略设计大神级汇总</h1><div class=post-description>OpenClaw 社区最佳实践、架构模式和官方 RFC 汇总：四层架构、Lane Queue、十大开发模式、Agent Teams RFC、Skills 系统、Memory 架构等</div><div class=post-meta><span title='2026-02-20 00:00:00 +0000 UTC'>February 20, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></div></header><div class=post-content><blockquote><p>本文档整理自 2026 年 2 月最新的 OpenClaw 社区最佳实践、架构模式和官方 RFC。</p></blockquote><hr><h2 id=一核心架构模式>一、核心架构模式<a hidden class=anchor aria-hidden=true href=#一核心架构模式>#</a></h2><h3 id=1-四层架构设计>1. 四层架构设计<a hidden class=anchor aria-hidden=true href=#1-四层架构设计>#</a></h3><p>OpenClaw 的架构分为四个独立的层，每层有明确的职责：</p><table><thead><tr><th>层级</th><th>职责</th><th>关键模式</th></tr></thead><tbody><tr><td><strong>Gateway</strong></td><td>连接管理、路由、认证</td><td>单进程多路复用</td></tr><tr><td><strong>Execution</strong></td><td>任务排序、并发控制</td><td>Lane Queue（会话串行队列）</td></tr><tr><td><strong>Integration</strong></td><td>平台归一化</td><td>Channel Adapters</td></tr><tr><td><strong>Intelligence</strong></td><td>Agent 行为、知识、主动性</td><td>Skills + Memory + Heartbeat</td></tr></tbody></table><blockquote><p><strong>设计洞察</strong>：OpenClaw 不是框架，是一个 Gateway —— 一个运行在你本地设备和外部世界之间的单进程运行时。</p></blockquote><h3 id=2-lane-queue---核心创新>2. Lane Queue - 核心创新<a hidden class=anchor aria-hidden=true href=#2-lane-queue---核心创新>#</a></h3><p>如果只从本文带走一个模式，那就是它。</p><p><strong>问题</strong>：大多数 Agent 系统允许多个请求并发执行，导致：</p><ul><li>三个工具调用同时写入同一个文件</li><li>API 请求使用矛盾的假设</li><li>交错的日志无法调试</li></ul><p><strong>解决方案</strong>：每个 Session 获得独立队列，任务串行执行。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-typescript data-lang=typescript><span class=line><span class=cl><span class=kr>type</span> <span class=nx>SessionKey</span> <span class=o>=</span> <span class=sb>`</span><span class=si>${</span><span class=kt>string</span><span class=si>}</span><span class=sb>:</span><span class=si>${</span><span class=kt>string</span><span class=si>}</span><span class=sb>:</span><span class=si>${</span><span class=kt>string</span><span class=si>}</span><span class=sb>`</span> <span class=c1>// workspace:channel:userId
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>class</span> <span class=nx>LaneQueue</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>private</span> <span class=nx>queues</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Map</span><span class=p>&lt;</span><span class=nt>SessionKey</span><span class=p>,</span> <span class=na>Task</span><span class=err>[]</span><span class=p>&gt;()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kr>async</span> <span class=nx>enqueue</span><span class=p>(</span><span class=nx>sessionKey</span>: <span class=kt>SessionKey</span><span class=p>,</span> <span class=nx>task</span>: <span class=kt>Task</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>queue</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>queues</span><span class=p>.</span><span class=kr>get</span><span class=p>(</span><span class=nx>sessionKey</span><span class=p>)</span> <span class=o>??</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>    <span class=k>this</span><span class=p>.</span><span class=nx>queues</span><span class=p>.</span><span class=kr>set</span><span class=p>(</span><span class=nx>sessionKey</span><span class=p>,</span> <span class=nx>queue</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nx>queue</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>task</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>queue</span><span class=p>.</span><span class=nx>length</span> <span class=o>===</span> <span class=mi>1</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=c1>// 没有其他任务在运行，立即执行
+</span></span></span><span class=line><span class=cl>      <span class=k>await</span> <span class=k>this</span><span class=p>.</span><span class=nx>process</span><span class=p>(</span><span class=nx>sessionKey</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 否则排队等待
+</span></span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p><strong>关键决策</strong>：</p><ul><li>Session Key 结构化：<code>workspace:channel:userId</code>，防止跨上下文数据泄露</li><li>并行是可选的：额外的 Lane（如 cron、subagent）允许后台任务</li><li>内置背压：队列增长时可以实施超时或溢出策略</li></ul><hr><h2 id=二十大开发模式>二、十大开发模式<a hidden class=anchor aria-hidden=true href=#二十大开发模式>#</a></h2><h3 id=模式-1-cloudflare-moltworker边缘部署-8833>模式 1: Cloudflare moltworker（边缘部署）⭐ 8,833<a hidden class=anchor aria-hidden=true href=#模式-1-cloudflare-moltworker边缘部署-8833>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=c1>// 边缘部署架构
+</span></span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>async</span> <span class=nx>initialize</span><span class=p>(</span><span class=nx>env</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>this</span><span class=p>.</span><span class=nx>agent</span> <span class=o>=</span> <span class=kr>await</span> <span class=nx>OpenClaw</span><span class=p>.</span><span class=nx>bootstrap</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>      <span class=nx>memory</span><span class=o>:</span> <span class=nx>env</span><span class=p>.</span><span class=nx>MEMORY_KV</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nx>cache</span><span class=o>:</span> <span class=nx>env</span><span class=p>.</span><span class=nx>CACHE</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>});</span>
+</span></span><span class=line><span class=cl>    <span class=k>this</span><span class=p>.</span><span class=nx>warm</span> <span class=o>=</span> <span class=kc>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kr>async</span> <span class=nx>fetch</span><span class=p>(</span><span class=nx>request</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=k>this</span><span class=p>.</span><span class=nx>warm</span><span class=p>)</span> <span class=kr>await</span> <span class=k>this</span><span class=p>.</span><span class=nx>initialize</span><span class=p>(</span><span class=nx>env</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=k>this</span><span class=p>.</span><span class=nx>agent</span><span class=p>.</span><span class=nx>process</span><span class=p>(</span><span class=kr>await</span> <span class=nx>request</span><span class=p>.</span><span class=nx>json</span><span class=p>());</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></div><p><strong>优势</strong>：冷启动 &lt; 100ms、全球分布、按需付费、自动扩展</p><hr><h3 id=模式-2-hkuds-nanobot极简代理-20577>模式 2: HKUDS nanobot（极简代理）⭐ 20,577<a hidden class=anchor aria-hidden=true href=#模式-2-hkuds-nanobot极简代理-20577>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>class</span> <span class=nc>NanoAgent</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>  <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=bp>self</span><span class=o>.</span><span class=n>memory</span> <span class=o>=</span> <span class=n>InMemoryStorage</span><span class=p>(</span><span class=n>size</span><span class=o>=</span><span class=mi>1000</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=bp>self</span><span class=o>.</span><span class=n>skills</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>_load_core_skills</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>def</span> <span class=nf>process</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>input_text</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>result</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>_understand</span><span class=p>(</span><span class=n>input_text</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>result</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>_plan</span><span class=p>(</span><span class=n>result</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>result</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>_execute</span><span class=p>(</span><span class=n>result</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>result</span>
+</span></span></code></pre></div><p><strong>特点</strong>：最小内存占用、单线程处理、仅核心功能</p><hr><h3 id=模式-3-zero-trust-enterprise--1534>模式 3: Zero-Trust Enterprise ⭐ 1,534<a hidden class=anchor aria-hidden=true href=#模式-3-zero-trust-enterprise--1534>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-typescript data-lang=typescript><span class=line><span class=cl><span class=kr>class</span> <span class=nx>ZeroTrustAgent</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>async</span> <span class=nx>execute</span><span class=p>(</span><span class=nx>action</span><span class=p>,</span> <span class=nx>context</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>identity</span> <span class=o>=</span> <span class=k>await</span> <span class=k>this</span><span class=p>.</span><span class=nx>identity</span><span class=p>.</span><span class=nx>verify</span><span class=p>(</span><span class=nx>context</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>decision</span> <span class=o>=</span> <span class=k>await</span> <span class=k>this</span><span class=p>.</span><span class=nx>policy</span><span class=p>.</span><span class=nx>evaluate</span><span class=p>({</span> <span class=nx>action</span><span class=p>,</span> <span class=nx>identity</span><span class=p>,</span> <span class=nx>context</span> <span class=p>});</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>decision</span><span class=p>.</span><span class=nx>allowed</span><span class=p>)</span> <span class=k>throw</span> <span class=k>new</span> <span class=nb>Error</span><span class=p>(</span><span class=s1>&#39;Access denied&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>encrypted</span> <span class=o>=</span> <span class=k>await</span> <span class=k>this</span><span class=p>.</span><span class=nx>crypto</span><span class=p>.</span><span class=nx>encrypt</span><span class=p>(</span><span class=nx>action</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>result</span> <span class=o>=</span> <span class=k>await</span> <span class=k>this</span><span class=p>.</span><span class=nx>run</span><span class=p>(</span><span class=nx>action</span><span class=p>,</span> <span class=nx>encrypted</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>await</span> <span class=k>this</span><span class=p>.</span><span class=nx>audit</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;action_executed&#39;</span><span class=p>,</span> <span class=p>{</span> <span class=nx>action</span><span class=p>,</span> <span class=nx>result</span> <span class=p>});</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>result</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p><strong>安全特性</strong>：持续验证、动态策略评估、端到端加密、全面审计日志</p><hr><h3 id=模式-4-memos-分层记忆--9960>模式 4: MemOS 分层记忆 ⭐ 9,960+<a hidden class=anchor aria-hidden=true href=#模式-4-memos-分层记忆--9960>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>class</span> <span class=nc>LayeredMemorySystem</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>  <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=bp>self</span><span class=o>.</span><span class=n>layers</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=s1>&#39;working&#39;</span><span class=p>:</span> <span class=n>WorkingMemory</span><span class=p>(</span><span class=n>capacity</span><span class=o>=</span><span class=mi>7</span><span class=p>,</span> <span class=n>ttl</span><span class=o>=</span><span class=s1>&#39;15min&#39;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>      <span class=s1>&#39;short_term&#39;</span><span class=p>:</span> <span class=n>ShortTermMemory</span><span class=p>(</span><span class=n>capacity</span><span class=o>=</span><span class=mi>1000</span><span class=p>,</span> <span class=n>ttl</span><span class=o>=</span><span class=s1>&#39;24h&#39;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>      <span class=s1>&#39;long_term&#39;</span><span class=p>:</span> <span class=n>LongTermMemory</span><span class=p>(</span><span class=n>persistence</span><span class=o>=</span><span class=s1>&#39;db&#39;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>      <span class=s1>&#39;semantic&#39;</span><span class=p>:</span> <span class=n>SemanticMemory</span><span class=p>(</span><span class=n>vector_store</span><span class=o>=</span><span class=s1>&#39;qdrant&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span></code></pre></div><p><strong>记忆创新</strong>：分层存储、自动整合、语义搜索、跨会话持久化</p><hr><h3 id=模式-5-nagaagent-多代理编排--1370>模式 5: NagaAgent 多代理编排 ⭐ 1,370<a hidden class=anchor aria-hidden=true href=#模式-5-nagaagent-多代理编排--1370>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>class</span> <span class=nc>AgentOrchestrator</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>  <span class=k>async</span> <span class=k>def</span> <span class=nf>execute_workflow</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>workflow</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>plan</span> <span class=o>=</span> <span class=k>await</span> <span class=bp>self</span><span class=o>.</span><span class=n>planner</span><span class=o>.</span><span class=n>plan</span><span class=p>(</span><span class=n>workflow</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>step</span> <span class=ow>in</span> <span class=n>plan</span><span class=o>.</span><span class=n>dependencies</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>      <span class=n>candidates</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>find_capable_agents</span><span class=p>(</span><span class=n>step</span><span class=o>.</span><span class=n>required_skills</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=n>agent</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>select_agent</span><span class=p>(</span><span class=n>candidates</span><span class=p>,</span> <span class=n>step</span><span class=o>.</span><span class=n>priority</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=n>result</span> <span class=o>=</span> <span class=k>await</span> <span class=bp>self</span><span class=o>.</span><span class=n>tasks</span><span class=o>.</span><span class=n>execute</span><span class=p>(</span><span class=n>Task</span><span class=p>(</span><span class=n>agent_id</span><span class=o>=</span><span class=n>agent</span><span class=o>.</span><span class=n>id</span><span class=p>,</span> <span class=n>step</span><span class=o>=</span><span class=n>step</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>workflow</span><span class=o>.</span><span class=n>context</span>
+</span></span></code></pre></div><p><strong>编排特性</strong>：动态代理分配、负载均衡、依赖管理、容错处理</p><hr><h2 id=三agent-teams-rfc即将推出>三、Agent Teams RFC（即将推出）<a hidden class=anchor aria-hidden=true href=#三agent-teams-rfc即将推出>#</a></h2><p>这是 OpenClaw 正在开发的 <strong>多代理协作系统</strong>，计划在 2.x 版本推出。</p><h3 id=核心概念>核心概念<a hidden class=anchor aria-hidden=true href=#核心概念>#</a></h3><pre tabindex=0><code>Team: &#34;pr-142-review&#34;
 ├── Lead: 协调、综合、向用户报告
 ├── Teammate: security-reviewer
 ├── Teammate: performance-analyst
@@ -467,94 +79,7 @@
 共享状态:
 ├── tasks.json (带依赖的任务列表)
 └── mailbox/ (代理间消息)
-</code></pre><h3 id="新工具集">新工具集<a hidden class="anchor" aria-hidden="true" href="#新工具集">#</a></h3>
-<table>
-  <thead>
-      <tr>
-          <th>工具</th>
-          <th>功能</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>team_create</code></td>
-          <td>创建团队</td>
-      </tr>
-      <tr>
-          <td><code>teammate_spawn</code></td>
-          <td>生成队友</td>
-      </tr>
-      <tr>
-          <td><code>teammate_message</code></td>
-          <td>点对点消息</td>
-      </tr>
-      <tr>
-          <td><code>task_add</code></td>
-          <td>添加任务（支持依赖）</td>
-      </tr>
-      <tr>
-          <td><code>task_claim</code></td>
-          <td>认领任务</td>
-      </tr>
-      <tr>
-          <td><code>task_complete</code></td>
-          <td>完成任务</td>
-      </tr>
-  </tbody>
-</table>
-<h3 id="协调模式">协调模式<a hidden class="anchor" aria-hidden="true" href="#协调模式">#</a></h3>
-<p><strong>Normal 模式</strong>：Lead 可以参与实现工作，队友并行处理任务</p>
-<p><strong>Delegate 模式</strong>：Lead 只负责协调，不能认领任务，专注于大局编排</p>
-<hr>
-<h2 id="四skills-系统markdown-即代码">四、Skills 系统（Markdown 即代码）<a hidden class="anchor" aria-hidden="true" href="#四skills-系统markdown-即代码">#</a></h2>
-<h3 id="为什么用-markdown">为什么用 Markdown？<a hidden class="anchor" aria-hidden="true" href="#为什么用-markdown">#</a></h3>
-<table>
-  <thead>
-      <tr>
-          <th>特性</th>
-          <th>Skills (Markdown)</th>
-          <th>插件 (代码)</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>扩展语言</td>
-          <td>自然语言 + YAML</td>
-          <td>TypeScript/Python</td>
-      </tr>
-      <tr>
-          <td>谁能编写</td>
-          <td>任何人（包括 Agent）</td>
-          <td>仅开发者</td>
-      </tr>
-      <tr>
-          <td>安全面</td>
-          <td>低（作为上下文注入）</td>
-          <td>高（任意代码执行）</td>
-      </tr>
-      <tr>
-          <td>热重载</td>
-          <td>简单（重读文件）</td>
-          <td>需要重启</td>
-      </tr>
-      <tr>
-          <td>可调试性</td>
-          <td>读文件即读 Prompt</td>
-          <td>堆栈跟踪</td>
-      </tr>
-  </tbody>
-</table>
-<h3 id="self-writing-agent">Self-Writing Agent<a hidden class="anchor" aria-hidden="true" href="#self-writing-agent">#</a></h3>
-<p>Agent 可以创建和编辑自己的 SKILL.md 文件：</p>
-<ol>
-<li>观察用户请求模式</li>
-<li>识别重复工作流</li>
-<li>编写 Skill 以便下次更好处理</li>
-</ol>
-<hr>
-<h2 id="五memory-架构人类可读">五、Memory 架构（人类可读）<a hidden class="anchor" aria-hidden="true" href="#五memory-架构人类可读">#</a></h2>
-<h3 id="目录结构">目录结构<a hidden class="anchor" aria-hidden="true" href="#目录结构">#</a></h3>
-<pre tabindex="0"><code>~/.openclaw/
+</code></pre><h3 id=新工具集>新工具集<a hidden class=anchor aria-hidden=true href=#新工具集>#</a></h3><table><thead><tr><th>工具</th><th>功能</th></tr></thead><tbody><tr><td><code>team_create</code></td><td>创建团队</td></tr><tr><td><code>teammate_spawn</code></td><td>生成队友</td></tr><tr><td><code>teammate_message</code></td><td>点对点消息</td></tr><tr><td><code>task_add</code></td><td>添加任务（支持依赖）</td></tr><tr><td><code>task_claim</code></td><td>认领任务</td></tr><tr><td><code>task_complete</code></td><td>完成任务</td></tr></tbody></table><h3 id=协调模式>协调模式<a hidden class=anchor aria-hidden=true href=#协调模式>#</a></h3><p><strong>Normal 模式</strong>：Lead 可以参与实现工作，队友并行处理任务</p><p><strong>Delegate 模式</strong>：Lead 只负责协调，不能认领任务，专注于大局编排</p><hr><h2 id=四skills-系统markdown-即代码>四、Skills 系统（Markdown 即代码）<a hidden class=anchor aria-hidden=true href=#四skills-系统markdown-即代码>#</a></h2><h3 id=为什么用-markdown>为什么用 Markdown？<a hidden class=anchor aria-hidden=true href=#为什么用-markdown>#</a></h3><table><thead><tr><th>特性</th><th>Skills (Markdown)</th><th>插件 (代码)</th></tr></thead><tbody><tr><td>扩展语言</td><td>自然语言 + YAML</td><td>TypeScript/Python</td></tr><tr><td>谁能编写</td><td>任何人（包括 Agent）</td><td>仅开发者</td></tr><tr><td>安全面</td><td>低（作为上下文注入）</td><td>高（任意代码执行）</td></tr><tr><td>热重载</td><td>简单（重读文件）</td><td>需要重启</td></tr><tr><td>可调试性</td><td>读文件即读 Prompt</td><td>堆栈跟踪</td></tr></tbody></table><h3 id=self-writing-agent>Self-Writing Agent<a hidden class=anchor aria-hidden=true href=#self-writing-agent>#</a></h3><p>Agent 可以创建和编辑自己的 SKILL.md 文件：</p><ol><li>观察用户请求模式</li><li>识别重复工作流</li><li>编写 Skill 以便下次更好处理</li></ol><hr><h2 id=五memory-架构人类可读>五、Memory 架构（人类可读）<a hidden class=anchor aria-hidden=true href=#五memory-架构人类可读>#</a></h2><h3 id=目录结构>目录结构<a hidden class=anchor aria-hidden=true href=#目录结构>#</a></h3><pre tabindex=0><code>~/.openclaw/
 ├── memory/
 │   ├── MEMORY.md          # 长笔记和上下文
 │   └── memory/*.md        # 分类笔记
@@ -562,73 +87,13 @@
 │   └── AGENTS.md          # Agent 配置
 └── sessions/
     └── *.jsonl            # 对话历史
-</code></pre><h3 id="混合搜索策略">混合搜索策略<a hidden class="anchor" aria-hidden="true" href="#混合搜索策略">#</a></h3>
-<table>
-  <thead>
-      <tr>
-          <th>搜索类型</th>
-          <th>技术</th>
-          <th>用途</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>向量搜索</td>
-          <td>sqlite-vec</td>
-          <td>语义相似性</td>
-      </tr>
-      <tr>
-          <td>关键词搜索</td>
-          <td>FTS5</td>
-          <td>精确匹配</td>
-      </tr>
-  </tbody>
-</table>
-<blockquote>
-<p><strong>最佳实践</strong>：两者结合效果最佳。</p>
-</blockquote>
-<hr>
-<h2 id="六最佳实践清单">六、最佳实践清单<a hidden class="anchor" aria-hidden="true" href="#六最佳实践清单">#</a></h2>
-<h3 id="-多代理决策树">✅ 多代理决策树<a hidden class="anchor" aria-hidden="true" href="#-多代理决策树">#</a></h3>
-<pre tabindex="0"><code>你需要多代理吗？
+</code></pre><h3 id=混合搜索策略>混合搜索策略<a hidden class=anchor aria-hidden=true href=#混合搜索策略>#</a></h3><table><thead><tr><th>搜索类型</th><th>技术</th><th>用途</th></tr></thead><tbody><tr><td>向量搜索</td><td>sqlite-vec</td><td>语义相似性</td></tr><tr><td>关键词搜索</td><td>FTS5</td><td>精确匹配</td></tr></tbody></table><blockquote><p><strong>最佳实践</strong>：两者结合效果最佳。</p></blockquote><hr><h2 id=六最佳实践清单>六、最佳实践清单<a hidden class=anchor aria-hidden=true href=#六最佳实践清单>#</a></h2><h3 id=-多代理决策树>✅ 多代理决策树<a hidden class=anchor aria-hidden=true href=#-多代理决策树>#</a></h3><pre tabindex=0><code>你需要多代理吗？
 ├── 安全上下文不同？ → YES
 ├── 专业领域分离？ → YES
 ├── 频道行为差异？ → YES
 ├── 资源管理需求？ → YES
 └── 都不满足？ → 单代理足够
-</code></pre><h3 id="-安全要点">✅ 安全要点<a hidden class="anchor" aria-hidden="true" href="#-安全要点">#</a></h3>
-<table>
-  <thead>
-      <tr>
-          <th>漏洞</th>
-          <th>根因</th>
-          <th>教训</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>CVE-2026-25253 (RCE)</td>
-          <td>WebSocket 无 Origin 验证</td>
-          <td>始终认证网络接口</td>
-      </tr>
-      <tr>
-          <td>ClawHub 恶意 Skills</td>
-          <td>无内容扫描</td>
-          <td>第三方 Prompt 视为不可信</td>
-      </tr>
-      <tr>
-          <td>明文凭据存储</td>
-          <td>未使用 OS 密钥链</td>
-          <td>使用平台原生凭据存储</td>
-      </tr>
-  </tbody>
-</table>
-<hr>
-<h2 id="七推荐架构模式">七、推荐架构模式<a hidden class="anchor" aria-hidden="true" href="#七推荐架构模式">#</a></h2>
-<h3 id="1-单代理模式默认推荐">1. 单代理模式（默认推荐）<a hidden class="anchor" aria-hidden="true" href="#1-单代理模式默认推荐">#</a></h3>
-<p>适合 95% 的用例：个人助理、开发伴侣、小团队部署。</p>
-<h3 id="2-opus-orchestrator--codex-workers">2. Opus Orchestrator + Codex Workers<a hidden class="anchor" aria-hidden="true" href="#2-opus-orchestrator--codex-workers">#</a></h3>
-<pre tabindex="0"><code>┌─────────────────────────────────────┐
+</code></pre><h3 id=-安全要点>✅ 安全要点<a hidden class=anchor aria-hidden=true href=#-安全要点>#</a></h3><table><thead><tr><th>漏洞</th><th>根因</th><th>教训</th></tr></thead><tbody><tr><td>CVE-2026-25253 (RCE)</td><td>WebSocket 无 Origin 验证</td><td>始终认证网络接口</td></tr><tr><td>ClawHub 恶意 Skills</td><td>无内容扫描</td><td>第三方 Prompt 视为不可信</td></tr><tr><td>明文凭据存储</td><td>未使用 OS 密钥链</td><td>使用平台原生凭据存储</td></tr></tbody></table><hr><h2 id=七推荐架构模式>七、推荐架构模式<a hidden class=anchor aria-hidden=true href=#七推荐架构模式>#</a></h2><h3 id=1-单代理模式默认推荐>1. 单代理模式（默认推荐）<a hidden class=anchor aria-hidden=true href=#1-单代理模式默认推荐>#</a></h3><p>适合 95% 的用例：个人助理、开发伴侣、小团队部署。</p><h3 id=2-opus-orchestrator--codex-workers>2. Opus Orchestrator + Codex Workers<a hidden class=anchor aria-hidden=true href=#2-opus-orchestrator--codex-workers>#</a></h3><pre tabindex=0><code>┌─────────────────────────────────────┐
 │       Orchestrator (Opus)           │
 │  接收请求 → 分解任务 → 委派 → 综合    │
 └─────────────────┬───────────────────┘
@@ -638,191 +103,7 @@
  │ Worker  │ │ Worker  │ │ Worker  │
  │ (Haiku) │ │ (Sonnet)│ │ (Haiku) │
  └─────────┘ └─────────┘ └─────────┘
-</code></pre><p><strong>适合</strong>：开发工作流、复杂任务分解</p>
-<h3 id="3-dream-team14-代理">3. Dream Team（14+ 代理）<a hidden class="anchor" aria-hidden="true" href="#3-dream-team14-代理">#</a></h3>
-<p><strong>适合</strong>：有清晰领域边界、可预测的代理间通信</p>
-<hr>
-<h2 id="八资源链接">八、资源链接<a hidden class="anchor" aria-hidden="true" href="#八资源链接">#</a></h2>
-<ul>
-<li><strong>OpenClaw GitHub</strong>: <a href="https://github.com/openclaw/openclaw">https://github.com/openclaw/openclaw</a></li>
-<li><strong>官方文档</strong>: <a href="https://docs.openclaw.ai">https://docs.openclaw.ai</a></li>
-<li><strong>ClawHub 技能市场</strong>: <a href="https://clawhub.com">https://clawhub.com</a></li>
-<li><strong>RFC: Agent Teams</strong>: <a href="https://github.com/openclaw/openclaw/discussions/10036">https://github.com/openclaw/openclaw/discussions/10036</a></li>
-</ul>
-<hr>
-<h2 id="参考文献">参考文献<a hidden class="anchor" aria-hidden="true" href="#参考文献">#</a></h2>
-<ol>
-<li><em>Top 10 OpenClaw Development Patterns</em> - DEV Community, 2026</li>
-<li><em>Lessons from OpenClaw&rsquo;s Architecture</em> - Agent Tailor Blog, 2026</li>
-<li><em>RFC: Agent Teams</em> - GitHub Discussions, 2026</li>
-<li><em>OpenClaw Multi-Agent Orchestration Guide</em> - Zen van Riel, 2026</li>
-</ol>
-<hr>
-<blockquote>
-<p>整理时间：2026-02-20</p>
-</blockquote>
-
-
-  </div>
-
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="https://getaibits.com/tags/openclaw/">OpenClaw</a></li>
-      <li><a href="https://getaibits.com/tags/ai-agent/">AI Agent</a></li>
-      <li><a href="https://getaibits.com/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">架构设计</a></li>
-      <li><a href="https://getaibits.com/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">最佳实践</a></li>
-    </ul>
-<nav class="paginav">
-  <a class="next" href="https://getaibits.com/posts/claude-skills-guide/">
-    <span class="title">Next »</span>
-    <br>
-    <span>Claude Skills 神级用法指南</span>
-  </a>
-</nav>
-
-  </footer>
-</article>
-    </main>
-    
-<footer class="footer">
-        <span>&copy; 2026 <a href="https://getaibits.com/">AI Bits</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-<div class="reading-progress" id="reading-progress"></div>
-
-<script>
-
-window.addEventListener('scroll', function() {
-  const article = document.querySelector('.post-content');
-  if (!article) return;
-  
-  const scrollTop = window.scrollY;
-  const docHeight = article.offsetHeight;
-  const winHeight = window.innerHeight;
-  const scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
-  
-  document.getElementById('reading-progress').style.width = Math.min(scrollPercent, 100) + '%';
-});
-</script>
-
-
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            html.dataset.theme = 'dark';
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-<script>
-    document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
-
-        const copybutton = document.createElement('button');
-        copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
-
-        function copyingDone() {
-            copybutton.innerHTML = 'copied!';
-            setTimeout(() => {
-                copybutton.innerHTML = 'copy';
-            }, 2000);
-        }
-
-        copybutton.addEventListener('click', (cb) => {
-            if ('clipboard' in navigator) {
-                navigator.clipboard.writeText(codeblock.textContent);
-                copyingDone();
-                return;
-            }
-
-            const range = document.createRange();
-            range.selectNodeContents(codeblock);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            try {
-                document.execCommand('copy');
-                copyingDone();
-            } catch (e) { };
-            selection.removeRange(range);
-        });
-
-        if (container.classList.contains("highlight")) {
-            container.appendChild(copybutton);
-        } else if (container.parentNode.firstChild == container) {
-            
-        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-            
-            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-        } else {
-            
-            codeblock.parentNode.appendChild(copybutton);
-        }
-    });
-</script>
-</body>
-
-</html>
+</code></pre><p><strong>适合</strong>：开发工作流、复杂任务分解</p><h3 id=3-dream-team14-代理>3. Dream Team（14+ 代理）<a hidden class=anchor aria-hidden=true href=#3-dream-team14-代理>#</a></h3><p><strong>适合</strong>：有清晰领域边界、可预测的代理间通信</p><hr><h2 id=八资源链接>八、资源链接<a hidden class=anchor aria-hidden=true href=#八资源链接>#</a></h2><ul><li><strong>OpenClaw GitHub</strong>: <a href=https://github.com/openclaw/openclaw>https://github.com/openclaw/openclaw</a></li><li><strong>官方文档</strong>: <a href=https://docs.openclaw.ai>https://docs.openclaw.ai</a></li><li><strong>ClawHub 技能市场</strong>: <a href=https://clawhub.com>https://clawhub.com</a></li><li><strong>RFC: Agent Teams</strong>: <a href=https://github.com/openclaw/openclaw/discussions/10036>https://github.com/openclaw/openclaw/discussions/10036</a></li></ul><hr><h2 id=参考文献>参考文献<a hidden class=anchor aria-hidden=true href=#参考文献>#</a></h2><ol><li><em>Top 10 OpenClaw Development Patterns</em> - DEV Community, 2026</li><li><em>Lessons from OpenClaw&rsquo;s Architecture</em> - Agent Tailor Blog, 2026</li><li><em>RFC: Agent Teams</em> - GitHub Discussions, 2026</li><li><em>OpenClaw Multi-Agent Orchestration Guide</em> - Zen van Riel, 2026</li></ol><hr><blockquote><p>整理时间：2026-02-20</p></blockquote></div><footer class=post-footer><ul class=post-tags><li><a href=https://getaibits.com/tags/openclaw/>OpenClaw</a></li><li><a href=https://getaibits.com/tags/ai-agent/>AI Agent</a></li><li><a href=https://getaibits.com/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/>架构设计</a></li><li><a href=https://getaibits.com/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/>最佳实践</a></li></ul></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://getaibits.com/>AI Bits</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg></a><div class=reading-progress id=reading-progress></div><script>window.addEventListener("scroll",function(){const e=document.querySelector(".post-content");if(!e)return;const t=window.scrollY,n=e.offsetHeight,s=window.innerHeight,o=t/(n-s)*100;document.getElementById("reading-progress").style.width=Math.min(o,100)+"%"})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>

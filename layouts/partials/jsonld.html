@@ -1,0 +1,72 @@
+{{ if .IsPage }}
+{{ $author := .Site.Params.author }}
+{{ $image := .Params.image }}
+{{ if not $image }}
+  {{ $images := .Site.Params.images }}
+  {{ if $images }}
+    {{ $image = index $images 0 }}
+  {{ end }}
+{{ end }}
+{{ if $image }}
+  {{ if not (hasPrefix $image "http") }}
+    {{ $image = printf "%s%s" .Site.BaseURL (strings.TrimPrefix "/" $image) }}
+  {{ end }}
+{{ end }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ .Permalink }}
+  },
+  "headline": {{ .Title }},
+  {{ with $image }}"image": {{ . }},{{ end }}
+  "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" }},
+  "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }},
+  "author": {
+    "@type": "Person",
+    "name": {{ $author }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ .Site.Title }},
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ printf "%s%s" .Site.BaseURL "images/avatar.png" }}
+    }
+  },
+  "description": {{ .Description | default .Summary }}{{ with .Params.tags }},
+  "keywords": {{ delimit . ", " }}{{ end }}
+}
+</script>
+{{ else }}
+{{ $images := .Site.Params.images }}
+{{ $image := "" }}
+{{ if $images }}
+  {{ $image = index $images 0 }}
+{{ end }}
+{{ if $image }}
+  {{ if not (hasPrefix $image "http") }}
+    {{ $image = printf "%s%s" .Site.BaseURL (strings.TrimPrefix "/" $image) }}
+  {{ end }}
+{{ end }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ .Site.Title }},
+  "url": {{ .Site.BaseURL }},
+  "description": {{ .Site.Params.description }}{{ with $image }},
+  "image": {{ . }}{{ end }},
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": {{ printf "%ssearch/?q={search_term_string}" .Site.BaseURL }}
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+{{ end }}

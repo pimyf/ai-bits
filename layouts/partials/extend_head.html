@@ -1,16 +1,25 @@
-<!-- Favicon -->
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+{{/* SEO 扩展：JSON-LD 结构化数据 + Twitter Card */}}
+{{ partial "jsonld.html" . }}
+{{ partial "twitter_card.html" . }}
 
-<!-- 阅读进度条 -->
-<style>
-.reading-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 3px;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6);
-  z-index: 9999;
-  transition: width 0.05s ease;
-}
-</style>
+{{/* 额外的 Open Graph 标签 */}}
+{{ $image := .Params.image }}
+{{ if not $image }}
+  {{ $images := .Site.Params.images }}
+  {{ if $images }}
+    {{ $image = index $images 0 }}
+  {{ end }}
+{{ end }}
+{{ if $image }}
+  {{ if not (hasPrefix $image "http") }}
+    {{ $image = printf "%s%s" .Site.BaseURL (strings.TrimPrefix "/" $image) }}
+  {{ end }}
+{{ end }}
+{{ with $image }}
+<meta property="og:image" content="{{ . }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+{{ end }}
+{{ with .Params.image }}
+<meta property="og:image:alt" content="{{ $.Title }}">
+{{ end }}

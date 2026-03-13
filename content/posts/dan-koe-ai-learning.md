@@ -4,6 +4,7 @@ date: 2026-02-13
 draft: false
 tags: ["AI", "学习方法", "Dan Koe", "效率", "知识管理"]
 description: "Dan Koe 的 AI 加速学习法：用 AI 管理知识库 + 目标导向学习 + 战术性压力，把学习效率提升一个数量级。"
+image: "/images/posts/dan-koe-cover.png"
 ---
 
 前几天刷到一个叫 Dan Koe 的博主。

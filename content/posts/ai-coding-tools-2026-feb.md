@@ -4,6 +4,7 @@ date: 2026-02-13
 draft: false
 tags: ["AI", "编程工具", "Cursor", "Copilot", "Claude Code", "Codex", "Antigravity", "开发效率"]
 description: "全面盘点 2026 年最火的 AI 编程工具：OpenAI Codex、Google Antigravity、Cursor、Claude Code、Windsurf、国内的 Trae 和猫爪...帮你找到最适合自己的那一款。"
+image: "/images/posts/ai-tools-cover.png"
 ---
 
 AI 编程工具太多了，每周都有新的。

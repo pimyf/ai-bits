@@ -1,0 +1,22 @@
+{{ $image := .Params.image }}
+{{ if not $image }}
+  {{ $images := .Site.Params.images }}
+  {{ if $images }}
+    {{ $image = index $images 0 }}
+  {{ end }}
+{{ end }}
+{{ if $image }}
+  {{ if not (hasPrefix $image "http") }}
+    {{ $image = printf "%s%s" .Site.BaseURL (strings.TrimPrefix "/" $image) }}
+  {{ end }}
+{{ end }}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ .Description | default .Summary | plainify | truncate 200 }}">
+{{ with $image }}<meta name="twitter:image" content="{{ . }}">{{ end }}
+{{ with .Site.Params.twitter.site }}
+<meta name="twitter:site" content="{{ . }}">
+{{ end }}
+{{ with .Site.Params.twitter.creator }}
+<meta name="twitter:creator" content="{{ . }}">
+{{ end }}

@@ -1,7 +1,13 @@
 baseURL = 'https://getaibits.com/'
 languageCode = 'zh-cn'
+defaultContentLanguage = 'zh-cn'
 title = 'AI Bits'
 theme = 'PaperMod'
+
+# SEO 基础配置
+enableRobotsTXT = true
+canonifyURLs = true
+rssLimit = 20
 
 # 启用搜索
 [outputs]
@@ -10,6 +16,24 @@ theme = 'PaperMod'
 [params]
   author = "Gavin"
   description = "AI 知识、工具、实践 —— 每一个小知识点，都可能带来大启发"
+  
+  # SEO 关键词
+  keywords = ["AI", "人工智能", "OpenClaw", "Claude", "大模型", "AI工具", "AI编程", "Agent"]
+  
+  # 社交分享默认图片
+  images = ["/images/og-default.png"]
+  
+  # Twitter Card
+  [params.twitter]
+    card = "summary_large_image"
+    site = ""
+    creator = ""
+  
+  # Open Graph
+  [params.opengraph]
+    enabled = true
+    site_name = "AI Bits"
+    type = "website"
   ShowReadingTime = true
   ShowShareButtons = false
   ShowPostNavLinks = true

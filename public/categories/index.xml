@@ -1,11 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>Categories on AI Bits</title>
-    <link>https://getaibits.com/categories/</link>
-    <description>Recent content in Categories on AI Bits</description>
-    <generator>Hugo -- 0.155.1</generator>
-    <language>zh-cn</language>
-    <atom:link href="https://getaibits.com/categories/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Categories on AI Bits</title><link>https://getaibits.com/categories/</link><description>Recent content in Categories on AI Bits</description><image><title>AI Bits</title><url>https://getaibits.com/images/og-default.png</url><link>https://getaibits.com/images/og-default.png</link></image><generator>Hugo -- 0.155.1</generator><language>zh-cn</language><atom:link href="https://getaibits.com/categories/index.xml" rel="self" type="application/rss+xml"/></channel></rss>

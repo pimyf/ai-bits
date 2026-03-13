@@ -4,6 +4,7 @@ date: 2026-02-14
 draft: false
 tags: ["Claude", "AI", "Skills", "教程", "Claude Code"]
 description: "Claude Skills 完整指南：10 个神级技巧、实战示例、最佳实践，让 Claude 从通用助手变成专属专家"
+image: "/images/posts/claude-skills-cover.png"
 author: "Gavin"
 ---
 

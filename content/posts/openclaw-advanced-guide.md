@@ -4,6 +4,7 @@ date: 2026-02-06
 draft: false
 tags: ["OpenClaw", "AI", "教程", "Claude"]
 description: "OpenClaw 的高级功能详解：多 Agent、定时任务、沙盒隔离、Hooks、插件系统等"
+image: "/images/posts/openclaw-guide-cover.png"
 author: "Gavin"
 ---
 
