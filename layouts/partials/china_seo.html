@@ -1,0 +1,62 @@
+{{/* 国内 SEO 优化：百度、微博、微信 */}}
+
+{{/* 百度站长验证 */}}
+{{ with .Site.Params.baiduVerification }}
+<meta name="baidu-site-verification" content="{{ . }}">
+{{ end }}
+
+{{/* 百度统计 */}}
+{{ with .Site.Params.baiduAnalytics }}
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?{{ . }}";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+{{ end }}
+
+{{/* 百度自动推送 */}}
+<script>
+(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  } else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+{{/* 微博 Card */}}
+{{ $image := .Params.image }}
+{{ if not $image }}
+  {{ $images := .Site.Params.images }}
+  {{ if $images }}
+    {{ $image = index $images 0 }}
+  {{ end }}
+{{ end }}
+{{ if $image }}
+  {{ if not (hasPrefix $image "http") }}
+    {{ $image = printf "%s%s" .Site.BaseURL (strings.TrimPrefix "/" $image) }}
+  {{ end }}
+{{ end }}
+<meta name="weibo:webpage:type" content="webpage">
+<meta name="weibo:webpage:title" content="{{ .Title }}">
+<meta name="weibo:webpage:description" content="{{ .Description | default .Summary | plainify | truncate 200 }}">
+{{ with $image }}<meta name="weibo:webpage:image" content="{{ . }}">{{ end }}
+
+{{/* 360 搜索验证（可选） */}}
+{{ with .Site.Params.soVerification }}
+<meta name="360-site-verification" content="{{ . }}">
+{{ end }}
+
+{{/* 搜狗搜索验证（可选） */}}
+{{ with .Site.Params.sogouVerification }}
+<meta name="sogou_site_verification" content="{{ . }}">
+{{ end }}

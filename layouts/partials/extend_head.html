@@ -1,6 +1,7 @@
-{{/* SEO 扩展：JSON-LD 结构化数据 + Twitter Card */}}
+{{/* SEO 扩展：JSON-LD 结构化数据 + Twitter Card + 国内 SEO */}}
 {{ partial "jsonld.html" . }}
 {{ partial "twitter_card.html" . }}
+{{ partial "china_seo.html" . }}
 
 {{/* 额外的 Open Graph 标签 */}}
 {{ $image := .Params.image }}

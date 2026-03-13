@@ -23,6 +23,16 @@ rssLimit = 20
   # 社交分享默认图片
   images = ["/images/og-default.png"]
   
+  # 百度站长验证（需要到百度站长平台获取）
+  baiduVerification = ""
+  
+  # 百度统计（可选）
+  baiduAnalytics = ""
+  
+  # 微博 Card
+  [params.weibo]
+    card = "summary_large_image"
+  
   # Twitter Card
   [params.twitter]
     card = "summary_large_image"
