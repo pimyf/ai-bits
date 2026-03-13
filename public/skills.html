@@ -1,0 +1,193 @@
+<!doctype html><html lang=zh-cn dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>技能商店 | AI Bits</title><meta name=keywords content><meta name=description content="
+
+
+🔧 技能商店 —— 这里是 AI Bits 博客背后的全部技能和能力展示。
+每个技能都代表一个可独立运行的功能模块，通过简单的自然语言指令即可调用。所有技能都基于 OpenClaw 多 Agent 协作系统构建。"><meta name=author content="Gavin"><link rel=canonical href=https://getaibits.com/skills.html><link crossorigin=anonymous href=https://getaibits.com/assets/css/stylesheet.44e854f43d58f6dac184d229a83426e7437723b428a6ee8aa1367a80078e3bef.css integrity="sha256-ROhU9D1Y9trBhNIpqDQm50N3I7Qopu6KoTZ6gAeOO+8=" rel="preload stylesheet" as=style><link rel=icon href=https://getaibits.com/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://getaibits.com/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://getaibits.com/favicon-32x32.png><link rel=apple-touch-icon href=https://getaibits.com/apple-touch-icon.png><link rel=mask-icon href=https://getaibits.com/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh-cn href=https://getaibits.com/skills.html><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://getaibits.com/skills.html"},"headline":"技能商店","image":"https://getaibits.com/images/og-default.png","datePublished":"2026-03-06T00:00:00Z","dateModified":"2026-03-06T00:00:00Z","author":{"@type":"Person","name":"Gavin"},"publisher":{"@type":"Organization","name":"AI Bits","logo":{"@type":"ImageObject","url":"https://getaibits.com/images/avatar.png"}},"description":"\u003cstyle\u003e\n.skills-container {\n  max-width: 1200px;\n}\n\n.skill-section {\n  margin-bottom: 3rem;\n}\n\n.skill-item {\n  background: var(--code-bg);\n  border-radius: 12px;\n  padding: 1.5rem;\n  margin-bottom: 1.5rem;\n  border: 1px solid var(--border);\n  transition: all 0.3s ease;\n}\n\n.skill-item:hover {\n  box-shadow: 0 4px 20px rgba(0,0,0,0.1);\n  border-color: var(--primary);\n}\n\n.skill-header {\n  display: flex;\n  align-items: flex-start;\n  gap: 1rem;\n  margin-bottom: 1rem;\n}\n\n.skill-icon {\n  font-size: 2rem;\n  width: 50px;\n  height: 50px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: linear-gradient(135deg, var(--primary), var(--secondary));\n  border-radius: 10px;\n  flex-shrink: 0;\n}\n\n.skill-title-row {\n  flex: 1;\n}\n\n.skill-title {\n  font-size: 1.3rem;\n  font-weight: 600;\n  color: var(--primary);\n  margin: 0 0 0.5rem 0;\n}\n\n.skill-tags {\n  display: flex;\n  gap: 0.5rem;\n  flex-wrap: wrap;\n}\n\n.skill-tag {\n  font-size: 0.75rem;\n  padding: 0.2rem 0.6rem;\n  border-radius: 20px;\n  font-weight: 500;\n}\n\n.skill-tag.official {\n  background: #3b82f6;\n  color: white;\n}\n\n.skill-tag.hot {\n  background: #ef4444;\n  color: white;\n}\n\n.skill-tag.required {\n  background: #10b981;\n  color: white;\n}\n\n.skill-desc {\n  font-size: 1rem;\n  color: var(--secondary);\n  line-height: 1.6;\n  margin-bottom: 1rem;\n}\n\n.skill-details {\n  background: var(--theme);\n  border-radius: 8px;\n  padding: 1rem;\n  margin-top: 1rem;\n}\n\n.skill-details h4 {\n  font-size: 0.9rem;\n  color: var(--primary);\n  margin: 0 0 0.5rem 0;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n}\n\n.skill-usage {\n  font-size: 0.9rem;\n  color: var(--secondary);\n  margin-bottom: 1rem;\n}\n\n.skill-code {\n  background: #1e1e1e;\n  border-radius: 6px;\n  padding: 1rem;\n  overflow-x: auto;\n  margin: 0.5rem 0;\n}\n\n.skill-code pre {\n  margin: 0;\n  font-size: 0.85rem;\n  line-height: 1.5;\n}\n\n.skill-code code {\n  color: #d4d4d4;\n  font-family: 'Consolas', 'Monaco', monospace;\n}\n\n.section-title {\n  font-size: 1.8rem;\n  font-weight: 700;\n  margin: 3rem 0 1.5rem;\n  padding-bottom: 0.5rem;\n  border-bottom: 3px solid var(--primary);\n  display: inline-block;\n}\n\n.intro {\n  font-size: 1.1rem;\n  line-height: 1.8;\n  margin-bottom: 2rem;\n  padding: 1.5rem;\n  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));\n  border-radius: 12px;\n  border-left: 4px solid var(--primary);\n}\n\n.cta-box {\n  background: var(--code-bg);\n  border-radius: 12px;\n  padding: 2rem;\n  margin-top: 3rem;\n  text-align: center;\n  border: 2px dashed var(--border);\n}\n\n.cta-box h3 {\n  margin: 0 0 1rem 0;\n  color: var(--primary);\n}\n\n.cta-box p {\n  margin: 0;\n  color: var(--secondary);\n}\n\u003c/style\u003e\n\u003cdiv class=\"skills-container\"\u003e\n\u003cdiv class=\"intro\"\u003e\n🔧 \u003cstrong\u003e技能商店\u003c/strong\u003e —— 这里是 AI Bits 博客背后的全部技能和能力展示。\n\u003cp\u003e每个技能都代表一个可独立运行的功能模块，通过简单的自然语言指令即可调用。所有技能都基于 OpenClaw 多 Agent 协作系统构建。\u003c/p\u003e"}</script><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="技能商店"><meta name=twitter:description content=" 🔧 技能商店 —— 这里是 AI Bits 博客背后的全部技能和能力展示。 每个技能都代表一个可独立运行的功能模块，通过简单的自然语言指令即可调用。所有技能都基于 OpenClaw 多 Agent 协作系统构建。
+"><meta name=twitter:image content="https://getaibits.com/images/og-default.png"><script>(function(){var t,e=document.createElement("script"),n=window.location.protocol.split(":")[0];n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script><meta name=weibo:webpage:type content="webpage"><meta name=weibo:webpage:title content="技能商店"><meta name=weibo:webpage:description content=" 🔧 技能商店 —— 这里是 AI Bits 博客背后的全部技能和能力展示。 每个技能都代表一个可独立运行的功能模块，通过简单的自然语言指令即可调用。所有技能都基于 OpenClaw 多 Agent 协作系统构建。
+"><meta name=weibo:webpage:image content="https://getaibits.com/images/og-default.png"><meta property="og:image" content="https://getaibits.com/images/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://getaibits.com/skills.html"><meta property="og:site_name" content="AI Bits"><meta property="og:title" content="技能商店"><meta property="og:description" content=" 🔧 技能商店 —— 这里是 AI Bits 博客背后的全部技能和能力展示。 每个技能都代表一个可独立运行的功能模块，通过简单的自然语言指令即可调用。所有技能都基于 OpenClaw 多 Agent 协作系统构建。"><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="pages"><meta property="article:published_time" content="2026-03-06T00:00:00+00:00"><meta property="article:modified_time" content="2026-03-06T00:00:00+00:00"><meta property="og:image" content="https://getaibits.com/images/og-default.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://getaibits.com/images/og-default.png"><meta name=twitter:title content="技能商店"><meta name=twitter:description content="
+
+
+🔧 技能商店 —— 这里是 AI Bits 博客背后的全部技能和能力展示。
+每个技能都代表一个可独立运行的功能模块，通过简单的自然语言指令即可调用。所有技能都基于 OpenClaw 多 Agent 协作系统构建。"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Pages","item":"https://getaibits.com/pages/"},{"@type":"ListItem","position":2,"name":"技能商店","item":"https://getaibits.com/skills.html"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"技能商店","name":"技能商店","description":" 🔧 技能商店 —— 这里是 AI Bits 博客背后的全部技能和能力展示。 每个技能都代表一个可独立运行的功能模块，通过简单的自然语言指令即可调用。所有技能都基于 OpenClaw 多 Agent 协作系统构建。\n","keywords":[],"articleBody":" 🔧 技能商店 —— 这里是 AI Bits 博客背后的全部技能和能力展示。 每个技能都代表一个可独立运行的功能模块，通过简单的自然语言指令即可调用。所有技能都基于 OpenClaw 多 Agent 协作系统构建。\n🤖 Agent 协作\n🏗️ 多Agent团队配置 官方 热门 核心 一只AI变一支团队——配置6个AI角色协作，总控中心统一调度，各Agent各司其职。\n🎯 使用方式 在总控中心描述任务，系统自动分发给对应Agent执行 💻 配置示例 # 团队架构 ├── 总控中心 (main) - 任务分发、结果汇总 ├── 研究分析专家 (research) - 商业分析、文献检索 ├── 内容创作专家 (content) - 公众号文章、教案 ├── 技术开发专家 (dev) - 代码开发、工具制作 ├── 多媒体专家 (media) - 图片生成、PPT └── 发布运营专家 (publish) - 内容发布、数据分析 # 使用示例 \"帮我调研AI编程工具，写一篇公众号文章\" → research调研 → content写作 → media配图 → publish发布 📁 配置文件 # ~/.openclaw/openclaw.json { \"agents\": { \"list\": [ {\"id\": \"research\", \"name\": \"研究分析专家\"}, {\"id\": \"content\", \"name\": \"内容创作专家\"}, {\"id\": \"dev\", \"name\": \"技术开发专家\"}, {\"id\": \"media\", \"name\": \"多媒体专家\"}, {\"id\": \"publish\", \"name\": \"发布运营专家\"} ] } } 🔄 Agent任务分发 官方 必装 智能识别任务类型，自动派发给对应Agent执行，支持复杂多步骤工作流编排。\n🎯 使用方式 总控中心自动分析任务，调用 sessions_spawn() 派发给对应Agent 💻 代码示例 # 派发规则映射 TASK_TYPE_MAPPING = { \"调研\": \"research\", \"分析\": \"research\", \"写作\": \"content\", \"文章\": \"content\", \"代码\": \"dev\", \"开发\": \"dev\", \"图片\": \"media\", \"配图\": \"media\", \"发布\": \"publish\" } # 派发示例 sessions_spawn( agentId=\"research\", task=\"调研Kubernetes零停机部署最佳实践\", mode=\"run\" ) # Agent完成后自动返回结果 ✅ 质量审核机制 官方 核心 关键节点人工审核，支持通过/修改/重写三种反馈，确保输出质量可控。\n🎯 工作流程 1. research → 调研报告 ↓ 2. 【审核点1】发送给主人审核 ├─ \"通过\" → 继续步骤3 ├─ \"修改\" → 返回修改 → 重新审核 └─ \"重写\" → 返回research重新调研 ↓ 3. content → 撰写文章 ↓ 4. 【审核点2】发送文章给主人审核 ↓ 5. media → 生成配图 ↓ 6. 【审核点3】最终确认 → publish发布 🔍 信息获取\n🌐 网页搜索 官方 必装 Tavily Search + Brave Search Worker 双引擎，实时获取网络信息，国内直连可用。\n🎯 使用方式 # 方式1: OpenClaw内置工具 web_search(query=\"AI编程工具对比\", count=10) 方式2: Brave Search Worker curl “https://search.getaibits.com/search?q=关键词” -H “X-Proxy-Token: YOUR_TOKEN”\n方式3: Tavily API curl “https://api.tavily.com/search\" -H “Content-Type: application/json” -d ‘{“query”: “Kubernetes部署”, “api_key”: “tvly-xxx”}’ 📁 配置 # ~/.openclaw/openclaw.json { \"tools\": { \"web\": { \"search\": { \"enabled\": true, \"provider\": \"tavily\", \"apiKey\": \"tvly-dev-xxx\" } } } } 🔬 深度研究 官方 多引擎搜索 + 网页提取 + 结构化分析报告，自动生成完整调研报告。\n🎯 使用方式 # 自动研究流程 research_agent.execute({ topic: \"AI编程工具\", depth: \"comprehensive\", output: \"markdown_report\" }) 输出包含 市场概览 主流工具对比 用户评价分析 选型建议 🔭 浏览器控制 官方 必装 无头Chrome截图、网页自动化、视觉调试，支持UI自动化测试。\n🎯 使用方式 # 打开网页 browser(action=\"open\", profile=\"openclaw\", url=\"https://example.com\") 截图 browser(action=“screenshot”, profile=“openclaw”, targetId=“xxx”, fullPage=true)\n获取页面快照 browser(action=“snapshot”, profile=“openclaw”, interactive=true, refs=“aria”)\n点击元素 browser(action=“act”, kind=“click”, ref=“e123”)\n输入文本 browser(action=“act”, kind=“type”, ref=“e456”, text=“搜索内容”) ✍️ 内容创作\n📝 公众号文章写作 官方 热门 卡兹克风格写作，极短段落、口语化、情绪穿插，自动生成高质量公众号文章。\n🎯 写作风格 # 卡兹克风格特点 - 一句话一段 - 口语化断句：\"真的离谱。\" - 情绪穿插：\"想想就焦虑。\" - 数字精确强调 - 个人视角：\"我第一次看到...\" - 固定结尾：\"以上，既然看到这里了...\" 使用示例 sessions_spawn( agentId=“content”, task=“写一篇关于AI焦虑的公众号文章，卡兹克风格”, mode=“run” )\n自动保存到 ~/Documents/Obsidian Vault/00 草稿箱/ 🖼️ AI图片生成 官方 必装 Nano Banana Pro (Gemini 3) 文生图，2K高清配图生成，支持多种风格。\n🎯 使用方式 # 方式1: Nano Banana Pro脚本 cd ~/.openclaw/workspace/skills/nano-banana-pro uv run scripts/generate_image.py \\ --prompt \"一只戴墨镜的可爱猫咪，赛博朋克风格\" \\ --filename \"cyber-cat.png\" \\ --resolution 2K 方式2: API调用 curl “http://zx2.52youxi.cc:3000/v1/images/generations\" -H “Authorization: Bearer sk-xxx” -d ‘{“prompt”: “cute cat”, “size”: “1024x1024”}’\n支持模型 gemini-2.5-flash-image gemini-3-flash-preview gemini-3-pro-image-preview 💻 技术开发\n💻 代码开发 官方 Python/Node.js/Shell脚本开发，工具制作，自动化流程搭建。\n🎯 使用方式 # 文件操作 read(file_path=\"/path/to/file.md\") write(file_path=\"/path/to/output.md\", content=\"# Hello\") edit(file_path=\"config.json\", old_string=\"xxx\", new_string=\"yyy\") 执行命令 exec(command=“ls -la”, timeout=10)\nACP代理（Codex/Claude Code） sessions_spawn( agentId=“dev”, runtime=“acp”, task=“写一个Python爬虫”, mode=“run” ) 🐙 GitHub操作 官方 仓库/Issues/PR/代码搜索，不开网页管理GitHub项目。\n🎯 常用命令 # 查看PR状态 gh pr list --repo owner/repo 创建Issue gh issue create –title “Bug: xxx” –body “描述”\n代码搜索 gh search code “function name” –language python\n查看CI状态 gh run list –repo owner/repo\n克隆仓库 gh repo clone owner/repo 📱 平台集成\n📄 飞书文档 官方 飞书文档读写、知识库管理、多维表格操作，完整办公自动化。\n🎯 使用方式 # 读取文档 feishu_doc(action=\"read\", doc_token=\"xxx\") 写入文档 feishu_doc(action=“write”, doc_token=“xxx”, content=”# 标题”)\n操作多维表格 feishu_bitable_list_records(app_token=“xxx”, table_id=“xxx”)\n发送消息到群 message(action=“send”, channel=“feishu”, target=“chat_id”, message=“Hello”) 🚀 内容发布 官方 公众号/博客/飞书多平台发布，一键分发到多个渠道。\n🎯 发布流程 # 1. 发布到getaibits.com write(file=\"/Projects/ai-bits/content/posts/xxx.md\") exec(\"git add . \u0026\u0026 git commit -m 'add post' \u0026\u0026 git push\") 2. 发布到公众号（需要人工审核） message(channel=“feishu”, target=“publish_group”, message=“文章已就绪，请审核后发布到公众号”)\n3. 发布到EvoMap 通过悬赏任务接口提交 🚀 开始使用 在飞书总控中心发送消息，描述你的需求，AI团队会自动调用相关技能组合完成任务。\n","wordCount":"534","inLanguage":"zh-cn","image":"https://getaibits.com/images/og-default.png","datePublished":"2026-03-06T00:00:00Z","dateModified":"2026-03-06T00:00:00Z","author":{"@type":"Person","name":"Gavin"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://getaibits.com/skills.html"},"publisher":{"@type":"Organization","name":"AI Bits","logo":{"@type":"ImageObject","url":"https://getaibits.com/favicon.ico"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo><a href=https://getaibits.com/ accesskey=h title="AI Bits (Alt + H)">AI Bits</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://getaibits.com/ title="🏠 首页"><span>🏠 首页</span></a></li><li><a href=https://getaibits.com/posts/ title="📚 文章"><span>📚 文章</span></a></li><li><a href=https://getaibits.com/skills.html title="🔧 技能"><span>🔧 技能</span></a></li><li><a href=https://getaibits.com/search/ title="🔍 搜索"><span>🔍 搜索</span></a></li><li><a href=https://getaibits.com/tags/ title="🏷️ 标签"><span>🏷️ 标签</span></a></li><li><a href=https://getaibits.com/about/ title="👤 关于"><span>👤 关于</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">技能商店</h1><div class=post-meta><span title='2026-03-06 00:00:00 +0000 UTC'>March 6, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></div></header><div class=post-content><style>.skills-container{max-width:1200px}.skill-section{margin-bottom:3rem}.skill-item{background:var(--code-bg);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;border:1px solid var(--border);transition:all .3s ease}.skill-item:hover{box-shadow:0 4px 20px rgba(0,0,0,.1);border-color:var(--primary)}.skill-header{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem}.skill-icon{font-size:2rem;width:50px;height:50px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--primary),var(--secondary));border-radius:10px;flex-shrink:0}.skill-title-row{flex:1}.skill-title{font-size:1.3rem;font-weight:600;color:var(--primary);margin:0 0 .5rem}.skill-tags{display:flex;gap:.5rem;flex-wrap:wrap}.skill-tag{font-size:.75rem;padding:.2rem .6rem;border-radius:20px;font-weight:500}.skill-tag.official{background:#3b82f6;color:#fff}.skill-tag.hot{background:#ef4444;color:#fff}.skill-tag.required{background:#10b981;color:#fff}.skill-desc{font-size:1rem;color:var(--secondary);line-height:1.6;margin-bottom:1rem}.skill-details{background:var(--theme);border-radius:8px;padding:1rem;margin-top:1rem}.skill-details h4{font-size:.9rem;color:var(--primary);margin:0 0 .5rem;text-transform:uppercase;letter-spacing:.5px}.skill-usage{font-size:.9rem;color:var(--secondary);margin-bottom:1rem}.skill-code{background:#1e1e1e;border-radius:6px;padding:1rem;overflow-x:auto;margin:.5rem 0}.skill-code pre{margin:0;font-size:.85rem;line-height:1.5}.skill-code code{color:#d4d4d4;font-family:consolas,monaco,monospace}.section-title{font-size:1.8rem;font-weight:700;margin:3rem 0 1.5rem;padding-bottom:.5rem;border-bottom:3px solid var(--primary);display:inline-block}.intro{font-size:1.1rem;line-height:1.8;margin-bottom:2rem;padding:1.5rem;background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(16,185,129,.1));border-radius:12px;border-left:4px solid var(--primary)}.cta-box{background:var(--code-bg);border-radius:12px;padding:2rem;margin-top:3rem;text-align:center;border:2px dashed var(--border)}.cta-box h3{margin:0 0 1rem;color:var(--primary)}.cta-box p{margin:0;color:var(--secondary)}</style><div class=skills-container><div class=intro>🔧 <strong>技能商店</strong> —— 这里是 AI Bits 博客背后的全部技能和能力展示。<p>每个技能都代表一个可独立运行的功能模块，通过简单的自然语言指令即可调用。所有技能都基于 OpenClaw 多 Agent 协作系统构建。</p></div><hr><p><span class=section-title>🤖 Agent 协作</span></p><div class=skill-item><div class=skill-header><span class=skill-icon>🏗️</span><div class=skill-title-row><h3 class=skill-title>多Agent团队配置</h3><div class=skill-tags><span class="skill-tag official">官方</span>
+<span class="skill-tag hot">热门</span>
+<span class="skill-tag required">核心</span></div></div></div><p class=skill-desc>一只AI变一支团队——配置6个AI角色协作，总控中心统一调度，各Agent各司其职。</p><div class=skill-details><h4>🎯 使用方式</h4><div class=skill-usage>在总控中心描述任务，系统自动分发给对应Agent执行</div><pre><code>&lt;h4&gt;💻 配置示例&lt;/h4&gt;
+&lt;div class=&quot;skill-code&quot;&gt;
+</code></pre><pre><code># 团队架构
+├── 总控中心 (main)      - 任务分发、结果汇总
+├── 研究分析专家 (research) - 商业分析、文献检索
+├── 内容创作专家 (content)  - 公众号文章、教案
+├── 技术开发专家 (dev)     - 代码开发、工具制作
+├── 多媒体专家 (media)     - 图片生成、PPT
+└── 发布运营专家 (publish)  - 内容发布、数据分析
+
+# 使用示例
+"帮我调研AI编程工具，写一篇公众号文章"
+→ research调研 → content写作 → media配图 → publish发布</code></pre><pre><code>&lt;/div&gt;
+
+&lt;h4&gt;📁 配置文件&lt;/h4&gt;
+&lt;div class=&quot;skill-code&quot;&gt;
+</code></pre><pre><code># ~/.openclaw/openclaw.json
+{
+  "agents": {
+    "list": [
+      {"id": "research", "name": "研究分析专家"},
+      {"id": "content", "name": "内容创作专家"},
+      {"id": "dev", "name": "技术开发专家"},
+      {"id": "media", "name": "多媒体专家"},
+      {"id": "publish", "name": "发布运营专家"}
+    ]
+  }
+}</code></pre><pre><code>&lt;/div&gt;
+</code></pre></div></div><div class=skill-item><div class=skill-header><span class=skill-icon>🔄</span><div class=skill-title-row><h3 class=skill-title>Agent任务分发</h3><div class=skill-tags><span class="skill-tag official">官方</span>
+<span class="skill-tag required">必装</span></div></div></div><p class=skill-desc>智能识别任务类型，自动派发给对应Agent执行，支持复杂多步骤工作流编排。</p><div class=skill-details><h4>🎯 使用方式</h4><div class=skill-usage>总控中心自动分析任务，调用 sessions_spawn() 派发给对应Agent</div><pre><code>&lt;h4&gt;💻 代码示例&lt;/h4&gt;
+&lt;div class=&quot;skill-code&quot;&gt;
+</code></pre><pre><code># 派发规则映射
+TASK_TYPE_MAPPING = {
+    "调研": "research",
+    "分析": "research", 
+    "写作": "content",
+    "文章": "content",
+    "代码": "dev",
+    "开发": "dev",
+    "图片": "media",
+    "配图": "media",
+    "发布": "publish"
+}
+
+# 派发示例
+sessions_spawn(
+    agentId="research",
+    task="调研Kubernetes零停机部署最佳实践",
+    mode="run"
+)
+# Agent完成后自动返回结果</code></pre><pre><code>&lt;/div&gt;
+</code></pre></div></div><div class=skill-item><div class=skill-header><span class=skill-icon>✅</span><div class=skill-title-row><h3 class=skill-title>质量审核机制</h3><div class=skill-tags><span class="skill-tag official">官方</span>
+<span class="skill-tag required">核心</span></div></div></div><p class=skill-desc>关键节点人工审核，支持通过/修改/重写三种反馈，确保输出质量可控。</p><div class=skill-details><h4>🎯 工作流程</h4><div class=skill-code><pre><code>1. research → 调研报告
+        ↓
+2. 【审核点1】发送给主人审核
+   ├─ "通过" → 继续步骤3
+   ├─ "修改" → 返回修改 → 重新审核
+   └─ "重写" → 返回research重新调研
+        ↓
+3. content → 撰写文章
+        ↓
+4. 【审核点2】发送文章给主人审核
+        ↓
+5. media → 生成配图
+        ↓
+6. 【审核点3】最终确认 → publish发布</code></pre></div></div></div><hr><p><span class=section-title>🔍 信息获取</span></p><div class=skill-item><div class=skill-header><span class=skill-icon>🌐</span><div class=skill-title-row><h3 class=skill-title>网页搜索</h3><div class=skill-tags><span class="skill-tag official">官方</span>
+<span class="skill-tag required">必装</span></div></div></div><p class=skill-desc>Tavily Search + Brave Search Worker 双引擎，实时获取网络信息，国内直连可用。</p><div class=skill-details><h4>🎯 使用方式</h4><div class=skill-code><pre><code># 方式1: OpenClaw内置工具
+web_search(query="AI编程工具对比", count=10)
+<h1 id=方式2-brave-search-worker>方式2: Brave Search Worker<a hidden class=anchor aria-hidden=true href=#方式2-brave-search-worker>#</a></h1>
+<p>curl &ldquo;<a href="https://search.getaibits.com/search?q=">https://search.getaibits.com/search?q=</a>关键词&rdquo; <br>
+-H &ldquo;X-Proxy-Token: YOUR_TOKEN&rdquo;</p>
+<h1 id=方式3-tavily-api>方式3: Tavily API<a hidden class=anchor aria-hidden=true href=#方式3-tavily-api>#</a></h1>
+<p>curl &ldquo;<a href=https://api.tavily.com/search%22>https://api.tavily.com/search&quot;</a> <br>
+-H &ldquo;Content-Type: application/json&rdquo; <br>
+-d &lsquo;{&ldquo;query&rdquo;: &ldquo;Kubernetes部署&rdquo;, &ldquo;api_key&rdquo;: &ldquo;tvly-xxx&rdquo;}&rsquo;</code></pre></div></p><pre><code>&lt;h4&gt;📁 配置&lt;/h4&gt;
+&lt;div class=&quot;skill-code&quot;&gt;
+</code></pre><pre><code># ~/.openclaw/openclaw.json
+{
+  "tools": {
+    "web": {
+      "search": {
+        "enabled": true,
+        "provider": "tavily",
+        "apiKey": "tvly-dev-xxx"
+      }
+    }
+  }
+}</code></pre><pre><code>&lt;/div&gt;
+</code></pre></div></div><div class=skill-item><div class=skill-header><span class=skill-icon>🔬</span><div class=skill-title-row><h3 class=skill-title>深度研究</h3><div class=skill-tags><span class="skill-tag official">官方</span></div></div></div><p class=skill-desc>多引擎搜索 + 网页提取 + 结构化分析报告，自动生成完整调研报告。</p><div class=skill-details><h4>🎯 使用方式</h4><div class=skill-code><pre><code># 自动研究流程
+research_agent.execute({
+    topic: "AI编程工具",
+    depth: "comprehensive",
+    output: "markdown_report"
+})
+<h1 id=输出包含>输出包含<a hidden class=anchor aria-hidden=true href=#输出包含>#</a></h1>
+<ul>
+<li>市场概览</li>
+<li>主流工具对比</li>
+<li>用户评价分析</li>
+<li>选型建议</code></pre></div></div></li></ul></div><div class=skill-item><div class=skill-header><span class=skill-icon>🔭</span><div class=skill-title-row><h3 class=skill-title>浏览器控制</h3><div class=skill-tags><span class="skill-tag official">官方</span>
+<span class="skill-tag required">必装</span></div></div></div><p class=skill-desc>无头Chrome截图、网页自动化、视觉调试，支持UI自动化测试。</p><div class=skill-details><h4>🎯 使用方式</h4><div class=skill-code><pre><code># 打开网页
+browser(action="open", profile="openclaw", url="https://example.com")
+<h1 id=截图>截图<a hidden class=anchor aria-hidden=true href=#截图>#</a></h1>
+<p>browser(action=&ldquo;screenshot&rdquo;, profile=&ldquo;openclaw&rdquo;, targetId=&ldquo;xxx&rdquo;, fullPage=true)</p>
+<h1 id=获取页面快照>获取页面快照<a hidden class=anchor aria-hidden=true href=#获取页面快照>#</a></h1>
+<p>browser(action=&ldquo;snapshot&rdquo;, profile=&ldquo;openclaw&rdquo;, interactive=true, refs=&ldquo;aria&rdquo;)</p>
+<h1 id=点击元素>点击元素<a hidden class=anchor aria-hidden=true href=#点击元素>#</a></h1>
+<p>browser(action=&ldquo;act&rdquo;, kind=&ldquo;click&rdquo;, ref=&ldquo;e123&rdquo;)</p>
+<h1 id=输入文本>输入文本<a hidden class=anchor aria-hidden=true href=#输入文本>#</a></h1>
+<p>browser(action=&ldquo;act&rdquo;, kind=&ldquo;type&rdquo;, ref=&ldquo;e456&rdquo;, text=&ldquo;搜索内容&rdquo;)</code></pre></div></p></div></div><hr><p><span class=section-title>✍️ 内容创作</span></p><div class=skill-item><div class=skill-header><span class=skill-icon>📝</span><div class=skill-title-row><h3 class=skill-title>公众号文章写作</h3><div class=skill-tags><span class="skill-tag official">官方</span>
+<span class="skill-tag hot">热门</span></div></div></div><p class=skill-desc>卡兹克风格写作，极短段落、口语化、情绪穿插，自动生成高质量公众号文章。</p><div class=skill-details><h4>🎯 写作风格</h4><div class=skill-code><pre><code># 卡兹克风格特点
+- 一句话一段
+- 口语化断句："真的离谱。"
+- 情绪穿插："想想就焦虑。"
+- 数字精确强调
+- 个人视角："我第一次看到..."
+- 固定结尾："以上，既然看到这里了..."
+<h1 id=使用示例>使用示例<a hidden class=anchor aria-hidden=true href=#使用示例>#</a></h1>
+<p>sessions_spawn(
+agentId=&ldquo;content&rdquo;,
+task=&ldquo;写一篇关于AI焦虑的公众号文章，卡兹克风格&rdquo;,
+mode=&ldquo;run&rdquo;
+)</p>
+<h1 id=自动保存到>自动保存到<a hidden class=anchor aria-hidden=true href=#自动保存到>#</a></h1>
+<p>~/Documents/Obsidian Vault/00 草稿箱/</code></pre></div></p></div></div><div class=skill-item><div class=skill-header><span class=skill-icon>🖼️</span><div class=skill-title-row><h3 class=skill-title>AI图片生成</h3><div class=skill-tags><span class="skill-tag official">官方</span>
+<span class="skill-tag required">必装</span></div></div></div><p class=skill-desc>Nano Banana Pro (Gemini 3) 文生图，2K高清配图生成，支持多种风格。</p><div class=skill-details><h4>🎯 使用方式</h4><div class=skill-code><pre><code># 方式1: Nano Banana Pro脚本
+cd ~/.openclaw/workspace/skills/nano-banana-pro
+uv run scripts/generate_image.py \
+  --prompt "一只戴墨镜的可爱猫咪，赛博朋克风格" \
+  --filename "cyber-cat.png" \
+  --resolution 2K
+<h1 id=方式2-api调用>方式2: API调用<a hidden class=anchor aria-hidden=true href=#方式2-api调用>#</a></h1>
+<p>curl &ldquo;<a href=http://zx2.52youxi.cc:3000/v1/images/generations%22>http://zx2.52youxi.cc:3000/v1/images/generations&quot;</a> <br>
+-H &ldquo;Authorization: Bearer sk-xxx&rdquo; <br>
+-d &lsquo;{&ldquo;prompt&rdquo;: &ldquo;cute cat&rdquo;, &ldquo;size&rdquo;: &ldquo;1024x1024&rdquo;}&rsquo;</p>
+<h1 id=支持模型>支持模型<a hidden class=anchor aria-hidden=true href=#支持模型>#</a></h1>
+<ul>
+<li>gemini-2.5-flash-image</li>
+<li>gemini-3-flash-preview</li>
+<li>gemini-3-pro-image-preview</code></pre></div></div></li></ul></div><hr><p><span class=section-title>💻 技术开发</span></p><div class=skill-item><div class=skill-header><span class=skill-icon>💻</span><div class=skill-title-row><h3 class=skill-title>代码开发</h3><div class=skill-tags><span class="skill-tag official">官方</span></div></div></div><p class=skill-desc>Python/Node.js/Shell脚本开发，工具制作，自动化流程搭建。</p><div class=skill-details><h4>🎯 使用方式</h4><div class=skill-code><pre><code># 文件操作
+read(file_path="/path/to/file.md")
+write(file_path="/path/to/output.md", content="# Hello")
+edit(file_path="config.json", old_string="xxx", new_string="yyy")
+<h1 id=执行命令>执行命令<a hidden class=anchor aria-hidden=true href=#执行命令>#</a></h1>
+<p>exec(command=&ldquo;ls -la&rdquo;, timeout=10)</p>
+<h1 id=acp代理codexclaude-code>ACP代理（Codex/Claude Code）<a hidden class=anchor aria-hidden=true href=#acp代理codexclaude-code>#</a></h1>
+<p>sessions_spawn(
+agentId=&ldquo;dev&rdquo;,
+runtime=&ldquo;acp&rdquo;,
+task=&ldquo;写一个Python爬虫&rdquo;,
+mode=&ldquo;run&rdquo;
+)</code></pre></div></p></div></div><div class=skill-item><div class=skill-header><span class=skill-icon>🐙</span><div class=skill-title-row><h3 class=skill-title>GitHub操作</h3><div class=skill-tags><span class="skill-tag official">官方</span></div></div></div><p class=skill-desc>仓库/Issues/PR/代码搜索，不开网页管理GitHub项目。</p><div class=skill-details><h4>🎯 常用命令</h4><div class=skill-code><pre><code># 查看PR状态
+gh pr list --repo owner/repo
+<h1 id=创建issue>创建Issue<a hidden class=anchor aria-hidden=true href=#创建issue>#</a></h1>
+<p>gh issue create &ndash;title &ldquo;Bug: xxx&rdquo; &ndash;body &ldquo;描述&rdquo;</p>
+<h1 id=代码搜索>代码搜索<a hidden class=anchor aria-hidden=true href=#代码搜索>#</a></h1>
+<p>gh search code &ldquo;function name&rdquo; &ndash;language python</p>
+<h1 id=查看ci状态>查看CI状态<a hidden class=anchor aria-hidden=true href=#查看ci状态>#</a></h1>
+<p>gh run list &ndash;repo owner/repo</p>
+<h1 id=克隆仓库>克隆仓库<a hidden class=anchor aria-hidden=true href=#克隆仓库>#</a></h1>
+<p>gh repo clone owner/repo</code></pre></div></p></div></div><hr><p><span class=section-title>📱 平台集成</span></p><div class=skill-item><div class=skill-header><span class=skill-icon>📄</span><div class=skill-title-row><h3 class=skill-title>飞书文档</h3><div class=skill-tags><span class="skill-tag official">官方</span></div></div></div><p class=skill-desc>飞书文档读写、知识库管理、多维表格操作，完整办公自动化。</p><div class=skill-details><h4>🎯 使用方式</h4><div class=skill-code><pre><code># 读取文档
+feishu_doc(action="read", doc_token="xxx")
+<h1 id=写入文档>写入文档<a hidden class=anchor aria-hidden=true href=#写入文档>#</a></h1>
+<p>feishu_doc(action=&ldquo;write&rdquo;, doc_token=&ldquo;xxx&rdquo;, content=&rdquo;# 标题&rdquo;)</p>
+<h1 id=操作多维表格>操作多维表格<a hidden class=anchor aria-hidden=true href=#操作多维表格>#</a></h1>
+<p>feishu_bitable_list_records(app_token=&ldquo;xxx&rdquo;, table_id=&ldquo;xxx&rdquo;)</p>
+<h1 id=发送消息到群>发送消息到群<a hidden class=anchor aria-hidden=true href=#发送消息到群>#</a></h1>
+<p>message(action=&ldquo;send&rdquo;, channel=&ldquo;feishu&rdquo;, target=&ldquo;chat_id&rdquo;, message=&ldquo;Hello&rdquo;)</code></pre></div></p></div></div><div class=skill-item><div class=skill-header><span class=skill-icon>🚀</span><div class=skill-title-row><h3 class=skill-title>内容发布</h3><div class=skill-tags><span class="skill-tag official">官方</span></div></div></div><p class=skill-desc>公众号/博客/飞书多平台发布，一键分发到多个渠道。</p><div class=skill-details><h4>🎯 发布流程</h4><div class=skill-code><pre><code># 1. 发布到getaibits.com
+write(file="/Projects/ai-bits/content/posts/xxx.md")
+exec("git add . && git commit -m 'add post' && git push")
+<h1 id=2-发布到公众号需要人工审核>2. 发布到公众号（需要人工审核）<a hidden class=anchor aria-hidden=true href=#2-发布到公众号需要人工审核>#</a></h1>
+<p>message(channel=&ldquo;feishu&rdquo;, target=&ldquo;publish_group&rdquo;,
+message=&ldquo;文章已就绪，请审核后发布到公众号&rdquo;)</p>
+<h1 id=3-发布到evomap>3. 发布到EvoMap<a hidden class=anchor aria-hidden=true href=#3-发布到evomap>#</a></h1>
+<h1 id=通过悬赏任务接口提交>通过悬赏任务接口提交</code></pre><a hidden class=anchor aria-hidden=true href=#通过悬赏任务接口提交>#</a></h1><pre><code>&lt;/div&gt;
+</code></pre></div></div><hr><div class=cta-box><h3>🚀 开始使用</h3><p>在飞书总控中心发送消息，描述你的需求，AI团队会自动调用相关技能组合完成任务。</p></div></div></div><footer class=post-footer><ul class=post-tags></ul></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://getaibits.com/>AI Bits</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg></a><div class=reading-progress id=reading-progress></div><script>window.addEventListener("scroll",function(){const e=document.querySelector(".post-content");if(!e)return;const t=window.scrollY,n=e.offsetHeight,s=window.innerHeight,o=t/(n-s)*100;document.getElementById("reading-progress").style.width=Math.min(o,100)+"%"})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>
