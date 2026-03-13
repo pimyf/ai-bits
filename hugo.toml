@@ -29,6 +29,12 @@ rssLimit = 20
   # 百度统计（可选）
   baiduAnalytics = ""
   
+  # IndexNow Key（用于 Bing/搜索引擎即时推送）
+  indexNowKey = "b2ac16aa10e477484c20cf7918192b16"
+  
+  # Bing 站长验证（可选）
+  bingVerification = ""
+  
   # 微博 Card
   [params.weibo]
     card = "summary_large_image"
