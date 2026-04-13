@@ -153,25 +153,25 @@ url: "/skills/lobster-2026.html"
 </div>
 
 <div class="tool-card">
-<h4><a href="https://ironclaw.io" target="_blank">IronClaw</a></h4>
+<h4><a href="https://www.ironclaw.com" target="_blank">IronClaw</a></h4>
 <div class="tool-meta">安全优先的开源AI代理运行时</div>
 <p>安全优先的开源AI代理运行时</p>
 </div>
 
 <div class="tool-card">
-<h4><a href="https://github.com/zeroclaw-labs/zeroclaw" target="_blank">ZeroClaw</a></h4>
+<h4><a href="https://www.zeroclawlabs.ai" target="_blank">ZeroClaw</a></h4>
 <div class="tool-meta">Rust构建的超轻量AI Agent框架</div>
 <p>超轻量AI Agent框架，Rust构建</p>
 </div>
 
 <div class="tool-card">
-<h4><a href="https://github.com/qwibitai/nanoclaw" target="_blank">NanoClaw</a></h4>
+<h4><a href="https://nanoclaw.dev" target="_blank">NanoClaw</a></h4>
 <div class="tool-meta">容器隔离的安全开源个人AI代理助手</div>
 <p>容器隔离的安全开源个人AI代理助手</p>
 </div>
 
 <div class="tool-card">
-<h4><a href="https://github.com/sipeed/picoclaw" target="_blank">PicoClaw</a></h4>
+<h4><a href="https://picoclaw.io" target="_blank">PicoClaw</a></h4>
 <div class="tool-meta">$10硬件可运行的超轻量AI Agent</div>
 <p>$10硬件可运行的超轻量AI Agent</p>
 </div>
@@ -185,53 +185,53 @@ url: "/skills/lobster-2026.html"
 <div class="tool-grid">
 
 <div class="tool-card">
-<h4><a href="https://github.com/ybgwon96/easyclaw" target="_blank">EasyClaw</a></h4>
+<h4><a href="https://openclaw.ai" target="_blank">EasyClaw</a></h4>
 <div class="tool-meta">OpenClaw一键启动的本地AI Agent工具</div>
 <p>简单到，你直接打钱就能用</p>
 <div class="tool-quote">OpenClaw一键启动</div>
 </div>
 
 <div class="tool-card">
-<h4><a href="https://github.com/qiuzhi2046/Qclaw" target="_blank">QClaw</a></h4>
+<h4><a href="https://qclaw.qq.com" target="_blank">QClaw</a></h4>
 <div class="tool-meta">腾讯出品的微信直连本地AI智能体助手</div>
 <p>一键式安装，方便快捷</p>
 <div class="tool-quote">腾讯出品 · 微信直连</div>
 </div>
 
 <div class="tool-card">
-<h4><a href="https://toolin.ai/tools/stepclaw" target="_blank">StepClaw</a></h4>
+<h4><a href="https://www.stepfun.com" target="_blank">StepClaw</a></h4>
 <div class="tool-meta">阶跃星辰的桌面端AI Agent智能伙伴</div>
 <p>阶跃星辰的桌面端AI Agent智能伙伴</p>
 </div>
 
 <div class="tool-card">
-<h4><a href="https://github.com/tsingliuwin/autoclaw" target="_blank">AutoClaw</a></h4>
+<h4><a href="https://autoglm.zhipuai.cn" target="_blank">AutoClaw</a></h4>
 <div class="tool-meta">智谱一键安装OpenClaw桌面客户端</div>
 <p>智谱一键安装OpenClaw桌面客户端</p>
 </div>
 
 <div class="tool-card">
-<h4><a href="https://github.com/netease-youdao/LobsterAI" target="_blank">LobsterAI</a></h4>
+<h4><a href="https://lobsterai.youdao.com" target="_blank">LobsterAI</a></h4>
 <div class="tool-meta">网易有道推出的开源桌面全场景AI Agent</div>
 <p>独立开发，开源作品</p>
 <div class="tool-quote">网易有道出品</div>
 </div>
 
 <div class="tool-card">
-<h4><a href="https://toolin.ai/tools/qoderwork" target="_blank">QoderWork</a></h4>
+<h4><a href="https://qoder.com" target="_blank">QoderWork</a></h4>
 <div class="tool-meta">macOS本地AI办公助手</div>
 <p>macOS本地AI办公助手</p>
 </div>
 
 <div class="tool-card">
-<h4><a href="https://toolin.ai/tools/workbuddy" target="_blank">WorkBuddy</a></h4>
+<h4><a href="https://www.codebuddy.cn/home" target="_blank">WorkBuddy</a></h4>
 <div class="tool-meta">腾讯AI桌面智能体办公助手</div>
 <p>腾讯版本的openclaw</p>
 <div class="tool-quote">腾讯出品</div>
 </div>
 
 <div class="tool-card">
-<h4><a href="https://github.com/qiuzhi2046/Qclaw" target="_blank">Qclaw AI</a></h4>
+<h4><a href="https://qclaw.qq.com" target="_blank">Qclaw AI</a></h4>
 <div class="tool-meta">OpenClaw可视化管家</div>
 <p>秋芝2046推出</p>
 <div class="tool-quote">OpenClaw可视化管家</div>
@@ -246,41 +246,41 @@ url: "/skills/lobster-2026.html"
 <div class="tool-grid">
 
 <div class="tool-card">
-<h4><a href="https://openclaw.ai" target="_blank">飞书 OpenClaw</a></h4>
+<h4><a href="https://openclaw.feishu.cn" target="_blank">飞书 OpenClaw</a></h4>
 <div class="tool-meta">飞书官方OpenClaw一键部署方案</div>
 <p>工作用最合适</p>
 <div class="tool-quote">飞书官方</div>
 </div>
 
 <div class="tool-card">
-<h4><a href="https://www.feishu.cn" target="_blank">飞书 aily</a></h4>
+<h4><a href="https://aily.feishu.cn" target="_blank">飞书 aily</a></h4>
 <div class="tool-meta">字节豆包驱动的企业级AI智能体开发平台</div>
 <p>字节豆包驱动的企业级AI智能体开发平台</p>
 </div>
 
 <div class="tool-card">
-<h4><a href="https://maxclaw.ai" target="_blank">MaxClaw</a></h4>
+<h4><a href="https://agent.minimaxi.com" target="_blank">MaxClaw</a></h4>
 <div class="tool-meta">MiniMax推出的零部署云端AI Agent平台</div>
 <p>对接了自家的大模型</p>
 <div class="tool-quote">MiniMax出品</div>
 </div>
 
 <div class="tool-card">
-<h4><a href="https://kimi.ai" target="_blank">Kimi Claw</a></h4>
+<h4><a href="https://www.kimi.com/bot" target="_blank">Kimi Claw</a></h4>
 <div class="tool-meta">月之暗面一键部署的24/7云端AI代理</div>
 <p>月之暗面一键部署的24/7云端AI代理</p>
 <div class="tool-quote">月之暗面出品</div>
 </div>
 
 <div class="tool-card">
-<h4><a href="https://copilot.alibaba.com" target="_blank">CoPaw</a></h4>
+<h4><a href="https://qwenpaw.agentscope.io" target="_blank">CoPaw</a></h4>
 <div class="tool-meta">阿里云通义自托管个人AI智能体平台</div>
 <p>阿里云通义自托管个人AI智能体平台</p>
 <div class="tool-quote">阿里云通义出品</div>
 </div>
 
 <div class="tool-card">
-<h4><a href="https://www.volcengine.com" target="_blank">ArkClaw</a></h4>
+<h4><a href="https://www.volcengine.com/product/arkclaw" target="_blank">ArkClaw</a></h4>
 <div class="tool-meta">火山引擎云端OpenClaw智能体平台</div>
 <p>火山引擎云端OpenClaw智能体平台</p>
 <div class="tool-quote">火山引擎出品</div>
