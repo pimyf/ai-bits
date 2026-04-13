@@ -1,27 +1,487 @@
-<!doctype html><html lang=zh-cn dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>网页搜索 | AI Bits</title><meta name=keywords content><meta name=description content="
+<!DOCTYPE html>
+<html lang="zh-cn" dir="auto" data-theme="auto">
 
-← 返回技能商店"><meta name=author content="Gavin"><link rel=canonical href=https://getaibits.com/skills/web-search.html><link crossorigin=anonymous href=https://getaibits.com/assets/css/stylesheet.44e854f43d58f6dac184d229a83426e7437723b428a6ee8aa1367a80078e3bef.css integrity="sha256-ROhU9D1Y9trBhNIpqDQm50N3I7Qopu6KoTZ6gAeOO+8=" rel="preload stylesheet" as=style><link rel=icon href=https://getaibits.com/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://getaibits.com/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://getaibits.com/favicon-32x32.png><link rel=apple-touch-icon href=https://getaibits.com/apple-touch-icon.png><link rel=mask-icon href=https://getaibits.com/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh-cn href=https://getaibits.com/skills/web-search.html><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://getaibits.com/skills/web-search.html"},"headline":"网页搜索","image":"https://getaibits.com/images/og-default.png","datePublished":"2026-03-06T00:00:00Z","dateModified":"2026-03-06T00:00:00Z","author":{"@type":"Person","name":"Gavin"},"publisher":{"@type":"Organization","name":"AI Bits","logo":{"@type":"ImageObject","url":"https://getaibits.com/images/avatar.png"}},"description":"\u003cstyle\u003e\n.skill-detail {\n  max-width: 900px;\n  margin: 0 auto;\n}\n\n.skill-header {\n  text-align: center;\n  padding: 3rem 0;\n  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));\n  border-radius: 16px;\n  margin-bottom: 2rem;\n}\n\n.skill-icon-large {\n  font-size: 4rem;\n  margin-bottom: 1rem;\n}\n\n.skill-title {\n  font-size: 2.5rem;\n  font-weight: 700;\n  margin: 0 0 1rem 0;\n  color: var(--primary);\n}\n\n.skill-tags {\n  display: flex;\n  gap: 0.5rem;\n  justify-content: center;\n  flex-wrap: wrap;\n}\n\n.skill-tag {\n  padding: 0.3rem 0.8rem;\n  border-radius: 20px;\n  font-size: 0.85rem;\n  font-weight: 500;\n}\n\n.skill-tag.official { background: #3b82f6; color: white; }\n.skill-tag.required { background: #10b981; color: white; }\n\n.section {\n  margin: 3rem 0;\n}\n\n.section h2 {\n  font-size: 1.8rem;\n  color: var(--primary);\n  border-bottom: 2px solid var(--primary);\n  padding-bottom: 0.5rem;\n  margin-bottom: 1.5rem;\n}\n\n.code-block {\n  background: #1e1e1e;\n  border-radius: 8px;\n  padding: 1.5rem;\n  overflow-x: auto;\n  margin: 1rem 0;\n}\n\n.code-block pre {\n  margin: 0;\n  font-family: 'Consolas', 'Monaco', monospace;\n  font-size: 0.9rem;\n  line-height: 1.6;\n  color: #d4d4d4;\n}\n\n.provider-card {\n  background: var(--code-bg);\n  border-radius: 12px;\n  padding: 1.5rem;\n  margin: 1rem 0;\n  border: 1px solid var(--border);\n}\n\n.provider-card h3 {\n  margin: 0 0 1rem 0;\n  color: var(--primary);\n}\n\n.back-link {\n  display: inline-flex;\n  align-items: center;\n  gap: 0.5rem;\n  color: var(--primary);\n  text-decoration: none;\n  margin-bottom: 2rem;\n  font-weight: 500;\n}\n\n.back-link:hover {\n  text-decoration: underline;\n}\n\u003c/style\u003e\n\u003cdiv class=\"skill-detail\"\u003e\n\u003cp\u003e\u003ca href=\"/skills.html\" class=\"back-link\"\u003e← 返回技能商店\u003c/a\u003e\u003c/p\u003e"}</script><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="网页搜索"><meta name=twitter:description content=" ← 返回技能商店
-"><meta name=twitter:image content="https://getaibits.com/images/og-default.png"><script>(function(){var t,e=document.createElement("script"),n=window.location.protocol.split(":")[0];n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script><meta name=weibo:webpage:type content="webpage"><meta name=weibo:webpage:title content="网页搜索"><meta name=weibo:webpage:description content=" ← 返回技能商店
-"><meta name=weibo:webpage:image content="https://getaibits.com/images/og-default.png"><meta property="og:image" content="https://getaibits.com/images/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://getaibits.com/skills/web-search.html"><meta property="og:site_name" content="AI Bits"><meta property="og:title" content="网页搜索"><meta property="og:description" content=" ← 返回技能商店"><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="skills"><meta property="article:published_time" content="2026-03-06T00:00:00+00:00"><meta property="article:modified_time" content="2026-03-06T00:00:00+00:00"><meta property="og:image" content="https://getaibits.com/images/og-default.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://getaibits.com/images/og-default.png"><meta name=twitter:title content="网页搜索"><meta name=twitter:description content="
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>网页搜索 | AI Bits</title>
+<meta name="keywords" content="">
+<meta name="description" content="
 
-← 返回技能商店"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Skills","item":"https://getaibits.com/skills/"},{"@type":"ListItem","position":2,"name":"网页搜索","item":"https://getaibits.com/skills/web-search.html"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"网页搜索","name":"网页搜索","description":" ← 返回技能商店\n","keywords":[],"articleBody":" ← 返回技能商店\n🌐 网页搜索 官方 必装 概述 Tavily Search + Brave Search Worker 双引擎搜索，实时获取网络信息，国内直连可用。支持AI优化的搜索结果，适合研究、调研、信息收集场景。\n🔧 搜索引擎对比 Tavily Search (默认) 特点：AI优化的搜索结果，专为AI Agent设计，返回结构化数据\n网络：国内直连，无需代理\n适用：日常搜索、研究调研\nBrave Search Worker 特点：精准搜索，隐私保护，无广告\n网络：通过Cloudflare Worker中转\n适用：需要精准结果时使用\n💻 使用方法 方式1：OpenClaw内置工具（推荐） # 基础搜索 web_search(query=\"AI编程工具对比\", count=10) 带语言筛选 web_search( query=“Kubernetes最佳实践”, count=5, search_lang=“zh” )\n指定时间范围 web_search( query=“GPT-4最新功能”, freshness=“pw” # pw=本周, pm=本月, py=今年 )\n方式2：Tavily API直接调用 import requests response = requests.post( “https://api.tavily.com/search\", json={ “query”: “Kubernetes零停机部署”, “api_key”: “tvly-dev-xxx”, “search_depth”: “comprehensive”, “include_answer”: True, “max_results”: 10 } )\ndata = response.json()\ndata[“results”] - 搜索结果列表 data[“answer”] - AI生成的答案摘要 方式3：Brave Search Worker curl \"https://search.getaibits.com/search?q=关键词\" \\ -H \"X-Proxy-Token: 5c48fc61849dfbdfa7cf9d1cf45057d0f8f6193afa2ba0cba90a04c9b4641488\" \\ -H \"Accept: application/json\" 响应格式 { “results”: [ { “title”: “…”, “url”: “…”, “description”: “…” } ] }\n⚙️ 配置 OpenClaw配置 # ~/.openclaw/openclaw.json { “tools”: { “web”: { “search”: { “enabled”: true, “provider”: “tavily”, “apiKey”: “tvly-dev-YOUR_API_KEY” }, “fetch”: { “enabled”: true } } } }\n获取Tavily API Key 访问 https://tavily.com 注册账号 在Dashboard获取API Key 填入openclaw.json配置 🎯 高级用法 结合网页抓取 # 搜索后抓取详细内容 results = web_search(query=\"Kubernetes部署指南\", count=5) for result in results: # 抓取网页全文 content = web_fetch(url=result[“url”]) # 分析内容 analyze(content)\n多语言搜索 # 中文搜索 web_search(query=\"云原生架构\", search_lang=\"zh\") 英文搜索 web_search(query=“cloud native architecture”, search_lang=“en”)\n日文搜索 web_search(query=“クラウドネイティブ”, search_lang=“ja”)\n📊 响应格式 { \"query\": \"搜索关键词\", \"results\": [ { \"title\": \"文章标题\", \"url\": \"https://example.com/article\", \"content\": \"文章摘要内容...\", \"score\": 0.95, \"raw_content\": \"可选的完整内容\" } ], \"answer\": \"AI生成的答案摘要（可选）\", \"response_time\": \"1.23s\" } 📚 相关技能 🔬 深度研究 - 多引擎搜索+结构化分析 📄 PDF文档分析 - 提取文档关键信息 🔭 浏览器控制 - 网页自动化和截图 🚀 开始使用 直接在对话中输入搜索需求，AI会自动调用搜索工具获取最新信息。\n查看全部技能 → ","wordCount":"223","inLanguage":"zh-cn","image":"https://getaibits.com/images/og-default.png","datePublished":"2026-03-06T00:00:00Z","dateModified":"2026-03-06T00:00:00Z","author":{"@type":"Person","name":"Gavin"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://getaibits.com/skills/web-search.html"},"publisher":{"@type":"Organization","name":"AI Bits","logo":{"@type":"ImageObject","url":"https://getaibits.com/favicon.ico"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo><a href=https://getaibits.com/ accesskey=h title="AI Bits (Alt + H)">AI Bits</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
-<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://getaibits.com/ title="🏠 首页"><span>🏠 首页</span></a></li><li><a href=https://getaibits.com/posts/ title="📚 文章"><span>📚 文章</span></a></li><li><a href=https://getaibits.com/skills/ title="🔧 技能"><span>🔧 技能</span></a></li><li><a href=https://getaibits.com/search/ title="🔍 搜索"><span>🔍 搜索</span></a></li><li><a href=https://getaibits.com/tags/ title="🏷️ 标签"><span>🏷️ 标签</span></a></li><li><a href=https://getaibits.com/about/ title="👤 关于"><span>👤 关于</span></a></li></ul></nav></header><main class=main><style>.skill-detail{max-width:900px;margin:0 auto}.skill-header{text-align:center;padding:3rem 0;background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(139,92,246,.1));border-radius:16px;margin-bottom:2rem}.skill-icon-large{font-size:4rem;margin-bottom:1rem}.skill-title{font-size:2.5rem;font-weight:700;margin:0 0 1rem;color:var(--primary)}.skill-tags{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}.skill-tag{padding:.3rem .8rem;border-radius:20px;font-size:.85rem;font-weight:500}.skill-tag.official{background:#3b82f6;color:#fff}.skill-tag.required{background:#10b981;color:#fff}.section{margin:3rem 0}.section h2{font-size:1.8rem;color:var(--primary);border-bottom:2px solid var(--primary);padding-bottom:.5rem;margin-bottom:1.5rem}.code-block{background:#1e1e1e;border-radius:8px;padding:1.5rem;overflow-x:auto;margin:1rem 0}.code-block pre{margin:0;font-family:consolas,monaco,monospace;font-size:.9rem;line-height:1.6;color:#d4d4d4}.provider-card{background:var(--code-bg);border-radius:12px;padding:1.5rem;margin:1rem 0;border:1px solid var(--border)}.provider-card h3{margin:0 0 1rem;color:var(--primary)}.back-link{display:inline-flex;align-items:center;gap:.5rem;color:var(--primary);text-decoration:none;margin-bottom:2rem;font-weight:500}.back-link:hover{text-decoration:underline}</style><div class=skill-detail><p><a href=https://getaibits.com/skills.html class=back-link>← 返回技能商店</a></p><div class=skill-header><div class=skill-icon-large>🌐</div><h1 class=skill-title>网页搜索</h1><div class=skill-tags><span class="skill-tag official">官方</span>
-<span class="skill-tag required">必装</span></div></div><h2 id=概述>概述</h2><p>Tavily Search + Brave Search Worker 双引擎搜索，实时获取网络信息，国内直连可用。支持AI优化的搜索结果，适合研究、调研、信息收集场景。</p><hr><h2 id=-搜索引擎对比>🔧 搜索引擎对比</h2><div class=provider-card><h3>Tavily Search (默认)</h3><p><strong>特点</strong>：AI优化的搜索结果，专为AI Agent设计，返回结构化数据</p><p><strong>网络</strong>：国内直连，无需代理</p><p><strong>适用</strong>：日常搜索、研究调研</p></div><div class=provider-card><h3>Brave Search Worker</h3><p><strong>特点</strong>：精准搜索，隐私保护，无广告</p><p><strong>网络</strong>：通过Cloudflare Worker中转</p><p><strong>适用</strong>：需要精准结果时使用</p></div><hr><h2 id=-使用方法>💻 使用方法</h2><h3 id=方式1openclaw内置工具推荐>方式1：OpenClaw内置工具（推荐）</h3><div class=code-block><pre># 基础搜索
+← 返回技能商店">
+<meta name="author" content="Gavin">
+<link rel="canonical" href="https://getaibits.com/skills/web-search.html">
+<link crossorigin="anonymous" href="https://getaibits.com/assets/css/stylesheet.44e854f43d58f6dac184d229a83426e7437723b428a6ee8aa1367a80078e3bef.css" integrity="sha256-ROhU9D1Y9trBhNIpqDQm50N3I7Qopu6KoTZ6gAeOO&#43;8=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://getaibits.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://getaibits.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://getaibits.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://getaibits.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://getaibits.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-cn" href="https://getaibits.com/skills/web-search.html">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+
+
+
+
+  
+  
+    
+  
+
+
+  
+    
+  
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getaibits.com/skills/web-search.html"
+  },
+  "headline": "网页搜索",
+  "image": "https://getaibits.com/images/og-default.png",
+  "datePublished": "2026-03-06T00:00:00Z",
+  "dateModified": "2026-03-06T00:00:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "Gavin"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Bits",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getaibits.com/images/avatar.png"
+    }
+  },
+  "description": "\u003cstyle\u003e\n.skill-detail {\n  max-width: 900px;\n  margin: 0 auto;\n}\n\n.skill-header {\n  text-align: center;\n  padding: 3rem 0;\n  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));\n  border-radius: 16px;\n  margin-bottom: 2rem;\n}\n\n.skill-icon-large {\n  font-size: 4rem;\n  margin-bottom: 1rem;\n}\n\n.skill-title {\n  font-size: 2.5rem;\n  font-weight: 700;\n  margin: 0 0 1rem 0;\n  color: var(--primary);\n}\n\n.skill-tags {\n  display: flex;\n  gap: 0.5rem;\n  justify-content: center;\n  flex-wrap: wrap;\n}\n\n.skill-tag {\n  padding: 0.3rem 0.8rem;\n  border-radius: 20px;\n  font-size: 0.85rem;\n  font-weight: 500;\n}\n\n.skill-tag.official { background: #3b82f6; color: white; }\n.skill-tag.required { background: #10b981; color: white; }\n\n.section {\n  margin: 3rem 0;\n}\n\n.section h2 {\n  font-size: 1.8rem;\n  color: var(--primary);\n  border-bottom: 2px solid var(--primary);\n  padding-bottom: 0.5rem;\n  margin-bottom: 1.5rem;\n}\n\n.code-block {\n  background: #1e1e1e;\n  border-radius: 8px;\n  padding: 1.5rem;\n  overflow-x: auto;\n  margin: 1rem 0;\n}\n\n.code-block pre {\n  margin: 0;\n  font-family: 'Consolas', 'Monaco', monospace;\n  font-size: 0.9rem;\n  line-height: 1.6;\n  color: #d4d4d4;\n}\n\n.provider-card {\n  background: var(--code-bg);\n  border-radius: 12px;\n  padding: 1.5rem;\n  margin: 1rem 0;\n  border: 1px solid var(--border);\n}\n\n.provider-card h3 {\n  margin: 0 0 1rem 0;\n  color: var(--primary);\n}\n\n.back-link {\n  display: inline-flex;\n  align-items: center;\n  gap: 0.5rem;\n  color: var(--primary);\n  text-decoration: none;\n  margin-bottom: 2rem;\n  font-weight: 500;\n}\n\n.back-link:hover {\n  text-decoration: underline;\n}\n\u003c/style\u003e\n\u003cdiv class=\"skill-detail\"\u003e\n\u003cp\u003e\u003ca href=\"/skills.html\" class=\"back-link\"\u003e← 返回技能商店\u003c/a\u003e\u003c/p\u003e"
+}
+</script>
+
+
+
+  
+  
+    
+  
+
+
+  
+    
+  
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="网页搜索">
+<meta name="twitter:description" content=" ← 返回技能商店
+">
+<meta name="twitter:image" content="https://getaibits.com/images/og-default.png">
+
+
+
+
+
+
+
+
+
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  } else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+  
+  
+    
+  
+
+
+  
+    
+  
+
+<meta name="weibo:webpage:type" content="webpage">
+<meta name="weibo:webpage:title" content="网页搜索">
+<meta name="weibo:webpage:description" content=" ← 返回技能商店
+">
+<meta name="weibo:webpage:image" content="https://getaibits.com/images/og-default.png">
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+  
+    
+  
+
+
+<meta property="og:image" content="https://getaibits.com/images/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta property="og:url" content="https://getaibits.com/skills/web-search.html">
+  <meta property="og:site_name" content="AI Bits">
+  <meta property="og:title" content="网页搜索">
+  <meta property="og:description" content=" ← 返回技能商店">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="skills">
+    <meta property="article:published_time" content="2026-03-06T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-03-06T00:00:00+00:00">
+      <meta property="og:image" content="https://getaibits.com/images/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://getaibits.com/images/og-default.png">
+<meta name="twitter:title" content="网页搜索">
+<meta name="twitter:description" content="
+
+← 返回技能商店">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Skills",
+      "item": "https://getaibits.com/skills/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "网页搜索",
+      "item": "https://getaibits.com/skills/web-search.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "网页搜索",
+  "name": "网页搜索",
+  "description": " ← 返回技能商店\n",
+  "keywords": [
+    
+  ],
+  "articleBody": " ← 返回技能商店\n🌐 网页搜索 官方 必装 概述 Tavily Search + Brave Search Worker 双引擎搜索，实时获取网络信息，国内直连可用。支持AI优化的搜索结果，适合研究、调研、信息收集场景。\n🔧 搜索引擎对比 Tavily Search (默认) 特点：AI优化的搜索结果，专为AI Agent设计，返回结构化数据\n网络：国内直连，无需代理\n适用：日常搜索、研究调研\nBrave Search Worker 特点：精准搜索，隐私保护，无广告\n网络：通过Cloudflare Worker中转\n适用：需要精准结果时使用\n💻 使用方法 方式1：OpenClaw内置工具（推荐） # 基础搜索 web_search(query=\"AI编程工具对比\", count=10) 带语言筛选 web_search( query=“Kubernetes最佳实践”, count=5, search_lang=“zh” )\n指定时间范围 web_search( query=“GPT-4最新功能”, freshness=“pw” # pw=本周, pm=本月, py=今年 )\n方式2：Tavily API直接调用 import requests response = requests.post( “https://api.tavily.com/search\", json={ “query”: “Kubernetes零停机部署”, “api_key”: “tvly-dev-xxx”, “search_depth”: “comprehensive”, “include_answer”: True, “max_results”: 10 } )\ndata = response.json()\ndata[“results”] - 搜索结果列表 data[“answer”] - AI生成的答案摘要 方式3：Brave Search Worker curl \"https://search.getaibits.com/search?q=关键词\" \\ -H \"X-Proxy-Token: 5c48fc61849dfbdfa7cf9d1cf45057d0f8f6193afa2ba0cba90a04c9b4641488\" \\ -H \"Accept: application/json\" 响应格式 { “results”: [ { “title”: “…”, “url”: “…”, “description”: “…” } ] }\n⚙️ 配置 OpenClaw配置 # ~/.openclaw/openclaw.json { “tools”: { “web”: { “search”: { “enabled”: true, “provider”: “tavily”, “apiKey”: “tvly-dev-YOUR_API_KEY” }, “fetch”: { “enabled”: true } } } }\n获取Tavily API Key 访问 https://tavily.com 注册账号 在Dashboard获取API Key 填入openclaw.json配置 🎯 高级用法 结合网页抓取 # 搜索后抓取详细内容 results = web_search(query=\"Kubernetes部署指南\", count=5) for result in results: # 抓取网页全文 content = web_fetch(url=result[“url”]) # 分析内容 analyze(content)\n多语言搜索 # 中文搜索 web_search(query=\"云原生架构\", search_lang=\"zh\") 英文搜索 web_search(query=“cloud native architecture”, search_lang=“en”)\n日文搜索 web_search(query=“クラウドネイティブ”, search_lang=“ja”)\n📊 响应格式 { \"query\": \"搜索关键词\", \"results\": [ { \"title\": \"文章标题\", \"url\": \"https://example.com/article\", \"content\": \"文章摘要内容...\", \"score\": 0.95, \"raw_content\": \"可选的完整内容\" } ], \"answer\": \"AI生成的答案摘要（可选）\", \"response_time\": \"1.23s\" } 📚 相关技能 🔬 深度研究 - 多引擎搜索+结构化分析 📄 PDF文档分析 - 提取文档关键信息 🔭 浏览器控制 - 网页自动化和截图 🚀 开始使用 直接在对话中输入搜索需求，AI会自动调用搜索工具获取最新信息。\n查看全部技能 → ",
+  "wordCount" : "223",
+  "inLanguage": "zh-cn",
+  "image": "https://getaibits.com/images/og-default.png","datePublished": "2026-03-06T00:00:00Z",
+  "dateModified": "2026-03-06T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Gavin"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getaibits.com/skills/web-search.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Bits",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getaibits.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://getaibits.com/" accesskey="h" title="AI Bits (Alt + H)">AI Bits</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://getaibits.com/" title="🏠 首页">
+                    <span>🏠 首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/posts/" title="📚 文章">
+                    <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/skills/" title="🔧 技能">
+                    <span>🔧 技能</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/search/" title="🔍 搜索">
+                    <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/tags/" title="🏷️ 标签">
+                    <span>🏷️ 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/about/" title="👤 关于">
+                    <span>👤 关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+<style>
+.skill-detail {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skill-header {
+  text-align: center;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.skill-icon-large {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.skill-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: var(--primary);
+}
+
+.skill-tags {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.skill-tag {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.skill-tag.official { background: #3b82f6; color: white; }
+.skill-tag.required { background: #10b981; color: white; }
+
+.section {
+  margin: 3rem 0;
+}
+
+.section h2 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.code-block {
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.code-block pre {
+  margin: 0;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #d4d4d4;
+}
+
+.provider-card {
+  background: var(--code-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border: 1px solid var(--border);
+}
+
+.provider-card h3 {
+  margin: 0 0 1rem 0;
+  color: var(--primary);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
+  text-decoration: none;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+</style>
+<div class="skill-detail">
+<p><a href="https://getaibits.com/skills.html" class="back-link">← 返回技能商店</a></p>
+<div class="skill-header">
+  <div class="skill-icon-large">🌐</div>
+  <h1 class="skill-title">网页搜索</h1>
+  <div class="skill-tags">
+    <span class="skill-tag official">官方</span>
+    <span class="skill-tag required">必装</span>
+  </div>
+</div>
+<h2 id="概述">概述</h2>
+<p>Tavily Search + Brave Search Worker 双引擎搜索，实时获取网络信息，国内直连可用。支持AI优化的搜索结果，适合研究、调研、信息收集场景。</p>
+<hr>
+<h2 id="-搜索引擎对比">🔧 搜索引擎对比</h2>
+<div class="provider-card">
+  <h3>Tavily Search (默认)</h3>  
+  <p><strong>特点</strong>：AI优化的搜索结果，专为AI Agent设计，返回结构化数据</p>  
+  <p><strong>网络</strong>：国内直连，无需代理</p>  
+  <p><strong>适用</strong>：日常搜索、研究调研</p>
+</div>
+<div class="provider-card">
+  <h3>Brave Search Worker</h3>  
+  <p><strong>特点</strong>：精准搜索，隐私保护，无广告</p>  
+  <p><strong>网络</strong>：通过Cloudflare Worker中转</p>  
+  <p><strong>适用</strong>：需要精准结果时使用</p>
+</div>
+<hr>
+<h2 id="-使用方法">💻 使用方法</h2>
+<h3 id="方式1openclaw内置工具推荐">方式1：OpenClaw内置工具（推荐）</h3>
+<div class="code-block">
+<pre># 基础搜索
 web_search(query="AI编程工具对比", count=10)
-<h1 id=带语言筛选>带语言筛选</h1>
+<h1 id="带语言筛选">带语言筛选</h1>
 <p>web_search(
 query=&ldquo;Kubernetes最佳实践&rdquo;,
 count=5,
 search_lang=&ldquo;zh&rdquo;
 )</p>
-<h1 id=指定时间范围>指定时间范围</h1>
+<h1 id="指定时间范围">指定时间范围</h1>
 <p>web_search(
 query=&ldquo;GPT-4最新功能&rdquo;,
 freshness=&ldquo;pw&rdquo;  # pw=本周, pm=本月, py=今年
-)</pre></p></div><h3 id=方式2tavily-api直接调用>方式2：Tavily API直接调用</h3><div class=code-block><pre>import requests
+)</pre></p>
+</div>
+<h3 id="方式2tavily-api直接调用">方式2：Tavily API直接调用</h3>
+<div class="code-block">
+<pre>import requests
 <p>response = requests.post(
-&ldquo;<a href=https://api.tavily.com/search%22>https://api.tavily.com/search&quot;</a>,
+&ldquo;<a href="https://api.tavily.com/search%22">https://api.tavily.com/search&quot;</a>,
 json={
 &ldquo;query&rdquo;: &ldquo;Kubernetes零停机部署&rdquo;,
 &ldquo;api_key&rdquo;: &ldquo;tvly-dev-xxx&rdquo;,
@@ -31,11 +491,15 @@ json={
 }
 )</p>
 <p>data = response.json()</p>
-<h1 id=dataresults---搜索结果列表>data[&ldquo;results&rdquo;] - 搜索结果列表</h1>
-<h1 id=dataanswer---ai生成的答案摘要>data[&ldquo;answer&rdquo;] - AI生成的答案摘要</pre></h1></div><h3 id=方式3brave-search-worker>方式3：Brave Search Worker</h3><div class=code-block><pre>curl "https://search.getaibits.com/search?q=关键词" \
+<h1 id="dataresults---搜索结果列表">data[&ldquo;results&rdquo;] - 搜索结果列表</h1>
+<h1 id="dataanswer---ai生成的答案摘要">data[&ldquo;answer&rdquo;] - AI生成的答案摘要</pre></h1>
+</div>
+<h3 id="方式3brave-search-worker">方式3：Brave Search Worker</h3>
+<div class="code-block">
+<pre>curl "https://search.getaibits.com/search?q=关键词" \
   -H "X-Proxy-Token: 5c48fc61849dfbdfa7cf9d1cf45057d0f8f6193afa2ba0cba90a04c9b4641488" \
   -H "Accept: application/json"
-<h1 id=响应格式>响应格式</h1>
+<h1 id="响应格式">响应格式</h1>
 <p>{
 &ldquo;results&rdquo;: [
 {
@@ -44,7 +508,13 @@ json={
 &ldquo;description&rdquo;: &ldquo;&hellip;&rdquo;
 }
 ]
-}</pre></p></div><hr><h2 id=-配置>⚙️ 配置</h2><h3 id=openclaw配置>OpenClaw配置</h3><div class=code-block><pre># ~/.openclaw/openclaw.json
+}</pre></p>
+</div>
+<hr>
+<h2 id="-配置">⚙️ 配置</h2>
+<h3 id="openclaw配置">OpenClaw配置</h3>
+<div class="code-block">
+<pre># ~/.openclaw/openclaw.json
 <p>{
 &ldquo;tools&rdquo;: {
 &ldquo;web&rdquo;: {
@@ -58,18 +528,40 @@ json={
 }
 }
 }
-}</pre></p></div><h3 id=获取tavily-api-key>获取Tavily API Key</h3><ol><li>访问 <a href=https://tavily.com>https://tavily.com</a></li><li>注册账号</li><li>在Dashboard获取API Key</li><li>填入openclaw.json配置</li></ol><hr><h2 id=-高级用法>🎯 高级用法</h2><h3 id=结合网页抓取>结合网页抓取</h3><div class=code-block><pre># 搜索后抓取详细内容
+}</pre></p>
+</div>
+<h3 id="获取tavily-api-key">获取Tavily API Key</h3>
+<ol>
+<li>访问 <a href="https://tavily.com">https://tavily.com</a></li>
+<li>注册账号</li>
+<li>在Dashboard获取API Key</li>
+<li>填入openclaw.json配置</li>
+</ol>
+<hr>
+<h2 id="-高级用法">🎯 高级用法</h2>
+<h3 id="结合网页抓取">结合网页抓取</h3>
+<div class="code-block">
+<pre># 搜索后抓取详细内容
 results = web_search(query="Kubernetes部署指南", count=5)
 <p>for result in results:
 # 抓取网页全文
 content = web_fetch(url=result[&ldquo;url&rdquo;])
 # 分析内容
-analyze(content)</pre></p></div><h3 id=多语言搜索>多语言搜索</h3><div class=code-block><pre># 中文搜索
+analyze(content)</pre></p>
+</div>
+<h3 id="多语言搜索">多语言搜索</h3>
+<div class="code-block">
+<pre># 中文搜索
 web_search(query="云原生架构", search_lang="zh")
-<h1 id=英文搜索>英文搜索</h1>
+<h1 id="英文搜索">英文搜索</h1>
 <p>web_search(query=&ldquo;cloud native architecture&rdquo;, search_lang=&ldquo;en&rdquo;)</p>
-<h1 id=日文搜索>日文搜索</h1>
-<p>web_search(query=&ldquo;クラウドネイティブ&rdquo;, search_lang=&ldquo;ja&rdquo;)</pre></p></div><hr><h2 id=-响应格式>📊 响应格式</h2><div class=code-block><pre>{
+<h1 id="日文搜索">日文搜索</h1>
+<p>web_search(query=&ldquo;クラウドネイティブ&rdquo;, search_lang=&ldquo;ja&rdquo;)</pre></p>
+</div>
+<hr>
+<h2 id="-响应格式">📊 响应格式</h2>
+<div class="code-block">
+<pre>{
   "query": "搜索关键词",
   "results": [
     {
@@ -82,7 +574,118 @@ web_search(query="云原生架构", search_lang="zh")
   ],
   "answer": "AI生成的答案摘要（可选）",
   "response_time": "1.23s"
-}</pre></div><hr><h2 id=-相关技能>📚 相关技能</h2><ul><li><a href=https://getaibits.com/skills/deep-research.html>🔬 深度研究</a> - 多引擎搜索+结构化分析</li><li><a href=https://getaibits.com/skills/pdf-analysis.html>📄 PDF文档分析</a> - 提取文档关键信息</li><li><a href=https://getaibits.com/skills/browser.html>🔭 浏览器控制</a> - 网页自动化和截图</li></ul><hr><div style=text-align:center;margin-top:3rem;padding:2rem;background:var(--code-bg);border-radius:12px><h3>🚀 开始使用</h3><p>直接在对话中输入搜索需求，AI会自动调用搜索工具获取最新信息。</p><a href=https://getaibits.com/skills.html style="display:inline-block;margin-top:1rem;padding:.8rem 2rem;background:var(--primary);color:#fff;text-decoration:none;border-radius:8px;font-weight:500">查看全部技能 →</a></div></div></main><footer class=footer><span>&copy; 2026 <a href=https://getaibits.com/>AI Bits</a></span> ·
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg></a><div class=reading-progress id=reading-progress></div><script>window.addEventListener("scroll",function(){const e=document.querySelector(".post-content");if(!e)return;const t=window.scrollY,n=e.offsetHeight,s=window.innerHeight,o=t/(n-s)*100;document.getElementById("reading-progress").style.width=Math.min(o,100)+"%"})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>
+}</pre>
+</div>
+<hr>
+<h2 id="-相关技能">📚 相关技能</h2>
+<ul>
+<li><a href="https://getaibits.com/skills/deep-research.html">🔬 深度研究</a> - 多引擎搜索+结构化分析</li>
+<li><a href="https://getaibits.com/skills/pdf-analysis.html">📄 PDF文档分析</a> - 提取文档关键信息</li>
+<li><a href="https://getaibits.com/skills/browser.html">🔭 浏览器控制</a> - 网页自动化和截图</li>
+</ul>
+<hr>
+<div style="text-align: center; margin-top: 3rem; padding: 2rem; background: var(--code-bg); border-radius: 12px;">
+  <h3>🚀 开始使用</h3>
+  <p>直接在对话中输入搜索需求，AI会自动调用搜索工具获取最新信息。</p>
+  <a href="https://getaibits.com/skills.html" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 500;">查看全部技能 →</a>
+</div>
+</div>
+
+
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://getaibits.com/">AI Bits</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<div class="reading-progress" id="reading-progress"></div>
+
+<script>
+
+window.addEventListener('scroll', function() {
+  const article = document.querySelector('.post-content');
+  if (!article) return;
+  
+  const scrollTop = window.scrollY;
+  const docHeight = article.offsetHeight;
+  const winHeight = window.innerHeight;
+  const scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
+  
+  document.getElementById('reading-progress').style.width = Math.min(scrollPercent, 100) + '%';
+});
+</script>
+
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

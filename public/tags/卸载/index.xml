@@ -1,1 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>卸载 on AI Bits</title><link>https://getaibits.com/tags/%E5%8D%B8%E8%BD%BD/</link><description>Recent content in 卸载 on AI Bits</description><image><title>AI Bits</title><url>https://getaibits.com/images/og-default.png</url><link>https://getaibits.com/images/og-default.png</link></image><generator>Hugo -- 0.155.1</generator><language>zh-cn</language><lastBuildDate>Fri, 13 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://getaibits.com/tags/%E5%8D%B8%E8%BD%BD/index.xml" rel="self" type="application/rss+xml"/><item><title>付费卸载OpenClaw？看完这篇自己动手省299</title><link>https://getaibits.com/posts/openclaw-uninstall-guide/</link><pubDate>Fri, 13 Mar 2026 00:00:00 +0000</pubDate><guid>https://getaibits.com/posts/openclaw-uninstall-guide/</guid><description>闲鱼上出现OpenClaw付费卸载服务，价格从15到299不等。其实一行命令就能搞定，本文教你完整卸载方法，省下这笔冤枉钱。</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>卸载 on AI Bits</title>
+    <link>https://getaibits.com/tags/%E5%8D%B8%E8%BD%BD/</link>
+    <description>Recent content in 卸载 on AI Bits</description>
+    <image>
+      <title>AI Bits</title>
+      <url>https://getaibits.com/images/og-default.png</url>
+      <link>https://getaibits.com/images/og-default.png</link>
+    </image>
+    <generator>Hugo -- 0.155.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 13 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://getaibits.com/tags/%E5%8D%B8%E8%BD%BD/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>付费卸载OpenClaw？看完这篇自己动手省299</title>
+      <link>https://getaibits.com/posts/openclaw-uninstall-guide/</link>
+      <pubDate>Fri, 13 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://getaibits.com/posts/openclaw-uninstall-guide/</guid>
+      <description>闲鱼上出现OpenClaw付费卸载服务，价格从15到299不等。其实一行命令就能搞定，本文教你完整卸载方法，省下这笔冤枉钱。</description>
+    </item>
+  </channel>
+</rss>

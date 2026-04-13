@@ -1,321 +1,543 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Skills on AI Bits</title><link>https://getaibits.com/skills/</link><description>Recent content in Skills on AI Bits</description><image><title>AI Bits</title><url>https://getaibits.com/images/og-default.png</url><link>https://getaibits.com/images/og-default.png</link></image><generator>Hugo -- 0.155.1</generator><language>zh-cn</language><lastBuildDate>Fri, 06 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://getaibits.com/skills/index.xml" rel="self" type="application/rss+xml"/><item><title>AI图片生成</title><link>https://getaibits.com/skills/image-gen.html</link><pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate><guid>https://getaibits.com/skills/image-gen.html</guid><description>&lt;style&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Skills on AI Bits</title>
+    <link>https://getaibits.com/skills/</link>
+    <description>Recent content in Skills on AI Bits</description>
+    <image>
+      <title>AI Bits</title>
+      <url>https://getaibits.com/images/og-default.png</url>
+      <link>https://getaibits.com/images/og-default.png</link>
+    </image>
+    <generator>Hugo -- 0.155.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 13 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://getaibits.com/skills/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2026年「龙虾」最新集合</title>
+      <link>https://getaibits.com/skills/lobster-2026.html</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://getaibits.com/skills/lobster-2026.html</guid>
+      <description>&lt;style&gt;
 .skill-detail {
-max-width: 900px;
-margin: 0 auto;
+  max-width: 1100px;
+  margin: 0 auto;
 }
+
 .skill-header {
-text-align: center;
-padding: 3rem 0;
-background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(139, 92, 246, 0.1));
-border-radius: 16px;
-margin-bottom: 2rem;
+  text-align: center;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(249, 115, 22, 0.1));
+  border-radius: 16px;
+  margin-bottom: 2rem;
 }
+
 .skill-icon-large {
-font-size: 4rem;
-margin-bottom: 1rem;
+  font-size: 4rem;
+  margin-bottom: 1rem;
 }
+
 .skill-title {
-font-size: 2.5rem;
-font-weight: 700;
-margin: 0 0 1rem 0;
-color: var(--primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: var(--primary);
 }
+
+.skill-desc {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
 .skill-tags {
-display: flex;
-gap: 0.5rem;
-justify-content: center;
-flex-wrap: wrap;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
+
 .skill-tag {
-padding: 0.3rem 0.8rem;
-border-radius: 20px;
-font-size: 0.85rem;
-font-weight: 500;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
 }
-.skill-tag.official { background: #3b82f6; color: white; }
-.skill-tag.required { background: #10b981; color: white; }
+
+.skill-tag.official { background: #ef4444; color: white; }
+.skill-tag.local { background: #3b82f6; color: white; }
+.skill-tag.cloud { background: #8b5cf6; color: white; }
+
 .section {
-margin: 3rem 0;
+  margin: 3rem 0;
 }
+
 .section h2 {
-font-size: 1.8rem;
-color: var(--primary);
-border-bottom: 2px solid var(--primary);
-padding-bottom: 0.5rem;
-margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
-.code-block {
-background: #1e1e1e;
-border-radius: 8px;
-padding: 1.5rem;
-overflow-x: auto;
-margin: 1rem 0;
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
 }
-.code-block pre {
-margin: 0;
-font-family: 'Consolas', 'Monaco', monospace;
-font-size: 0.9rem;
-line-height: 1.6;
-color: #d4d4d4;
+
+.tool-card {
+  background: var(--code-bg);
+  border-radius: 12px;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-.model-list {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-gap: 1rem;
-margin: 1.5rem 0;
+
+.tool-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
-.model-item {
-background: var(--code-bg);
-border-radius: 8px;
-padding: 1rem;
-border: 1px solid var(--border);
+
+.tool-card h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
 }
-.model-item h4 {
-margin: 0 0 0.5rem 0;
-color: var(--primary);
+
+.tool-card h4 a {
+  color: var(--primary);
+  text-decoration: none;
 }
-.model-item p {
-margin: 0;
-font-size: 0.85rem;
-color: var(--secondary);
+
+.tool-card h4 a:hover {
+  text-decoration: underline;
 }
-.back-link {
-display: inline-flex;
-align-items: center;
-gap: 0.5rem;
-color: var(--primary);
-text-decoration: none;
-margin-bottom: 2rem;
-font-weight: 500;
+
+.tool-card .tool-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
 }
-.back-link:hover {
-text-decoration: underline;
+
+.tool-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.5;
 }
-.tip-box {
-background: rgba(59, 130, 246, 0.1);
-border-left: 4px solid #3b82f6;
-padding: 1rem 1.5rem;
-border-radius: 0 8px 8px 0;
-margin: 1rem 0;
-}
-.tip-box strong {
-color: #3b82f6;
+
+.tool-card .tool-quote {
+  margin-top: 0.75rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--primary);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
 }
 &lt;/style&gt;
-&lt;div class="skill-detail"&gt;
-&lt;p&gt;&lt;a href="https://getaibits.com/skills.html" class="back-link"&gt;← 返回技能商店&lt;/a&gt;&lt;/p&gt;</description></item><item><title>多Agent团队配置</title><link>https://getaibits.com/skills/multi-agent.html</link><pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate><guid>https://getaibits.com/skills/multi-agent.html</guid><description>&lt;style&gt;
+&lt;div class=&#34;skill-detail&#34;&gt;
+&lt;div class=&#34;skill-header&#34;&gt;
+  &lt;div class=&#34;skill-icon-large&#34;&gt;🦞&lt;/div&gt;
+  &lt;h1 class=&#34;skill-title&#34;&gt;2026年「龙虾」最新集合&lt;/h1&gt;
+  &lt;p class=&#34;skill-desc&#34;&gt;最适合中国人体质的龙虾集合 · 共收录 19 个工具&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI图片生成</title>
+      <link>https://getaibits.com/skills/image-gen.html</link>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://getaibits.com/skills/image-gen.html</guid>
+      <description>&lt;style&gt;
 .skill-detail {
-max-width: 900px;
-margin: 0 auto;
+  max-width: 900px;
+  margin: 0 auto;
 }
+
 .skill-header {
-text-align: center;
-padding: 3rem 0;
-background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
-border-radius: 16px;
-margin-bottom: 2rem;
+  text-align: center;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(139, 92, 246, 0.1));
+  border-radius: 16px;
+  margin-bottom: 2rem;
 }
+
 .skill-icon-large {
-font-size: 4rem;
-margin-bottom: 1rem;
+  font-size: 4rem;
+  margin-bottom: 1rem;
 }
+
 .skill-title {
-font-size: 2.5rem;
-font-weight: 700;
-margin: 0 0 1rem 0;
-color: var(--primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: var(--primary);
 }
+
 .skill-tags {
-display: flex;
-gap: 0.5rem;
-justify-content: center;
-flex-wrap: wrap;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
+
 .skill-tag {
-padding: 0.3rem 0.8rem;
-border-radius: 20px;
-font-size: 0.85rem;
-font-weight: 500;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
 }
+
+.skill-tag.official { background: #3b82f6; color: white; }
+.skill-tag.required { background: #10b981; color: white; }
+
+.section {
+  margin: 3rem 0;
+}
+
+.section h2 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.code-block {
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.code-block pre {
+  margin: 0;
+  font-family: &#39;Consolas&#39;, &#39;Monaco&#39;, monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #d4d4d4;
+}
+
+.model-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.model-item {
+  background: var(--code-bg);
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid var(--border);
+}
+
+.model-item h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--primary);
+}
+
+.model-item p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--secondary);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
+  text-decoration: none;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.tip-box {
+  background: rgba(59, 130, 246, 0.1);
+  border-left: 4px solid #3b82f6;
+  padding: 1rem 1.5rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1rem 0;
+}
+
+.tip-box strong {
+  color: #3b82f6;
+}
+&lt;/style&gt;
+&lt;div class=&#34;skill-detail&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://getaibits.com/skills.html&#34; class=&#34;back-link&#34;&gt;← 返回技能商店&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>多Agent团队配置</title>
+      <link>https://getaibits.com/skills/multi-agent.html</link>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://getaibits.com/skills/multi-agent.html</guid>
+      <description>&lt;style&gt;
+.skill-detail {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skill-header {
+  text-align: center;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.skill-icon-large {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.skill-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: var(--primary);
+}
+
+.skill-tags {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.skill-tag {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
 .skill-tag.official { background: #3b82f6; color: white; }
 .skill-tag.hot { background: #ef4444; color: white; }
 .skill-tag.required { background: #10b981; color: white; }
+
 .section {
-margin: 3rem 0;
+  margin: 3rem 0;
 }
+
 .section h2 {
-font-size: 1.8rem;
-color: var(--primary);
-border-bottom: 2px solid var(--primary);
-padding-bottom: 0.5rem;
-margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
+
 .section h3 {
-font-size: 1.3rem;
-color: var(--secondary);
-margin: 2rem 0 1rem 0;
+  font-size: 1.3rem;
+  color: var(--secondary);
+  margin: 2rem 0 1rem 0;
 }
+
 .code-block {
-background: #1e1e1e;
-border-radius: 8px;
-padding: 1.5rem;
-overflow-x: auto;
-margin: 1rem 0;
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 1rem 0;
 }
+
 .code-block pre {
-margin: 0;
-font-family: 'Consolas', 'Monaco', monospace;
-font-size: 0.9rem;
-line-height: 1.6;
-color: #d4d4d4;
+  margin: 0;
+  font-family: &#39;Consolas&#39;, &#39;Monaco&#39;, monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #d4d4d4;
 }
+
 .agent-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-gap: 1rem;
-margin: 1.5rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
 }
+
 .agent-card {
-background: var(--code-bg);
-border-radius: 12px;
-padding: 1.5rem;
-border: 1px solid var(--border);
+  background: var(--code-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
 }
+
 .agent-card h4 {
-margin: 0 0 0.5rem 0;
-color: var(--primary);
-font-size: 1.1rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--primary);
+  font-size: 1.1rem;
 }
+
 .agent-card p {
-margin: 0;
-font-size: 0.9rem;
-color: var(--secondary);
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--secondary);
 }
+
 .workflow {
-background: var(--code-bg);
-border-radius: 12px;
-padding: 1.5rem;
-margin: 1rem 0;
+  background: var(--code-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
 }
+
 .workflow-step {
-display: flex;
-align-items: center;
-gap: 1rem;
-padding: 0.8rem 0;
-border-bottom: 1px dashed var(--border);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px dashed var(--border);
 }
+
 .workflow-step:last-child {
-border-bottom: none;
+  border-bottom: none;
 }
+
 .step-num {
-width: 30px;
-height: 30px;
-background: var(--primary);
-color: white;
-border-radius: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
-font-weight: 600;
-flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  flex-shrink: 0;
 }
+
 .back-link {
-display: inline-flex;
-align-items: center;
-gap: 0.5rem;
-color: var(--primary);
-text-decoration: none;
-margin-bottom: 2rem;
-font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
+  text-decoration: none;
+  margin-bottom: 2rem;
+  font-weight: 500;
 }
+
 .back-link:hover {
-text-decoration: underline;
+  text-decoration: underline;
 }
 &lt;/style&gt;
-&lt;div class="skill-detail"&gt;
-&lt;p&gt;&lt;a href="https://getaibits.com/skills.html" class="back-link"&gt;← 返回技能商店&lt;/a&gt;&lt;/p&gt;</description></item><item><title>网页搜索</title><link>https://getaibits.com/skills/web-search.html</link><pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate><guid>https://getaibits.com/skills/web-search.html</guid><description>&lt;style&gt;
+&lt;div class=&#34;skill-detail&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://getaibits.com/skills.html&#34; class=&#34;back-link&#34;&gt;← 返回技能商店&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>网页搜索</title>
+      <link>https://getaibits.com/skills/web-search.html</link>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://getaibits.com/skills/web-search.html</guid>
+      <description>&lt;style&gt;
 .skill-detail {
-max-width: 900px;
-margin: 0 auto;
+  max-width: 900px;
+  margin: 0 auto;
 }
+
 .skill-header {
-text-align: center;
-padding: 3rem 0;
-background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
-border-radius: 16px;
-margin-bottom: 2rem;
+  text-align: center;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+  border-radius: 16px;
+  margin-bottom: 2rem;
 }
+
 .skill-icon-large {
-font-size: 4rem;
-margin-bottom: 1rem;
+  font-size: 4rem;
+  margin-bottom: 1rem;
 }
+
 .skill-title {
-font-size: 2.5rem;
-font-weight: 700;
-margin: 0 0 1rem 0;
-color: var(--primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: var(--primary);
 }
+
 .skill-tags {
-display: flex;
-gap: 0.5rem;
-justify-content: center;
-flex-wrap: wrap;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
+
 .skill-tag {
-padding: 0.3rem 0.8rem;
-border-radius: 20px;
-font-size: 0.85rem;
-font-weight: 500;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
 }
+
 .skill-tag.official { background: #3b82f6; color: white; }
 .skill-tag.required { background: #10b981; color: white; }
+
 .section {
-margin: 3rem 0;
+  margin: 3rem 0;
 }
+
 .section h2 {
-font-size: 1.8rem;
-color: var(--primary);
-border-bottom: 2px solid var(--primary);
-padding-bottom: 0.5rem;
-margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
+
 .code-block {
-background: #1e1e1e;
-border-radius: 8px;
-padding: 1.5rem;
-overflow-x: auto;
-margin: 1rem 0;
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 1rem 0;
 }
+
 .code-block pre {
-margin: 0;
-font-family: 'Consolas', 'Monaco', monospace;
-font-size: 0.9rem;
-line-height: 1.6;
-color: #d4d4d4;
+  margin: 0;
+  font-family: &#39;Consolas&#39;, &#39;Monaco&#39;, monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #d4d4d4;
 }
+
 .provider-card {
-background: var(--code-bg);
-border-radius: 12px;
-padding: 1.5rem;
-margin: 1rem 0;
-border: 1px solid var(--border);
+  background: var(--code-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border: 1px solid var(--border);
 }
+
 .provider-card h3 {
-margin: 0 0 1rem 0;
-color: var(--primary);
+  margin: 0 0 1rem 0;
+  color: var(--primary);
 }
+
 .back-link {
-display: inline-flex;
-align-items: center;
-gap: 0.5rem;
-color: var(--primary);
-text-decoration: none;
-margin-bottom: 2rem;
-font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
+  text-decoration: none;
+  margin-bottom: 2rem;
+  font-weight: 500;
 }
+
 .back-link:hover {
-text-decoration: underline;
+  text-decoration: underline;
 }
 &lt;/style&gt;
-&lt;div class="skill-detail"&gt;
-&lt;p&gt;&lt;a href="https://getaibits.com/skills.html" class="back-link"&gt;← 返回技能商店&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>
+&lt;div class=&#34;skill-detail&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://getaibits.com/skills.html&#34; class=&#34;back-link&#34;&gt;← 返回技能商店&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

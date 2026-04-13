@@ -1,7 +1,296 @@
-<!doctype html><html lang=zh-cn dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Posts | AI Bits</title><meta name=keywords content><meta name=description content="Posts - AI Bits"><meta name=author content="Gavin"><link rel=canonical href=https://getaibits.com/posts/><link crossorigin=anonymous href=https://getaibits.com/assets/css/stylesheet.44e854f43d58f6dac184d229a83426e7437723b428a6ee8aa1367a80078e3bef.css integrity="sha256-ROhU9D1Y9trBhNIpqDQm50N3I7Qopu6KoTZ6gAeOO+8=" rel="preload stylesheet" as=style><link rel=icon href=https://getaibits.com/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://getaibits.com/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://getaibits.com/favicon-32x32.png><link rel=apple-touch-icon href=https://getaibits.com/apple-touch-icon.png><link rel=mask-icon href=https://getaibits.com/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=https://getaibits.com/posts/index.xml title=rss><link rel=alternate hreflang=zh-cn href=https://getaibits.com/posts/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"WebSite","name":"AI Bits","url":"https://getaibits.com/","description":"AI 知识、工具、实践 —— 每一个小知识点，都可能带来大启发","image":"https://getaibits.com/images/og-default.png","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://getaibits.com/search/?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="Posts"><meta name=twitter:description content><meta name=twitter:image content="https://getaibits.com/images/og-default.png"><script>(function(){var t,e=document.createElement("script"),n=window.location.protocol.split(":")[0];n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script><meta name=weibo:webpage:type content="webpage"><meta name=weibo:webpage:title content="Posts"><meta name=weibo:webpage:description content><meta name=weibo:webpage:image content="https://getaibits.com/images/og-default.png"><meta property="og:image" content="https://getaibits.com/images/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://getaibits.com/posts/"><meta property="og:site_name" content="AI Bits"><meta property="og:title" content="Posts"><meta property="og:description" content="AI 知识、工具、实践 —— 每一个小知识点，都可能带来大启发"><meta property="og:locale" content="zh-cn"><meta property="og:type" content="website"><meta property="og:image" content="https://getaibits.com/images/og-default.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://getaibits.com/images/og-default.png"><meta name=twitter:title content="Posts"><meta name=twitter:description content="AI 知识、工具、实践 —— 每一个小知识点，都可能带来大启发"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://getaibits.com/posts/"}]}</script></head><body class=list id=top><header class=header><nav class=nav><div class=logo><a href=https://getaibits.com/ accesskey=h title="AI Bits (Alt + H)">AI Bits</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
-<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://getaibits.com/ title="🏠 首页"><span>🏠 首页</span></a></li><li><a href=https://getaibits.com/posts/ title="📚 文章"><span class=active>📚 文章</span></a></li><li><a href=https://getaibits.com/skills/ title="🔧 技能"><span>🔧 技能</span></a></li><li><a href=https://getaibits.com/search/ title="🔍 搜索"><span>🔍 搜索</span></a></li><li><a href=https://getaibits.com/tags/ title="🏷️ 标签"><span>🏷️ 标签</span></a></li><li><a href=https://getaibits.com/about/ title="👤 关于"><span>👤 关于</span></a></li></ul></nav></header><main class=main><header class=page-header><h1>Posts</h1></header><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>付费卸载OpenClaw？看完这篇自己动手省299</h2></header><div class=entry-content><p>最近看到个有意思的新闻。
-闲鱼上出现了"OpenClaw付费卸载服务"，价格从15块到299块不等。
+<!DOCTYPE html>
+<html lang="zh-cn" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Posts | AI Bits</title>
+<meta name="keywords" content="">
+<meta name="description" content="Posts - AI Bits">
+<meta name="author" content="Gavin">
+<link rel="canonical" href="https://getaibits.com/posts/">
+<link crossorigin="anonymous" href="https://getaibits.com/assets/css/stylesheet.44e854f43d58f6dac184d229a83426e7437723b428a6ee8aa1367a80078e3bef.css" integrity="sha256-ROhU9D1Y9trBhNIpqDQm50N3I7Qopu6KoTZ6gAeOO&#43;8=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://getaibits.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://getaibits.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://getaibits.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://getaibits.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://getaibits.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://getaibits.com/posts/index.xml" title="rss">
+<link rel="alternate" hreflang="zh-cn" href="https://getaibits.com/posts/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+
+
+
+
+  
+
+
+  
+    
+  
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "AI Bits",
+  "url": "https://getaibits.com/",
+  "description": "AI 知识、工具、实践 —— 每一个小知识点，都可能带来大启发",
+  "image": "https://getaibits.com/images/og-default.png",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://getaibits.com/search/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+
+
+  
+  
+    
+  
+
+
+  
+    
+  
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Posts">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://getaibits.com/images/og-default.png">
+
+
+
+
+
+
+
+
+
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  } else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+  
+  
+    
+  
+
+
+  
+    
+  
+
+<meta name="weibo:webpage:type" content="webpage">
+<meta name="weibo:webpage:title" content="Posts">
+<meta name="weibo:webpage:description" content="">
+<meta name="weibo:webpage:image" content="https://getaibits.com/images/og-default.png">
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+  
+    
+  
+
+
+<meta property="og:image" content="https://getaibits.com/images/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta property="og:url" content="https://getaibits.com/posts/">
+  <meta property="og:site_name" content="AI Bits">
+  <meta property="og:title" content="Posts">
+  <meta property="og:description" content="AI 知识、工具、实践 —— 每一个小知识点，都可能带来大启发">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="website">
+      <meta property="og:image" content="https://getaibits.com/images/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://getaibits.com/images/og-default.png">
+<meta name="twitter:title" content="Posts">
+<meta name="twitter:description" content="AI 知识、工具、实践 —— 每一个小知识点，都可能带来大启发">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://getaibits.com/posts/"
+    }
+  ]
+}
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://getaibits.com/" accesskey="h" title="AI Bits (Alt + H)">AI Bits</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://getaibits.com/" title="🏠 首页">
+                    <span>🏠 首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/posts/" title="📚 文章">
+                    <span class="active">📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/skills/" title="🔧 技能">
+                    <span>🔧 技能</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/search/" title="🔍 搜索">
+                    <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/tags/" title="🏷️ 标签">
+                    <span>🏷️ 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/about/" title="👤 关于">
+                    <span>👤 关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Posts
+  </h1>
+</header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">付费卸载OpenClaw？看完这篇自己动手省299
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>
+最近看到个有意思的新闻。
+闲鱼上出现了&#34;OpenClaw付费卸载服务&#34;，价格从15块到299块不等。
 有人还真付了。
 为什么会有人花钱卸载？ 因为OpenClaw不是普通软件。
 它是CLI工具，没有图标，没有卸载按钮。你以为 npm uninstall 就完事了，但后台服务还在跑——launchd、systemd、计划任务……这些玩意儿普通用户根本不知道在哪。
@@ -16,38 +305,98 @@ openclaw uninstall --all --yes --non-interactive 这个命令会：
 AI 会自动执行卸载命令，不用你自己敲代码。
 这个方法适合不熟悉命令行的用户，整个过程就是一句话的事。
 CLI已经没了怎么办 如果你已经把CLI删了，但后台服务还在跑，那就手动清理。
-macOS # 停止 launchd 服务 launchctl bootout gui/$UID/bot.molt.gateway launchctl bootout gui/$UID/com.clawdbot.gateway launchctl bootout gui/$UID/com.openclaw.gateway # 删除服务描述文件 rm -f ~/Library/LaunchAgents/bot.molt.gateway.plist rm -f ~/Library/LaunchAgents/com.clawdbot.gateway.plist rm -f ~/Library/LaunchAgents/com.openclaw.gateway.plist # 删除配置和数据 rm -rf ~/.openclaw # 删除 CLI npm uninstall -g openclaw Linux # 停止 systemd 服务 systemctl --user stop openclaw systemctl --user disable openclaw # 删除服务文件 rm -f ~/.config/systemd/user/openclaw.service # 删除配置和数据 rm -rf ~/.openclaw # 删除 CLI npm uninstall -g openclaw Windows # 删除计划任务 schtasks /delete /tn "OpenClaw" /f # 删除配置和数据 Remove-Item -Recurse -Force "$env:USERPROFILE\.openclaw" # 删除 CLI npm uninstall -g openclaw Docker 版本怎么删 # 停止并删除容器 docker stop openclaw docker rm openclaw # 删除数据卷 docker volume rm openclaw-data 汉化版怎么删 # 卸载汉化版 npm uninstall -g @qingchencloud/openclaw-zh # 如果装过原版，也一起删 npm uninstall -g openclaw # 删除配置 rm -rf ~/.openclaw 一键清理脚本 macOS/Linux：
-...</p></div><footer class=entry-footer><span title='2026-03-13 00:00:00 +0000 UTC'>March 13, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></footer><a class=entry-link aria-label="post link to 付费卸载OpenClaw？看完这篇自己动手省299" href=https://getaibits.com/posts/openclaw-uninstall-guide/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Kubernetes 零停机部署实战指南</h2></header><div class=entry-content><p>在微服务架构和云原生时代，应用的持续可用性已成为基础设施的核心要求。无论是发布新功能、修复漏洞还是扩容缩容，开发者都希望在不影响用户体验的前提下完成部署。
+macOS # 停止 launchd 服务 launchctl bootout gui/$UID/bot.molt.gateway launchctl bootout gui/$UID/com.clawdbot.gateway launchctl bootout gui/$UID/com.openclaw.gateway # 删除服务描述文件 rm -f ~/Library/LaunchAgents/bot.molt.gateway.plist rm -f ~/Library/LaunchAgents/com.clawdbot.gateway.plist rm -f ~/Library/LaunchAgents/com.openclaw.gateway.plist # 删除配置和数据 rm -rf ~/.openclaw # 删除 CLI npm uninstall -g openclaw Linux # 停止 systemd 服务 systemctl --user stop openclaw systemctl --user disable openclaw # 删除服务文件 rm -f ~/.config/systemd/user/openclaw.service # 删除配置和数据 rm -rf ~/.openclaw # 删除 CLI npm uninstall -g openclaw Windows # 删除计划任务 schtasks /delete /tn &#34;OpenClaw&#34; /f # 删除配置和数据 Remove-Item -Recurse -Force &#34;$env:USERPROFILE\.openclaw&#34; # 删除 CLI npm uninstall -g openclaw Docker 版本怎么删 # 停止并删除容器 docker stop openclaw docker rm openclaw # 删除数据卷 docker volume rm openclaw-data 汉化版怎么删 # 卸载汉化版 npm uninstall -g @qingchencloud/openclaw-zh # 如果装过原版，也一起删 npm uninstall -g openclaw # 删除配置 rm -rf ~/.openclaw 一键清理脚本 macOS/Linux：
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-03-13 00:00:00 +0000 UTC'>March 13, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></footer>
+  <a class="entry-link" aria-label="post link to 付费卸载OpenClaw？看完这篇自己动手省299" href="https://getaibits.com/posts/openclaw-uninstall-guide/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Kubernetes 零停机部署实战指南
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>在微服务架构和云原生时代，应用的持续可用性已成为基础设施的核心要求。无论是发布新功能、修复漏洞还是扩容缩容，开发者都希望在不影响用户体验的前提下完成部署。
 本文将深入介绍 Kubernetes 零停机部署的完整方案，从核心概念到实战配置，帮助你构建高可用的应用发布流程。
 核心概念 零停机部署的核心理念是：在整个更新过程中，始终有健康的 Pod 实例在处理用户请求。要实现这一目标，需要协调多个 Kubernetes 机制协同工作。
 1. 滚动更新策略 Kubernetes Deployment 默认采用 RollingUpdate 策略，通过 maxSurge 和 maxUnavailable 两个参数控制更新节奏。
 maxSurge 定义了更新过程中可以临时创建的额外 Pod 数量，比如设置为 1 表示允许比期望值多 1 个 Pod。maxUnavailable 则规定了更新过程中允许不可用的 Pod 数量上限。
 在生产环境中，建议将 maxUnavailable 设为 0，这样可以确保即使在新版本 Pod 启动过程中，旧版本 Pod 也至少有一个在运行，不会出现服务真空期。
-2. 健康检查机制 健康检查是零停机部署的"守门员"，它确保只有真正准备好处理流量的 Pod 才会接收请求。
+2. 健康检查机制 健康检查是零停机部署的&#34;守门员&#34;，它确保只有真正准备好处理流量的 Pod 才会接收请求。
 **Readiness Probe（就绪探针）**负责判断 Pod 是否已准备好接收流量。当探针通过时，Pod 的 IP 会被加入 Service 的后端列表；失败时则被移除。这个机制防止了新启动但尚未完成初始化的 Pod 被分配流量。
 **Liveness Probe（存活探针）**则用于检测应用是否陷入死锁或卡顿状态。当探针连续失败达到阈值时，Kubernetes 会自动重启容器，避免僵尸进程占用资源。
 3. 优雅终止 当 Pod 需要被删除时，Kubernetes 会执行一系列预设流程，给应用足够的时间处理完正在进行的请求。
 首先执行 preStop 钩子，可以执行一些清理脚本。随后 Kubernetes 向容器主进程发送 SIGTERM 信号，通知应用开始关闭。应用在收到信号后应该停止接收新请求，同时等待现有请求处理完成。如果在 terminationGracePeriodSeconds 规定的时间内应用仍未退出，系统将强制发送 SIGKILL 信号终止进程。
-...</p></div><footer class=entry-footer><span title='2026-03-06 00:00:00 +0000 UTC'>March 6, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></footer><a class=entry-link aria-label="post link to Kubernetes 零停机部署实战指南" href=https://getaibits.com/posts/kubernetes-zero-downtime-deployment/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>OpenClaw Agent 策略设计大神级汇总</h2></header><div class=entry-content><p>本文档整理自 2026 年 2 月最新的 OpenClaw 社区最佳实践、架构模式和官方 RFC。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-03-06 00:00:00 +0000 UTC'>March 6, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></footer>
+  <a class="entry-link" aria-label="post link to Kubernetes 零停机部署实战指南" href="https://getaibits.com/posts/kubernetes-zero-downtime-deployment/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">OpenClaw Agent 策略设计大神级汇总
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 本文档整理自 2026 年 2 月最新的 OpenClaw 社区最佳实践、架构模式和官方 RFC。
 一、核心架构模式 1. 四层架构设计 OpenClaw 的架构分为四个独立的层，每层有明确的职责：
-层级 职责 关键模式 Gateway 连接管理、路由、认证 单进程多路复用 Execution 任务排序、并发控制 Lane Queue（会话串行队列） Integration 平台归一化 Channel Adapters Intelligence Agent 行为、知识、主动性 Skills + Memory + Heartbeat 设计洞察：OpenClaw 不是框架，是一个 Gateway —— 一个运行在你本地设备和外部世界之间的单进程运行时。
+层级 职责 关键模式 Gateway 连接管理、路由、认证 单进程多路复用 Execution 任务排序、并发控制 Lane Queue（会话串行队列） Integration 平台归一化 Channel Adapters Intelligence Agent 行为、知识、主动性 Skills &#43; Memory &#43; Heartbeat 设计洞察：OpenClaw 不是框架，是一个 Gateway —— 一个运行在你本地设备和外部世界之间的单进程运行时。
 2. Lane Queue - 核心创新 如果只从本文带走一个模式，那就是它。
 问题：大多数 Agent 系统允许多个请求并发执行，导致：
 三个工具调用同时写入同一个文件 API 请求使用矛盾的假设 交错的日志无法调试 解决方案：每个 Session 获得独立队列，任务串行执行。
-type SessionKey = `${string}:${string}:${string}` // workspace:channel:userId class LaneQueue { private queues = new Map&lt;SessionKey, Task[]>() async enqueue(sessionKey: SessionKey, task: Task) { const queue = this.queues.get(sessionKey) ?? [] this.queues.set(sessionKey, queue) queue.push(task) if (queue.length === 1) { // 没有其他任务在运行，立即执行 await this.process(sessionKey) } // 否则排队等待 } } 关键决策：
-...</p></div><footer class=entry-footer><span title='2026-02-20 00:00:00 +0000 UTC'>February 20, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></footer><a class=entry-link aria-label="post link to OpenClaw Agent 策略设计大神级汇总" href=https://getaibits.com/posts/openclaw-agent-patterns/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Claude Skills 神级用法指南</h2></header><div class=entry-content><p>整理自 Anthropic 官方文档、GitHub 社区和实战经验
+type SessionKey = `${string}:${string}:${string}` // workspace:channel:userId class LaneQueue { private queues = new Map&lt;SessionKey, Task[]&gt;() async enqueue(sessionKey: SessionKey, task: Task) { const queue = this.queues.get(sessionKey) ?? [] this.queues.set(sessionKey, queue) queue.push(task) if (queue.length === 1) { // 没有其他任务在运行，立即执行 await this.process(sessionKey) } // 否则排队等待 } } 关键决策：
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-02-20 00:00:00 +0000 UTC'>February 20, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></footer>
+  <a class="entry-link" aria-label="post link to OpenClaw Agent 策略设计大神级汇总" href="https://getaibits.com/posts/openclaw-agent-patterns/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Claude Skills 神级用法指南
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 整理自 Anthropic 官方文档、GitHub 社区和实战经验
 一、Skills 是什么？ Skills 是自定义指令，扩展 Claude 的能力。通过 SKILL.md 文件，你可以：
 编码机构知识和最佳实践 标准化输出格式 处理复杂的多步骤工作流 二、Skills vs 其他扩展方式 类型 用途 特点 Skills 可复用的知识/工作流 便携、可跨项目共享 Subagents 独立的专用代理 隔离上下文、受限工具 Commands 快捷操作 用户手动触发 Hooks 自动化脚本 在特定时机自动执行 MCP Servers 外部工具集成 连接第三方服务 三、神级技巧 1. 🎯 精准触发：写好 description 差的写法：
 description: 帮助处理 PDF 和文档 神级写法：
-description: "PDF 操作工具包：提取文本和表格、创建新 PDF、合并/拆分文档、处理表单。当需要填写 PDF 表单或批量处理 PDF 时使用。不用于简单查看或基本转换。" 关键：具体动词 + 使用场景 + 明确边界
+description: &#34;PDF 操作工具包：提取文本和表格、创建新 PDF、合并/拆分文档、处理表单。当需要填写 PDF 表单或批量处理 PDF 时使用。不用于简单查看或基本转换。&#34; 关键：具体动词 &#43; 使用场景 &#43; 明确边界
 2. 🔒 控制调用权限 --- name: deploy description: 部署应用到生产环境 disable-model-invocation: true # 只能手动触发，防止 Claude 自作主张 --- 配置 你能调用 Claude 能调用 默认 ✅ ✅ disable-model-invocation: true ✅ ❌ user-invocable: false ❌ ✅ 3. 🍴 Fork 模式：隔离执行 --- name: deep-research description: 深度研究某个主题 context: fork # 在隔离的子代理中运行 agent: Explore # 使用只读探索代理 --- 研究 $ARGUMENTS： 1. 用 Glob 和 Grep 找相关文件 2. 阅读分析代码 3. 总结发现，附带文件引用 4. 💉 动态注入上下文 用 !`command` 语法在 skill 执行前运行命令：
-...</p></div><footer class=entry-footer><span title='2026-02-14 00:00:00 +0000 UTC'>February 14, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></footer><a class=entry-link aria-label="post link to Claude Skills 神级用法指南" href=https://getaibits.com/posts/claude-skills-guide/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>2026年2月 AI 编程工具大盘点：各花入各眼，总有一款适合你</h2></header><div class=entry-content><p>AI 编程工具太多了，每周都有新的。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-02-14 00:00:00 +0000 UTC'>February 14, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></footer>
+  <a class="entry-link" aria-label="post link to Claude Skills 神级用法指南" href="https://getaibits.com/posts/claude-skills-guide/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">2026年2月 AI 编程工具大盘点：各花入各眼，总有一款适合你
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>AI 编程工具太多了，每周都有新的。
 Cursor、Copilot、Claude Code、Windsurf、Codex、Antigravity…光名字就能把人绕晕。
 这篇文章帮你理清楚：2026 年 2 月，到底该用哪个？
-先说结论：极简决策树 想要最省心？ → GitHub Copilot 想要最强？ → Cursor + Claude Code 想要免费？ → Windsurf + OpenCode + Cline 想要尝鲜？ → Antigravity + Codex App 想要开源？ → OpenCode + Aider 国内首选？ → Trae + 通义灵码 如果你只想知道答案，上面就够了。
+先说结论：极简决策树 想要最省心？ → GitHub Copilot 想要最强？ → Cursor &#43; Claude Code 想要免费？ → Windsurf &#43; OpenCode &#43; Cline 想要尝鲜？ → Antigravity &#43; Codex App 想要开源？ → OpenCode &#43; Aider 国内首选？ → Trae &#43; 通义灵码 如果你只想知道答案，上面就够了。
 想了解更多，继续往下看。
-一、市场格局速览 指标 数据 Claude Code ARR $10 亿+ Cursor 付费用户 36 万+ GitHub 提交占比（Claude Code） 4%（预计年底 20%+） Windsurf 收购价 $30 亿（OpenAI 收购） 开发者 AI 工具使用率 84% 一句话总结： AI 正在吃掉软件开发。
-...</p></div><footer class=entry-footer><span title='2026-02-13 00:00:00 +0000 UTC'>February 13, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></footer><a class=entry-link aria-label="post link to 2026年2月 AI 编程工具大盘点：各花入各眼，总有一款适合你" href=https://getaibits.com/posts/ai-coding-tools-2026-feb/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>这个老外说，用 AI 学任何东西只要两周。我试了一下，他没骗人</h2></header><div class=entry-content><p>前几天刷到一个叫 Dan Koe 的博主。
+一、市场格局速览 指标 数据 Claude Code ARR $10 亿&#43; Cursor 付费用户 36 万&#43; GitHub 提交占比（Claude Code） 4%（预计年底 20%&#43;） Windsurf 收购价 $30 亿（OpenAI 收购） 开发者 AI 工具使用率 84% 一句话总结： AI 正在吃掉软件开发。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-02-13 00:00:00 +0000 UTC'>February 13, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></footer>
+  <a class="entry-link" aria-label="post link to 2026年2月 AI 编程工具大盘点：各花入各眼，总有一款适合你" href="https://getaibits.com/posts/ai-coding-tools-2026-feb/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">这个老外说，用 AI 学任何东西只要两周。我试了一下，他没骗人
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>前几天刷到一个叫 Dan Koe 的博主。
 这哥们在国外挺火的，写书、做课程、搞个人品牌，粉丝几十万。
 但真正让我停下来的，是他说的一句话：
 “我用 AI 花了 30 个小时，把过去 15 年读过的所有书、研究、理论，全部串联起来了。”
@@ -68,17 +417,53 @@ AI 在这里面扮演什么角色？ Dan Koe 原话是这么说的：
 “我本来可以花 6 个月重新读一遍所有的书和论文，像大海捞针一样找那些关键的引用。但现在，我可以直接让 AI 帮我检索我需要的信息，然后用它来创造新的东西。”
 他的做法是：
 把自己过去写的所有文章、笔记、书稿，全部喂给 AI 把他读过的重要理论（心流理论、螺旋动力学、发展心理学等）也喂进去 然后跟 AI 对话，让它帮他找出这些知识之间的联系 结果呢？
-他说这是他人生中"连接最多知识点"的一次体验。
+他说这是他人生中&#34;连接最多知识点&#34;的一次体验。
 不是 AI 替他思考。
-...</p></div><footer class=entry-footer><span title='2026-02-13 00:00:00 +0000 UTC'>February 13, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></footer><a class=entry-link aria-label="post link to 这个老外说，用 AI 学任何东西只要两周。我试了一下，他没骗人" href=https://getaibits.com/posts/dan-koe-ai-learning/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>OpenClaw 高级使用指南</h2></header><div class=entry-content><p>本文整理了 OpenClaw 的高级功能，帮助你充分发挥这个 AI 助手框架的潜力。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-02-13 00:00:00 +0000 UTC'>February 13, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></footer>
+  <a class="entry-link" aria-label="post link to 这个老外说，用 AI 学任何东西只要两周。我试了一下，他没骗人" href="https://getaibits.com/posts/dan-koe-ai-learning/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">OpenClaw 高级使用指南
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 本文整理了 OpenClaw 的高级功能，帮助你充分发挥这个 AI 助手框架的潜力。
 什么是 OpenClaw？ OpenClaw 是一个开源的 AI 助手框架，可以让你通过 WhatsApp、Telegram、Discord 等渠道与 Claude/GPT 等大模型对话。但它远不止是个聊天机器人——它支持多 Agent、定时任务、沙盒隔离、插件扩展等高级功能。
 1. 多 Agent 架构 一个 Gateway 可以同时运行多个独立的 Agent，每个 Agent 拥有：
-独立 Workspace：文件、SOUL.md、人设配置 独立 Session 存储：聊天历史完全隔离 独立 Auth profiles：凭证不共享 典型配置 { agents: { list: [ { id: "personal", default: true, workspace: "~/.openclaw/workspace-personal" }, { id: "work", workspace: "~/.openclaw/workspace-work", model: "anthropic/claude-opus-4-5" }, { id: "family", workspace: "~/.openclaw/workspace-family", sandbox: { mode: "all" } } ] }, bindings: [ { agentId: "work", match: { channel: "telegram" } }, { agentId: "family", match: { channel: "whatsapp", peer: { kind: "group", id: "120363...@g.us" } } } ] } 使用场景 不同渠道用不同人设/模型：Telegram 用 Opus 处理复杂工作，WhatsApp 用 Sonnet 日常聊天 家人群用沙盒隔离：限制工具访问，保护隐私 多人共享一个 Gateway：每人独立 Agent，互不干扰 2. 定时任务：Cron vs Heartbeat OpenClaw 提供两种定时机制，适用于不同场景：
-...</p></div><footer class=entry-footer><span title='2026-02-06 00:00:00 +0000 UTC'>February 6, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></footer><a class=entry-link aria-label="post link to OpenClaw 高级使用指南" href=https://getaibits.com/posts/openclaw-advanced-guide/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>OpenClaw 终端命令完全指南</h2></header><div class=entry-content><p>版本：OpenClaw 2026.2.2
+独立 Workspace：文件、SOUL.md、人设配置 独立 Session 存储：聊天历史完全隔离 独立 Auth profiles：凭证不共享 典型配置 { agents: { list: [ { id: &#34;personal&#34;, default: true, workspace: &#34;~/.openclaw/workspace-personal&#34; }, { id: &#34;work&#34;, workspace: &#34;~/.openclaw/workspace-work&#34;, model: &#34;anthropic/claude-opus-4-5&#34; }, { id: &#34;family&#34;, workspace: &#34;~/.openclaw/workspace-family&#34;, sandbox: { mode: &#34;all&#34; } } ] }, bindings: [ { agentId: &#34;work&#34;, match: { channel: &#34;telegram&#34; } }, { agentId: &#34;family&#34;, match: { channel: &#34;whatsapp&#34;, peer: { kind: &#34;group&#34;, id: &#34;120363...@g.us&#34; } } } ] } 使用场景 不同渠道用不同人设/模型：Telegram 用 Opus 处理复杂工作，WhatsApp 用 Sonnet 日常聊天 家人群用沙盒隔离：限制工具访问，保护隐私 多人共享一个 Gateway：每人独立 Agent，互不干扰 2. 定时任务：Cron vs Heartbeat OpenClaw 提供两种定时机制，适用于不同场景：
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-02-06 00:00:00 +0000 UTC'>February 6, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></footer>
+  <a class="entry-link" aria-label="post link to OpenClaw 高级使用指南" href="https://getaibits.com/posts/openclaw-advanced-guide/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">OpenClaw 终端命令完全指南
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 版本：OpenClaw 2026.2.2
 文档整理：阿拉 🧞
 OpenClaw 是一个强大的 AI 助手网关，通过命令行可以完成几乎所有操作。本文整理了所有终端命令，方便查阅和使用。
-目录 全局选项 初始化与配置 Gateway 网关管理 消息与通信 Agent 代理 会话管理 模型配置 频道管理 节点管理 浏览器控制 定时任务 插件与技能 内存与搜索 沙箱管理 安全与审计 系统工具 其他命令 全局选项 openclaw [options] [command] # 全局选项 -V, --version # 显示版本号 --dev # 开发模式：隔离状态到 ~/.openclaw-dev --profile &lt;name> # 使用命名配置文件 --no-color # 禁用 ANSI 颜色 -h, --help # 显示帮助 初始化与配置 setup - 初始化配置 openclaw setup # 初始化配置和工作区 openclaw setup --workspace ~/.openclaw/ws # 指定工作区路径 openclaw setup --wizard # 运行向导 onboard - 交互式向导 openclaw onboard # 启动向导 openclaw onboard --flow quickstart # 快速开始模式 openclaw onboard --flow manual # 完整配置模式 openclaw onboard --mode remote --remote-url ws://host:18789 # 远程模式 configure - 配置向导 openclaw configure # 交互式配置（模型、频道、技能等） config - 配置管理 openclaw config # 启动配置向导 openclaw config get &lt;path> # 获取配置值 openclaw config set &lt;path> &lt;value> # 设置配置值 openclaw config unset &lt;path> # 删除配置值 # 示例 openclaw config get browser.executablePath openclaw config set agents.defaults.heartbeat.every "2h" openclaw config set gateway.port 19001 --json doctor - 健康检查 openclaw doctor # 运行健康检查 openclaw doctor --repair # 修复问题 openclaw doctor --deep # 深度扫描 openclaw doctor --non-interactive # 非交互模式 reset - 重置配置 openclaw reset # 重置本地配置/状态 openclaw reset --scope config # 仅重置配置 openclaw reset --scope full # 完全重置 openclaw reset --dry-run # 预览模式 uninstall - 卸载 openclaw uninstall # 卸载网关服务 openclaw uninstall --all # 卸载所有 openclaw uninstall --service --state # 指定范围 update - 更新 openclaw update # 更新 OpenClaw openclaw update status # 检查更新状态 openclaw update wizard # 更新向导 openclaw update --channel beta # 切换到 beta 频道 openclaw update --channel dev # 切换到 dev 频道 openclaw update --no-restart # 更新后不重启 Gateway 网关管理 运行网关 openclaw gateway # 运行网关 openclaw gateway run # 前台运行 openclaw gateway --port 18789 # 指定端口 openclaw gateway --bin # 绑定模式：loopback|lan|tailnet|auto|custom openclaw gateway --token &lt;token> # 指定令牌 openclaw gateway --force # 强制启动（杀死占用端口的进程） openclaw gateway --dev # 开发模式 openclaw gateway --verbose # 详细日志 服务管理 openclaw gateway status # 查看状态 openclaw gateway install # 安装服务 openclaw gateway uninstall # 卸载服务 openclaw gateway start # 启动服务 openclaw gateway stop # 停止服务 openclaw gateway restart # 重启服务 查询与发现 openclaw gateway health # 健康检查 openclaw gateway probe # 探测网关 openclaw gateway discover # 发现局域网网关（Bonjour） openclaw gateway call &lt;method> # 调用 RPC 方法 openclaw gateway call status openclaw gateway call logs.tail --params '{"sinceMs": 60000}' logs - 日志查看 openclaw logs # 查看日志 openclaw logs --follow # 实时跟踪 openclaw logs --limit 500 # 限制行数 openclaw logs --json # JSON 格式 health - 健康状态 openclaw health # 获取网关健康状态 openclaw health --json status - 状态诊断 openclaw status # 显示状态 openclaw status --all # 完整诊断 openclaw status --deep # 深度探测 openclaw status --usage # 显示用量 消息与通信 message - 发送消息 支持频道：WhatsApp / Telegram / Discord / Slack / Signal / iMessage / MS Teams / Google Chat
-...</p></div><footer class=entry-footer><span title='2026-02-04 00:00:00 +0000 UTC'>February 4, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></footer><a class=entry-link aria-label="post link to OpenClaw 终端命令完全指南" href=https://getaibits.com/posts/openclaw-cli-guide/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>从 Clawdbot 升级到 OpenClaw：超简单迁移指南</h2></header><div class=entry-content><p>刚把 Clawdbot 升级到了 OpenClaw，整个过程特别简单，数据和配置都能自动迁移过来。
+目录 全局选项 初始化与配置 Gateway 网关管理 消息与通信 Agent 代理 会话管理 模型配置 频道管理 节点管理 浏览器控制 定时任务 插件与技能 内存与搜索 沙箱管理 安全与审计 系统工具 其他命令 全局选项 openclaw [options] [command] # 全局选项 -V, --version # 显示版本号 --dev # 开发模式：隔离状态到 ~/.openclaw-dev --profile &lt;name&gt; # 使用命名配置文件 --no-color # 禁用 ANSI 颜色 -h, --help # 显示帮助 初始化与配置 setup - 初始化配置 openclaw setup # 初始化配置和工作区 openclaw setup --workspace ~/.openclaw/ws # 指定工作区路径 openclaw setup --wizard # 运行向导 onboard - 交互式向导 openclaw onboard # 启动向导 openclaw onboard --flow quickstart # 快速开始模式 openclaw onboard --flow manual # 完整配置模式 openclaw onboard --mode remote --remote-url ws://host:18789 # 远程模式 configure - 配置向导 openclaw configure # 交互式配置（模型、频道、技能等） config - 配置管理 openclaw config # 启动配置向导 openclaw config get &lt;path&gt; # 获取配置值 openclaw config set &lt;path&gt; &lt;value&gt; # 设置配置值 openclaw config unset &lt;path&gt; # 删除配置值 # 示例 openclaw config get browser.executablePath openclaw config set agents.defaults.heartbeat.every &#34;2h&#34; openclaw config set gateway.port 19001 --json doctor - 健康检查 openclaw doctor # 运行健康检查 openclaw doctor --repair # 修复问题 openclaw doctor --deep # 深度扫描 openclaw doctor --non-interactive # 非交互模式 reset - 重置配置 openclaw reset # 重置本地配置/状态 openclaw reset --scope config # 仅重置配置 openclaw reset --scope full # 完全重置 openclaw reset --dry-run # 预览模式 uninstall - 卸载 openclaw uninstall # 卸载网关服务 openclaw uninstall --all # 卸载所有 openclaw uninstall --service --state # 指定范围 update - 更新 openclaw update # 更新 OpenClaw openclaw update status # 检查更新状态 openclaw update wizard # 更新向导 openclaw update --channel beta # 切换到 beta 频道 openclaw update --channel dev # 切换到 dev 频道 openclaw update --no-restart # 更新后不重启 Gateway 网关管理 运行网关 openclaw gateway # 运行网关 openclaw gateway run # 前台运行 openclaw gateway --port 18789 # 指定端口 openclaw gateway --bin # 绑定模式：loopback|lan|tailnet|auto|custom openclaw gateway --token &lt;token&gt; # 指定令牌 openclaw gateway --force # 强制启动（杀死占用端口的进程） openclaw gateway --dev # 开发模式 openclaw gateway --verbose # 详细日志 服务管理 openclaw gateway status # 查看状态 openclaw gateway install # 安装服务 openclaw gateway uninstall # 卸载服务 openclaw gateway start # 启动服务 openclaw gateway stop # 停止服务 openclaw gateway restart # 重启服务 查询与发现 openclaw gateway health # 健康检查 openclaw gateway probe # 探测网关 openclaw gateway discover # 发现局域网网关（Bonjour） openclaw gateway call &lt;method&gt; # 调用 RPC 方法 openclaw gateway call status openclaw gateway call logs.tail --params &#39;{&#34;sinceMs&#34;: 60000}&#39; logs - 日志查看 openclaw logs # 查看日志 openclaw logs --follow # 实时跟踪 openclaw logs --limit 500 # 限制行数 openclaw logs --json # JSON 格式 health - 健康状态 openclaw health # 获取网关健康状态 openclaw health --json status - 状态诊断 openclaw status # 显示状态 openclaw status --all # 完整诊断 openclaw status --deep # 深度探测 openclaw status --usage # 显示用量 消息与通信 message - 发送消息 支持频道：WhatsApp / Telegram / Discord / Slack / Signal / iMessage / MS Teams / Google Chat
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-02-04 00:00:00 +0000 UTC'>February 4, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></footer>
+  <a class="entry-link" aria-label="post link to OpenClaw 终端命令完全指南" href="https://getaibits.com/posts/openclaw-cli-guide/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">从 Clawdbot 升级到 OpenClaw：超简单迁移指南
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>刚把 Clawdbot 升级到了 OpenClaw，整个过程特别简单，数据和配置都能自动迁移过来。
 升级步骤 1. 停止旧服务
 clawdbot gateway stop 2. 安装 OpenClaw
 npm i -g openclaw@latest 3. 迁移数据
@@ -90,11 +475,123 @@ openclaw gateway start 搞定！原来的历史记录什么的都还在。
 补救方法：
 rm -rf ~/.openclaw openclaw doctor 删掉新建的目录，重新跑一遍 doctor 就好了。
 总结 升级顺序：stop → install → doctor → start
-记住先跑 openclaw doctor 再启动，别踩我的坑 😅</p></div><footer class=entry-footer><span title='2026-02-03 00:00:00 +0000 UTC'>February 3, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></footer><a class=entry-link aria-label="post link to 从 Clawdbot 升级到 OpenClaw：超简单迁移指南" href=https://getaibits.com/posts/clawdbot-to-openclaw-upgrade/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>你好，AI Bits！</h2></header><div class=entry-content><p>👋 欢迎！ 这是 AI Bits 的第一篇文章。
+记住先跑 openclaw doctor 再启动，别踩我的坑 😅
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-02-03 00:00:00 +0000 UTC'>February 3, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></footer>
+  <a class="entry-link" aria-label="post link to 从 Clawdbot 升级到 OpenClaw：超简单迁移指南" href="https://getaibits.com/posts/clawdbot-to-openclaw-upgrade/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">你好，AI Bits！
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>👋 欢迎！ 这是 AI Bits 的第一篇文章。
 在这里，我会分享：
-🤖 AI 工具使用技巧 💡 大模型实践经验 🛠️ 开源项目推荐 📚 AI 学习资源 为什么叫 AI Bits？ Bits 是计算机中最小的信息单位，也代表"碎片"。
+🤖 AI 工具使用技巧 💡 大模型实践经验 🛠️ 开源项目推荐 📚 AI 学习资源 为什么叫 AI Bits？ Bits 是计算机中最小的信息单位，也代表&#34;碎片&#34;。
 这个博客就是记录我在 AI 领域的点滴收获——每一个小知识点，都可能带来大启发。
-关注我 持续更新中，欢迎常来看看！</p></div><footer class=entry-footer><span title='2026-02-01 00:00:00 +0000 UTC'>February 1, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></footer><a class=entry-link aria-label="post link to 你好，AI Bits！" href=https://getaibits.com/posts/hello-world/></a></article></main><footer class=footer><span>&copy; 2026 <a href=https://getaibits.com/>AI Bits</a></span> ·
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg></a><div class=reading-progress id=reading-progress></div><script>window.addEventListener("scroll",function(){const e=document.querySelector(".post-content");if(!e)return;const t=window.scrollY,n=e.offsetHeight,s=window.innerHeight,o=t/(n-s)*100;document.getElementById("reading-progress").style.width=Math.min(o,100)+"%"})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>
+关注我 持续更新中，欢迎常来看看！
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-02-01 00:00:00 +0000 UTC'>February 1, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></footer>
+  <a class="entry-link" aria-label="post link to 你好，AI Bits！" href="https://getaibits.com/posts/hello-world/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://getaibits.com/">AI Bits</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<div class="reading-progress" id="reading-progress"></div>
+
+<script>
+
+window.addEventListener('scroll', function() {
+  const article = document.querySelector('.post-content');
+  if (!article) return;
+  
+  const scrollTop = window.scrollY;
+  const docHeight = article.offsetHeight;
+  const winHeight = window.innerHeight;
+  const scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
+  
+  document.getElementById('reading-progress').style.width = Math.min(scrollPercent, 100) + '%';
+});
+</script>
+
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

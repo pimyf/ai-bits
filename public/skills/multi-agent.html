@@ -1,14 +1,536 @@
-<!doctype html><html lang=zh-cn dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>多Agent团队配置 | AI Bits</title><meta name=keywords content><meta name=description content="
+<!DOCTYPE html>
+<html lang="zh-cn" dir="auto" data-theme="auto">
 
-← 返回技能商店"><meta name=author content="Gavin"><link rel=canonical href=https://getaibits.com/skills/multi-agent.html><link crossorigin=anonymous href=https://getaibits.com/assets/css/stylesheet.44e854f43d58f6dac184d229a83426e7437723b428a6ee8aa1367a80078e3bef.css integrity="sha256-ROhU9D1Y9trBhNIpqDQm50N3I7Qopu6KoTZ6gAeOO+8=" rel="preload stylesheet" as=style><link rel=icon href=https://getaibits.com/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://getaibits.com/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://getaibits.com/favicon-32x32.png><link rel=apple-touch-icon href=https://getaibits.com/apple-touch-icon.png><link rel=mask-icon href=https://getaibits.com/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh-cn href=https://getaibits.com/skills/multi-agent.html><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://getaibits.com/skills/multi-agent.html"},"headline":"多Agent团队配置","image":"https://getaibits.com/images/og-default.png","datePublished":"2026-03-06T00:00:00Z","dateModified":"2026-03-06T00:00:00Z","author":{"@type":"Person","name":"Gavin"},"publisher":{"@type":"Organization","name":"AI Bits","logo":{"@type":"ImageObject","url":"https://getaibits.com/images/avatar.png"}},"description":"\u003cstyle\u003e\n.skill-detail {\n  max-width: 900px;\n  margin: 0 auto;\n}\n\n.skill-header {\n  text-align: center;\n  padding: 3rem 0;\n  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));\n  border-radius: 16px;\n  margin-bottom: 2rem;\n}\n\n.skill-icon-large {\n  font-size: 4rem;\n  margin-bottom: 1rem;\n}\n\n.skill-title {\n  font-size: 2.5rem;\n  font-weight: 700;\n  margin: 0 0 1rem 0;\n  color: var(--primary);\n}\n\n.skill-tags {\n  display: flex;\n  gap: 0.5rem;\n  justify-content: center;\n  flex-wrap: wrap;\n}\n\n.skill-tag {\n  padding: 0.3rem 0.8rem;\n  border-radius: 20px;\n  font-size: 0.85rem;\n  font-weight: 500;\n}\n\n.skill-tag.official { background: #3b82f6; color: white; }\n.skill-tag.hot { background: #ef4444; color: white; }\n.skill-tag.required { background: #10b981; color: white; }\n\n.section {\n  margin: 3rem 0;\n}\n\n.section h2 {\n  font-size: 1.8rem;\n  color: var(--primary);\n  border-bottom: 2px solid var(--primary);\n  padding-bottom: 0.5rem;\n  margin-bottom: 1.5rem;\n}\n\n.section h3 {\n  font-size: 1.3rem;\n  color: var(--secondary);\n  margin: 2rem 0 1rem 0;\n}\n\n.code-block {\n  background: #1e1e1e;\n  border-radius: 8px;\n  padding: 1.5rem;\n  overflow-x: auto;\n  margin: 1rem 0;\n}\n\n.code-block pre {\n  margin: 0;\n  font-family: 'Consolas', 'Monaco', monospace;\n  font-size: 0.9rem;\n  line-height: 1.6;\n  color: #d4d4d4;\n}\n\n.agent-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  gap: 1rem;\n  margin: 1.5rem 0;\n}\n\n.agent-card {\n  background: var(--code-bg);\n  border-radius: 12px;\n  padding: 1.5rem;\n  border: 1px solid var(--border);\n}\n\n.agent-card h4 {\n  margin: 0 0 0.5rem 0;\n  color: var(--primary);\n  font-size: 1.1rem;\n}\n\n.agent-card p {\n  margin: 0;\n  font-size: 0.9rem;\n  color: var(--secondary);\n}\n\n.workflow {\n  background: var(--code-bg);\n  border-radius: 12px;\n  padding: 1.5rem;\n  margin: 1rem 0;\n}\n\n.workflow-step {\n  display: flex;\n  align-items: center;\n  gap: 1rem;\n  padding: 0.8rem 0;\n  border-bottom: 1px dashed var(--border);\n}\n\n.workflow-step:last-child {\n  border-bottom: none;\n}\n\n.step-num {\n  width: 30px;\n  height: 30px;\n  background: var(--primary);\n  color: white;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 600;\n  flex-shrink: 0;\n}\n\n.back-link {\n  display: inline-flex;\n  align-items: center;\n  gap: 0.5rem;\n  color: var(--primary);\n  text-decoration: none;\n  margin-bottom: 2rem;\n  font-weight: 500;\n}\n\n.back-link:hover {\n  text-decoration: underline;\n}\n\u003c/style\u003e\n\u003cdiv class=\"skill-detail\"\u003e\n\u003cp\u003e\u003ca href=\"/skills.html\" class=\"back-link\"\u003e← 返回技能商店\u003c/a\u003e\u003c/p\u003e"}</script><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="多Agent团队配置"><meta name=twitter:description content=" ← 返回技能商店
-"><meta name=twitter:image content="https://getaibits.com/images/og-default.png"><script>(function(){var t,e=document.createElement("script"),n=window.location.protocol.split(":")[0];n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script><meta name=weibo:webpage:type content="webpage"><meta name=weibo:webpage:title content="多Agent团队配置"><meta name=weibo:webpage:description content=" ← 返回技能商店
-"><meta name=weibo:webpage:image content="https://getaibits.com/images/og-default.png"><meta property="og:image" content="https://getaibits.com/images/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://getaibits.com/skills/multi-agent.html"><meta property="og:site_name" content="AI Bits"><meta property="og:title" content="多Agent团队配置"><meta property="og:description" content=" ← 返回技能商店"><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="skills"><meta property="article:published_time" content="2026-03-06T00:00:00+00:00"><meta property="article:modified_time" content="2026-03-06T00:00:00+00:00"><meta property="og:image" content="https://getaibits.com/images/og-default.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://getaibits.com/images/og-default.png"><meta name=twitter:title content="多Agent团队配置"><meta name=twitter:description content="
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>多Agent团队配置 | AI Bits</title>
+<meta name="keywords" content="">
+<meta name="description" content="
 
-← 返回技能商店"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Skills","item":"https://getaibits.com/skills/"},{"@type":"ListItem","position":2,"name":"多Agent团队配置","item":"https://getaibits.com/skills/multi-agent.html"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"多Agent团队配置","name":"多Agent团队配置","description":" ← 返回技能商店\n","keywords":[],"articleBody":" ← 返回技能商店\n🏗️ 多Agent团队配置 官方 热门 核心 概述 一只AI变一支团队——通过配置多个AI角色协作，实现复杂任务的自动化处理。总指挥统一调度，各Agent各司其职，形成完整的工作流。\n🎯 包含技能 🎯 总控中心 (main) 任务分发、结果汇总、协调各Agent工作\n🔬 研究分析专家 (research) 商业分析、文献检索、数据调研\n✍️ 内容创作专家 (content) 公众号文章、博客、教案撰写\n💻 技术开发专家 (dev) 代码开发、工具制作、脚本编写\n🎨 多媒体专家 (media) 图片生成、PPT制作、视频脚本\n🚀 发布运营专家 (publish) 内容排版、多平台发布、数据分析\n💻 配置方法 1. 基础配置 # ~/.openclaw/openclaw.json { “agents”: { “defaults”: { “model”: { “primary”: “kimi-coding/k2p5” }, “workspace”: “/Users/mac/.openclaw/workspace” }, “list”: [ { “id”: “main”, “name”: “总控中心”, “default”: true, “workspace”: “/Users/mac/.openclaw/workspace” }, { “id”: “research”, “name”: “研究分析专家”, “workspace”: “/Users/mac/.openclaw/workspace-research” }, { “id”: “content”, “name”: “内容创作专家”, “workspace”: “/Users/mac/.openclaw/workspace-content” }, { “id”: “dev”, “name”: “技术开发专家”, “workspace”: “/Users/mac/.openclaw/workspace-dev” }, { “id”: “media”, “name”: “多媒体专家”, “workspace”: “/Users/mac/.openclaw/workspace-media” }, { “id”: “publish”, “name”: “发布运营专家”, “workspace”: “/Users/mac/.openclaw/workspace-publish” } ] } }\n2. 飞书群绑定 \"bindings\": [ { \"agentId\": \"research\", \"match\": { \"channel\": \"feishu\", \"peer\": { \"kind\": \"group\", \"id\": \"oc_xxx\" // 研究分析中心群 } } }, { \"agentId\": \"content\", \"match\": { \"channel\": \"feishu\", \"peer\": { \"kind\": \"group\", \"id\": \"oc_xxx\" // 内容创作工坊群 } } } // ... 其他Agent同理 ] 🔄 工作流程 典型任务执行流程 1 用户在总控中心描述需求：\"帮我调研AI编程工具，写一篇公众号文章\" 2 总控中心分析任务，派发给 research Agent 进行调研 3 research 完成调研报告，返回给总控中心 4 【审核点】主人审核调研报告，确认后继续 5 总控中心派发 content Agent 撰写文章 6 【审核点】主人审核文章内容，确认后继续 7 media Agent 生成配图 8 publish Agent 发布到各平台 📋 代码示例 派发任务 # 在总控中心执行 sessions_spawn( agentId=“research”, task=“调研Kubernetes零停机部署最佳实践”, mode=“run” )\nAgent完成后自动返回结果 结果包含：调研报告、数据来源、分析结论 任务类型映射 TASK_TYPE_MAPPING = { # 研究分析类 \"调研\": \"research\", \"分析\": \"research\", \"检索\": \"research\", \"报告\": \"research\", # 内容创作类 \"写作\": \"content\", \"文章\": \"content\", \"博客\": \"content\", \"公众号\": \"content\", # 技术开发类 \"代码\": \"dev\", \"开发\": \"dev\", \"脚本\": \"dev\", \"工具\": \"dev\", # 多媒体类 \"图片\": \"media\", \"配图\": \"media\", \"PPT\": \"media\", # 发布运营类 \"发布\": \"publish\", \"排版\": \"publish\", \"运营\": \"publish\" }\n自动识别并派发 def dispatch_task(user_input): for keyword, agent_id in TASK_TYPE_MAPPING.items(): if keyword in user_input: return sessions_spawn(agentId=agent_id, task=user_input)\n# 复杂任务需要多个Agent协作 return dispatch_multi_agent_workflow(user_input) 🎯 使用场景 场景 Agent组合 输出 公众号文章 research → content → media → publish 完整文章+配图+发布 技术调研 research → dev 调研报告+Demo代码 产品发布 research → content → media → publish 发布文案+海报+多平台发布 工具开发 research → dev → publish 需求分析+代码实现+文档 ⚙️ 高级配置 质量审核机制 在每个关键环节设置审核点：\n# content Agent 的 SOUL.md 中添加 质量审核规则 完成文章后，必须：\n将文章发送给主人审核 等待主人反馈（通过/修改/重写） 根据反馈处理后再继续下一步 审核消息模板：\n【文章初稿完成，等待审核】 标题：XXX 字数：XXX字 文件路径：XXX 请审核，回复： - \"通过\" → 进入配图阶段 - \"修改：具体意见\" → 我修改后再提交 - \"重写\" → 需要重新调研资料 ``` --- ## 📚 相关技能 - [🔄 Agent任务分发](/skills/task-dispatch.html) - 智能识别任务类型自动派发 - [✅ 质量审核机制](/skills/quality-review.html) - 关键节点人工审核 - [📤 飞书消息通知](/skills/feishu-msg.html) - Agent完成任务后通知到群 --- 🚀 开始使用 在飞书总控中心描述你的需求，AI团队会自动协作完成任务。\n查看全部技能 → ","wordCount":"391","inLanguage":"zh-cn","image":"https://getaibits.com/images/og-default.png","datePublished":"2026-03-06T00:00:00Z","dateModified":"2026-03-06T00:00:00Z","author":{"@type":"Person","name":"Gavin"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://getaibits.com/skills/multi-agent.html"},"publisher":{"@type":"Organization","name":"AI Bits","logo":{"@type":"ImageObject","url":"https://getaibits.com/favicon.ico"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo><a href=https://getaibits.com/ accesskey=h title="AI Bits (Alt + H)">AI Bits</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
-<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://getaibits.com/ title="🏠 首页"><span>🏠 首页</span></a></li><li><a href=https://getaibits.com/posts/ title="📚 文章"><span>📚 文章</span></a></li><li><a href=https://getaibits.com/skills/ title="🔧 技能"><span>🔧 技能</span></a></li><li><a href=https://getaibits.com/search/ title="🔍 搜索"><span>🔍 搜索</span></a></li><li><a href=https://getaibits.com/tags/ title="🏷️ 标签"><span>🏷️ 标签</span></a></li><li><a href=https://getaibits.com/about/ title="👤 关于"><span>👤 关于</span></a></li></ul></nav></header><main class=main><style>.skill-detail{max-width:900px;margin:0 auto}.skill-header{text-align:center;padding:3rem 0;background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(16,185,129,.1));border-radius:16px;margin-bottom:2rem}.skill-icon-large{font-size:4rem;margin-bottom:1rem}.skill-title{font-size:2.5rem;font-weight:700;margin:0 0 1rem;color:var(--primary)}.skill-tags{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}.skill-tag{padding:.3rem .8rem;border-radius:20px;font-size:.85rem;font-weight:500}.skill-tag.official{background:#3b82f6;color:#fff}.skill-tag.hot{background:#ef4444;color:#fff}.skill-tag.required{background:#10b981;color:#fff}.section{margin:3rem 0}.section h2{font-size:1.8rem;color:var(--primary);border-bottom:2px solid var(--primary);padding-bottom:.5rem;margin-bottom:1.5rem}.section h3{font-size:1.3rem;color:var(--secondary);margin:2rem 0 1rem}.code-block{background:#1e1e1e;border-radius:8px;padding:1.5rem;overflow-x:auto;margin:1rem 0}.code-block pre{margin:0;font-family:consolas,monaco,monospace;font-size:.9rem;line-height:1.6;color:#d4d4d4}.agent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin:1.5rem 0}.agent-card{background:var(--code-bg);border-radius:12px;padding:1.5rem;border:1px solid var(--border)}.agent-card h4{margin:0 0 .5rem;color:var(--primary);font-size:1.1rem}.agent-card p{margin:0;font-size:.9rem;color:var(--secondary)}.workflow{background:var(--code-bg);border-radius:12px;padding:1.5rem;margin:1rem 0}.workflow-step{display:flex;align-items:center;gap:1rem;padding:.8rem 0;border-bottom:1px dashed var(--border)}.workflow-step:last-child{border-bottom:none}.step-num{width:30px;height:30px;background:var(--primary);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600;flex-shrink:0}.back-link{display:inline-flex;align-items:center;gap:.5rem;color:var(--primary);text-decoration:none;margin-bottom:2rem;font-weight:500}.back-link:hover{text-decoration:underline}</style><div class=skill-detail><p><a href=https://getaibits.com/skills.html class=back-link>← 返回技能商店</a></p><div class=skill-header><div class=skill-icon-large>🏗️</div><h1 class=skill-title>多Agent团队配置</h1><div class=skill-tags><span class="skill-tag official">官方</span>
-<span class="skill-tag hot">热门</span>
-<span class="skill-tag required">核心</span></div></div><h2 id=概述>概述</h2><p>一只AI变一支团队——通过配置多个AI角色协作，实现复杂任务的自动化处理。总指挥统一调度，各Agent各司其职，形成完整的工作流。</p><hr><h2 id=-包含技能>🎯 包含技能</h2><div class=agent-grid><div class=agent-card><h4>🎯 总控中心 (main)</h4><p>任务分发、结果汇总、协调各Agent工作</p></div><div class=agent-card><h4>🔬 研究分析专家 (research)</h4><p>商业分析、文献检索、数据调研</p></div><div class=agent-card><h4>✍️ 内容创作专家 (content)</h4><p>公众号文章、博客、教案撰写</p></div><div class=agent-card><h4>💻 技术开发专家 (dev)</h4><p>代码开发、工具制作、脚本编写</p></div><div class=agent-card><h4>🎨 多媒体专家 (media)</h4><p>图片生成、PPT制作、视频脚本</p></div><div class=agent-card><h4>🚀 发布运营专家 (publish)</h4><p>内容排版、多平台发布、数据分析</p></div></div><hr><h2 id=-配置方法>💻 配置方法</h2><h3 id=1-基础配置>1. 基础配置</h3><div class=code-block><pre># ~/.openclaw/openclaw.json
+← 返回技能商店">
+<meta name="author" content="Gavin">
+<link rel="canonical" href="https://getaibits.com/skills/multi-agent.html">
+<link crossorigin="anonymous" href="https://getaibits.com/assets/css/stylesheet.44e854f43d58f6dac184d229a83426e7437723b428a6ee8aa1367a80078e3bef.css" integrity="sha256-ROhU9D1Y9trBhNIpqDQm50N3I7Qopu6KoTZ6gAeOO&#43;8=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://getaibits.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://getaibits.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://getaibits.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://getaibits.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://getaibits.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-cn" href="https://getaibits.com/skills/multi-agent.html">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+
+
+
+
+  
+  
+    
+  
+
+
+  
+    
+  
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getaibits.com/skills/multi-agent.html"
+  },
+  "headline": "多Agent团队配置",
+  "image": "https://getaibits.com/images/og-default.png",
+  "datePublished": "2026-03-06T00:00:00Z",
+  "dateModified": "2026-03-06T00:00:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "Gavin"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Bits",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getaibits.com/images/avatar.png"
+    }
+  },
+  "description": "\u003cstyle\u003e\n.skill-detail {\n  max-width: 900px;\n  margin: 0 auto;\n}\n\n.skill-header {\n  text-align: center;\n  padding: 3rem 0;\n  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));\n  border-radius: 16px;\n  margin-bottom: 2rem;\n}\n\n.skill-icon-large {\n  font-size: 4rem;\n  margin-bottom: 1rem;\n}\n\n.skill-title {\n  font-size: 2.5rem;\n  font-weight: 700;\n  margin: 0 0 1rem 0;\n  color: var(--primary);\n}\n\n.skill-tags {\n  display: flex;\n  gap: 0.5rem;\n  justify-content: center;\n  flex-wrap: wrap;\n}\n\n.skill-tag {\n  padding: 0.3rem 0.8rem;\n  border-radius: 20px;\n  font-size: 0.85rem;\n  font-weight: 500;\n}\n\n.skill-tag.official { background: #3b82f6; color: white; }\n.skill-tag.hot { background: #ef4444; color: white; }\n.skill-tag.required { background: #10b981; color: white; }\n\n.section {\n  margin: 3rem 0;\n}\n\n.section h2 {\n  font-size: 1.8rem;\n  color: var(--primary);\n  border-bottom: 2px solid var(--primary);\n  padding-bottom: 0.5rem;\n  margin-bottom: 1.5rem;\n}\n\n.section h3 {\n  font-size: 1.3rem;\n  color: var(--secondary);\n  margin: 2rem 0 1rem 0;\n}\n\n.code-block {\n  background: #1e1e1e;\n  border-radius: 8px;\n  padding: 1.5rem;\n  overflow-x: auto;\n  margin: 1rem 0;\n}\n\n.code-block pre {\n  margin: 0;\n  font-family: 'Consolas', 'Monaco', monospace;\n  font-size: 0.9rem;\n  line-height: 1.6;\n  color: #d4d4d4;\n}\n\n.agent-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  gap: 1rem;\n  margin: 1.5rem 0;\n}\n\n.agent-card {\n  background: var(--code-bg);\n  border-radius: 12px;\n  padding: 1.5rem;\n  border: 1px solid var(--border);\n}\n\n.agent-card h4 {\n  margin: 0 0 0.5rem 0;\n  color: var(--primary);\n  font-size: 1.1rem;\n}\n\n.agent-card p {\n  margin: 0;\n  font-size: 0.9rem;\n  color: var(--secondary);\n}\n\n.workflow {\n  background: var(--code-bg);\n  border-radius: 12px;\n  padding: 1.5rem;\n  margin: 1rem 0;\n}\n\n.workflow-step {\n  display: flex;\n  align-items: center;\n  gap: 1rem;\n  padding: 0.8rem 0;\n  border-bottom: 1px dashed var(--border);\n}\n\n.workflow-step:last-child {\n  border-bottom: none;\n}\n\n.step-num {\n  width: 30px;\n  height: 30px;\n  background: var(--primary);\n  color: white;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 600;\n  flex-shrink: 0;\n}\n\n.back-link {\n  display: inline-flex;\n  align-items: center;\n  gap: 0.5rem;\n  color: var(--primary);\n  text-decoration: none;\n  margin-bottom: 2rem;\n  font-weight: 500;\n}\n\n.back-link:hover {\n  text-decoration: underline;\n}\n\u003c/style\u003e\n\u003cdiv class=\"skill-detail\"\u003e\n\u003cp\u003e\u003ca href=\"/skills.html\" class=\"back-link\"\u003e← 返回技能商店\u003c/a\u003e\u003c/p\u003e"
+}
+</script>
+
+
+
+  
+  
+    
+  
+
+
+  
+    
+  
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="多Agent团队配置">
+<meta name="twitter:description" content=" ← 返回技能商店
+">
+<meta name="twitter:image" content="https://getaibits.com/images/og-default.png">
+
+
+
+
+
+
+
+
+
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  } else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+  
+  
+    
+  
+
+
+  
+    
+  
+
+<meta name="weibo:webpage:type" content="webpage">
+<meta name="weibo:webpage:title" content="多Agent团队配置">
+<meta name="weibo:webpage:description" content=" ← 返回技能商店
+">
+<meta name="weibo:webpage:image" content="https://getaibits.com/images/og-default.png">
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+  
+    
+  
+
+
+<meta property="og:image" content="https://getaibits.com/images/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta property="og:url" content="https://getaibits.com/skills/multi-agent.html">
+  <meta property="og:site_name" content="AI Bits">
+  <meta property="og:title" content="多Agent团队配置">
+  <meta property="og:description" content=" ← 返回技能商店">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="skills">
+    <meta property="article:published_time" content="2026-03-06T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-03-06T00:00:00+00:00">
+      <meta property="og:image" content="https://getaibits.com/images/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://getaibits.com/images/og-default.png">
+<meta name="twitter:title" content="多Agent团队配置">
+<meta name="twitter:description" content="
+
+← 返回技能商店">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Skills",
+      "item": "https://getaibits.com/skills/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "多Agent团队配置",
+      "item": "https://getaibits.com/skills/multi-agent.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "多Agent团队配置",
+  "name": "多Agent团队配置",
+  "description": " ← 返回技能商店\n",
+  "keywords": [
+    
+  ],
+  "articleBody": " ← 返回技能商店\n🏗️ 多Agent团队配置 官方 热门 核心 概述 一只AI变一支团队——通过配置多个AI角色协作，实现复杂任务的自动化处理。总指挥统一调度，各Agent各司其职，形成完整的工作流。\n🎯 包含技能 🎯 总控中心 (main) 任务分发、结果汇总、协调各Agent工作\n🔬 研究分析专家 (research) 商业分析、文献检索、数据调研\n✍️ 内容创作专家 (content) 公众号文章、博客、教案撰写\n💻 技术开发专家 (dev) 代码开发、工具制作、脚本编写\n🎨 多媒体专家 (media) 图片生成、PPT制作、视频脚本\n🚀 发布运营专家 (publish) 内容排版、多平台发布、数据分析\n💻 配置方法 1. 基础配置 # ~/.openclaw/openclaw.json { “agents”: { “defaults”: { “model”: { “primary”: “kimi-coding/k2p5” }, “workspace”: “/Users/mac/.openclaw/workspace” }, “list”: [ { “id”: “main”, “name”: “总控中心”, “default”: true, “workspace”: “/Users/mac/.openclaw/workspace” }, { “id”: “research”, “name”: “研究分析专家”, “workspace”: “/Users/mac/.openclaw/workspace-research” }, { “id”: “content”, “name”: “内容创作专家”, “workspace”: “/Users/mac/.openclaw/workspace-content” }, { “id”: “dev”, “name”: “技术开发专家”, “workspace”: “/Users/mac/.openclaw/workspace-dev” }, { “id”: “media”, “name”: “多媒体专家”, “workspace”: “/Users/mac/.openclaw/workspace-media” }, { “id”: “publish”, “name”: “发布运营专家”, “workspace”: “/Users/mac/.openclaw/workspace-publish” } ] } }\n2. 飞书群绑定 \"bindings\": [ { \"agentId\": \"research\", \"match\": { \"channel\": \"feishu\", \"peer\": { \"kind\": \"group\", \"id\": \"oc_xxx\" // 研究分析中心群 } } }, { \"agentId\": \"content\", \"match\": { \"channel\": \"feishu\", \"peer\": { \"kind\": \"group\", \"id\": \"oc_xxx\" // 内容创作工坊群 } } } // ... 其他Agent同理 ] 🔄 工作流程 典型任务执行流程 1 用户在总控中心描述需求：\"帮我调研AI编程工具，写一篇公众号文章\" 2 总控中心分析任务，派发给 research Agent 进行调研 3 research 完成调研报告，返回给总控中心 4 【审核点】主人审核调研报告，确认后继续 5 总控中心派发 content Agent 撰写文章 6 【审核点】主人审核文章内容，确认后继续 7 media Agent 生成配图 8 publish Agent 发布到各平台 📋 代码示例 派发任务 # 在总控中心执行 sessions_spawn( agentId=“research”, task=“调研Kubernetes零停机部署最佳实践”, mode=“run” )\nAgent完成后自动返回结果 结果包含：调研报告、数据来源、分析结论 任务类型映射 TASK_TYPE_MAPPING = { # 研究分析类 \"调研\": \"research\", \"分析\": \"research\", \"检索\": \"research\", \"报告\": \"research\", # 内容创作类 \"写作\": \"content\", \"文章\": \"content\", \"博客\": \"content\", \"公众号\": \"content\", # 技术开发类 \"代码\": \"dev\", \"开发\": \"dev\", \"脚本\": \"dev\", \"工具\": \"dev\", # 多媒体类 \"图片\": \"media\", \"配图\": \"media\", \"PPT\": \"media\", # 发布运营类 \"发布\": \"publish\", \"排版\": \"publish\", \"运营\": \"publish\" }\n自动识别并派发 def dispatch_task(user_input): for keyword, agent_id in TASK_TYPE_MAPPING.items(): if keyword in user_input: return sessions_spawn(agentId=agent_id, task=user_input)\n# 复杂任务需要多个Agent协作 return dispatch_multi_agent_workflow(user_input) 🎯 使用场景 场景 Agent组合 输出 公众号文章 research → content → media → publish 完整文章+配图+发布 技术调研 research → dev 调研报告+Demo代码 产品发布 research → content → media → publish 发布文案+海报+多平台发布 工具开发 research → dev → publish 需求分析+代码实现+文档 ⚙️ 高级配置 质量审核机制 在每个关键环节设置审核点：\n# content Agent 的 SOUL.md 中添加 质量审核规则 完成文章后，必须：\n将文章发送给主人审核 等待主人反馈（通过/修改/重写） 根据反馈处理后再继续下一步 审核消息模板：\n【文章初稿完成，等待审核】 标题：XXX 字数：XXX字 文件路径：XXX 请审核，回复： - \"通过\" → 进入配图阶段 - \"修改：具体意见\" → 我修改后再提交 - \"重写\" → 需要重新调研资料 ``` --- ## 📚 相关技能 - [🔄 Agent任务分发](/skills/task-dispatch.html) - 智能识别任务类型自动派发 - [✅ 质量审核机制](/skills/quality-review.html) - 关键节点人工审核 - [📤 飞书消息通知](/skills/feishu-msg.html) - Agent完成任务后通知到群 --- 🚀 开始使用 在飞书总控中心描述你的需求，AI团队会自动协作完成任务。\n查看全部技能 → ",
+  "wordCount" : "391",
+  "inLanguage": "zh-cn",
+  "image": "https://getaibits.com/images/og-default.png","datePublished": "2026-03-06T00:00:00Z",
+  "dateModified": "2026-03-06T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Gavin"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getaibits.com/skills/multi-agent.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Bits",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getaibits.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://getaibits.com/" accesskey="h" title="AI Bits (Alt + H)">AI Bits</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://getaibits.com/" title="🏠 首页">
+                    <span>🏠 首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/posts/" title="📚 文章">
+                    <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/skills/" title="🔧 技能">
+                    <span>🔧 技能</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/search/" title="🔍 搜索">
+                    <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/tags/" title="🏷️ 标签">
+                    <span>🏷️ 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/about/" title="👤 关于">
+                    <span>👤 关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+<style>
+.skill-detail {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skill-header {
+  text-align: center;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.skill-icon-large {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.skill-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: var(--primary);
+}
+
+.skill-tags {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.skill-tag {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.skill-tag.official { background: #3b82f6; color: white; }
+.skill-tag.hot { background: #ef4444; color: white; }
+.skill-tag.required { background: #10b981; color: white; }
+
+.section {
+  margin: 3rem 0;
+}
+
+.section h2 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.section h3 {
+  font-size: 1.3rem;
+  color: var(--secondary);
+  margin: 2rem 0 1rem 0;
+}
+
+.code-block {
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.code-block pre {
+  margin: 0;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #d4d4d4;
+}
+
+.agent-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.agent-card {
+  background: var(--code-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+}
+
+.agent-card h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.agent-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--secondary);
+}
+
+.workflow {
+  background: var(--code-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.workflow-step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.workflow-step:last-child {
+  border-bottom: none;
+}
+
+.step-num {
+  width: 30px;
+  height: 30px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
+  text-decoration: none;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+</style>
+<div class="skill-detail">
+<p><a href="https://getaibits.com/skills.html" class="back-link">← 返回技能商店</a></p>
+<div class="skill-header">
+  <div class="skill-icon-large">🏗️</div>
+  <h1 class="skill-title">多Agent团队配置</h1>
+  <div class="skill-tags">
+    <span class="skill-tag official">官方</span>
+    <span class="skill-tag hot">热门</span>
+    <span class="skill-tag required">核心</span>
+  </div>
+</div>
+<h2 id="概述">概述</h2>
+<p>一只AI变一支团队——通过配置多个AI角色协作，实现复杂任务的自动化处理。总指挥统一调度，各Agent各司其职，形成完整的工作流。</p>
+<hr>
+<h2 id="-包含技能">🎯 包含技能</h2>
+<div class="agent-grid">
+  <div class="agent-card">
+    <h4>🎯 总控中心 (main)</h4>
+    <p>任务分发、结果汇总、协调各Agent工作</p>
+  </div>
+  <div class="agent-card">
+    <h4>🔬 研究分析专家 (research)</h4>
+    <p>商业分析、文献检索、数据调研</p>
+  </div>
+  <div class="agent-card">
+    <h4>✍️ 内容创作专家 (content)</h4>
+    <p>公众号文章、博客、教案撰写</p>
+  </div>
+  <div class="agent-card">
+    <h4>💻 技术开发专家 (dev)</h4>
+    <p>代码开发、工具制作、脚本编写</p>
+  </div>
+  <div class="agent-card">
+    <h4>🎨 多媒体专家 (media)</h4>
+    <p>图片生成、PPT制作、视频脚本</p>
+  </div>
+  <div class="agent-card">
+    <h4>🚀 发布运营专家 (publish)</h4>
+    <p>内容排版、多平台发布、数据分析</p>
+  </div>
+</div>
+<hr>
+<h2 id="-配置方法">💻 配置方法</h2>
+<h3 id="1-基础配置">1. 基础配置</h3>
+<div class="code-block">
+<pre># ~/.openclaw/openclaw.json
 <p>{
 &ldquo;agents&rdquo;: {
 &ldquo;defaults&rdquo;: {
@@ -51,7 +573,11 @@
 }
 ]
 }
-}</pre></p></div><h3 id=2-飞书群绑定>2. 飞书群绑定</h3><div class=code-block><pre>"bindings": [
+}</pre></p>
+</div>
+<h3 id="2-飞书群绑定">2. 飞书群绑定</h3>
+<div class="code-block">
+<pre>"bindings": [
   {
     "agentId": "research",
     "match": {
@@ -73,14 +599,61 @@
     }
   }
   // ... 其他Agent同理
-]</pre></div><hr><h2 id=-工作流程>🔄 工作流程</h2><h3 id=典型任务执行流程>典型任务执行流程</h3><div class=workflow><div class=workflow-step><span class=step-num>1</span><div>用户在总控中心描述需求："帮我调研AI编程工具，写一篇公众号文章"</div></div><div class=workflow-step><span class=step-num>2</span><div>总控中心分析任务，派发给 research Agent 进行调研</div></div><div class=workflow-step><span class=step-num>3</span><div>research 完成调研报告，返回给总控中心</div></div><div class=workflow-step><span class=step-num>4</span><div>【审核点】主人审核调研报告，确认后继续</div></div><div class=workflow-step><span class=step-num>5</span><div>总控中心派发 content Agent 撰写文章</div></div><div class=workflow-step><span class=step-num>6</span><div>【审核点】主人审核文章内容，确认后继续</div></div><div class=workflow-step><span class=step-num>7</span><div>media Agent 生成配图</div></div><div class=workflow-step><span class=step-num>8</span><div>publish Agent 发布到各平台</div></div></div><hr><h2 id=-代码示例>📋 代码示例</h2><h3 id=派发任务>派发任务</h3><div class=code-block><pre># 在总控中心执行
+]</pre>
+</div>
+<hr>
+<h2 id="-工作流程">🔄 工作流程</h2>
+<h3 id="典型任务执行流程">典型任务执行流程</h3>
+<div class="workflow">
+  <div class="workflow-step">
+    <span class="step-num">1</span>
+    <div>用户在总控中心描述需求："帮我调研AI编程工具，写一篇公众号文章"</div>
+  </div>
+  <div class="workflow-step">
+    <span class="step-num">2</span>
+    <div>总控中心分析任务，派发给 research Agent 进行调研</div>
+  </div>
+  <div class="workflow-step">
+    <span class="step-num">3</span>
+    <div>research 完成调研报告，返回给总控中心</div>
+  </div>
+  <div class="workflow-step">
+    <span class="step-num">4</span>
+    <div>【审核点】主人审核调研报告，确认后继续</div>
+  </div>
+  <div class="workflow-step">
+    <span class="step-num">5</span>
+    <div>总控中心派发 content Agent 撰写文章</div>
+  </div>
+  <div class="workflow-step">
+    <span class="step-num">6</span>
+    <div>【审核点】主人审核文章内容，确认后继续</div>
+  </div>
+  <div class="workflow-step">
+    <span class="step-num">7</span>
+    <div>media Agent 生成配图</div>
+  </div>
+  <div class="workflow-step">
+    <span class="step-num">8</span>
+    <div>publish Agent 发布到各平台</div>
+  </div>
+</div>
+<hr>
+<h2 id="-代码示例">📋 代码示例</h2>
+<h3 id="派发任务">派发任务</h3>
+<div class="code-block">
+<pre># 在总控中心执行
 <p>sessions_spawn(
 agentId=&ldquo;research&rdquo;,
 task=&ldquo;调研Kubernetes零停机部署最佳实践&rdquo;,
 mode=&ldquo;run&rdquo;
 )</p>
-<h1 id=agent完成后自动返回结果>Agent完成后自动返回结果</h1>
-<h1 id=结果包含调研报告数据来源分析结论>结果包含：调研报告、数据来源、分析结论</pre></h1></div><h3 id=任务类型映射>任务类型映射</h3><div class=code-block><pre>TASK_TYPE_MAPPING = {
+<h1 id="agent完成后自动返回结果">Agent完成后自动返回结果</h1>
+<h1 id="结果包含调研报告数据来源分析结论">结果包含：调研报告、数据来源、分析结论</pre></h1>
+</div>
+<h3 id="任务类型映射">任务类型映射</h3>
+<div class="code-block">
+<pre>TASK_TYPE_MAPPING = {
     # 研究分析类
     "调研": "research",
     "分析": "research",
@@ -107,13 +680,57 @@ mode=&ldquo;run&rdquo;
 &quot;发布&quot;: &quot;publish&quot;,
 &quot;排版&quot;: &quot;publish&quot;,
 &quot;运营&quot;: &quot;publish&quot;
-</code></pre><p>}</p><h1 id=自动识别并派发>自动识别并派发</h1><p>def dispatch_task(user_input):
+</code></pre>
+<p>}</p>
+<h1 id="自动识别并派发">自动识别并派发</h1>
+<p>def dispatch_task(user_input):
 for keyword, agent_id in TASK_TYPE_MAPPING.items():
 if keyword in user_input:
-return sessions_spawn(agentId=agent_id, task=user_input)</p><pre><code># 复杂任务需要多个Agent协作
+return sessions_spawn(agentId=agent_id, task=user_input)</p>
+<pre><code># 复杂任务需要多个Agent协作
 return dispatch_multi_agent_workflow(user_input)&lt;/pre&gt;
-</code></pre></div><hr><h2 id=-使用场景>🎯 使用场景</h2><table><thead><tr><th>场景</th><th>Agent组合</th><th>输出</th></tr></thead><tbody><tr><td><strong>公众号文章</strong></td><td>research → content → media → publish</td><td>完整文章+配图+发布</td></tr><tr><td><strong>技术调研</strong></td><td>research → dev</td><td>调研报告+Demo代码</td></tr><tr><td><strong>产品发布</strong></td><td>research → content → media → publish</td><td>发布文案+海报+多平台发布</td></tr><tr><td><strong>工具开发</strong></td><td>research → dev → publish</td><td>需求分析+代码实现+文档</td></tr></tbody></table><hr><h2 id=-高级配置>⚙️ 高级配置</h2><h3 id=质量审核机制>质量审核机制</h3><p>在每个关键环节设置审核点：</p><div class=code-block><pre># content Agent 的 SOUL.md 中添加
-<h2 id=质量审核规则>质量审核规则</h2>
+</code></pre>
+</div>
+<hr>
+<h2 id="-使用场景">🎯 使用场景</h2>
+<table>
+  <thead>
+      <tr>
+          <th>场景</th>
+          <th>Agent组合</th>
+          <th>输出</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>公众号文章</strong></td>
+          <td>research → content → media → publish</td>
+          <td>完整文章+配图+发布</td>
+      </tr>
+      <tr>
+          <td><strong>技术调研</strong></td>
+          <td>research → dev</td>
+          <td>调研报告+Demo代码</td>
+      </tr>
+      <tr>
+          <td><strong>产品发布</strong></td>
+          <td>research → content → media → publish</td>
+          <td>发布文案+海报+多平台发布</td>
+      </tr>
+      <tr>
+          <td><strong>工具开发</strong></td>
+          <td>research → dev → publish</td>
+          <td>需求分析+代码实现+文档</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-高级配置">⚙️ 高级配置</h2>
+<h3 id="质量审核机制">质量审核机制</h3>
+<p>在每个关键环节设置审核点：</p>
+<div class="code-block">
+<pre># content Agent 的 SOUL.md 中添加
+<h2 id="质量审核规则">质量审核规则</h2>
 <p>完成文章后，必须：</p>
 <ol>
 <li>将文章发送给主人审核</li>
@@ -121,7 +738,7 @@ return dispatch_multi_agent_workflow(user_input)&lt;/pre&gt;
 <li>根据反馈处理后再继续下一步</li>
 </ol>
 <p>审核消息模板：</p>
-<pre tabindex=0><code>【文章初稿完成，等待审核】
+<pre tabindex="0"><code>【文章初稿完成，等待审核】
 
 标题：XXX
 字数：XXX字
@@ -151,7 +768,102 @@ return dispatch_multi_agent_workflow(user_input)&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
-</code></pre></main><footer class=footer><span>&copy; 2026 <a href=https://getaibits.com/>AI Bits</a></span> ·
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg></a><div class=reading-progress id=reading-progress></div><script>window.addEventListener("scroll",function(){const e=document.querySelector(".post-content");if(!e)return;const t=window.scrollY,n=e.offsetHeight,s=window.innerHeight,o=t/(n-s)*100;document.getElementById("reading-progress").style.width=Math.min(o,100)+"%"})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>
+</code></pre>
+
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://getaibits.com/">AI Bits</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<div class="reading-progress" id="reading-progress"></div>
+
+<script>
+
+window.addEventListener('scroll', function() {
+  const article = document.querySelector('.post-content');
+  if (!article) return;
+  
+  const scrollTop = window.scrollY;
+  const docHeight = article.offsetHeight;
+  const winHeight = window.innerHeight;
+  const scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
+  
+  document.getElementById('reading-progress').style.width = Math.min(scrollPercent, 100) + '%';
+});
+</script>
+
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,22 +1,512 @@
-<!doctype html><html lang=zh-cn dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>AI图片生成 | AI Bits</title><meta name=keywords content><meta name=description content="
+<!DOCTYPE html>
+<html lang="zh-cn" dir="auto" data-theme="auto">
 
-← 返回技能商店"><meta name=author content="Gavin"><link rel=canonical href=https://getaibits.com/skills/image-gen.html><link crossorigin=anonymous href=https://getaibits.com/assets/css/stylesheet.44e854f43d58f6dac184d229a83426e7437723b428a6ee8aa1367a80078e3bef.css integrity="sha256-ROhU9D1Y9trBhNIpqDQm50N3I7Qopu6KoTZ6gAeOO+8=" rel="preload stylesheet" as=style><link rel=icon href=https://getaibits.com/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://getaibits.com/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://getaibits.com/favicon-32x32.png><link rel=apple-touch-icon href=https://getaibits.com/apple-touch-icon.png><link rel=mask-icon href=https://getaibits.com/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh-cn href=https://getaibits.com/skills/image-gen.html><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://getaibits.com/skills/image-gen.html"},"headline":"AI图片生成","image":"https://getaibits.com/images/og-default.png","datePublished":"2026-03-06T00:00:00Z","dateModified":"2026-03-06T00:00:00Z","author":{"@type":"Person","name":"Gavin"},"publisher":{"@type":"Organization","name":"AI Bits","logo":{"@type":"ImageObject","url":"https://getaibits.com/images/avatar.png"}},"description":"\u003cstyle\u003e\n.skill-detail {\n  max-width: 900px;\n  margin: 0 auto;\n}\n\n.skill-header {\n  text-align: center;\n  padding: 3rem 0;\n  background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(139, 92, 246, 0.1));\n  border-radius: 16px;\n  margin-bottom: 2rem;\n}\n\n.skill-icon-large {\n  font-size: 4rem;\n  margin-bottom: 1rem;\n}\n\n.skill-title {\n  font-size: 2.5rem;\n  font-weight: 700;\n  margin: 0 0 1rem 0;\n  color: var(--primary);\n}\n\n.skill-tags {\n  display: flex;\n  gap: 0.5rem;\n  justify-content: center;\n  flex-wrap: wrap;\n}\n\n.skill-tag {\n  padding: 0.3rem 0.8rem;\n  border-radius: 20px;\n  font-size: 0.85rem;\n  font-weight: 500;\n}\n\n.skill-tag.official { background: #3b82f6; color: white; }\n.skill-tag.required { background: #10b981; color: white; }\n\n.section {\n  margin: 3rem 0;\n}\n\n.section h2 {\n  font-size: 1.8rem;\n  color: var(--primary);\n  border-bottom: 2px solid var(--primary);\n  padding-bottom: 0.5rem;\n  margin-bottom: 1.5rem;\n}\n\n.code-block {\n  background: #1e1e1e;\n  border-radius: 8px;\n  padding: 1.5rem;\n  overflow-x: auto;\n  margin: 1rem 0;\n}\n\n.code-block pre {\n  margin: 0;\n  font-family: 'Consolas', 'Monaco', monospace;\n  font-size: 0.9rem;\n  line-height: 1.6;\n  color: #d4d4d4;\n}\n\n.model-list {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n  gap: 1rem;\n  margin: 1.5rem 0;\n}\n\n.model-item {\n  background: var(--code-bg);\n  border-radius: 8px;\n  padding: 1rem;\n  border: 1px solid var(--border);\n}\n\n.model-item h4 {\n  margin: 0 0 0.5rem 0;\n  color: var(--primary);\n}\n\n.model-item p {\n  margin: 0;\n  font-size: 0.85rem;\n  color: var(--secondary);\n}\n\n.back-link {\n  display: inline-flex;\n  align-items: center;\n  gap: 0.5rem;\n  color: var(--primary);\n  text-decoration: none;\n  margin-bottom: 2rem;\n  font-weight: 500;\n}\n\n.back-link:hover {\n  text-decoration: underline;\n}\n\n.tip-box {\n  background: rgba(59, 130, 246, 0.1);\n  border-left: 4px solid #3b82f6;\n  padding: 1rem 1.5rem;\n  border-radius: 0 8px 8px 0;\n  margin: 1rem 0;\n}\n\n.tip-box strong {\n  color: #3b82f6;\n}\n\u003c/style\u003e\n\u003cdiv class=\"skill-detail\"\u003e\n\u003cp\u003e\u003ca href=\"/skills.html\" class=\"back-link\"\u003e← 返回技能商店\u003c/a\u003e\u003c/p\u003e"}</script><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="AI图片生成"><meta name=twitter:description content=" ← 返回技能商店
-"><meta name=twitter:image content="https://getaibits.com/images/og-default.png"><script>(function(){var t,e=document.createElement("script"),n=window.location.protocol.split(":")[0];n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script><meta name=weibo:webpage:type content="webpage"><meta name=weibo:webpage:title content="AI图片生成"><meta name=weibo:webpage:description content=" ← 返回技能商店
-"><meta name=weibo:webpage:image content="https://getaibits.com/images/og-default.png"><meta property="og:image" content="https://getaibits.com/images/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://getaibits.com/skills/image-gen.html"><meta property="og:site_name" content="AI Bits"><meta property="og:title" content="AI图片生成"><meta property="og:description" content=" ← 返回技能商店"><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="skills"><meta property="article:published_time" content="2026-03-06T00:00:00+00:00"><meta property="article:modified_time" content="2026-03-06T00:00:00+00:00"><meta property="og:image" content="https://getaibits.com/images/og-default.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://getaibits.com/images/og-default.png"><meta name=twitter:title content="AI图片生成"><meta name=twitter:description content="
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>AI图片生成 | AI Bits</title>
+<meta name="keywords" content="">
+<meta name="description" content="
 
-← 返回技能商店"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Skills","item":"https://getaibits.com/skills/"},{"@type":"ListItem","position":2,"name":"AI图片生成","item":"https://getaibits.com/skills/image-gen.html"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"AI图片生成","name":"AI图片生成","description":" ← 返回技能商店\n","keywords":[],"articleBody":" ← 返回技能商店\n🖼️ AI图片生成 官方 必装 概述 Nano Banana Pro (Gemini 3 Pro Image) 文生图，2K高清配图生成，支持多种风格。专为博客文章、公众号、社交媒体配图设计。\n🤖 支持模型 gemini-2.5-flash-image 快速生成，适合草稿和迭代\ngemini-3-flash-preview 平衡速度和质量\ngemini-3-pro-image-preview 默认模型，最佳质量\nveo-3.1-fast-generate-preview 视频生成（实验性）\n💻 使用方法 方式1：命令行脚本（推荐） # 进入技能目录 cd ~/.openclaw/workspace/skills/nano-banana-pro 生成图片 uv run scripts/generate_image.py –prompt “一只戴墨镜的可爱猫咪，赛博朋克风格，霓虹灯光” –filename “cyber-cat.png” –resolution 2K\n输出 图片保存到当前目录 分辨率: 2816 x 1536 (2K) 方式2：API直接调用 curl \"http://zx2.52youxi.cc:3000/v1/images/generations\" \\ -H \"Content-Type: application/json\" \\ -H \"Authorization: Bearer sk-GseFWg0amtOfp6MdkHK7bk1nvLHb5FC5dYtFH1g7Kc2YaYVx\" \\ -d '{ \"model\": \"gemini-3-pro-image-preview\", \"prompt\": \"A professional workspace with laptop and coffee, minimalist style, soft lighting\", \"n\": 1, \"size\": \"1024x1024\" }' 响应 { “data”: [ { “url”: “https://…/image.png”, “revised_prompt”: “优化后的提示词” } ] }\n方式3：OpenAI兼容格式 import requests response = requests.post( “http://zx2.52youxi.cc:3000/v1/chat/completions\", headers={ “Authorization”: “Bearer sk-xxx”, “Content-Type”: “application/json” }, json={ “model”: “gemini-3-pro-image-preview”, “messages”: [ {“role”: “user”, “content”: “生成一张科技风格的博客封面图”} ] } )\n返回图片URL ⚙️ 配置 OpenClaw技能配置 # ~/.openclaw/openclaw.json { “skills”: { “entries”: { “nano-banana-pro”: { “env”: { “GEMINI_API_KEY”: “sk-GseFWg0amtOfp6MdkHK7bk1nvLHb5FC5dYtFH1g7Kc2YaYVx”, “GEMINI_BASE_URL”: “http://zx2.52youxi.cc:3000” } } } } }\n环境变量方式 # ~/.zshrc 或 ~/.bashrc export GEMINI_API_KEY=“sk-xxx” export GEMINI_BASE_URL=“http://zx2.52youxi.cc:3000”\n🎨 提示词技巧 博客封面图 # 技术类文章 \"A futuristic data center with glowing servers, blue and purple gradient, cinematic lighting, wide angle, professional tech blog cover style\" 商业分析 “Modern office workspace with holographic charts and graphs, clean minimalist style, professional lighting, business blog cover”\n教程类 “Step-by-step learning concept, abstract visualization of knowledge transfer, bright and inviting colors, educational blog style”\n公众号配图 # 情感类文章 \"Warm sunset scene with silhouette of person thinking, soft golden hour lighting, contemplative mood, WeChat article style\" 科技资讯 “Abstract representation of AI and human collaboration, neon accents on dark background, futuristic tech news style”\n💡 提示：在提示词中包含风格描述（如\"minimalist style\"、\"cinematic lighting\"）和质量描述（如\"highly detailed\"、\"professional\"）可以获得更好的效果。 📐 分辨率选项 选项 分辨率 适用场景 1K 1408 x 768 社交媒体头像、小图 2K 2816 x 1536 博客封面、公众号配图（推荐） 4K 5632 x 3072 海报、印刷物料 🚀 批量生成 #!/bin/bash 批量生成配图 prompts=( “科技风格封面图” “商务会议场景” “数据可视化” “团队协作” )\nfor i in “${!prompts[@]}”; do uv run scripts/generate_image.py –prompt “${prompts[$i]}, professional blog style, 2K” –filename “cover-$(($i+1)).png” –resolution 2K done\n📚 相关技能 ✍️ 公众号文章写作 - 配图+文章一站式完成 🎨 多媒体制作 - PPT、视频脚本制作 📤 内容发布 - 配图自动上传到图床 🚀 开始使用 描述你想要的图片场景，AI会自动生成高清配图。\n查看全部技能 → ","wordCount":"322","inLanguage":"zh-cn","image":"https://getaibits.com/images/og-default.png","datePublished":"2026-03-06T00:00:00Z","dateModified":"2026-03-06T00:00:00Z","author":{"@type":"Person","name":"Gavin"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://getaibits.com/skills/image-gen.html"},"publisher":{"@type":"Organization","name":"AI Bits","logo":{"@type":"ImageObject","url":"https://getaibits.com/favicon.ico"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo><a href=https://getaibits.com/ accesskey=h title="AI Bits (Alt + H)">AI Bits</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
-<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://getaibits.com/ title="🏠 首页"><span>🏠 首页</span></a></li><li><a href=https://getaibits.com/posts/ title="📚 文章"><span>📚 文章</span></a></li><li><a href=https://getaibits.com/skills/ title="🔧 技能"><span>🔧 技能</span></a></li><li><a href=https://getaibits.com/search/ title="🔍 搜索"><span>🔍 搜索</span></a></li><li><a href=https://getaibits.com/tags/ title="🏷️ 标签"><span>🏷️ 标签</span></a></li><li><a href=https://getaibits.com/about/ title="👤 关于"><span>👤 关于</span></a></li></ul></nav></header><main class=main><style>.skill-detail{max-width:900px;margin:0 auto}.skill-header{text-align:center;padding:3rem 0;background:linear-gradient(135deg,rgba(236,72,153,.1),rgba(139,92,246,.1));border-radius:16px;margin-bottom:2rem}.skill-icon-large{font-size:4rem;margin-bottom:1rem}.skill-title{font-size:2.5rem;font-weight:700;margin:0 0 1rem;color:var(--primary)}.skill-tags{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}.skill-tag{padding:.3rem .8rem;border-radius:20px;font-size:.85rem;font-weight:500}.skill-tag.official{background:#3b82f6;color:#fff}.skill-tag.required{background:#10b981;color:#fff}.section{margin:3rem 0}.section h2{font-size:1.8rem;color:var(--primary);border-bottom:2px solid var(--primary);padding-bottom:.5rem;margin-bottom:1.5rem}.code-block{background:#1e1e1e;border-radius:8px;padding:1.5rem;overflow-x:auto;margin:1rem 0}.code-block pre{margin:0;font-family:consolas,monaco,monospace;font-size:.9rem;line-height:1.6;color:#d4d4d4}.model-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}.model-item{background:var(--code-bg);border-radius:8px;padding:1rem;border:1px solid var(--border)}.model-item h4{margin:0 0 .5rem;color:var(--primary)}.model-item p{margin:0;font-size:.85rem;color:var(--secondary)}.back-link{display:inline-flex;align-items:center;gap:.5rem;color:var(--primary);text-decoration:none;margin-bottom:2rem;font-weight:500}.back-link:hover{text-decoration:underline}.tip-box{background:rgba(59,130,246,.1);border-left:4px solid #3b82f6;padding:1rem 1.5rem;border-radius:0 8px 8px 0;margin:1rem 0}.tip-box strong{color:#3b82f6}</style><div class=skill-detail><p><a href=https://getaibits.com/skills.html class=back-link>← 返回技能商店</a></p><div class=skill-header><div class=skill-icon-large>🖼️</div><h1 class=skill-title>AI图片生成</h1><div class=skill-tags><span class="skill-tag official">官方</span>
-<span class="skill-tag required">必装</span></div></div><h2 id=概述>概述</h2><p>Nano Banana Pro (Gemini 3 Pro Image) 文生图，2K高清配图生成，支持多种风格。专为博客文章、公众号、社交媒体配图设计。</p><hr><h2 id=-支持模型>🤖 支持模型</h2><div class=model-list><div class=model-item><h4>gemini-2.5-flash-image</h4><p>快速生成，适合草稿和迭代</p></div><div class=model-item><h4>gemini-3-flash-preview</h4><p>平衡速度和质量</p></div><div class=model-item><h4>gemini-3-pro-image-preview</h4><p>默认模型，最佳质量</p></div><div class=model-item><h4>veo-3.1-fast-generate-preview</h4><p>视频生成（实验性）</p></div></div><hr><h2 id=-使用方法>💻 使用方法</h2><h3 id=方式1命令行脚本推荐>方式1：命令行脚本（推荐）</h3><div class=code-block><pre># 进入技能目录
+← 返回技能商店">
+<meta name="author" content="Gavin">
+<link rel="canonical" href="https://getaibits.com/skills/image-gen.html">
+<link crossorigin="anonymous" href="https://getaibits.com/assets/css/stylesheet.44e854f43d58f6dac184d229a83426e7437723b428a6ee8aa1367a80078e3bef.css" integrity="sha256-ROhU9D1Y9trBhNIpqDQm50N3I7Qopu6KoTZ6gAeOO&#43;8=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://getaibits.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://getaibits.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://getaibits.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://getaibits.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://getaibits.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-cn" href="https://getaibits.com/skills/image-gen.html">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+
+
+
+
+  
+  
+    
+  
+
+
+  
+    
+  
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getaibits.com/skills/image-gen.html"
+  },
+  "headline": "AI图片生成",
+  "image": "https://getaibits.com/images/og-default.png",
+  "datePublished": "2026-03-06T00:00:00Z",
+  "dateModified": "2026-03-06T00:00:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "Gavin"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Bits",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getaibits.com/images/avatar.png"
+    }
+  },
+  "description": "\u003cstyle\u003e\n.skill-detail {\n  max-width: 900px;\n  margin: 0 auto;\n}\n\n.skill-header {\n  text-align: center;\n  padding: 3rem 0;\n  background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(139, 92, 246, 0.1));\n  border-radius: 16px;\n  margin-bottom: 2rem;\n}\n\n.skill-icon-large {\n  font-size: 4rem;\n  margin-bottom: 1rem;\n}\n\n.skill-title {\n  font-size: 2.5rem;\n  font-weight: 700;\n  margin: 0 0 1rem 0;\n  color: var(--primary);\n}\n\n.skill-tags {\n  display: flex;\n  gap: 0.5rem;\n  justify-content: center;\n  flex-wrap: wrap;\n}\n\n.skill-tag {\n  padding: 0.3rem 0.8rem;\n  border-radius: 20px;\n  font-size: 0.85rem;\n  font-weight: 500;\n}\n\n.skill-tag.official { background: #3b82f6; color: white; }\n.skill-tag.required { background: #10b981; color: white; }\n\n.section {\n  margin: 3rem 0;\n}\n\n.section h2 {\n  font-size: 1.8rem;\n  color: var(--primary);\n  border-bottom: 2px solid var(--primary);\n  padding-bottom: 0.5rem;\n  margin-bottom: 1.5rem;\n}\n\n.code-block {\n  background: #1e1e1e;\n  border-radius: 8px;\n  padding: 1.5rem;\n  overflow-x: auto;\n  margin: 1rem 0;\n}\n\n.code-block pre {\n  margin: 0;\n  font-family: 'Consolas', 'Monaco', monospace;\n  font-size: 0.9rem;\n  line-height: 1.6;\n  color: #d4d4d4;\n}\n\n.model-list {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n  gap: 1rem;\n  margin: 1.5rem 0;\n}\n\n.model-item {\n  background: var(--code-bg);\n  border-radius: 8px;\n  padding: 1rem;\n  border: 1px solid var(--border);\n}\n\n.model-item h4 {\n  margin: 0 0 0.5rem 0;\n  color: var(--primary);\n}\n\n.model-item p {\n  margin: 0;\n  font-size: 0.85rem;\n  color: var(--secondary);\n}\n\n.back-link {\n  display: inline-flex;\n  align-items: center;\n  gap: 0.5rem;\n  color: var(--primary);\n  text-decoration: none;\n  margin-bottom: 2rem;\n  font-weight: 500;\n}\n\n.back-link:hover {\n  text-decoration: underline;\n}\n\n.tip-box {\n  background: rgba(59, 130, 246, 0.1);\n  border-left: 4px solid #3b82f6;\n  padding: 1rem 1.5rem;\n  border-radius: 0 8px 8px 0;\n  margin: 1rem 0;\n}\n\n.tip-box strong {\n  color: #3b82f6;\n}\n\u003c/style\u003e\n\u003cdiv class=\"skill-detail\"\u003e\n\u003cp\u003e\u003ca href=\"/skills.html\" class=\"back-link\"\u003e← 返回技能商店\u003c/a\u003e\u003c/p\u003e"
+}
+</script>
+
+
+
+  
+  
+    
+  
+
+
+  
+    
+  
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI图片生成">
+<meta name="twitter:description" content=" ← 返回技能商店
+">
+<meta name="twitter:image" content="https://getaibits.com/images/og-default.png">
+
+
+
+
+
+
+
+
+
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  } else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+  
+  
+    
+  
+
+
+  
+    
+  
+
+<meta name="weibo:webpage:type" content="webpage">
+<meta name="weibo:webpage:title" content="AI图片生成">
+<meta name="weibo:webpage:description" content=" ← 返回技能商店
+">
+<meta name="weibo:webpage:image" content="https://getaibits.com/images/og-default.png">
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+  
+    
+  
+
+
+<meta property="og:image" content="https://getaibits.com/images/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta property="og:url" content="https://getaibits.com/skills/image-gen.html">
+  <meta property="og:site_name" content="AI Bits">
+  <meta property="og:title" content="AI图片生成">
+  <meta property="og:description" content=" ← 返回技能商店">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="skills">
+    <meta property="article:published_time" content="2026-03-06T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-03-06T00:00:00+00:00">
+      <meta property="og:image" content="https://getaibits.com/images/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://getaibits.com/images/og-default.png">
+<meta name="twitter:title" content="AI图片生成">
+<meta name="twitter:description" content="
+
+← 返回技能商店">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Skills",
+      "item": "https://getaibits.com/skills/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "AI图片生成",
+      "item": "https://getaibits.com/skills/image-gen.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AI图片生成",
+  "name": "AI图片生成",
+  "description": " ← 返回技能商店\n",
+  "keywords": [
+    
+  ],
+  "articleBody": " ← 返回技能商店\n🖼️ AI图片生成 官方 必装 概述 Nano Banana Pro (Gemini 3 Pro Image) 文生图，2K高清配图生成，支持多种风格。专为博客文章、公众号、社交媒体配图设计。\n🤖 支持模型 gemini-2.5-flash-image 快速生成，适合草稿和迭代\ngemini-3-flash-preview 平衡速度和质量\ngemini-3-pro-image-preview 默认模型，最佳质量\nveo-3.1-fast-generate-preview 视频生成（实验性）\n💻 使用方法 方式1：命令行脚本（推荐） # 进入技能目录 cd ~/.openclaw/workspace/skills/nano-banana-pro 生成图片 uv run scripts/generate_image.py –prompt “一只戴墨镜的可爱猫咪，赛博朋克风格，霓虹灯光” –filename “cyber-cat.png” –resolution 2K\n输出 图片保存到当前目录 分辨率: 2816 x 1536 (2K) 方式2：API直接调用 curl \"http://zx2.52youxi.cc:3000/v1/images/generations\" \\ -H \"Content-Type: application/json\" \\ -H \"Authorization: Bearer sk-GseFWg0amtOfp6MdkHK7bk1nvLHb5FC5dYtFH1g7Kc2YaYVx\" \\ -d '{ \"model\": \"gemini-3-pro-image-preview\", \"prompt\": \"A professional workspace with laptop and coffee, minimalist style, soft lighting\", \"n\": 1, \"size\": \"1024x1024\" }' 响应 { “data”: [ { “url”: “https://…/image.png”, “revised_prompt”: “优化后的提示词” } ] }\n方式3：OpenAI兼容格式 import requests response = requests.post( “http://zx2.52youxi.cc:3000/v1/chat/completions\", headers={ “Authorization”: “Bearer sk-xxx”, “Content-Type”: “application/json” }, json={ “model”: “gemini-3-pro-image-preview”, “messages”: [ {“role”: “user”, “content”: “生成一张科技风格的博客封面图”} ] } )\n返回图片URL ⚙️ 配置 OpenClaw技能配置 # ~/.openclaw/openclaw.json { “skills”: { “entries”: { “nano-banana-pro”: { “env”: { “GEMINI_API_KEY”: “sk-GseFWg0amtOfp6MdkHK7bk1nvLHb5FC5dYtFH1g7Kc2YaYVx”, “GEMINI_BASE_URL”: “http://zx2.52youxi.cc:3000” } } } } }\n环境变量方式 # ~/.zshrc 或 ~/.bashrc export GEMINI_API_KEY=“sk-xxx” export GEMINI_BASE_URL=“http://zx2.52youxi.cc:3000”\n🎨 提示词技巧 博客封面图 # 技术类文章 \"A futuristic data center with glowing servers, blue and purple gradient, cinematic lighting, wide angle, professional tech blog cover style\" 商业分析 “Modern office workspace with holographic charts and graphs, clean minimalist style, professional lighting, business blog cover”\n教程类 “Step-by-step learning concept, abstract visualization of knowledge transfer, bright and inviting colors, educational blog style”\n公众号配图 # 情感类文章 \"Warm sunset scene with silhouette of person thinking, soft golden hour lighting, contemplative mood, WeChat article style\" 科技资讯 “Abstract representation of AI and human collaboration, neon accents on dark background, futuristic tech news style”\n💡 提示：在提示词中包含风格描述（如\"minimalist style\"、\"cinematic lighting\"）和质量描述（如\"highly detailed\"、\"professional\"）可以获得更好的效果。 📐 分辨率选项 选项 分辨率 适用场景 1K 1408 x 768 社交媒体头像、小图 2K 2816 x 1536 博客封面、公众号配图（推荐） 4K 5632 x 3072 海报、印刷物料 🚀 批量生成 #!/bin/bash 批量生成配图 prompts=( “科技风格封面图” “商务会议场景” “数据可视化” “团队协作” )\nfor i in “${!prompts[@]}”; do uv run scripts/generate_image.py –prompt “${prompts[$i]}, professional blog style, 2K” –filename “cover-$(($i+1)).png” –resolution 2K done\n📚 相关技能 ✍️ 公众号文章写作 - 配图+文章一站式完成 🎨 多媒体制作 - PPT、视频脚本制作 📤 内容发布 - 配图自动上传到图床 🚀 开始使用 描述你想要的图片场景，AI会自动生成高清配图。\n查看全部技能 → ",
+  "wordCount" : "322",
+  "inLanguage": "zh-cn",
+  "image": "https://getaibits.com/images/og-default.png","datePublished": "2026-03-06T00:00:00Z",
+  "dateModified": "2026-03-06T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Gavin"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getaibits.com/skills/image-gen.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Bits",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getaibits.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://getaibits.com/" accesskey="h" title="AI Bits (Alt + H)">AI Bits</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://getaibits.com/" title="🏠 首页">
+                    <span>🏠 首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/posts/" title="📚 文章">
+                    <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/skills/" title="🔧 技能">
+                    <span>🔧 技能</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/search/" title="🔍 搜索">
+                    <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/tags/" title="🏷️ 标签">
+                    <span>🏷️ 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/about/" title="👤 关于">
+                    <span>👤 关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+<style>
+.skill-detail {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skill-header {
+  text-align: center;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(139, 92, 246, 0.1));
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.skill-icon-large {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.skill-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: var(--primary);
+}
+
+.skill-tags {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.skill-tag {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.skill-tag.official { background: #3b82f6; color: white; }
+.skill-tag.required { background: #10b981; color: white; }
+
+.section {
+  margin: 3rem 0;
+}
+
+.section h2 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.code-block {
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.code-block pre {
+  margin: 0;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #d4d4d4;
+}
+
+.model-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.model-item {
+  background: var(--code-bg);
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid var(--border);
+}
+
+.model-item h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--primary);
+}
+
+.model-item p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--secondary);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
+  text-decoration: none;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.tip-box {
+  background: rgba(59, 130, 246, 0.1);
+  border-left: 4px solid #3b82f6;
+  padding: 1rem 1.5rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1rem 0;
+}
+
+.tip-box strong {
+  color: #3b82f6;
+}
+</style>
+<div class="skill-detail">
+<p><a href="https://getaibits.com/skills.html" class="back-link">← 返回技能商店</a></p>
+<div class="skill-header">
+  <div class="skill-icon-large">🖼️</div>
+  <h1 class="skill-title">AI图片生成</h1>
+  <div class="skill-tags">
+    <span class="skill-tag official">官方</span>
+    <span class="skill-tag required">必装</span>
+  </div>
+</div>
+<h2 id="概述">概述</h2>
+<p>Nano Banana Pro (Gemini 3 Pro Image) 文生图，2K高清配图生成，支持多种风格。专为博客文章、公众号、社交媒体配图设计。</p>
+<hr>
+<h2 id="-支持模型">🤖 支持模型</h2>
+<div class="model-list">
+  <div class="model-item">
+    <h4>gemini-2.5-flash-image</h4>
+    <p>快速生成，适合草稿和迭代</p>
+  </div>
+  <div class="model-item">
+    <h4>gemini-3-flash-preview</h4>
+    <p>平衡速度和质量</p>
+  </div>
+  <div class="model-item">
+    <h4>gemini-3-pro-image-preview</h4>
+    <p>默认模型，最佳质量</p>
+  </div>
+  <div class="model-item">
+    <h4>veo-3.1-fast-generate-preview</h4>
+    <p>视频生成（实验性）</p>
+  </div>
+</div>
+<hr>
+<h2 id="-使用方法">💻 使用方法</h2>
+<h3 id="方式1命令行脚本推荐">方式1：命令行脚本（推荐）</h3>
+<div class="code-block">
+<pre># 进入技能目录
 cd ~/.openclaw/workspace/skills/nano-banana-pro
-<h1 id=生成图片>生成图片</h1>
+<h1 id="生成图片">生成图片</h1>
 <p>uv run scripts/generate_image.py <br>
 &ndash;prompt &ldquo;一只戴墨镜的可爱猫咪，赛博朋克风格，霓虹灯光&rdquo; <br>
 &ndash;filename &ldquo;cyber-cat.png&rdquo; <br>
 &ndash;resolution 2K</p>
-<h1 id=输出>输出</h1>
-<h1 id=图片保存到当前目录>图片保存到当前目录</h1>
-<h1 id=分辨率-2816-x-1536-2k>分辨率: 2816 x 1536 (2K)</pre></h1></div><h3 id=方式2api直接调用>方式2：API直接调用</h3><div class=code-block><pre>curl "http://zx2.52youxi.cc:3000/v1/images/generations" \
+<h1 id="输出">输出</h1>
+<h1 id="图片保存到当前目录">图片保存到当前目录</h1>
+<h1 id="分辨率-2816-x-1536-2k">分辨率: 2816 x 1536 (2K)</pre></h1>
+</div>
+<h3 id="方式2api直接调用">方式2：API直接调用</h3>
+<div class="code-block">
+<pre>curl "http://zx2.52youxi.cc:3000/v1/images/generations" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer sk-GseFWg0amtOfp6MdkHK7bk1nvLHb5FC5dYtFH1g7Kc2YaYVx" \
   -d '{
@@ -25,7 +515,7 @@ cd ~/.openclaw/workspace/skills/nano-banana-pro
     "n": 1,
     "size": "1024x1024"
   }'
-<h1 id=响应>响应</h1>
+<h1 id="响应">响应</h1>
 <p>{
 &ldquo;data&rdquo;: [
 {
@@ -33,9 +523,13 @@ cd ~/.openclaw/workspace/skills/nano-banana-pro
 &ldquo;revised_prompt&rdquo;: &ldquo;优化后的提示词&rdquo;
 }
 ]
-}</pre></p></div><h3 id=方式3openai兼容格式>方式3：OpenAI兼容格式</h3><div class=code-block><pre>import requests
+}</pre></p>
+</div>
+<h3 id="方式3openai兼容格式">方式3：OpenAI兼容格式</h3>
+<div class="code-block">
+<pre>import requests
 <p>response = requests.post(
-&ldquo;<a href=http://zx2.52youxi.cc:3000/v1/chat/completions%22>http://zx2.52youxi.cc:3000/v1/chat/completions&quot;</a>,
+&ldquo;<a href="http://zx2.52youxi.cc:3000/v1/chat/completions%22">http://zx2.52youxi.cc:3000/v1/chat/completions&quot;</a>,
 headers={
 &ldquo;Authorization&rdquo;: &ldquo;Bearer sk-xxx&rdquo;,
 &ldquo;Content-Type&rdquo;: &ldquo;application/json&rdquo;
@@ -47,35 +541,91 @@ json={
 ]
 }
 )</p>
-<h1 id=返回图片url>返回图片URL</pre></h1></div><hr><h2 id=-配置>⚙️ 配置</h2><h3 id=openclaw技能配置>OpenClaw技能配置</h3><div class=code-block><pre># ~/.openclaw/openclaw.json
+<h1 id="返回图片url">返回图片URL</pre></h1>
+</div>
+<hr>
+<h2 id="-配置">⚙️ 配置</h2>
+<h3 id="openclaw技能配置">OpenClaw技能配置</h3>
+<div class="code-block">
+<pre># ~/.openclaw/openclaw.json
 <p>{
 &ldquo;skills&rdquo;: {
 &ldquo;entries&rdquo;: {
 &ldquo;nano-banana-pro&rdquo;: {
 &ldquo;env&rdquo;: {
 &ldquo;GEMINI_API_KEY&rdquo;: &ldquo;sk-GseFWg0amtOfp6MdkHK7bk1nvLHb5FC5dYtFH1g7Kc2YaYVx&rdquo;,
-&ldquo;GEMINI_BASE_URL&rdquo;: &ldquo;<a href=http://zx2.52youxi.cc:3000>http://zx2.52youxi.cc:3000</a>&rdquo;
+&ldquo;GEMINI_BASE_URL&rdquo;: &ldquo;<a href="http://zx2.52youxi.cc:3000">http://zx2.52youxi.cc:3000</a>&rdquo;
 }
 }
 }
 }
-}</pre></p></div><h3 id=环境变量方式>环境变量方式</h3><div class=code-block><pre># ~/.zshrc 或 ~/.bashrc
+}</pre></p>
+</div>
+<h3 id="环境变量方式">环境变量方式</h3>
+<div class="code-block">
+<pre># ~/.zshrc 或 ~/.bashrc
 <p>export GEMINI_API_KEY=&ldquo;sk-xxx&rdquo;
-export GEMINI_BASE_URL=&ldquo;<a href=http://zx2.52youxi.cc:3000>http://zx2.52youxi.cc:3000</a>&rdquo;</pre></p></div><hr><h2 id=-提示词技巧>🎨 提示词技巧</h2><h3 id=博客封面图>博客封面图</h3><div class=code-block><pre># 技术类文章
+export GEMINI_BASE_URL=&ldquo;<a href="http://zx2.52youxi.cc:3000">http://zx2.52youxi.cc:3000</a>&rdquo;</pre></p>
+</div>
+<hr>
+<h2 id="-提示词技巧">🎨 提示词技巧</h2>
+<h3 id="博客封面图">博客封面图</h3>
+<div class="code-block">
+<pre># 技术类文章
 "A futuristic data center with glowing servers, blue and purple gradient, 
 cinematic lighting, wide angle, professional tech blog cover style"
-<h1 id=商业分析>商业分析</h1>
+<h1 id="商业分析">商业分析</h1>
 <p>&ldquo;Modern office workspace with holographic charts and graphs,
 clean minimalist style, professional lighting, business blog cover&rdquo;</p>
-<h1 id=教程类>教程类</h1>
+<h1 id="教程类">教程类</h1>
 <p>&ldquo;Step-by-step learning concept, abstract visualization of knowledge transfer,
-bright and inviting colors, educational blog style&rdquo;</pre></p></div><h3 id=公众号配图>公众号配图</h3><div class=code-block><pre># 情感类文章
+bright and inviting colors, educational blog style&rdquo;</pre></p>
+</div>
+<h3 id="公众号配图">公众号配图</h3>
+<div class="code-block">
+<pre># 情感类文章
 "Warm sunset scene with silhouette of person thinking, 
 soft golden hour lighting, contemplative mood, WeChat article style"
-<h1 id=科技资讯>科技资讯</h1>
+<h1 id="科技资讯">科技资讯</h1>
 <p>&ldquo;Abstract representation of AI and human collaboration,
-neon accents on dark background, futuristic tech news style&rdquo;</pre></p></div><div class=tip-box><strong>💡 提示</strong>：在提示词中包含风格描述（如"minimalist style"、"cinematic lighting"）和质量描述（如"highly detailed"、"professional"）可以获得更好的效果。</div><hr><h2 id=-分辨率选项>📐 分辨率选项</h2><table><thead><tr><th>选项</th><th>分辨率</th><th>适用场景</th></tr></thead><tbody><tr><td>1K</td><td>1408 x 768</td><td>社交媒体头像、小图</td></tr><tr><td>2K</td><td>2816 x 1536</td><td>博客封面、公众号配图（推荐）</td></tr><tr><td>4K</td><td>5632 x 3072</td><td>海报、印刷物料</td></tr></tbody></table><hr><h2 id=-批量生成>🚀 批量生成</h2><div class=code-block><pre>#!/bin/bash
-<h1 id=批量生成配图>批量生成配图</h1>
+neon accents on dark background, futuristic tech news style&rdquo;</pre></p>
+</div>
+<div class="tip-box">
+<strong>💡 提示</strong>：在提示词中包含风格描述（如"minimalist style"、"cinematic lighting"）和质量描述（如"highly detailed"、"professional"）可以获得更好的效果。
+</div>
+<hr>
+<h2 id="-分辨率选项">📐 分辨率选项</h2>
+<table>
+  <thead>
+      <tr>
+          <th>选项</th>
+          <th>分辨率</th>
+          <th>适用场景</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1K</td>
+          <td>1408 x 768</td>
+          <td>社交媒体头像、小图</td>
+      </tr>
+      <tr>
+          <td>2K</td>
+          <td>2816 x 1536</td>
+          <td>博客封面、公众号配图（推荐）</td>
+      </tr>
+      <tr>
+          <td>4K</td>
+          <td>5632 x 3072</td>
+          <td>海报、印刷物料</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-批量生成">🚀 批量生成</h2>
+<div class="code-block">
+<pre>#!/bin/bash
+<h1 id="批量生成配图">批量生成配图</h1>
 <p>prompts=(
 &ldquo;科技风格封面图&rdquo;
 &ldquo;商务会议场景&rdquo;
@@ -87,7 +637,118 @@ uv run scripts/generate_image.py <br>
 &ndash;prompt &ldquo;${prompts[$i]}, professional blog style, 2K&rdquo; <br>
 &ndash;filename &ldquo;cover-$(($i+1)).png&rdquo; <br>
 &ndash;resolution 2K
-done</pre></p></div><hr><h2 id=-相关技能>📚 相关技能</h2><ul><li><a href=https://getaibits.com/skills/content-writing.html>✍️ 公众号文章写作</a> - 配图+文章一站式完成</li><li><a href=https://getaibits.com/skills/media.html>🎨 多媒体制作</a> - PPT、视频脚本制作</li><li><a href=https://getaibits.com/skills/publish.html>📤 内容发布</a> - 配图自动上传到图床</li></ul><hr><div style=text-align:center;margin-top:3rem;padding:2rem;background:var(--code-bg);border-radius:12px><h3>🚀 开始使用</h3><p>描述你想要的图片场景，AI会自动生成高清配图。</p><a href=https://getaibits.com/skills.html style="display:inline-block;margin-top:1rem;padding:.8rem 2rem;background:var(--primary);color:#fff;text-decoration:none;border-radius:8px;font-weight:500">查看全部技能 →</a></div></div></main><footer class=footer><span>&copy; 2026 <a href=https://getaibits.com/>AI Bits</a></span> ·
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg></a><div class=reading-progress id=reading-progress></div><script>window.addEventListener("scroll",function(){const e=document.querySelector(".post-content");if(!e)return;const t=window.scrollY,n=e.offsetHeight,s=window.innerHeight,o=t/(n-s)*100;document.getElementById("reading-progress").style.width=Math.min(o,100)+"%"})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>
+done</pre></p>
+</div>
+<hr>
+<h2 id="-相关技能">📚 相关技能</h2>
+<ul>
+<li><a href="https://getaibits.com/skills/content-writing.html">✍️ 公众号文章写作</a> - 配图+文章一站式完成</li>
+<li><a href="https://getaibits.com/skills/media.html">🎨 多媒体制作</a> - PPT、视频脚本制作</li>
+<li><a href="https://getaibits.com/skills/publish.html">📤 内容发布</a> - 配图自动上传到图床</li>
+</ul>
+<hr>
+<div style="text-align: center; margin-top: 3rem; padding: 2rem; background: var(--code-bg); border-radius: 12px;">
+  <h3>🚀 开始使用</h3>
+  <p>描述你想要的图片场景，AI会自动生成高清配图。</p>
+  <a href="https://getaibits.com/skills.html" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-weight: 500;">查看全部技能 →</a>
+</div>
+</div>
+
+
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://getaibits.com/">AI Bits</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<div class="reading-progress" id="reading-progress"></div>
+
+<script>
+
+window.addEventListener('scroll', function() {
+  const article = document.querySelector('.post-content');
+  if (!article) return;
+  
+  const scrollTop = window.scrollY;
+  const docHeight = article.offsetHeight;
+  const winHeight = window.innerHeight;
+  const scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
+  
+  document.getElementById('reading-progress').style.width = Math.min(scrollPercent, 100) + '%';
+});
+</script>
+
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

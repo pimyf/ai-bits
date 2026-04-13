@@ -1,402 +1,964 @@
-<!doctype html><html lang=zh-cn dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>OpenClaw 终端命令完全指南 | AI Bits</title><meta name=keywords content="OpenClaw,CLI,命令行,教程,指南"><meta name=description content="OpenClaw 所有终端命令的完整参考手册，从基础配置到高级功能一网打尽。"><meta name=author content="Gavin"><link rel=canonical href=https://getaibits.com/posts/openclaw-cli-guide/><link crossorigin=anonymous href=https://getaibits.com/assets/css/stylesheet.44e854f43d58f6dac184d229a83426e7437723b428a6ee8aa1367a80078e3bef.css integrity="sha256-ROhU9D1Y9trBhNIpqDQm50N3I7Qopu6KoTZ6gAeOO+8=" rel="preload stylesheet" as=style><link rel=icon href=https://getaibits.com/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://getaibits.com/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://getaibits.com/favicon-32x32.png><link rel=apple-touch-icon href=https://getaibits.com/apple-touch-icon.png><link rel=mask-icon href=https://getaibits.com/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh-cn href=https://getaibits.com/posts/openclaw-cli-guide/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://getaibits.com/posts/openclaw-cli-guide/"},"headline":"OpenClaw 终端命令完全指南","image":"https://getaibits.com/images/posts/openclaw-cli-cover.png","datePublished":"2026-02-04T00:00:00Z","dateModified":"2026-02-04T00:00:00Z","author":{"@type":"Person","name":"Gavin"},"publisher":{"@type":"Organization","name":"AI Bits","logo":{"@type":"ImageObject","url":"https://getaibits.com/images/avatar.png"}},"description":"OpenClaw 所有终端命令的完整参考手册，从基础配置到高级功能一网打尽。","keywords":"OpenClaw, CLI, 命令行, 教程, 指南"}</script><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="OpenClaw 终端命令完全指南"><meta name=twitter:description content="OpenClaw 所有终端命令的完整参考手册，从基础配置到高级功能一网打尽。"><meta name=twitter:image content="https://getaibits.com/images/posts/openclaw-cli-cover.png"><script>(function(){var t,e=document.createElement("script"),n=window.location.protocol.split(":")[0];n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script><meta name=weibo:webpage:type content="webpage"><meta name=weibo:webpage:title content="OpenClaw 终端命令完全指南"><meta name=weibo:webpage:description content="OpenClaw 所有终端命令的完整参考手册，从基础配置到高级功能一网打尽。"><meta name=weibo:webpage:image content="https://getaibits.com/images/posts/openclaw-cli-cover.png"><meta property="og:image" content="https://getaibits.com/images/posts/openclaw-cli-cover.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="OpenClaw 终端命令完全指南"><meta property="og:url" content="https://getaibits.com/posts/openclaw-cli-guide/"><meta property="og:site_name" content="AI Bits"><meta property="og:title" content="OpenClaw 终端命令完全指南"><meta property="og:description" content="OpenClaw 所有终端命令的完整参考手册，从基础配置到高级功能一网打尽。"><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-02-04T00:00:00+00:00"><meta property="article:modified_time" content="2026-02-04T00:00:00+00:00"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="CLI"><meta property="article:tag" content="命令行"><meta property="article:tag" content="教程"><meta property="article:tag" content="指南"><meta property="og:image" content="https://getaibits.com/images/og-default.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://getaibits.com/images/og-default.png"><meta name=twitter:title content="OpenClaw 终端命令完全指南"><meta name=twitter:description content="OpenClaw 所有终端命令的完整参考手册，从基础配置到高级功能一网打尽。"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://getaibits.com/posts/"},{"@type":"ListItem","position":2,"name":"OpenClaw 终端命令完全指南","item":"https://getaibits.com/posts/openclaw-cli-guide/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"OpenClaw 终端命令完全指南","name":"OpenClaw 终端命令完全指南","description":"OpenClaw 所有终端命令的完整参考手册，从基础配置到高级功能一网打尽。","keywords":["OpenClaw","CLI","命令行","教程","指南"],"articleBody":" 版本：OpenClaw 2026.2.2\n文档整理：阿拉 🧞\nOpenClaw 是一个强大的 AI 助手网关，通过命令行可以完成几乎所有操作。本文整理了所有终端命令，方便查阅和使用。\n目录 全局选项 初始化与配置 Gateway 网关管理 消息与通信 Agent 代理 会话管理 模型配置 频道管理 节点管理 浏览器控制 定时任务 插件与技能 内存与搜索 沙箱管理 安全与审计 系统工具 其他命令 全局选项 openclaw [options] [command] # 全局选项 -V, --version # 显示版本号 --dev # 开发模式：隔离状态到 ~/.openclaw-dev --profile # 使用命名配置文件 --no-color # 禁用 ANSI 颜色 -h, --help # 显示帮助 初始化与配置 setup - 初始化配置 openclaw setup # 初始化配置和工作区 openclaw setup --workspace ~/.openclaw/ws # 指定工作区路径 openclaw setup --wizard # 运行向导 onboard - 交互式向导 openclaw onboard # 启动向导 openclaw onboard --flow quickstart # 快速开始模式 openclaw onboard --flow manual # 完整配置模式 openclaw onboard --mode remote --remote-url ws://host:18789 # 远程模式 configure - 配置向导 openclaw configure # 交互式配置（模型、频道、技能等） config - 配置管理 openclaw config # 启动配置向导 openclaw config get # 获取配置值 openclaw config set # 设置配置值 openclaw config unset # 删除配置值 # 示例 openclaw config get browser.executablePath openclaw config set agents.defaults.heartbeat.every \"2h\" openclaw config set gateway.port 19001 --json doctor - 健康检查 openclaw doctor # 运行健康检查 openclaw doctor --repair # 修复问题 openclaw doctor --deep # 深度扫描 openclaw doctor --non-interactive # 非交互模式 reset - 重置配置 openclaw reset # 重置本地配置/状态 openclaw reset --scope config # 仅重置配置 openclaw reset --scope full # 完全重置 openclaw reset --dry-run # 预览模式 uninstall - 卸载 openclaw uninstall # 卸载网关服务 openclaw uninstall --all # 卸载所有 openclaw uninstall --service --state # 指定范围 update - 更新 openclaw update # 更新 OpenClaw openclaw update status # 检查更新状态 openclaw update wizard # 更新向导 openclaw update --channel beta # 切换到 beta 频道 openclaw update --channel dev # 切换到 dev 频道 openclaw update --no-restart # 更新后不重启 Gateway 网关管理 运行网关 openclaw gateway # 运行网关 openclaw gateway run # 前台运行 openclaw gateway --port 18789 # 指定端口 openclaw gateway --bin # 绑定模式：loopback|lan|tailnet|auto|custom openclaw gateway --token # 指定令牌 openclaw gateway --force # 强制启动（杀死占用端口的进程） openclaw gateway --dev # 开发模式 openclaw gateway --verbose # 详细日志 服务管理 openclaw gateway status # 查看状态 openclaw gateway install # 安装服务 openclaw gateway uninstall # 卸载服务 openclaw gateway start # 启动服务 openclaw gateway stop # 停止服务 openclaw gateway restart # 重启服务 查询与发现 openclaw gateway health # 健康检查 openclaw gateway probe # 探测网关 openclaw gateway discover # 发现局域网网关（Bonjour） openclaw gateway call # 调用 RPC 方法 openclaw gateway call status openclaw gateway call logs.tail --params '{\"sinceMs\": 60000}' logs - 日志查看 openclaw logs # 查看日志 openclaw logs --follow # 实时跟踪 openclaw logs --limit 500 # 限制行数 openclaw logs --json # JSON 格式 health - 健康状态 openclaw health # 获取网关健康状态 openclaw health --json status - 状态诊断 openclaw status # 显示状态 openclaw status --all # 完整诊断 openclaw status --deep # 深度探测 openclaw status --usage # 显示用量 消息与通信 message - 发送消息 支持频道：WhatsApp / Telegram / Discord / Slack / Signal / iMessage / MS Teams / Google Chat\n# 发送消息 openclaw message send --target --message \"Hello\" openclaw message send --channel telegram --target @username --message \"Hi\" openclaw message send --channel discord --target channel:123 --message \"Hi\" --reply-to 456 # 发送媒体 openclaw message send --target +15551234567 --media ./image.png # 创建投票 openclaw message poll --channel discord --target channel:123 \\ --poll-question \"选择?\" --poll-option A --poll-option B --poll-multi # 表情反应 openclaw message react --channel slack --target C123 --message-id 456 --emoji \"✅\" # 读取消息 openclaw message read --channel discord --target channel:123 --limit 50 # 编辑/删除 openclaw message edit --channel discord --target channel:123 --message-id 456 --message \"新内容\" openclaw message delete --channel discord --target channel:123 --message-id 456 # 置顶 openclaw message pin --channel discord --target channel:123 --message-id 456 openclaw message pins --channel discord --target channel:123 # 搜索 openclaw message search --channel discord --guild-id 123 --query \"关键词\" # 广播 openclaw message broadcast --targets user1 --targets user2 --message \"通知\" 线程操作 openclaw message thread create --channel discord --target channel:123 --thread-name \"讨论\" openclaw message thread list --channel discord --guild-id 123 openclaw message thread reply --channel discord --target thread:456 --message \"回复\" Discord 特有功能 # 表情管理 openclaw message emoji list --channel discord --guild-id 123 openclaw message emoji upload --channel discord --guild-id 123 --emoji-name \"custom\" --media ./emoji.png # 贴纸 openclaw message sticker send --channel discord --target channel:123 --sticker-id abc openclaw message sticker upload --channel discord --guild-id 123 --sticker-name \"name\" --sticker-desc \"desc\" --sticker-tags \"tag\" --media ./sticker.png # 角色管理 openclaw message role info --channel discord --guild-id 123 openclaw message role add --channel discord --guild-id 123 --user-id 456 --role-id 789 openclaw message role remove --channel discord --guild-id 123 --user-id 456 --role-id 789 # 频道信息 openclaw message channel info --channel discord --target channel:123 openclaw message channel list --channel discord --guild-id 123 # 成员信息 openclaw message member info --channel discord --guild-id 123 --user-id 456 # 语音状态 openclaw message voice status --channel discord --guild-id 123 --user-id 456 # 活动管理 openclaw message event list --channel discord --guild-id 123 openclaw message event create --channel discord --guild-id 123 --event-name \"活动\" --event-start-time \"2024-01-01T10:00:00Z\" # 管理操作 openclaw message timeout --channel discord --guild-id 123 --user-id 456 --duration-min 60 openclaw message kick --channel discord --guild-id 123 --user-id 456 --reason \"原因\" openclaw message ban --channel discord --guild-id 123 --user-id 456 --reason \"原因\" Agent 代理 agent - 运行代理 openclaw agent --message \"你好\" # 运行一次代理 openclaw agent --to +15551234567 --message \"状态更新\" --deliver # 发送并投递 openclaw agent --agent ops --message \"总结日志\" # 指定代理 openclaw agent --session-id 1234 --message \"总结\" --thinking medium # 指定会话和思考级别 openclaw agent --local --message \"本地测试\" # 本地嵌入模式 agents - 管理代理 openclaw agents list # 列出代理 openclaw agents list --bindings # 显示绑定 openclaw agents add work --workspace ~/.openclaw/ws-work # 添加代理 openclaw agents delete work # 删除代理 openclaw agents set-identity --agent main --name \"阿拉\" --emoji \"🧞\" # 设置身份 acp - IDE 集成桥接 openclaw acp # MCP 桥接 openclaw acp --url wss://host:18789 --token # 远程网关 openclaw acp --session agent:main:main # 指定会话 openclaw acp client # 调试客户端 会话管理 sessions - 会话列表 openclaw sessions # 列出会话 openclaw sessions --active 120 # 最近 120 分钟活跃的 openclaw sessions --json tui - 终端 UI openclaw tui # 打开终端 UI openclaw tui --url ws://127.0.0.1:18789 --token openclaw tui --session main --deliver dashboard - 控制面板 openclaw dashboard # 打开 Web 控制面板 模型配置 models - 模型管理 openclaw models # 显示模型状态（等同于 models status） openclaw models status # 模型状态 openclaw models status --probe # 实时探测 openclaw models list # 列出可用模型 openclaw models list --all # 列出所有模型 openclaw models set # 设置默认模型 openclaw models set-image # 设置图像模型 openclaw models scan # 扫描可用模型 别名与回退 openclaw models aliases list # 列出别名 openclaw models aliases add # 添加别名 openclaw models aliases remove # 删除别名 openclaw models fallbacks list # 列出回退模型 openclaw models fallbacks add # 添加回退 openclaw models fallbacks remove # 删除回退 openclaw models fallbacks clear # 清空回退 openclaw models image-fallbacks list # 图像模型回退 openclaw models image-fallbacks add 认证管理 openclaw models auth add # 添加认证 openclaw models auth login --provider # 登录提供商 openclaw models auth setup-token # 设置令牌 openclaw models auth paste-token # 粘贴令牌 openclaw models auth order get # 获取认证顺序 openclaw models auth order set # 设置顺序 openclaw models auth order clear # 清空顺序 频道管理 channels - 频道操作 openclaw channels list # 列出频道 openclaw channels status # 频道状态 openclaw channels status --probe # 深度探测 openclaw channels capabilities # 查看能力 openclaw channels logs # 频道日志 openclaw channels logs --channel telegram --lines 100 # 添加/删除频道 openclaw channels add --channel telegram --token openclaw channels add --channel discord --token openclaw channels remove --channel telegram --delete # 登录/登出（WhatsApp Web） openclaw channels login --channel whatsapp openclaw channels logout --channel whatsapp # 解析名称到 ID openclaw channels resolve --channel slack \"#general\" \"@jane\" directory - 目录查询 openclaw directory self --channel telegram # 查询自己 openclaw directory peers list --channel slack # 列出联系人 openclaw directory groups list --channel discord # 列出群组 openclaw directory groups members --channel slack --group-id # 群成员 pairing - 配对管理 openclaw pairing list # 列出配对请求 openclaw pairing approve # 批准配对 节点管理 nodes - 节点操作 openclaw nodes list # 列出节点 openclaw nodes list --connected # 仅已连接 openclaw nodes status # 节点状态 openclaw nodes pending # 待批准请求 openclaw nodes approve # 批准节点 openclaw nodes reject # 拒绝节点 openclaw nodes rename --node --name \"新名称\" # 重命名 远程执行 openclaw nodes run --node # 运行命令 openclaw nodes run --node --raw \"git status\" # Shell 命令 openclaw nodes invoke --node --command --params '{}' # 调用方法 摄像头 openclaw nodes camera list --node # 列出摄像头 openclaw nodes camera snap --node --facing front # 拍照 openclaw nodes camera clip --node --duration 10s # 录制视频 画布与屏幕 openclaw nodes canvas snapshot --node # 截图画布 openclaw nodes canvas present --node --target # 展示内容 openclaw nodes canvas hide --node # 隐藏画布 openclaw nodes canvas navigate --node # 导航 openclaw nodes canvas eval \"console.log('hi')\" --node # 执行 JS openclaw nodes screen record --node --duration 10s # 录屏 位置 openclaw nodes location get --node # 获取位置 node - 节点主机 openclaw node run --host --port 18789 # 运行节点主机 openclaw node install --host # 安装服务 openclaw node status # 状态 openclaw node stop # 停止 openclaw node restart # 重启 openclaw node uninstall # 卸载 devices - 设备管理 openclaw devices list # 列出设备 openclaw devices approve # 批准设备 openclaw devices reject # 拒绝设备 openclaw devices rotate --device --role operator # 轮换令牌 openclaw devices revoke --device --role node # 撤销令牌 浏览器控制 browser - 浏览器操作 # 管理 openclaw browser status # 状态 openclaw browser start # 启动 openclaw browser stop # 停止 openclaw browser tabs # 列出标签页 openclaw browser open # 打开 URL openclaw browser focus # 聚焦标签 openclaw browser close # 关闭标签 # 配置文件 openclaw browser profiles # 列出配置文件 openclaw browser create-profile --name work --color \"#FF5A36\" openclaw browser delete-profile --name work openclaw browser --browser-profile chrome tabs # 使用指定配置 # 截图与快照 openclaw browser screenshot # 截图 openclaw browser screenshot --full-page # 全页截图 openclaw browser snapshot # 获取页面快照 # 导航与交互 openclaw browser navigate # 导航 openclaw browser click # 点击 openclaw browser type \"text\" # 输入 openclaw browser press # 按键 openclaw browser hover # 悬停 openclaw browser drag # 拖拽 openclaw browser select # 选择 openclaw browser upload # 上传文件 openclaw browser fill --fields # 填充表单 # 其他 openclaw browser dialog --accept # 处理对话框 openclaw browser wait --time 1000 # 等待 openclaw browser evaluate --fn \"document.title\" # 执行 JS openclaw browser console # 控制台日志 openclaw browser pdf # 导出 PDF openclaw browser resize 1920 1080 # 调整大小 # Chrome 扩展 openclaw browser extension install # 安装扩展 openclaw browser extension path # 扩展路径 定时任务 cron - 定时任务管理 openclaw cron status # 调度器状态 openclaw cron list # 列出任务 openclaw cron list --all # 包含禁用的 # 添加任务 openclaw cron add --name \"每日提醒\" --every 24h --system-event \"检查邮件\" openclaw cron add --name \"定时任务\" --cron \"0 9 * * *\" --system-event \"早安\" openclaw cron add --name \"一次性\" --at \"2024-01-01T10:00:00Z\" --system-event \"新年快乐\" # 管理任务 openclaw cron edit --deliver --channel telegram --to \"123456789\" openclaw cron enable # 启用 openclaw cron disable # 禁用 openclaw cron rm # 删除 openclaw cron run # 立即运行 openclaw cron runs --id # 运行历史 插件与技能 plugins - 插件管理 openclaw plugins list # 列出插件 openclaw plugins info # 插件详情 openclaw plugins install # 安装插件 openclaw plugins install -l ./my-plugin # 链接本地插件 openclaw plugins enable # 启用 openclaw plugins disable # 禁用 openclaw plugins update # 更新插件 openclaw plugins update --all # 更新所有 openclaw plugins doctor # 诊断问题 skills - 技能管理 openclaw skills list # 列出技能 openclaw skills list --eligible # 仅可用的 openclaw skills info # 技能详情 openclaw skills check # 检查就绪状态 内存与搜索 memory - 语义内存 openclaw memory status # 内存状态 openclaw memory status --deep # 深度检查 openclaw memory index # 重建索引 openclaw memory index --verbose # 详细输出 openclaw memory search \"关键词\" # 语义搜索 沙箱管理 sandbox - 沙箱容器 openclaw sandbox list # 列出容器 openclaw sandbox list --browser # 仅浏览器容器 openclaw sandbox explain # 解释沙箱策略 openclaw sandbox recreate --all # 重建所有容器 openclaw sandbox recreate --agent mybot # 重建指定代理的容器 openclaw sandbox recreate --browser # 仅重建浏览器容器 安全与审计 security - 安全工具 openclaw security audit # 安全审计 openclaw security audit --deep # 深度审计 openclaw security audit --fix # 自动修复 approvals - 执行审批 openclaw approvals get # 获取审批配置 openclaw approvals get --node # 节点审批 openclaw approvals get --gateway # 网关审批 openclaw approvals set --file ./approvals.json # 设置 # 白名单管理 openclaw approvals allowlist add \"~/Projects/**/bin/rg\" openclaw approvals allowlist add --node \"/usr/bin/uptime\" openclaw approvals allowlist remove \"~/Projects/**/bin/rg\" 系统工具 system - 系统事件 # 系统事件 openclaw system event --text \"检查紧急事项\" --mode now openclaw system event --text \"提醒\" --mode next-heartbeat # 心跳控制 openclaw system heartbeat last # 最后心跳 openclaw system heartbeat enable # 启用心跳 openclaw system heartbeat disable # 禁用心跳 # 系统存在 openclaw system presence # 列出存在条目 webhooks - Webhook 工具 openclaw webhooks gmail setup --account # Gmail Pub/Sub 设置 openclaw webhooks gmail run # 运行 Gmail webhook dns - DNS 工具 openclaw dns setup # DNS 设置 openclaw dns setup --apply # 应用配置 其他命令 docs - 文档搜索 openclaw docs # 搜索文档 openclaw docs \"how to configure\" hooks - 钩子管理 openclaw hooks list # 列出钩子 openclaw hooks info # 钩子详情 openclaw hooks check # 检查钩子 openclaw hooks enable # 启用 openclaw hooks disable # 禁用 openclaw hooks install # 安装钩子 openclaw hooks update # 更新钩子 completion - Shell 补全 openclaw completion # 生成补全脚本 openclaw completion \u003e\u003e ~/.zshrc # 添加到 zsh 常用组合示例 快速开始 # 1. 初始化 openclaw onboard --flow quickstart # 2. 启动网关 openclaw gateway start # 3. 检查状态 openclaw status # 4. 打开控制面板 openclaw dashboard 配置 Telegram 机器人 # 添加频道 openclaw channels add --channel telegram --token # 检查状态 openclaw channels status --probe # 发送测试消息 openclaw message send --channel telegram --target @username --message \"测试\" 远程节点执行 # 列出节点 openclaw nodes list --connected # 在节点上运行命令 openclaw nodes run --node my-server --raw \"uptime\" # 截取节点屏幕 openclaw nodes screen record --node my-server --duration 5s 定时提醒 # 每天早上 9 点提醒 openclaw cron add --name \"早安\" --cron \"0 9 * * *\" --system-event \"早上好！新的一天开始了\" # 30 分钟后提醒 openclaw cron add --name \"提醒\" --at \"$(date -v+30M +%Y-%m-%dT%H:%M:%S)\" --system-event \"30分钟到了\" 获取帮助 openclaw --help # 主帮助 openclaw --help # 子命令帮助 openclaw docs # 搜索文档 文档网站: https://docs.openclaw.ai\nGitHub: https://github.com/openclaw/openclaw\n社区: https://discord.com/invite/clawd\n文档由阿拉 🧞 整理，如有遗漏欢迎补充！\n","wordCount":"2307","inLanguage":"zh-cn","image":"https://getaibits.com/images/og-default.png","datePublished":"2026-02-04T00:00:00Z","dateModified":"2026-02-04T00:00:00Z","author":{"@type":"Person","name":"Gavin"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://getaibits.com/posts/openclaw-cli-guide/"},"publisher":{"@type":"Organization","name":"AI Bits","logo":{"@type":"ImageObject","url":"https://getaibits.com/favicon.ico"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo><a href=https://getaibits.com/ accesskey=h title="AI Bits (Alt + H)">AI Bits</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
-<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://getaibits.com/ title="🏠 首页"><span>🏠 首页</span></a></li><li><a href=https://getaibits.com/posts/ title="📚 文章"><span>📚 文章</span></a></li><li><a href=https://getaibits.com/skills/ title="🔧 技能"><span>🔧 技能</span></a></li><li><a href=https://getaibits.com/search/ title="🔍 搜索"><span>🔍 搜索</span></a></li><li><a href=https://getaibits.com/tags/ title="🏷️ 标签"><span>🏷️ 标签</span></a></li><li><a href=https://getaibits.com/about/ title="👤 关于"><span>👤 关于</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">OpenClaw 终端命令完全指南</h1><div class=post-description>OpenClaw 所有终端命令的完整参考手册，从基础配置到高级功能一网打尽。</div><div class=post-meta><span title='2026-02-04 00:00:00 +0000 UTC'>February 4, 2026</span>&nbsp;·&nbsp;<span>Gavin</span></div></header><div class=post-content><blockquote><p>版本：OpenClaw 2026.2.2<br>文档整理：阿拉 🧞</p></blockquote><p>OpenClaw 是一个强大的 AI 助手网关，通过命令行可以完成几乎所有操作。本文整理了所有终端命令，方便查阅和使用。</p><hr><h2 id=目录>目录<a hidden class=anchor aria-hidden=true href=#目录>#</a></h2><ol><li><a href=#%E5%85%A8%E5%B1%80%E9%80%89%E9%A1%B9>全局选项</a></li><li><a href=#%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%8E%E9%85%8D%E7%BD%AE>初始化与配置</a></li><li><a href=#gateway-%E7%BD%91%E5%85%B3%E7%AE%A1%E7%90%86>Gateway 网关管理</a></li><li><a href=#%E6%B6%88%E6%81%AF%E4%B8%8E%E9%80%9A%E4%BF%A1>消息与通信</a></li><li><a href=#agent-%E4%BB%A3%E7%90%86>Agent 代理</a></li><li><a href=#%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86>会话管理</a></li><li><a href=#%E6%A8%A1%E5%9E%8B%E9%85%8D%E7%BD%AE>模型配置</a></li><li><a href=#%E9%A2%91%E9%81%93%E7%AE%A1%E7%90%86>频道管理</a></li><li><a href=#%E8%8A%82%E7%82%B9%E7%AE%A1%E7%90%86>节点管理</a></li><li><a href=#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8E%A7%E5%88%B6>浏览器控制</a></li><li><a href=#%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1>定时任务</a></li><li><a href=#%E6%8F%92%E4%BB%B6%E4%B8%8E%E6%8A%80%E8%83%BD>插件与技能</a></li><li><a href=#%E5%86%85%E5%AD%98%E4%B8%8E%E6%90%9C%E7%B4%A2>内存与搜索</a></li><li><a href=#%E6%B2%99%E7%AE%B1%E7%AE%A1%E7%90%86>沙箱管理</a></li><li><a href=#%E5%AE%89%E5%85%A8%E4%B8%8E%E5%AE%A1%E8%AE%A1>安全与审计</a></li><li><a href=#%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7>系统工具</a></li><li><a href=#%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4>其他命令</a></li></ol><hr><h2 id=全局选项>全局选项<a hidden class=anchor aria-hidden=true href=#全局选项>#</a></h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw <span class=o>[</span>options<span class=o>]</span> <span class=o>[</span>command<span class=o>]</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 全局选项</span>
-</span></span><span class=line><span class=cl>-V, --version        <span class=c1># 显示版本号</span>
-</span></span><span class=line><span class=cl>--dev                <span class=c1># 开发模式：隔离状态到 ~/.openclaw-dev</span>
-</span></span><span class=line><span class=cl>--profile &lt;name&gt;     <span class=c1># 使用命名配置文件</span>
-</span></span><span class=line><span class=cl>--no-color           <span class=c1># 禁用 ANSI 颜色</span>
-</span></span><span class=line><span class=cl>-h, --help           <span class=c1># 显示帮助</span>
-</span></span></code></pre></div><hr><h2 id=初始化与配置>初始化与配置<a hidden class=anchor aria-hidden=true href=#初始化与配置>#</a></h2><h3 id=setup---初始化配置><code>setup</code> - 初始化配置<a hidden class=anchor aria-hidden=true href=#setup---初始化配置>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw setup                              <span class=c1># 初始化配置和工作区</span>
-</span></span><span class=line><span class=cl>openclaw setup --workspace ~/.openclaw/ws   <span class=c1># 指定工作区路径</span>
-</span></span><span class=line><span class=cl>openclaw setup --wizard                     <span class=c1># 运行向导</span>
-</span></span></code></pre></div><h3 id=onboard---交互式向导><code>onboard</code> - 交互式向导<a hidden class=anchor aria-hidden=true href=#onboard---交互式向导>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw onboard                            <span class=c1># 启动向导</span>
-</span></span><span class=line><span class=cl>openclaw onboard --flow quickstart          <span class=c1># 快速开始模式</span>
-</span></span><span class=line><span class=cl>openclaw onboard --flow manual              <span class=c1># 完整配置模式</span>
-</span></span><span class=line><span class=cl>openclaw onboard --mode remote --remote-url ws://host:18789  <span class=c1># 远程模式</span>
-</span></span></code></pre></div><h3 id=configure---配置向导><code>configure</code> - 配置向导<a hidden class=anchor aria-hidden=true href=#configure---配置向导>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw configure                          <span class=c1># 交互式配置（模型、频道、技能等）</span>
-</span></span></code></pre></div><h3 id=config---配置管理><code>config</code> - 配置管理<a hidden class=anchor aria-hidden=true href=#config---配置管理>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw config                             <span class=c1># 启动配置向导</span>
-</span></span><span class=line><span class=cl>openclaw config get &lt;path&gt;                  <span class=c1># 获取配置值</span>
-</span></span><span class=line><span class=cl>openclaw config <span class=nb>set</span> &lt;path&gt; &lt;value&gt;          <span class=c1># 设置配置值</span>
-</span></span><span class=line><span class=cl>openclaw config <span class=nb>unset</span> &lt;path&gt;                <span class=c1># 删除配置值</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 示例</span>
-</span></span><span class=line><span class=cl>openclaw config get browser.executablePath
-</span></span><span class=line><span class=cl>openclaw config <span class=nb>set</span> agents.defaults.heartbeat.every <span class=s2>&#34;2h&#34;</span>
-</span></span><span class=line><span class=cl>openclaw config <span class=nb>set</span> gateway.port <span class=m>19001</span> --json
-</span></span></code></pre></div><h3 id=doctor---健康检查><code>doctor</code> - 健康检查<a hidden class=anchor aria-hidden=true href=#doctor---健康检查>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw doctor                             <span class=c1># 运行健康检查</span>
-</span></span><span class=line><span class=cl>openclaw doctor --repair                    <span class=c1># 修复问题</span>
-</span></span><span class=line><span class=cl>openclaw doctor --deep                      <span class=c1># 深度扫描</span>
-</span></span><span class=line><span class=cl>openclaw doctor --non-interactive           <span class=c1># 非交互模式</span>
-</span></span></code></pre></div><h3 id=reset---重置配置><code>reset</code> - 重置配置<a hidden class=anchor aria-hidden=true href=#reset---重置配置>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw reset                              <span class=c1># 重置本地配置/状态</span>
-</span></span><span class=line><span class=cl>openclaw reset --scope config               <span class=c1># 仅重置配置</span>
-</span></span><span class=line><span class=cl>openclaw reset --scope full                 <span class=c1># 完全重置</span>
-</span></span><span class=line><span class=cl>openclaw reset --dry-run                    <span class=c1># 预览模式</span>
-</span></span></code></pre></div><h3 id=uninstall---卸载><code>uninstall</code> - 卸载<a hidden class=anchor aria-hidden=true href=#uninstall---卸载>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw uninstall                          <span class=c1># 卸载网关服务</span>
-</span></span><span class=line><span class=cl>openclaw uninstall --all                    <span class=c1># 卸载所有</span>
-</span></span><span class=line><span class=cl>openclaw uninstall --service --state        <span class=c1># 指定范围</span>
-</span></span></code></pre></div><h3 id=update---更新><code>update</code> - 更新<a hidden class=anchor aria-hidden=true href=#update---更新>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw update                             <span class=c1># 更新 OpenClaw</span>
-</span></span><span class=line><span class=cl>openclaw update status                      <span class=c1># 检查更新状态</span>
-</span></span><span class=line><span class=cl>openclaw update wizard                      <span class=c1># 更新向导</span>
-</span></span><span class=line><span class=cl>openclaw update --channel beta              <span class=c1># 切换到 beta 频道</span>
-</span></span><span class=line><span class=cl>openclaw update --channel dev               <span class=c1># 切换到 dev 频道</span>
-</span></span><span class=line><span class=cl>openclaw update --no-restart                <span class=c1># 更新后不重启</span>
-</span></span></code></pre></div><hr><h2 id=gateway-网关管理>Gateway 网关管理<a hidden class=anchor aria-hidden=true href=#gateway-网关管理>#</a></h2><h3 id=运行网关>运行网关<a hidden class=anchor aria-hidden=true href=#运行网关>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw gateway                            <span class=c1># 运行网关</span>
-</span></span><span class=line><span class=cl>openclaw gateway run                        <span class=c1># 前台运行</span>
-</span></span><span class=line><span class=cl>openclaw gateway --port <span class=m>18789</span>               <span class=c1># 指定端口</span>
-</span></span><span class=line><span class=cl>openclaw gateway --bin                      <span class=c1># 绑定模式：loopback|lan|tailnet|auto|custom</span>
-</span></span><span class=line><span class=cl>openclaw gateway --token &lt;token&gt;            <span class=c1># 指定令牌</span>
-</span></span><span class=line><span class=cl>openclaw gateway --force                    <span class=c1># 强制启动（杀死占用端口的进程）</span>
-</span></span><span class=line><span class=cl>openclaw gateway --dev                      <span class=c1># 开发模式</span>
-</span></span><span class=line><span class=cl>openclaw gateway --verbose                  <span class=c1># 详细日志</span>
-</span></span></code></pre></div><h3 id=服务管理>服务管理<a hidden class=anchor aria-hidden=true href=#服务管理>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw gateway status                     <span class=c1># 查看状态</span>
-</span></span><span class=line><span class=cl>openclaw gateway install                    <span class=c1># 安装服务</span>
-</span></span><span class=line><span class=cl>openclaw gateway uninstall                  <span class=c1># 卸载服务</span>
-</span></span><span class=line><span class=cl>openclaw gateway start                      <span class=c1># 启动服务</span>
-</span></span><span class=line><span class=cl>openclaw gateway stop                       <span class=c1># 停止服务</span>
-</span></span><span class=line><span class=cl>openclaw gateway restart                    <span class=c1># 重启服务</span>
-</span></span></code></pre></div><h3 id=查询与发现>查询与发现<a hidden class=anchor aria-hidden=true href=#查询与发现>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw gateway health                     <span class=c1># 健康检查</span>
-</span></span><span class=line><span class=cl>openclaw gateway probe                      <span class=c1># 探测网关</span>
-</span></span><span class=line><span class=cl>openclaw gateway discover                   <span class=c1># 发现局域网网关（Bonjour）</span>
-</span></span><span class=line><span class=cl>openclaw gateway call &lt;method&gt;              <span class=c1># 调用 RPC 方法</span>
-</span></span><span class=line><span class=cl>openclaw gateway call status
-</span></span><span class=line><span class=cl>openclaw gateway call logs.tail --params <span class=s1>&#39;{&#34;sinceMs&#34;: 60000}&#39;</span>
-</span></span></code></pre></div><h3 id=logs---日志查看><code>logs</code> - 日志查看<a hidden class=anchor aria-hidden=true href=#logs---日志查看>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw logs                               <span class=c1># 查看日志</span>
-</span></span><span class=line><span class=cl>openclaw logs --follow                      <span class=c1># 实时跟踪</span>
-</span></span><span class=line><span class=cl>openclaw logs --limit <span class=m>500</span>                   <span class=c1># 限制行数</span>
-</span></span><span class=line><span class=cl>openclaw logs --json                        <span class=c1># JSON 格式</span>
-</span></span></code></pre></div><h3 id=health---健康状态><code>health</code> - 健康状态<a hidden class=anchor aria-hidden=true href=#health---健康状态>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw health                             <span class=c1># 获取网关健康状态</span>
-</span></span><span class=line><span class=cl>openclaw health --json
-</span></span></code></pre></div><h3 id=status---状态诊断><code>status</code> - 状态诊断<a hidden class=anchor aria-hidden=true href=#status---状态诊断>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw status                             <span class=c1># 显示状态</span>
-</span></span><span class=line><span class=cl>openclaw status --all                       <span class=c1># 完整诊断</span>
-</span></span><span class=line><span class=cl>openclaw status --deep                      <span class=c1># 深度探测</span>
-</span></span><span class=line><span class=cl>openclaw status --usage                     <span class=c1># 显示用量</span>
-</span></span></code></pre></div><hr><h2 id=消息与通信>消息与通信<a hidden class=anchor aria-hidden=true href=#消息与通信>#</a></h2><h3 id=message---发送消息><code>message</code> - 发送消息<a hidden class=anchor aria-hidden=true href=#message---发送消息>#</a></h3><p>支持频道：WhatsApp / Telegram / Discord / Slack / Signal / iMessage / MS Teams / Google Chat</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 发送消息</span>
-</span></span><span class=line><span class=cl>openclaw message send --target &lt;dest&gt; --message <span class=s2>&#34;Hello&#34;</span>
-</span></span><span class=line><span class=cl>openclaw message send --channel telegram --target @username --message <span class=s2>&#34;Hi&#34;</span>
-</span></span><span class=line><span class=cl>openclaw message send --channel discord --target channel:123 --message <span class=s2>&#34;Hi&#34;</span> --reply-to <span class=m>456</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 发送媒体</span>
-</span></span><span class=line><span class=cl>openclaw message send --target +15551234567 --media ./image.png
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 创建投票</span>
-</span></span><span class=line><span class=cl>openclaw message poll --channel discord --target channel:123 <span class=se>\
-</span></span></span><span class=line><span class=cl>  --poll-question <span class=s2>&#34;选择?&#34;</span> --poll-option A --poll-option B --poll-multi
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 表情反应</span>
-</span></span><span class=line><span class=cl>openclaw message react --channel slack --target C123 --message-id <span class=m>456</span> --emoji <span class=s2>&#34;✅&#34;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 读取消息</span>
-</span></span><span class=line><span class=cl>openclaw message <span class=nb>read</span> --channel discord --target channel:123 --limit <span class=m>50</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 编辑/删除</span>
-</span></span><span class=line><span class=cl>openclaw message edit --channel discord --target channel:123 --message-id <span class=m>456</span> --message <span class=s2>&#34;新内容&#34;</span>
-</span></span><span class=line><span class=cl>openclaw message delete --channel discord --target channel:123 --message-id <span class=m>456</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 置顶</span>
-</span></span><span class=line><span class=cl>openclaw message pin --channel discord --target channel:123 --message-id <span class=m>456</span>
-</span></span><span class=line><span class=cl>openclaw message pins --channel discord --target channel:123
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 搜索</span>
-</span></span><span class=line><span class=cl>openclaw message search --channel discord --guild-id <span class=m>123</span> --query <span class=s2>&#34;关键词&#34;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 广播</span>
-</span></span><span class=line><span class=cl>openclaw message broadcast --targets user1 --targets user2 --message <span class=s2>&#34;通知&#34;</span>
-</span></span></code></pre></div><h3 id=线程操作>线程操作<a hidden class=anchor aria-hidden=true href=#线程操作>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw message thread create --channel discord --target channel:123 --thread-name <span class=s2>&#34;讨论&#34;</span>
-</span></span><span class=line><span class=cl>openclaw message thread list --channel discord --guild-id <span class=m>123</span>
-</span></span><span class=line><span class=cl>openclaw message thread reply --channel discord --target thread:456 --message <span class=s2>&#34;回复&#34;</span>
-</span></span></code></pre></div><h3 id=discord-特有功能>Discord 特有功能<a hidden class=anchor aria-hidden=true href=#discord-特有功能>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 表情管理</span>
-</span></span><span class=line><span class=cl>openclaw message emoji list --channel discord --guild-id <span class=m>123</span>
-</span></span><span class=line><span class=cl>openclaw message emoji upload --channel discord --guild-id <span class=m>123</span> --emoji-name <span class=s2>&#34;custom&#34;</span> --media ./emoji.png
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 贴纸</span>
-</span></span><span class=line><span class=cl>openclaw message sticker send --channel discord --target channel:123 --sticker-id abc
-</span></span><span class=line><span class=cl>openclaw message sticker upload --channel discord --guild-id <span class=m>123</span> --sticker-name <span class=s2>&#34;name&#34;</span> --sticker-desc <span class=s2>&#34;desc&#34;</span> --sticker-tags <span class=s2>&#34;tag&#34;</span> --media ./sticker.png
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 角色管理</span>
-</span></span><span class=line><span class=cl>openclaw message role info --channel discord --guild-id <span class=m>123</span>
-</span></span><span class=line><span class=cl>openclaw message role add --channel discord --guild-id <span class=m>123</span> --user-id <span class=m>456</span> --role-id <span class=m>789</span>
-</span></span><span class=line><span class=cl>openclaw message role remove --channel discord --guild-id <span class=m>123</span> --user-id <span class=m>456</span> --role-id <span class=m>789</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 频道信息</span>
-</span></span><span class=line><span class=cl>openclaw message channel info --channel discord --target channel:123
-</span></span><span class=line><span class=cl>openclaw message channel list --channel discord --guild-id <span class=m>123</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 成员信息</span>
-</span></span><span class=line><span class=cl>openclaw message member info --channel discord --guild-id <span class=m>123</span> --user-id <span class=m>456</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 语音状态</span>
-</span></span><span class=line><span class=cl>openclaw message voice status --channel discord --guild-id <span class=m>123</span> --user-id <span class=m>456</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 活动管理</span>
-</span></span><span class=line><span class=cl>openclaw message event list --channel discord --guild-id <span class=m>123</span>
-</span></span><span class=line><span class=cl>openclaw message event create --channel discord --guild-id <span class=m>123</span> --event-name <span class=s2>&#34;活动&#34;</span> --event-start-time <span class=s2>&#34;2024-01-01T10:00:00Z&#34;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 管理操作</span>
-</span></span><span class=line><span class=cl>openclaw message timeout --channel discord --guild-id <span class=m>123</span> --user-id <span class=m>456</span> --duration-min <span class=m>60</span>
-</span></span><span class=line><span class=cl>openclaw message kick --channel discord --guild-id <span class=m>123</span> --user-id <span class=m>456</span> --reason <span class=s2>&#34;原因&#34;</span>
-</span></span><span class=line><span class=cl>openclaw message ban --channel discord --guild-id <span class=m>123</span> --user-id <span class=m>456</span> --reason <span class=s2>&#34;原因&#34;</span>
-</span></span></code></pre></div><hr><h2 id=agent-代理>Agent 代理<a hidden class=anchor aria-hidden=true href=#agent-代理>#</a></h2><h3 id=agent---运行代理><code>agent</code> - 运行代理<a hidden class=anchor aria-hidden=true href=#agent---运行代理>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw agent --message <span class=s2>&#34;你好&#34;</span>                           <span class=c1># 运行一次代理</span>
-</span></span><span class=line><span class=cl>openclaw agent --to +15551234567 --message <span class=s2>&#34;状态更新&#34;</span> --deliver  <span class=c1># 发送并投递</span>
-</span></span><span class=line><span class=cl>openclaw agent --agent ops --message <span class=s2>&#34;总结日志&#34;</span>           <span class=c1># 指定代理</span>
-</span></span><span class=line><span class=cl>openclaw agent --session-id <span class=m>1234</span> --message <span class=s2>&#34;总结&#34;</span> --thinking medium  <span class=c1># 指定会话和思考级别</span>
-</span></span><span class=line><span class=cl>openclaw agent --local --message <span class=s2>&#34;本地测试&#34;</span>               <span class=c1># 本地嵌入模式</span>
-</span></span></code></pre></div><h3 id=agents---管理代理><code>agents</code> - 管理代理<a hidden class=anchor aria-hidden=true href=#agents---管理代理>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw agents list                                      <span class=c1># 列出代理</span>
-</span></span><span class=line><span class=cl>openclaw agents list --bindings                           <span class=c1># 显示绑定</span>
-</span></span><span class=line><span class=cl>openclaw agents add work --workspace ~/.openclaw/ws-work  <span class=c1># 添加代理</span>
-</span></span><span class=line><span class=cl>openclaw agents delete work                               <span class=c1># 删除代理</span>
-</span></span><span class=line><span class=cl>openclaw agents set-identity --agent main --name <span class=s2>&#34;阿拉&#34;</span> --emoji <span class=s2>&#34;🧞&#34;</span>  <span class=c1># 设置身份</span>
-</span></span></code></pre></div><h3 id=acp---ide-集成桥接><code>acp</code> - IDE 集成桥接<a hidden class=anchor aria-hidden=true href=#acp---ide-集成桥接>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw acp                                              <span class=c1># MCP 桥接</span>
-</span></span><span class=line><span class=cl>openclaw acp --url wss://host:18789 --token &lt;token&gt;       <span class=c1># 远程网关</span>
-</span></span><span class=line><span class=cl>openclaw acp --session agent:main:main                    <span class=c1># 指定会话</span>
-</span></span><span class=line><span class=cl>openclaw acp client                                       <span class=c1># 调试客户端</span>
-</span></span></code></pre></div><hr><h2 id=会话管理>会话管理<a hidden class=anchor aria-hidden=true href=#会话管理>#</a></h2><h3 id=sessions---会话列表><code>sessions</code> - 会话列表<a hidden class=anchor aria-hidden=true href=#sessions---会话列表>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw sessions                           <span class=c1># 列出会话</span>
-</span></span><span class=line><span class=cl>openclaw sessions --active <span class=m>120</span>              <span class=c1># 最近 120 分钟活跃的</span>
-</span></span><span class=line><span class=cl>openclaw sessions --json
-</span></span></code></pre></div><h3 id=tui---终端-ui><code>tui</code> - 终端 UI<a hidden class=anchor aria-hidden=true href=#tui---终端-ui>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw tui                                <span class=c1># 打开终端 UI</span>
-</span></span><span class=line><span class=cl>openclaw tui --url ws://127.0.0.1:18789 --token &lt;token&gt;
-</span></span><span class=line><span class=cl>openclaw tui --session main --deliver
-</span></span></code></pre></div><h3 id=dashboard---控制面板><code>dashboard</code> - 控制面板<a hidden class=anchor aria-hidden=true href=#dashboard---控制面板>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw dashboard                          <span class=c1># 打开 Web 控制面板</span>
-</span></span></code></pre></div><hr><h2 id=模型配置>模型配置<a hidden class=anchor aria-hidden=true href=#模型配置>#</a></h2><h3 id=models---模型管理><code>models</code> - 模型管理<a hidden class=anchor aria-hidden=true href=#models---模型管理>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw models                             <span class=c1># 显示模型状态（等同于 models status）</span>
-</span></span><span class=line><span class=cl>openclaw models status                      <span class=c1># 模型状态</span>
-</span></span><span class=line><span class=cl>openclaw models status --probe              <span class=c1># 实时探测</span>
-</span></span><span class=line><span class=cl>openclaw models list                        <span class=c1># 列出可用模型</span>
-</span></span><span class=line><span class=cl>openclaw models list --all                  <span class=c1># 列出所有模型</span>
-</span></span><span class=line><span class=cl>openclaw models <span class=nb>set</span> &lt;model&gt;                 <span class=c1># 设置默认模型</span>
-</span></span><span class=line><span class=cl>openclaw models set-image &lt;model&gt;           <span class=c1># 设置图像模型</span>
-</span></span><span class=line><span class=cl>openclaw models scan                        <span class=c1># 扫描可用模型</span>
-</span></span></code></pre></div><h3 id=别名与回退>别名与回退<a hidden class=anchor aria-hidden=true href=#别名与回退>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw models aliases list                <span class=c1># 列出别名</span>
-</span></span><span class=line><span class=cl>openclaw models aliases add &lt;alias&gt; &lt;model&gt; <span class=c1># 添加别名</span>
-</span></span><span class=line><span class=cl>openclaw models aliases remove &lt;alias&gt;      <span class=c1># 删除别名</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>openclaw models fallbacks list              <span class=c1># 列出回退模型</span>
-</span></span><span class=line><span class=cl>openclaw models fallbacks add &lt;model&gt;       <span class=c1># 添加回退</span>
-</span></span><span class=line><span class=cl>openclaw models fallbacks remove &lt;model&gt;    <span class=c1># 删除回退</span>
-</span></span><span class=line><span class=cl>openclaw models fallbacks clear             <span class=c1># 清空回退</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>openclaw models image-fallbacks list        <span class=c1># 图像模型回退</span>
-</span></span><span class=line><span class=cl>openclaw models image-fallbacks add &lt;model&gt;
-</span></span></code></pre></div><h3 id=认证管理>认证管理<a hidden class=anchor aria-hidden=true href=#认证管理>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw models auth add                    <span class=c1># 添加认证</span>
-</span></span><span class=line><span class=cl>openclaw models auth login --provider &lt;id&gt;  <span class=c1># 登录提供商</span>
-</span></span><span class=line><span class=cl>openclaw models auth setup-token            <span class=c1># 设置令牌</span>
-</span></span><span class=line><span class=cl>openclaw models auth paste-token            <span class=c1># 粘贴令牌</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>openclaw models auth order get              <span class=c1># 获取认证顺序</span>
-</span></span><span class=line><span class=cl>openclaw models auth order <span class=nb>set</span> &lt;profileIds...&gt;  <span class=c1># 设置顺序</span>
-</span></span><span class=line><span class=cl>openclaw models auth order clear            <span class=c1># 清空顺序</span>
-</span></span></code></pre></div><hr><h2 id=频道管理>频道管理<a hidden class=anchor aria-hidden=true href=#频道管理>#</a></h2><h3 id=channels---频道操作><code>channels</code> - 频道操作<a hidden class=anchor aria-hidden=true href=#channels---频道操作>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw channels list                      <span class=c1># 列出频道</span>
-</span></span><span class=line><span class=cl>openclaw channels status                    <span class=c1># 频道状态</span>
-</span></span><span class=line><span class=cl>openclaw channels status --probe            <span class=c1># 深度探测</span>
-</span></span><span class=line><span class=cl>openclaw channels capabilities              <span class=c1># 查看能力</span>
-</span></span><span class=line><span class=cl>openclaw channels logs                      <span class=c1># 频道日志</span>
-</span></span><span class=line><span class=cl>openclaw channels logs --channel telegram --lines <span class=m>100</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 添加/删除频道</span>
-</span></span><span class=line><span class=cl>openclaw channels add --channel telegram --token &lt;bot-token&gt;
-</span></span><span class=line><span class=cl>openclaw channels add --channel discord --token &lt;bot-token&gt;
-</span></span><span class=line><span class=cl>openclaw channels remove --channel telegram --delete
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 登录/登出（WhatsApp Web）</span>
-</span></span><span class=line><span class=cl>openclaw channels login --channel whatsapp
-</span></span><span class=line><span class=cl>openclaw channels <span class=nb>logout</span> --channel whatsapp
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 解析名称到 ID</span>
-</span></span><span class=line><span class=cl>openclaw channels resolve --channel slack <span class=s2>&#34;#general&#34;</span> <span class=s2>&#34;@jane&#34;</span>
-</span></span></code></pre></div><h3 id=directory---目录查询><code>directory</code> - 目录查询<a hidden class=anchor aria-hidden=true href=#directory---目录查询>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw directory self --channel telegram           <span class=c1># 查询自己</span>
-</span></span><span class=line><span class=cl>openclaw directory peers list --channel slack        <span class=c1># 列出联系人</span>
-</span></span><span class=line><span class=cl>openclaw directory groups list --channel discord     <span class=c1># 列出群组</span>
-</span></span><span class=line><span class=cl>openclaw directory groups members --channel slack --group-id &lt;id&gt;  <span class=c1># 群成员</span>
-</span></span></code></pre></div><h3 id=pairing---配对管理><code>pairing</code> - 配对管理<a hidden class=anchor aria-hidden=true href=#pairing---配对管理>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw pairing list &lt;channel&gt;             <span class=c1># 列出配对请求</span>
-</span></span><span class=line><span class=cl>openclaw pairing approve &lt;channel&gt; &lt;code&gt;   <span class=c1># 批准配对</span>
-</span></span></code></pre></div><hr><h2 id=节点管理>节点管理<a hidden class=anchor aria-hidden=true href=#节点管理>#</a></h2><h3 id=nodes---节点操作><code>nodes</code> - 节点操作<a hidden class=anchor aria-hidden=true href=#nodes---节点操作>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw nodes list                         <span class=c1># 列出节点</span>
-</span></span><span class=line><span class=cl>openclaw nodes list --connected             <span class=c1># 仅已连接</span>
-</span></span><span class=line><span class=cl>openclaw nodes status                       <span class=c1># 节点状态</span>
-</span></span><span class=line><span class=cl>openclaw nodes pending                      <span class=c1># 待批准请求</span>
-</span></span><span class=line><span class=cl>openclaw nodes approve &lt;requestId&gt;          <span class=c1># 批准节点</span>
-</span></span><span class=line><span class=cl>openclaw nodes reject &lt;requestId&gt;           <span class=c1># 拒绝节点</span>
-</span></span><span class=line><span class=cl>openclaw nodes rename --node &lt;id&gt; --name <span class=s2>&#34;新名称&#34;</span>  <span class=c1># 重命名</span>
-</span></span></code></pre></div><h3 id=远程执行>远程执行<a hidden class=anchor aria-hidden=true href=#远程执行>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw nodes run --node &lt;id&gt; &lt;command...&gt;           <span class=c1># 运行命令</span>
-</span></span><span class=line><span class=cl>openclaw nodes run --node &lt;id&gt; --raw <span class=s2>&#34;git status&#34;</span>     <span class=c1># Shell 命令</span>
-</span></span><span class=line><span class=cl>openclaw nodes invoke --node &lt;id&gt; --command &lt;cmd&gt; --params <span class=s1>&#39;{}&#39;</span>  <span class=c1># 调用方法</span>
-</span></span></code></pre></div><h3 id=摄像头>摄像头<a hidden class=anchor aria-hidden=true href=#摄像头>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw nodes camera list --node &lt;id&gt;                <span class=c1># 列出摄像头</span>
-</span></span><span class=line><span class=cl>openclaw nodes camera snap --node &lt;id&gt; --facing front <span class=c1># 拍照</span>
-</span></span><span class=line><span class=cl>openclaw nodes camera clip --node &lt;id&gt; --duration 10s <span class=c1># 录制视频</span>
-</span></span></code></pre></div><h3 id=画布与屏幕>画布与屏幕<a hidden class=anchor aria-hidden=true href=#画布与屏幕>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw nodes canvas snapshot --node &lt;id&gt;            <span class=c1># 截图画布</span>
-</span></span><span class=line><span class=cl>openclaw nodes canvas present --node &lt;id&gt; --target &lt;url&gt;  <span class=c1># 展示内容</span>
-</span></span><span class=line><span class=cl>openclaw nodes canvas hide --node &lt;id&gt;                <span class=c1># 隐藏画布</span>
-</span></span><span class=line><span class=cl>openclaw nodes canvas navigate &lt;url&gt; --node &lt;id&gt;      <span class=c1># 导航</span>
-</span></span><span class=line><span class=cl>openclaw nodes canvas <span class=nb>eval</span> <span class=s2>&#34;console.log(&#39;hi&#39;)&#34;</span> --node &lt;id&gt;  <span class=c1># 执行 JS</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>openclaw nodes screen record --node &lt;id&gt; --duration 10s  <span class=c1># 录屏</span>
-</span></span></code></pre></div><h3 id=位置>位置<a hidden class=anchor aria-hidden=true href=#位置>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw nodes location get --node &lt;id&gt;               <span class=c1># 获取位置</span>
-</span></span></code></pre></div><h3 id=node---节点主机><code>node</code> - 节点主机<a hidden class=anchor aria-hidden=true href=#node---节点主机>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw node run --host &lt;gateway-host&gt; --port <span class=m>18789</span>  <span class=c1># 运行节点主机</span>
-</span></span><span class=line><span class=cl>openclaw node install --host &lt;gateway-host&gt;           <span class=c1># 安装服务</span>
-</span></span><span class=line><span class=cl>openclaw node status                                  <span class=c1># 状态</span>
-</span></span><span class=line><span class=cl>openclaw node stop                                    <span class=c1># 停止</span>
-</span></span><span class=line><span class=cl>openclaw node restart                                 <span class=c1># 重启</span>
-</span></span><span class=line><span class=cl>openclaw node uninstall                               <span class=c1># 卸载</span>
-</span></span></code></pre></div><h3 id=devices---设备管理><code>devices</code> - 设备管理<a hidden class=anchor aria-hidden=true href=#devices---设备管理>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw devices list                       <span class=c1># 列出设备</span>
-</span></span><span class=line><span class=cl>openclaw devices approve &lt;requestId&gt;        <span class=c1># 批准设备</span>
-</span></span><span class=line><span class=cl>openclaw devices reject &lt;requestId&gt;         <span class=c1># 拒绝设备</span>
-</span></span><span class=line><span class=cl>openclaw devices rotate --device &lt;id&gt; --role operator  <span class=c1># 轮换令牌</span>
-</span></span><span class=line><span class=cl>openclaw devices revoke --device &lt;id&gt; --role node      <span class=c1># 撤销令牌</span>
-</span></span></code></pre></div><hr><h2 id=浏览器控制>浏览器控制<a hidden class=anchor aria-hidden=true href=#浏览器控制>#</a></h2><h3 id=browser---浏览器操作><code>browser</code> - 浏览器操作<a hidden class=anchor aria-hidden=true href=#browser---浏览器操作>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 管理</span>
-</span></span><span class=line><span class=cl>openclaw browser status                     <span class=c1># 状态</span>
-</span></span><span class=line><span class=cl>openclaw browser start                      <span class=c1># 启动</span>
-</span></span><span class=line><span class=cl>openclaw browser stop                       <span class=c1># 停止</span>
-</span></span><span class=line><span class=cl>openclaw browser tabs                       <span class=c1># 列出标签页</span>
-</span></span><span class=line><span class=cl>openclaw browser open &lt;url&gt;                 <span class=c1># 打开 URL</span>
-</span></span><span class=line><span class=cl>openclaw browser focus &lt;targetId&gt;           <span class=c1># 聚焦标签</span>
-</span></span><span class=line><span class=cl>openclaw browser close &lt;targetId&gt;           <span class=c1># 关闭标签</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 配置文件</span>
-</span></span><span class=line><span class=cl>openclaw browser profiles                   <span class=c1># 列出配置文件</span>
-</span></span><span class=line><span class=cl>openclaw browser create-profile --name work --color <span class=s2>&#34;#FF5A36&#34;</span>
-</span></span><span class=line><span class=cl>openclaw browser delete-profile --name work
-</span></span><span class=line><span class=cl>openclaw browser --browser-profile chrome tabs  <span class=c1># 使用指定配置</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 截图与快照</span>
-</span></span><span class=line><span class=cl>openclaw browser screenshot                 <span class=c1># 截图</span>
-</span></span><span class=line><span class=cl>openclaw browser screenshot --full-page     <span class=c1># 全页截图</span>
-</span></span><span class=line><span class=cl>openclaw browser snapshot                   <span class=c1># 获取页面快照</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 导航与交互</span>
-</span></span><span class=line><span class=cl>openclaw browser navigate &lt;url&gt;             <span class=c1># 导航</span>
-</span></span><span class=line><span class=cl>openclaw browser click &lt;ref&gt;                <span class=c1># 点击</span>
-</span></span><span class=line><span class=cl>openclaw browser <span class=nb>type</span> &lt;ref&gt; <span class=s2>&#34;text&#34;</span>          <span class=c1># 输入</span>
-</span></span><span class=line><span class=cl>openclaw browser press &lt;key&gt;                <span class=c1># 按键</span>
-</span></span><span class=line><span class=cl>openclaw browser hover &lt;ref&gt;                <span class=c1># 悬停</span>
-</span></span><span class=line><span class=cl>openclaw browser drag &lt;startRef&gt; &lt;endRef&gt;   <span class=c1># 拖拽</span>
-</span></span><span class=line><span class=cl>openclaw browser <span class=k>select</span> &lt;ref&gt; &lt;values...&gt;   <span class=c1># 选择</span>
-</span></span><span class=line><span class=cl>openclaw browser upload &lt;paths...&gt;          <span class=c1># 上传文件</span>
-</span></span><span class=line><span class=cl>openclaw browser fill --fields &lt;json&gt;       <span class=c1># 填充表单</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 其他</span>
-</span></span><span class=line><span class=cl>openclaw browser dialog --accept            <span class=c1># 处理对话框</span>
-</span></span><span class=line><span class=cl>openclaw browser <span class=nb>wait</span> --time <span class=m>1000</span>           <span class=c1># 等待</span>
-</span></span><span class=line><span class=cl>openclaw browser evaluate --fn <span class=s2>&#34;document.title&#34;</span>  <span class=c1># 执行 JS</span>
-</span></span><span class=line><span class=cl>openclaw browser console                    <span class=c1># 控制台日志</span>
-</span></span><span class=line><span class=cl>openclaw browser pdf                        <span class=c1># 导出 PDF</span>
-</span></span><span class=line><span class=cl>openclaw browser resize <span class=m>1920</span> <span class=m>1080</span>           <span class=c1># 调整大小</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># Chrome 扩展</span>
-</span></span><span class=line><span class=cl>openclaw browser extension install          <span class=c1># 安装扩展</span>
-</span></span><span class=line><span class=cl>openclaw browser extension path             <span class=c1># 扩展路径</span>
-</span></span></code></pre></div><hr><h2 id=定时任务>定时任务<a hidden class=anchor aria-hidden=true href=#定时任务>#</a></h2><h3 id=cron---定时任务管理><code>cron</code> - 定时任务管理<a hidden class=anchor aria-hidden=true href=#cron---定时任务管理>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw cron status                        <span class=c1># 调度器状态</span>
-</span></span><span class=line><span class=cl>openclaw cron list                          <span class=c1># 列出任务</span>
-</span></span><span class=line><span class=cl>openclaw cron list --all                    <span class=c1># 包含禁用的</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 添加任务</span>
-</span></span><span class=line><span class=cl>openclaw cron add --name <span class=s2>&#34;每日提醒&#34;</span> --every 24h --system-event <span class=s2>&#34;检查邮件&#34;</span>
-</span></span><span class=line><span class=cl>openclaw cron add --name <span class=s2>&#34;定时任务&#34;</span> --cron <span class=s2>&#34;0 9 * * *&#34;</span> --system-event <span class=s2>&#34;早安&#34;</span>
-</span></span><span class=line><span class=cl>openclaw cron add --name <span class=s2>&#34;一次性&#34;</span> --at <span class=s2>&#34;2024-01-01T10:00:00Z&#34;</span> --system-event <span class=s2>&#34;新年快乐&#34;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 管理任务</span>
-</span></span><span class=line><span class=cl>openclaw cron edit &lt;id&gt; --deliver --channel telegram --to <span class=s2>&#34;123456789&#34;</span>
-</span></span><span class=line><span class=cl>openclaw cron <span class=nb>enable</span> &lt;id&gt;                   <span class=c1># 启用</span>
-</span></span><span class=line><span class=cl>openclaw cron disable &lt;id&gt;                  <span class=c1># 禁用</span>
-</span></span><span class=line><span class=cl>openclaw cron rm &lt;id&gt;                       <span class=c1># 删除</span>
-</span></span><span class=line><span class=cl>openclaw cron run &lt;id&gt;                      <span class=c1># 立即运行</span>
-</span></span><span class=line><span class=cl>openclaw cron runs --id &lt;id&gt;                <span class=c1># 运行历史</span>
-</span></span></code></pre></div><hr><h2 id=插件与技能>插件与技能<a hidden class=anchor aria-hidden=true href=#插件与技能>#</a></h2><h3 id=plugins---插件管理><code>plugins</code> - 插件管理<a hidden class=anchor aria-hidden=true href=#plugins---插件管理>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw plugins list                       <span class=c1># 列出插件</span>
-</span></span><span class=line><span class=cl>openclaw plugins info &lt;id&gt;                  <span class=c1># 插件详情</span>
-</span></span><span class=line><span class=cl>openclaw plugins install &lt;path-or-spec&gt;     <span class=c1># 安装插件</span>
-</span></span><span class=line><span class=cl>openclaw plugins install -l ./my-plugin     <span class=c1># 链接本地插件</span>
-</span></span><span class=line><span class=cl>openclaw plugins <span class=nb>enable</span> &lt;id&gt;                <span class=c1># 启用</span>
-</span></span><span class=line><span class=cl>openclaw plugins disable &lt;id&gt;               <span class=c1># 禁用</span>
-</span></span><span class=line><span class=cl>openclaw plugins update &lt;id&gt;                <span class=c1># 更新插件</span>
-</span></span><span class=line><span class=cl>openclaw plugins update --all               <span class=c1># 更新所有</span>
-</span></span><span class=line><span class=cl>openclaw plugins doctor                     <span class=c1># 诊断问题</span>
-</span></span></code></pre></div><h3 id=skills---技能管理><code>skills</code> - 技能管理<a hidden class=anchor aria-hidden=true href=#skills---技能管理>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw skills list                        <span class=c1># 列出技能</span>
-</span></span><span class=line><span class=cl>openclaw skills list --eligible             <span class=c1># 仅可用的</span>
-</span></span><span class=line><span class=cl>openclaw skills info &lt;name&gt;                 <span class=c1># 技能详情</span>
-</span></span><span class=line><span class=cl>openclaw skills check                       <span class=c1># 检查就绪状态</span>
-</span></span></code></pre></div><hr><h2 id=内存与搜索>内存与搜索<a hidden class=anchor aria-hidden=true href=#内存与搜索>#</a></h2><h3 id=memory---语义内存><code>memory</code> - 语义内存<a hidden class=anchor aria-hidden=true href=#memory---语义内存>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw memory status                      <span class=c1># 内存状态</span>
-</span></span><span class=line><span class=cl>openclaw memory status --deep               <span class=c1># 深度检查</span>
-</span></span><span class=line><span class=cl>openclaw memory index                       <span class=c1># 重建索引</span>
-</span></span><span class=line><span class=cl>openclaw memory index --verbose             <span class=c1># 详细输出</span>
-</span></span><span class=line><span class=cl>openclaw memory search <span class=s2>&#34;关键词&#34;</span>             <span class=c1># 语义搜索</span>
-</span></span></code></pre></div><hr><h2 id=沙箱管理>沙箱管理<a hidden class=anchor aria-hidden=true href=#沙箱管理>#</a></h2><h3 id=sandbox---沙箱容器><code>sandbox</code> - 沙箱容器<a hidden class=anchor aria-hidden=true href=#sandbox---沙箱容器>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw sandbox list                       <span class=c1># 列出容器</span>
-</span></span><span class=line><span class=cl>openclaw sandbox list --browser             <span class=c1># 仅浏览器容器</span>
-</span></span><span class=line><span class=cl>openclaw sandbox explain                    <span class=c1># 解释沙箱策略</span>
-</span></span><span class=line><span class=cl>openclaw sandbox recreate --all             <span class=c1># 重建所有容器</span>
-</span></span><span class=line><span class=cl>openclaw sandbox recreate --agent mybot     <span class=c1># 重建指定代理的容器</span>
-</span></span><span class=line><span class=cl>openclaw sandbox recreate --browser         <span class=c1># 仅重建浏览器容器</span>
-</span></span></code></pre></div><hr><h2 id=安全与审计>安全与审计<a hidden class=anchor aria-hidden=true href=#安全与审计>#</a></h2><h3 id=security---安全工具><code>security</code> - 安全工具<a hidden class=anchor aria-hidden=true href=#security---安全工具>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw security audit                     <span class=c1># 安全审计</span>
-</span></span><span class=line><span class=cl>openclaw security audit --deep              <span class=c1># 深度审计</span>
-</span></span><span class=line><span class=cl>openclaw security audit --fix               <span class=c1># 自动修复</span>
-</span></span></code></pre></div><h3 id=approvals---执行审批><code>approvals</code> - 执行审批<a hidden class=anchor aria-hidden=true href=#approvals---执行审批>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw approvals get                      <span class=c1># 获取审批配置</span>
-</span></span><span class=line><span class=cl>openclaw approvals get --node &lt;id&gt;          <span class=c1># 节点审批</span>
-</span></span><span class=line><span class=cl>openclaw approvals get --gateway            <span class=c1># 网关审批</span>
-</span></span><span class=line><span class=cl>openclaw approvals <span class=nb>set</span> --file ./approvals.json  <span class=c1># 设置</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 白名单管理</span>
-</span></span><span class=line><span class=cl>openclaw approvals allowlist add <span class=s2>&#34;~/Projects/**/bin/rg&#34;</span>
-</span></span><span class=line><span class=cl>openclaw approvals allowlist add --node &lt;id&gt; <span class=s2>&#34;/usr/bin/uptime&#34;</span>
-</span></span><span class=line><span class=cl>openclaw approvals allowlist remove <span class=s2>&#34;~/Projects/**/bin/rg&#34;</span>
-</span></span></code></pre></div><hr><h2 id=系统工具>系统工具<a hidden class=anchor aria-hidden=true href=#系统工具>#</a></h2><h3 id=system---系统事件><code>system</code> - 系统事件<a hidden class=anchor aria-hidden=true href=#system---系统事件>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 系统事件</span>
-</span></span><span class=line><span class=cl>openclaw system event --text <span class=s2>&#34;检查紧急事项&#34;</span> --mode now
-</span></span><span class=line><span class=cl>openclaw system event --text <span class=s2>&#34;提醒&#34;</span> --mode next-heartbeat
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 心跳控制</span>
-</span></span><span class=line><span class=cl>openclaw system heartbeat last              <span class=c1># 最后心跳</span>
-</span></span><span class=line><span class=cl>openclaw system heartbeat <span class=nb>enable</span>            <span class=c1># 启用心跳</span>
-</span></span><span class=line><span class=cl>openclaw system heartbeat disable           <span class=c1># 禁用心跳</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 系统存在</span>
-</span></span><span class=line><span class=cl>openclaw system presence                    <span class=c1># 列出存在条目</span>
-</span></span></code></pre></div><h3 id=webhooks---webhook-工具><code>webhooks</code> - Webhook 工具<a hidden class=anchor aria-hidden=true href=#webhooks---webhook-工具>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw webhooks gmail setup --account &lt;email&gt;  <span class=c1># Gmail Pub/Sub 设置</span>
-</span></span><span class=line><span class=cl>openclaw webhooks gmail run                      <span class=c1># 运行 Gmail webhook</span>
-</span></span></code></pre></div><h3 id=dns---dns-工具><code>dns</code> - DNS 工具<a hidden class=anchor aria-hidden=true href=#dns---dns-工具>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw dns setup                          <span class=c1># DNS 设置</span>
-</span></span><span class=line><span class=cl>openclaw dns setup --apply                  <span class=c1># 应用配置</span>
-</span></span></code></pre></div><hr><h2 id=其他命令>其他命令<a hidden class=anchor aria-hidden=true href=#其他命令>#</a></h2><h3 id=docs---文档搜索><code>docs</code> - 文档搜索<a hidden class=anchor aria-hidden=true href=#docs---文档搜索>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw docs &lt;query&gt;                       <span class=c1># 搜索文档</span>
-</span></span><span class=line><span class=cl>openclaw docs <span class=s2>&#34;how to configure&#34;</span>
-</span></span></code></pre></div><h3 id=hooks---钩子管理><code>hooks</code> - 钩子管理<a hidden class=anchor aria-hidden=true href=#hooks---钩子管理>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw hooks list                         <span class=c1># 列出钩子</span>
-</span></span><span class=line><span class=cl>openclaw hooks info &lt;id&gt;                    <span class=c1># 钩子详情</span>
-</span></span><span class=line><span class=cl>openclaw hooks check                        <span class=c1># 检查钩子</span>
-</span></span><span class=line><span class=cl>openclaw hooks <span class=nb>enable</span> &lt;id&gt;                  <span class=c1># 启用</span>
-</span></span><span class=line><span class=cl>openclaw hooks disable &lt;id&gt;                 <span class=c1># 禁用</span>
-</span></span><span class=line><span class=cl>openclaw hooks install                      <span class=c1># 安装钩子</span>
-</span></span><span class=line><span class=cl>openclaw hooks update                       <span class=c1># 更新钩子</span>
-</span></span></code></pre></div><h3 id=completion---shell-补全><code>completion</code> - Shell 补全<a hidden class=anchor aria-hidden=true href=#completion---shell-补全>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw completion                         <span class=c1># 生成补全脚本</span>
-</span></span><span class=line><span class=cl>openclaw completion &gt;&gt; ~/.zshrc             <span class=c1># 添加到 zsh</span>
-</span></span></code></pre></div><hr><h2 id=常用组合示例>常用组合示例<a hidden class=anchor aria-hidden=true href=#常用组合示例>#</a></h2><h3 id=快速开始>快速开始<a hidden class=anchor aria-hidden=true href=#快速开始>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 1. 初始化</span>
-</span></span><span class=line><span class=cl>openclaw onboard --flow quickstart
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 2. 启动网关</span>
-</span></span><span class=line><span class=cl>openclaw gateway start
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 3. 检查状态</span>
-</span></span><span class=line><span class=cl>openclaw status
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 4. 打开控制面板</span>
-</span></span><span class=line><span class=cl>openclaw dashboard
-</span></span></code></pre></div><h3 id=配置-telegram-机器人>配置 Telegram 机器人<a hidden class=anchor aria-hidden=true href=#配置-telegram-机器人>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 添加频道</span>
-</span></span><span class=line><span class=cl>openclaw channels add --channel telegram --token &lt;BOT_TOKEN&gt;
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 检查状态</span>
-</span></span><span class=line><span class=cl>openclaw channels status --probe
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 发送测试消息</span>
-</span></span><span class=line><span class=cl>openclaw message send --channel telegram --target @username --message <span class=s2>&#34;测试&#34;</span>
-</span></span></code></pre></div><h3 id=远程节点执行>远程节点执行<a hidden class=anchor aria-hidden=true href=#远程节点执行>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 列出节点</span>
-</span></span><span class=line><span class=cl>openclaw nodes list --connected
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 在节点上运行命令</span>
-</span></span><span class=line><span class=cl>openclaw nodes run --node my-server --raw <span class=s2>&#34;uptime&#34;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 截取节点屏幕</span>
-</span></span><span class=line><span class=cl>openclaw nodes screen record --node my-server --duration 5s
-</span></span></code></pre></div><h3 id=定时提醒>定时提醒<a hidden class=anchor aria-hidden=true href=#定时提醒>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 每天早上 9 点提醒</span>
-</span></span><span class=line><span class=cl>openclaw cron add --name <span class=s2>&#34;早安&#34;</span> --cron <span class=s2>&#34;0 9 * * *&#34;</span> --system-event <span class=s2>&#34;早上好！新的一天开始了&#34;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 30 分钟后提醒</span>
-</span></span><span class=line><span class=cl>openclaw cron add --name <span class=s2>&#34;提醒&#34;</span> --at <span class=s2>&#34;</span><span class=k>$(</span>date -v+30M +%Y-%m-%dT%H:%M:%S<span class=k>)</span><span class=s2>&#34;</span> --system-event <span class=s2>&#34;30分钟到了&#34;</span>
-</span></span></code></pre></div><hr><h2 id=获取帮助>获取帮助<a hidden class=anchor aria-hidden=true href=#获取帮助>#</a></h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>openclaw --help                             <span class=c1># 主帮助</span>
-</span></span><span class=line><span class=cl>openclaw &lt;command&gt; --help                   <span class=c1># 子命令帮助</span>
-</span></span><span class=line><span class=cl>openclaw docs &lt;query&gt;                       <span class=c1># 搜索文档</span>
-</span></span></code></pre></div><p><strong>文档网站</strong>: <a href=https://docs.openclaw.ai>https://docs.openclaw.ai</a><br><strong>GitHub</strong>: <a href=https://github.com/openclaw/openclaw>https://github.com/openclaw/openclaw</a><br><strong>社区</strong>: <a href=https://discord.com/invite/clawd>https://discord.com/invite/clawd</a></p><hr><p><em>文档由阿拉 🧞 整理，如有遗漏欢迎补充！</em></p></div><footer class=post-footer><ul class=post-tags><li><a href=https://getaibits.com/tags/openclaw/>OpenClaw</a></li><li><a href=https://getaibits.com/tags/cli/>CLI</a></li><li><a href=https://getaibits.com/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/>命令行</a></li><li><a href=https://getaibits.com/tags/%E6%95%99%E7%A8%8B/>教程</a></li><li><a href=https://getaibits.com/tags/%E6%8C%87%E5%8D%97/>指南</a></li></ul></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://getaibits.com/>AI Bits</a></span> ·
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg></a><div class=reading-progress id=reading-progress></div><script>window.addEventListener("scroll",function(){const e=document.querySelector(".post-content");if(!e)return;const t=window.scrollY,n=e.offsetHeight,s=window.innerHeight,o=t/(n-s)*100;document.getElementById("reading-progress").style.width=Math.min(o,100)+"%"})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-cn" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>OpenClaw 终端命令完全指南 | AI Bits</title>
+<meta name="keywords" content="OpenClaw, CLI, 命令行, 教程, 指南">
+<meta name="description" content="OpenClaw 所有终端命令的完整参考手册，从基础配置到高级功能一网打尽。">
+<meta name="author" content="Gavin">
+<link rel="canonical" href="https://getaibits.com/posts/openclaw-cli-guide/">
+<link crossorigin="anonymous" href="https://getaibits.com/assets/css/stylesheet.44e854f43d58f6dac184d229a83426e7437723b428a6ee8aa1367a80078e3bef.css" integrity="sha256-ROhU9D1Y9trBhNIpqDQm50N3I7Qopu6KoTZ6gAeOO&#43;8=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://getaibits.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://getaibits.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://getaibits.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://getaibits.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://getaibits.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-cn" href="https://getaibits.com/posts/openclaw-cli-guide/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+
+
+
+
+
+  
+    
+  
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getaibits.com/posts/openclaw-cli-guide/"
+  },
+  "headline": "OpenClaw 终端命令完全指南",
+  "image": "https://getaibits.com/images/posts/openclaw-cli-cover.png",
+  "datePublished": "2026-02-04T00:00:00Z",
+  "dateModified": "2026-02-04T00:00:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "Gavin"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Bits",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getaibits.com/images/avatar.png"
+    }
+  },
+  "description": "OpenClaw 所有终端命令的完整参考手册，从基础配置到高级功能一网打尽。",
+  "keywords": "OpenClaw, CLI, 命令行, 教程, 指南"
+}
+</script>
+
+
+
+
+  
+    
+  
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OpenClaw 终端命令完全指南">
+<meta name="twitter:description" content="OpenClaw 所有终端命令的完整参考手册，从基础配置到高级功能一网打尽。">
+<meta name="twitter:image" content="https://getaibits.com/images/posts/openclaw-cli-cover.png">
+
+
+
+
+
+
+
+
+
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  } else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+  
+    
+  
+
+<meta name="weibo:webpage:type" content="webpage">
+<meta name="weibo:webpage:title" content="OpenClaw 终端命令完全指南">
+<meta name="weibo:webpage:description" content="OpenClaw 所有终端命令的完整参考手册，从基础配置到高级功能一网打尽。">
+<meta name="weibo:webpage:image" content="https://getaibits.com/images/posts/openclaw-cli-cover.png">
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+<meta property="og:image" content="https://getaibits.com/images/posts/openclaw-cli-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+
+<meta property="og:image:alt" content="OpenClaw 终端命令完全指南">
+<meta property="og:url" content="https://getaibits.com/posts/openclaw-cli-guide/">
+  <meta property="og:site_name" content="AI Bits">
+  <meta property="og:title" content="OpenClaw 终端命令完全指南">
+  <meta property="og:description" content="OpenClaw 所有终端命令的完整参考手册，从基础配置到高级功能一网打尽。">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-02-04T00:00:00+00:00">
+    <meta property="article:tag" content="OpenClaw">
+    <meta property="article:tag" content="CLI">
+    <meta property="article:tag" content="命令行">
+    <meta property="article:tag" content="教程">
+    <meta property="article:tag" content="指南">
+      <meta property="og:image" content="https://getaibits.com/images/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://getaibits.com/images/og-default.png">
+<meta name="twitter:title" content="OpenClaw 终端命令完全指南">
+<meta name="twitter:description" content="OpenClaw 所有终端命令的完整参考手册，从基础配置到高级功能一网打尽。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://getaibits.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "OpenClaw 终端命令完全指南",
+      "item": "https://getaibits.com/posts/openclaw-cli-guide/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "OpenClaw 终端命令完全指南",
+  "name": "OpenClaw 终端命令完全指南",
+  "description": "OpenClaw 所有终端命令的完整参考手册，从基础配置到高级功能一网打尽。",
+  "keywords": [
+    "OpenClaw", "CLI", "命令行", "教程", "指南"
+  ],
+  "articleBody": " 版本：OpenClaw 2026.2.2\n文档整理：阿拉 🧞\nOpenClaw 是一个强大的 AI 助手网关，通过命令行可以完成几乎所有操作。本文整理了所有终端命令，方便查阅和使用。\n目录 全局选项 初始化与配置 Gateway 网关管理 消息与通信 Agent 代理 会话管理 模型配置 频道管理 节点管理 浏览器控制 定时任务 插件与技能 内存与搜索 沙箱管理 安全与审计 系统工具 其他命令 全局选项 openclaw [options] [command] # 全局选项 -V, --version # 显示版本号 --dev # 开发模式：隔离状态到 ~/.openclaw-dev --profile # 使用命名配置文件 --no-color # 禁用 ANSI 颜色 -h, --help # 显示帮助 初始化与配置 setup - 初始化配置 openclaw setup # 初始化配置和工作区 openclaw setup --workspace ~/.openclaw/ws # 指定工作区路径 openclaw setup --wizard # 运行向导 onboard - 交互式向导 openclaw onboard # 启动向导 openclaw onboard --flow quickstart # 快速开始模式 openclaw onboard --flow manual # 完整配置模式 openclaw onboard --mode remote --remote-url ws://host:18789 # 远程模式 configure - 配置向导 openclaw configure # 交互式配置（模型、频道、技能等） config - 配置管理 openclaw config # 启动配置向导 openclaw config get # 获取配置值 openclaw config set # 设置配置值 openclaw config unset # 删除配置值 # 示例 openclaw config get browser.executablePath openclaw config set agents.defaults.heartbeat.every \"2h\" openclaw config set gateway.port 19001 --json doctor - 健康检查 openclaw doctor # 运行健康检查 openclaw doctor --repair # 修复问题 openclaw doctor --deep # 深度扫描 openclaw doctor --non-interactive # 非交互模式 reset - 重置配置 openclaw reset # 重置本地配置/状态 openclaw reset --scope config # 仅重置配置 openclaw reset --scope full # 完全重置 openclaw reset --dry-run # 预览模式 uninstall - 卸载 openclaw uninstall # 卸载网关服务 openclaw uninstall --all # 卸载所有 openclaw uninstall --service --state # 指定范围 update - 更新 openclaw update # 更新 OpenClaw openclaw update status # 检查更新状态 openclaw update wizard # 更新向导 openclaw update --channel beta # 切换到 beta 频道 openclaw update --channel dev # 切换到 dev 频道 openclaw update --no-restart # 更新后不重启 Gateway 网关管理 运行网关 openclaw gateway # 运行网关 openclaw gateway run # 前台运行 openclaw gateway --port 18789 # 指定端口 openclaw gateway --bin # 绑定模式：loopback|lan|tailnet|auto|custom openclaw gateway --token # 指定令牌 openclaw gateway --force # 强制启动（杀死占用端口的进程） openclaw gateway --dev # 开发模式 openclaw gateway --verbose # 详细日志 服务管理 openclaw gateway status # 查看状态 openclaw gateway install # 安装服务 openclaw gateway uninstall # 卸载服务 openclaw gateway start # 启动服务 openclaw gateway stop # 停止服务 openclaw gateway restart # 重启服务 查询与发现 openclaw gateway health # 健康检查 openclaw gateway probe # 探测网关 openclaw gateway discover # 发现局域网网关（Bonjour） openclaw gateway call # 调用 RPC 方法 openclaw gateway call status openclaw gateway call logs.tail --params '{\"sinceMs\": 60000}' logs - 日志查看 openclaw logs # 查看日志 openclaw logs --follow # 实时跟踪 openclaw logs --limit 500 # 限制行数 openclaw logs --json # JSON 格式 health - 健康状态 openclaw health # 获取网关健康状态 openclaw health --json status - 状态诊断 openclaw status # 显示状态 openclaw status --all # 完整诊断 openclaw status --deep # 深度探测 openclaw status --usage # 显示用量 消息与通信 message - 发送消息 支持频道：WhatsApp / Telegram / Discord / Slack / Signal / iMessage / MS Teams / Google Chat\n# 发送消息 openclaw message send --target --message \"Hello\" openclaw message send --channel telegram --target @username --message \"Hi\" openclaw message send --channel discord --target channel:123 --message \"Hi\" --reply-to 456 # 发送媒体 openclaw message send --target +15551234567 --media ./image.png # 创建投票 openclaw message poll --channel discord --target channel:123 \\ --poll-question \"选择?\" --poll-option A --poll-option B --poll-multi # 表情反应 openclaw message react --channel slack --target C123 --message-id 456 --emoji \"✅\" # 读取消息 openclaw message read --channel discord --target channel:123 --limit 50 # 编辑/删除 openclaw message edit --channel discord --target channel:123 --message-id 456 --message \"新内容\" openclaw message delete --channel discord --target channel:123 --message-id 456 # 置顶 openclaw message pin --channel discord --target channel:123 --message-id 456 openclaw message pins --channel discord --target channel:123 # 搜索 openclaw message search --channel discord --guild-id 123 --query \"关键词\" # 广播 openclaw message broadcast --targets user1 --targets user2 --message \"通知\" 线程操作 openclaw message thread create --channel discord --target channel:123 --thread-name \"讨论\" openclaw message thread list --channel discord --guild-id 123 openclaw message thread reply --channel discord --target thread:456 --message \"回复\" Discord 特有功能 # 表情管理 openclaw message emoji list --channel discord --guild-id 123 openclaw message emoji upload --channel discord --guild-id 123 --emoji-name \"custom\" --media ./emoji.png # 贴纸 openclaw message sticker send --channel discord --target channel:123 --sticker-id abc openclaw message sticker upload --channel discord --guild-id 123 --sticker-name \"name\" --sticker-desc \"desc\" --sticker-tags \"tag\" --media ./sticker.png # 角色管理 openclaw message role info --channel discord --guild-id 123 openclaw message role add --channel discord --guild-id 123 --user-id 456 --role-id 789 openclaw message role remove --channel discord --guild-id 123 --user-id 456 --role-id 789 # 频道信息 openclaw message channel info --channel discord --target channel:123 openclaw message channel list --channel discord --guild-id 123 # 成员信息 openclaw message member info --channel discord --guild-id 123 --user-id 456 # 语音状态 openclaw message voice status --channel discord --guild-id 123 --user-id 456 # 活动管理 openclaw message event list --channel discord --guild-id 123 openclaw message event create --channel discord --guild-id 123 --event-name \"活动\" --event-start-time \"2024-01-01T10:00:00Z\" # 管理操作 openclaw message timeout --channel discord --guild-id 123 --user-id 456 --duration-min 60 openclaw message kick --channel discord --guild-id 123 --user-id 456 --reason \"原因\" openclaw message ban --channel discord --guild-id 123 --user-id 456 --reason \"原因\" Agent 代理 agent - 运行代理 openclaw agent --message \"你好\" # 运行一次代理 openclaw agent --to +15551234567 --message \"状态更新\" --deliver # 发送并投递 openclaw agent --agent ops --message \"总结日志\" # 指定代理 openclaw agent --session-id 1234 --message \"总结\" --thinking medium # 指定会话和思考级别 openclaw agent --local --message \"本地测试\" # 本地嵌入模式 agents - 管理代理 openclaw agents list # 列出代理 openclaw agents list --bindings # 显示绑定 openclaw agents add work --workspace ~/.openclaw/ws-work # 添加代理 openclaw agents delete work # 删除代理 openclaw agents set-identity --agent main --name \"阿拉\" --emoji \"🧞\" # 设置身份 acp - IDE 集成桥接 openclaw acp # MCP 桥接 openclaw acp --url wss://host:18789 --token # 远程网关 openclaw acp --session agent:main:main # 指定会话 openclaw acp client # 调试客户端 会话管理 sessions - 会话列表 openclaw sessions # 列出会话 openclaw sessions --active 120 # 最近 120 分钟活跃的 openclaw sessions --json tui - 终端 UI openclaw tui # 打开终端 UI openclaw tui --url ws://127.0.0.1:18789 --token openclaw tui --session main --deliver dashboard - 控制面板 openclaw dashboard # 打开 Web 控制面板 模型配置 models - 模型管理 openclaw models # 显示模型状态（等同于 models status） openclaw models status # 模型状态 openclaw models status --probe # 实时探测 openclaw models list # 列出可用模型 openclaw models list --all # 列出所有模型 openclaw models set # 设置默认模型 openclaw models set-image # 设置图像模型 openclaw models scan # 扫描可用模型 别名与回退 openclaw models aliases list # 列出别名 openclaw models aliases add # 添加别名 openclaw models aliases remove # 删除别名 openclaw models fallbacks list # 列出回退模型 openclaw models fallbacks add # 添加回退 openclaw models fallbacks remove # 删除回退 openclaw models fallbacks clear # 清空回退 openclaw models image-fallbacks list # 图像模型回退 openclaw models image-fallbacks add 认证管理 openclaw models auth add # 添加认证 openclaw models auth login --provider # 登录提供商 openclaw models auth setup-token # 设置令牌 openclaw models auth paste-token # 粘贴令牌 openclaw models auth order get # 获取认证顺序 openclaw models auth order set # 设置顺序 openclaw models auth order clear # 清空顺序 频道管理 channels - 频道操作 openclaw channels list # 列出频道 openclaw channels status # 频道状态 openclaw channels status --probe # 深度探测 openclaw channels capabilities # 查看能力 openclaw channels logs # 频道日志 openclaw channels logs --channel telegram --lines 100 # 添加/删除频道 openclaw channels add --channel telegram --token openclaw channels add --channel discord --token openclaw channels remove --channel telegram --delete # 登录/登出（WhatsApp Web） openclaw channels login --channel whatsapp openclaw channels logout --channel whatsapp # 解析名称到 ID openclaw channels resolve --channel slack \"#general\" \"@jane\" directory - 目录查询 openclaw directory self --channel telegram # 查询自己 openclaw directory peers list --channel slack # 列出联系人 openclaw directory groups list --channel discord # 列出群组 openclaw directory groups members --channel slack --group-id # 群成员 pairing - 配对管理 openclaw pairing list # 列出配对请求 openclaw pairing approve # 批准配对 节点管理 nodes - 节点操作 openclaw nodes list # 列出节点 openclaw nodes list --connected # 仅已连接 openclaw nodes status # 节点状态 openclaw nodes pending # 待批准请求 openclaw nodes approve # 批准节点 openclaw nodes reject # 拒绝节点 openclaw nodes rename --node --name \"新名称\" # 重命名 远程执行 openclaw nodes run --node # 运行命令 openclaw nodes run --node --raw \"git status\" # Shell 命令 openclaw nodes invoke --node --command --params '{}' # 调用方法 摄像头 openclaw nodes camera list --node # 列出摄像头 openclaw nodes camera snap --node --facing front # 拍照 openclaw nodes camera clip --node --duration 10s # 录制视频 画布与屏幕 openclaw nodes canvas snapshot --node # 截图画布 openclaw nodes canvas present --node --target # 展示内容 openclaw nodes canvas hide --node # 隐藏画布 openclaw nodes canvas navigate --node # 导航 openclaw nodes canvas eval \"console.log('hi')\" --node # 执行 JS openclaw nodes screen record --node --duration 10s # 录屏 位置 openclaw nodes location get --node # 获取位置 node - 节点主机 openclaw node run --host --port 18789 # 运行节点主机 openclaw node install --host # 安装服务 openclaw node status # 状态 openclaw node stop # 停止 openclaw node restart # 重启 openclaw node uninstall # 卸载 devices - 设备管理 openclaw devices list # 列出设备 openclaw devices approve # 批准设备 openclaw devices reject # 拒绝设备 openclaw devices rotate --device --role operator # 轮换令牌 openclaw devices revoke --device --role node # 撤销令牌 浏览器控制 browser - 浏览器操作 # 管理 openclaw browser status # 状态 openclaw browser start # 启动 openclaw browser stop # 停止 openclaw browser tabs # 列出标签页 openclaw browser open # 打开 URL openclaw browser focus # 聚焦标签 openclaw browser close # 关闭标签 # 配置文件 openclaw browser profiles # 列出配置文件 openclaw browser create-profile --name work --color \"#FF5A36\" openclaw browser delete-profile --name work openclaw browser --browser-profile chrome tabs # 使用指定配置 # 截图与快照 openclaw browser screenshot # 截图 openclaw browser screenshot --full-page # 全页截图 openclaw browser snapshot # 获取页面快照 # 导航与交互 openclaw browser navigate # 导航 openclaw browser click # 点击 openclaw browser type \"text\" # 输入 openclaw browser press # 按键 openclaw browser hover # 悬停 openclaw browser drag # 拖拽 openclaw browser select # 选择 openclaw browser upload # 上传文件 openclaw browser fill --fields # 填充表单 # 其他 openclaw browser dialog --accept # 处理对话框 openclaw browser wait --time 1000 # 等待 openclaw browser evaluate --fn \"document.title\" # 执行 JS openclaw browser console # 控制台日志 openclaw browser pdf # 导出 PDF openclaw browser resize 1920 1080 # 调整大小 # Chrome 扩展 openclaw browser extension install # 安装扩展 openclaw browser extension path # 扩展路径 定时任务 cron - 定时任务管理 openclaw cron status # 调度器状态 openclaw cron list # 列出任务 openclaw cron list --all # 包含禁用的 # 添加任务 openclaw cron add --name \"每日提醒\" --every 24h --system-event \"检查邮件\" openclaw cron add --name \"定时任务\" --cron \"0 9 * * *\" --system-event \"早安\" openclaw cron add --name \"一次性\" --at \"2024-01-01T10:00:00Z\" --system-event \"新年快乐\" # 管理任务 openclaw cron edit --deliver --channel telegram --to \"123456789\" openclaw cron enable # 启用 openclaw cron disable # 禁用 openclaw cron rm # 删除 openclaw cron run # 立即运行 openclaw cron runs --id # 运行历史 插件与技能 plugins - 插件管理 openclaw plugins list # 列出插件 openclaw plugins info # 插件详情 openclaw plugins install # 安装插件 openclaw plugins install -l ./my-plugin # 链接本地插件 openclaw plugins enable # 启用 openclaw plugins disable # 禁用 openclaw plugins update # 更新插件 openclaw plugins update --all # 更新所有 openclaw plugins doctor # 诊断问题 skills - 技能管理 openclaw skills list # 列出技能 openclaw skills list --eligible # 仅可用的 openclaw skills info # 技能详情 openclaw skills check # 检查就绪状态 内存与搜索 memory - 语义内存 openclaw memory status # 内存状态 openclaw memory status --deep # 深度检查 openclaw memory index # 重建索引 openclaw memory index --verbose # 详细输出 openclaw memory search \"关键词\" # 语义搜索 沙箱管理 sandbox - 沙箱容器 openclaw sandbox list # 列出容器 openclaw sandbox list --browser # 仅浏览器容器 openclaw sandbox explain # 解释沙箱策略 openclaw sandbox recreate --all # 重建所有容器 openclaw sandbox recreate --agent mybot # 重建指定代理的容器 openclaw sandbox recreate --browser # 仅重建浏览器容器 安全与审计 security - 安全工具 openclaw security audit # 安全审计 openclaw security audit --deep # 深度审计 openclaw security audit --fix # 自动修复 approvals - 执行审批 openclaw approvals get # 获取审批配置 openclaw approvals get --node # 节点审批 openclaw approvals get --gateway # 网关审批 openclaw approvals set --file ./approvals.json # 设置 # 白名单管理 openclaw approvals allowlist add \"~/Projects/**/bin/rg\" openclaw approvals allowlist add --node \"/usr/bin/uptime\" openclaw approvals allowlist remove \"~/Projects/**/bin/rg\" 系统工具 system - 系统事件 # 系统事件 openclaw system event --text \"检查紧急事项\" --mode now openclaw system event --text \"提醒\" --mode next-heartbeat # 心跳控制 openclaw system heartbeat last # 最后心跳 openclaw system heartbeat enable # 启用心跳 openclaw system heartbeat disable # 禁用心跳 # 系统存在 openclaw system presence # 列出存在条目 webhooks - Webhook 工具 openclaw webhooks gmail setup --account # Gmail Pub/Sub 设置 openclaw webhooks gmail run # 运行 Gmail webhook dns - DNS 工具 openclaw dns setup # DNS 设置 openclaw dns setup --apply # 应用配置 其他命令 docs - 文档搜索 openclaw docs # 搜索文档 openclaw docs \"how to configure\" hooks - 钩子管理 openclaw hooks list # 列出钩子 openclaw hooks info # 钩子详情 openclaw hooks check # 检查钩子 openclaw hooks enable # 启用 openclaw hooks disable # 禁用 openclaw hooks install # 安装钩子 openclaw hooks update # 更新钩子 completion - Shell 补全 openclaw completion # 生成补全脚本 openclaw completion \u003e\u003e ~/.zshrc # 添加到 zsh 常用组合示例 快速开始 # 1. 初始化 openclaw onboard --flow quickstart # 2. 启动网关 openclaw gateway start # 3. 检查状态 openclaw status # 4. 打开控制面板 openclaw dashboard 配置 Telegram 机器人 # 添加频道 openclaw channels add --channel telegram --token # 检查状态 openclaw channels status --probe # 发送测试消息 openclaw message send --channel telegram --target @username --message \"测试\" 远程节点执行 # 列出节点 openclaw nodes list --connected # 在节点上运行命令 openclaw nodes run --node my-server --raw \"uptime\" # 截取节点屏幕 openclaw nodes screen record --node my-server --duration 5s 定时提醒 # 每天早上 9 点提醒 openclaw cron add --name \"早安\" --cron \"0 9 * * *\" --system-event \"早上好！新的一天开始了\" # 30 分钟后提醒 openclaw cron add --name \"提醒\" --at \"$(date -v+30M +%Y-%m-%dT%H:%M:%S)\" --system-event \"30分钟到了\" 获取帮助 openclaw --help # 主帮助 openclaw --help # 子命令帮助 openclaw docs # 搜索文档 文档网站: https://docs.openclaw.ai\nGitHub: https://github.com/openclaw/openclaw\n社区: https://discord.com/invite/clawd\n文档由阿拉 🧞 整理，如有遗漏欢迎补充！\n",
+  "wordCount" : "2307",
+  "inLanguage": "zh-cn",
+  "image": "https://getaibits.com/images/og-default.png","datePublished": "2026-02-04T00:00:00Z",
+  "dateModified": "2026-02-04T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Gavin"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getaibits.com/posts/openclaw-cli-guide/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Bits",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getaibits.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://getaibits.com/" accesskey="h" title="AI Bits (Alt + H)">AI Bits</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://getaibits.com/" title="🏠 首页">
+                    <span>🏠 首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/posts/" title="📚 文章">
+                    <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/skills/" title="🔧 技能">
+                    <span>🔧 技能</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/search/" title="🔍 搜索">
+                    <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/tags/" title="🏷️ 标签">
+                    <span>🏷️ 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://getaibits.com/about/" title="👤 关于">
+                    <span>👤 关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      OpenClaw 终端命令完全指南
+    </h1>
+    <div class="post-description">
+      OpenClaw 所有终端命令的完整参考手册，从基础配置到高级功能一网打尽。
+    </div>
+    <div class="post-meta"><span title='2026-02-04 00:00:00 +0000 UTC'>February 4, 2026</span>&nbsp;·&nbsp;<span>Gavin</span>
+
+</div>
+  </header> 
+  <div class="post-content"><blockquote>
+<p>版本：OpenClaw 2026.2.2<br>
+文档整理：阿拉 🧞</p>
+</blockquote>
+<p>OpenClaw 是一个强大的 AI 助手网关，通过命令行可以完成几乎所有操作。本文整理了所有终端命令，方便查阅和使用。</p>
+<hr>
+<h2 id="目录">目录<a hidden class="anchor" aria-hidden="true" href="#目录">#</a></h2>
+<ol>
+<li><a href="#%E5%85%A8%E5%B1%80%E9%80%89%E9%A1%B9">全局选项</a></li>
+<li><a href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%8E%E9%85%8D%E7%BD%AE">初始化与配置</a></li>
+<li><a href="#gateway-%E7%BD%91%E5%85%B3%E7%AE%A1%E7%90%86">Gateway 网关管理</a></li>
+<li><a href="#%E6%B6%88%E6%81%AF%E4%B8%8E%E9%80%9A%E4%BF%A1">消息与通信</a></li>
+<li><a href="#agent-%E4%BB%A3%E7%90%86">Agent 代理</a></li>
+<li><a href="#%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86">会话管理</a></li>
+<li><a href="#%E6%A8%A1%E5%9E%8B%E9%85%8D%E7%BD%AE">模型配置</a></li>
+<li><a href="#%E9%A2%91%E9%81%93%E7%AE%A1%E7%90%86">频道管理</a></li>
+<li><a href="#%E8%8A%82%E7%82%B9%E7%AE%A1%E7%90%86">节点管理</a></li>
+<li><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8E%A7%E5%88%B6">浏览器控制</a></li>
+<li><a href="#%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1">定时任务</a></li>
+<li><a href="#%E6%8F%92%E4%BB%B6%E4%B8%8E%E6%8A%80%E8%83%BD">插件与技能</a></li>
+<li><a href="#%E5%86%85%E5%AD%98%E4%B8%8E%E6%90%9C%E7%B4%A2">内存与搜索</a></li>
+<li><a href="#%E6%B2%99%E7%AE%B1%E7%AE%A1%E7%90%86">沙箱管理</a></li>
+<li><a href="#%E5%AE%89%E5%85%A8%E4%B8%8E%E5%AE%A1%E8%AE%A1">安全与审计</a></li>
+<li><a href="#%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7">系统工具</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4">其他命令</a></li>
+</ol>
+<hr>
+<h2 id="全局选项">全局选项<a hidden class="anchor" aria-hidden="true" href="#全局选项">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw <span class="o">[</span>options<span class="o">]</span> <span class="o">[</span>command<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 全局选项</span>
+</span></span><span class="line"><span class="cl">-V, --version        <span class="c1"># 显示版本号</span>
+</span></span><span class="line"><span class="cl">--dev                <span class="c1"># 开发模式：隔离状态到 ~/.openclaw-dev</span>
+</span></span><span class="line"><span class="cl">--profile &lt;name&gt;     <span class="c1"># 使用命名配置文件</span>
+</span></span><span class="line"><span class="cl">--no-color           <span class="c1"># 禁用 ANSI 颜色</span>
+</span></span><span class="line"><span class="cl">-h, --help           <span class="c1"># 显示帮助</span>
+</span></span></code></pre></div><hr>
+<h2 id="初始化与配置">初始化与配置<a hidden class="anchor" aria-hidden="true" href="#初始化与配置">#</a></h2>
+<h3 id="setup---初始化配置"><code>setup</code> - 初始化配置<a hidden class="anchor" aria-hidden="true" href="#setup---初始化配置">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw setup                              <span class="c1"># 初始化配置和工作区</span>
+</span></span><span class="line"><span class="cl">openclaw setup --workspace ~/.openclaw/ws   <span class="c1"># 指定工作区路径</span>
+</span></span><span class="line"><span class="cl">openclaw setup --wizard                     <span class="c1"># 运行向导</span>
+</span></span></code></pre></div><h3 id="onboard---交互式向导"><code>onboard</code> - 交互式向导<a hidden class="anchor" aria-hidden="true" href="#onboard---交互式向导">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw onboard                            <span class="c1"># 启动向导</span>
+</span></span><span class="line"><span class="cl">openclaw onboard --flow quickstart          <span class="c1"># 快速开始模式</span>
+</span></span><span class="line"><span class="cl">openclaw onboard --flow manual              <span class="c1"># 完整配置模式</span>
+</span></span><span class="line"><span class="cl">openclaw onboard --mode remote --remote-url ws://host:18789  <span class="c1"># 远程模式</span>
+</span></span></code></pre></div><h3 id="configure---配置向导"><code>configure</code> - 配置向导<a hidden class="anchor" aria-hidden="true" href="#configure---配置向导">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw configure                          <span class="c1"># 交互式配置（模型、频道、技能等）</span>
+</span></span></code></pre></div><h3 id="config---配置管理"><code>config</code> - 配置管理<a hidden class="anchor" aria-hidden="true" href="#config---配置管理">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw config                             <span class="c1"># 启动配置向导</span>
+</span></span><span class="line"><span class="cl">openclaw config get &lt;path&gt;                  <span class="c1"># 获取配置值</span>
+</span></span><span class="line"><span class="cl">openclaw config <span class="nb">set</span> &lt;path&gt; &lt;value&gt;          <span class="c1"># 设置配置值</span>
+</span></span><span class="line"><span class="cl">openclaw config <span class="nb">unset</span> &lt;path&gt;                <span class="c1"># 删除配置值</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 示例</span>
+</span></span><span class="line"><span class="cl">openclaw config get browser.executablePath
+</span></span><span class="line"><span class="cl">openclaw config <span class="nb">set</span> agents.defaults.heartbeat.every <span class="s2">&#34;2h&#34;</span>
+</span></span><span class="line"><span class="cl">openclaw config <span class="nb">set</span> gateway.port <span class="m">19001</span> --json
+</span></span></code></pre></div><h3 id="doctor---健康检查"><code>doctor</code> - 健康检查<a hidden class="anchor" aria-hidden="true" href="#doctor---健康检查">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw doctor                             <span class="c1"># 运行健康检查</span>
+</span></span><span class="line"><span class="cl">openclaw doctor --repair                    <span class="c1"># 修复问题</span>
+</span></span><span class="line"><span class="cl">openclaw doctor --deep                      <span class="c1"># 深度扫描</span>
+</span></span><span class="line"><span class="cl">openclaw doctor --non-interactive           <span class="c1"># 非交互模式</span>
+</span></span></code></pre></div><h3 id="reset---重置配置"><code>reset</code> - 重置配置<a hidden class="anchor" aria-hidden="true" href="#reset---重置配置">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw reset                              <span class="c1"># 重置本地配置/状态</span>
+</span></span><span class="line"><span class="cl">openclaw reset --scope config               <span class="c1"># 仅重置配置</span>
+</span></span><span class="line"><span class="cl">openclaw reset --scope full                 <span class="c1"># 完全重置</span>
+</span></span><span class="line"><span class="cl">openclaw reset --dry-run                    <span class="c1"># 预览模式</span>
+</span></span></code></pre></div><h3 id="uninstall---卸载"><code>uninstall</code> - 卸载<a hidden class="anchor" aria-hidden="true" href="#uninstall---卸载">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw uninstall                          <span class="c1"># 卸载网关服务</span>
+</span></span><span class="line"><span class="cl">openclaw uninstall --all                    <span class="c1"># 卸载所有</span>
+</span></span><span class="line"><span class="cl">openclaw uninstall --service --state        <span class="c1"># 指定范围</span>
+</span></span></code></pre></div><h3 id="update---更新"><code>update</code> - 更新<a hidden class="anchor" aria-hidden="true" href="#update---更新">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw update                             <span class="c1"># 更新 OpenClaw</span>
+</span></span><span class="line"><span class="cl">openclaw update status                      <span class="c1"># 检查更新状态</span>
+</span></span><span class="line"><span class="cl">openclaw update wizard                      <span class="c1"># 更新向导</span>
+</span></span><span class="line"><span class="cl">openclaw update --channel beta              <span class="c1"># 切换到 beta 频道</span>
+</span></span><span class="line"><span class="cl">openclaw update --channel dev               <span class="c1"># 切换到 dev 频道</span>
+</span></span><span class="line"><span class="cl">openclaw update --no-restart                <span class="c1"># 更新后不重启</span>
+</span></span></code></pre></div><hr>
+<h2 id="gateway-网关管理">Gateway 网关管理<a hidden class="anchor" aria-hidden="true" href="#gateway-网关管理">#</a></h2>
+<h3 id="运行网关">运行网关<a hidden class="anchor" aria-hidden="true" href="#运行网关">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw gateway                            <span class="c1"># 运行网关</span>
+</span></span><span class="line"><span class="cl">openclaw gateway run                        <span class="c1"># 前台运行</span>
+</span></span><span class="line"><span class="cl">openclaw gateway --port <span class="m">18789</span>               <span class="c1"># 指定端口</span>
+</span></span><span class="line"><span class="cl">openclaw gateway --bin                      <span class="c1"># 绑定模式：loopback|lan|tailnet|auto|custom</span>
+</span></span><span class="line"><span class="cl">openclaw gateway --token &lt;token&gt;            <span class="c1"># 指定令牌</span>
+</span></span><span class="line"><span class="cl">openclaw gateway --force                    <span class="c1"># 强制启动（杀死占用端口的进程）</span>
+</span></span><span class="line"><span class="cl">openclaw gateway --dev                      <span class="c1"># 开发模式</span>
+</span></span><span class="line"><span class="cl">openclaw gateway --verbose                  <span class="c1"># 详细日志</span>
+</span></span></code></pre></div><h3 id="服务管理">服务管理<a hidden class="anchor" aria-hidden="true" href="#服务管理">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw gateway status                     <span class="c1"># 查看状态</span>
+</span></span><span class="line"><span class="cl">openclaw gateway install                    <span class="c1"># 安装服务</span>
+</span></span><span class="line"><span class="cl">openclaw gateway uninstall                  <span class="c1"># 卸载服务</span>
+</span></span><span class="line"><span class="cl">openclaw gateway start                      <span class="c1"># 启动服务</span>
+</span></span><span class="line"><span class="cl">openclaw gateway stop                       <span class="c1"># 停止服务</span>
+</span></span><span class="line"><span class="cl">openclaw gateway restart                    <span class="c1"># 重启服务</span>
+</span></span></code></pre></div><h3 id="查询与发现">查询与发现<a hidden class="anchor" aria-hidden="true" href="#查询与发现">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw gateway health                     <span class="c1"># 健康检查</span>
+</span></span><span class="line"><span class="cl">openclaw gateway probe                      <span class="c1"># 探测网关</span>
+</span></span><span class="line"><span class="cl">openclaw gateway discover                   <span class="c1"># 发现局域网网关（Bonjour）</span>
+</span></span><span class="line"><span class="cl">openclaw gateway call &lt;method&gt;              <span class="c1"># 调用 RPC 方法</span>
+</span></span><span class="line"><span class="cl">openclaw gateway call status
+</span></span><span class="line"><span class="cl">openclaw gateway call logs.tail --params <span class="s1">&#39;{&#34;sinceMs&#34;: 60000}&#39;</span>
+</span></span></code></pre></div><h3 id="logs---日志查看"><code>logs</code> - 日志查看<a hidden class="anchor" aria-hidden="true" href="#logs---日志查看">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw logs                               <span class="c1"># 查看日志</span>
+</span></span><span class="line"><span class="cl">openclaw logs --follow                      <span class="c1"># 实时跟踪</span>
+</span></span><span class="line"><span class="cl">openclaw logs --limit <span class="m">500</span>                   <span class="c1"># 限制行数</span>
+</span></span><span class="line"><span class="cl">openclaw logs --json                        <span class="c1"># JSON 格式</span>
+</span></span></code></pre></div><h3 id="health---健康状态"><code>health</code> - 健康状态<a hidden class="anchor" aria-hidden="true" href="#health---健康状态">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw health                             <span class="c1"># 获取网关健康状态</span>
+</span></span><span class="line"><span class="cl">openclaw health --json
+</span></span></code></pre></div><h3 id="status---状态诊断"><code>status</code> - 状态诊断<a hidden class="anchor" aria-hidden="true" href="#status---状态诊断">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw status                             <span class="c1"># 显示状态</span>
+</span></span><span class="line"><span class="cl">openclaw status --all                       <span class="c1"># 完整诊断</span>
+</span></span><span class="line"><span class="cl">openclaw status --deep                      <span class="c1"># 深度探测</span>
+</span></span><span class="line"><span class="cl">openclaw status --usage                     <span class="c1"># 显示用量</span>
+</span></span></code></pre></div><hr>
+<h2 id="消息与通信">消息与通信<a hidden class="anchor" aria-hidden="true" href="#消息与通信">#</a></h2>
+<h3 id="message---发送消息"><code>message</code> - 发送消息<a hidden class="anchor" aria-hidden="true" href="#message---发送消息">#</a></h3>
+<p>支持频道：WhatsApp / Telegram / Discord / Slack / Signal / iMessage / MS Teams / Google Chat</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 发送消息</span>
+</span></span><span class="line"><span class="cl">openclaw message send --target &lt;dest&gt; --message <span class="s2">&#34;Hello&#34;</span>
+</span></span><span class="line"><span class="cl">openclaw message send --channel telegram --target @username --message <span class="s2">&#34;Hi&#34;</span>
+</span></span><span class="line"><span class="cl">openclaw message send --channel discord --target channel:123 --message <span class="s2">&#34;Hi&#34;</span> --reply-to <span class="m">456</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 发送媒体</span>
+</span></span><span class="line"><span class="cl">openclaw message send --target +15551234567 --media ./image.png
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建投票</span>
+</span></span><span class="line"><span class="cl">openclaw message poll --channel discord --target channel:123 <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --poll-question <span class="s2">&#34;选择?&#34;</span> --poll-option A --poll-option B --poll-multi
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 表情反应</span>
+</span></span><span class="line"><span class="cl">openclaw message react --channel slack --target C123 --message-id <span class="m">456</span> --emoji <span class="s2">&#34;✅&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 读取消息</span>
+</span></span><span class="line"><span class="cl">openclaw message <span class="nb">read</span> --channel discord --target channel:123 --limit <span class="m">50</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 编辑/删除</span>
+</span></span><span class="line"><span class="cl">openclaw message edit --channel discord --target channel:123 --message-id <span class="m">456</span> --message <span class="s2">&#34;新内容&#34;</span>
+</span></span><span class="line"><span class="cl">openclaw message delete --channel discord --target channel:123 --message-id <span class="m">456</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 置顶</span>
+</span></span><span class="line"><span class="cl">openclaw message pin --channel discord --target channel:123 --message-id <span class="m">456</span>
+</span></span><span class="line"><span class="cl">openclaw message pins --channel discord --target channel:123
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 搜索</span>
+</span></span><span class="line"><span class="cl">openclaw message search --channel discord --guild-id <span class="m">123</span> --query <span class="s2">&#34;关键词&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 广播</span>
+</span></span><span class="line"><span class="cl">openclaw message broadcast --targets user1 --targets user2 --message <span class="s2">&#34;通知&#34;</span>
+</span></span></code></pre></div><h3 id="线程操作">线程操作<a hidden class="anchor" aria-hidden="true" href="#线程操作">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw message thread create --channel discord --target channel:123 --thread-name <span class="s2">&#34;讨论&#34;</span>
+</span></span><span class="line"><span class="cl">openclaw message thread list --channel discord --guild-id <span class="m">123</span>
+</span></span><span class="line"><span class="cl">openclaw message thread reply --channel discord --target thread:456 --message <span class="s2">&#34;回复&#34;</span>
+</span></span></code></pre></div><h3 id="discord-特有功能">Discord 特有功能<a hidden class="anchor" aria-hidden="true" href="#discord-特有功能">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 表情管理</span>
+</span></span><span class="line"><span class="cl">openclaw message emoji list --channel discord --guild-id <span class="m">123</span>
+</span></span><span class="line"><span class="cl">openclaw message emoji upload --channel discord --guild-id <span class="m">123</span> --emoji-name <span class="s2">&#34;custom&#34;</span> --media ./emoji.png
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 贴纸</span>
+</span></span><span class="line"><span class="cl">openclaw message sticker send --channel discord --target channel:123 --sticker-id abc
+</span></span><span class="line"><span class="cl">openclaw message sticker upload --channel discord --guild-id <span class="m">123</span> --sticker-name <span class="s2">&#34;name&#34;</span> --sticker-desc <span class="s2">&#34;desc&#34;</span> --sticker-tags <span class="s2">&#34;tag&#34;</span> --media ./sticker.png
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 角色管理</span>
+</span></span><span class="line"><span class="cl">openclaw message role info --channel discord --guild-id <span class="m">123</span>
+</span></span><span class="line"><span class="cl">openclaw message role add --channel discord --guild-id <span class="m">123</span> --user-id <span class="m">456</span> --role-id <span class="m">789</span>
+</span></span><span class="line"><span class="cl">openclaw message role remove --channel discord --guild-id <span class="m">123</span> --user-id <span class="m">456</span> --role-id <span class="m">789</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 频道信息</span>
+</span></span><span class="line"><span class="cl">openclaw message channel info --channel discord --target channel:123
+</span></span><span class="line"><span class="cl">openclaw message channel list --channel discord --guild-id <span class="m">123</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 成员信息</span>
+</span></span><span class="line"><span class="cl">openclaw message member info --channel discord --guild-id <span class="m">123</span> --user-id <span class="m">456</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 语音状态</span>
+</span></span><span class="line"><span class="cl">openclaw message voice status --channel discord --guild-id <span class="m">123</span> --user-id <span class="m">456</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 活动管理</span>
+</span></span><span class="line"><span class="cl">openclaw message event list --channel discord --guild-id <span class="m">123</span>
+</span></span><span class="line"><span class="cl">openclaw message event create --channel discord --guild-id <span class="m">123</span> --event-name <span class="s2">&#34;活动&#34;</span> --event-start-time <span class="s2">&#34;2024-01-01T10:00:00Z&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 管理操作</span>
+</span></span><span class="line"><span class="cl">openclaw message timeout --channel discord --guild-id <span class="m">123</span> --user-id <span class="m">456</span> --duration-min <span class="m">60</span>
+</span></span><span class="line"><span class="cl">openclaw message kick --channel discord --guild-id <span class="m">123</span> --user-id <span class="m">456</span> --reason <span class="s2">&#34;原因&#34;</span>
+</span></span><span class="line"><span class="cl">openclaw message ban --channel discord --guild-id <span class="m">123</span> --user-id <span class="m">456</span> --reason <span class="s2">&#34;原因&#34;</span>
+</span></span></code></pre></div><hr>
+<h2 id="agent-代理">Agent 代理<a hidden class="anchor" aria-hidden="true" href="#agent-代理">#</a></h2>
+<h3 id="agent---运行代理"><code>agent</code> - 运行代理<a hidden class="anchor" aria-hidden="true" href="#agent---运行代理">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw agent --message <span class="s2">&#34;你好&#34;</span>                           <span class="c1"># 运行一次代理</span>
+</span></span><span class="line"><span class="cl">openclaw agent --to +15551234567 --message <span class="s2">&#34;状态更新&#34;</span> --deliver  <span class="c1"># 发送并投递</span>
+</span></span><span class="line"><span class="cl">openclaw agent --agent ops --message <span class="s2">&#34;总结日志&#34;</span>           <span class="c1"># 指定代理</span>
+</span></span><span class="line"><span class="cl">openclaw agent --session-id <span class="m">1234</span> --message <span class="s2">&#34;总结&#34;</span> --thinking medium  <span class="c1"># 指定会话和思考级别</span>
+</span></span><span class="line"><span class="cl">openclaw agent --local --message <span class="s2">&#34;本地测试&#34;</span>               <span class="c1"># 本地嵌入模式</span>
+</span></span></code></pre></div><h3 id="agents---管理代理"><code>agents</code> - 管理代理<a hidden class="anchor" aria-hidden="true" href="#agents---管理代理">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw agents list                                      <span class="c1"># 列出代理</span>
+</span></span><span class="line"><span class="cl">openclaw agents list --bindings                           <span class="c1"># 显示绑定</span>
+</span></span><span class="line"><span class="cl">openclaw agents add work --workspace ~/.openclaw/ws-work  <span class="c1"># 添加代理</span>
+</span></span><span class="line"><span class="cl">openclaw agents delete work                               <span class="c1"># 删除代理</span>
+</span></span><span class="line"><span class="cl">openclaw agents set-identity --agent main --name <span class="s2">&#34;阿拉&#34;</span> --emoji <span class="s2">&#34;🧞&#34;</span>  <span class="c1"># 设置身份</span>
+</span></span></code></pre></div><h3 id="acp---ide-集成桥接"><code>acp</code> - IDE 集成桥接<a hidden class="anchor" aria-hidden="true" href="#acp---ide-集成桥接">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw acp                                              <span class="c1"># MCP 桥接</span>
+</span></span><span class="line"><span class="cl">openclaw acp --url wss://host:18789 --token &lt;token&gt;       <span class="c1"># 远程网关</span>
+</span></span><span class="line"><span class="cl">openclaw acp --session agent:main:main                    <span class="c1"># 指定会话</span>
+</span></span><span class="line"><span class="cl">openclaw acp client                                       <span class="c1"># 调试客户端</span>
+</span></span></code></pre></div><hr>
+<h2 id="会话管理">会话管理<a hidden class="anchor" aria-hidden="true" href="#会话管理">#</a></h2>
+<h3 id="sessions---会话列表"><code>sessions</code> - 会话列表<a hidden class="anchor" aria-hidden="true" href="#sessions---会话列表">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw sessions                           <span class="c1"># 列出会话</span>
+</span></span><span class="line"><span class="cl">openclaw sessions --active <span class="m">120</span>              <span class="c1"># 最近 120 分钟活跃的</span>
+</span></span><span class="line"><span class="cl">openclaw sessions --json
+</span></span></code></pre></div><h3 id="tui---终端-ui"><code>tui</code> - 终端 UI<a hidden class="anchor" aria-hidden="true" href="#tui---终端-ui">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw tui                                <span class="c1"># 打开终端 UI</span>
+</span></span><span class="line"><span class="cl">openclaw tui --url ws://127.0.0.1:18789 --token &lt;token&gt;
+</span></span><span class="line"><span class="cl">openclaw tui --session main --deliver
+</span></span></code></pre></div><h3 id="dashboard---控制面板"><code>dashboard</code> - 控制面板<a hidden class="anchor" aria-hidden="true" href="#dashboard---控制面板">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw dashboard                          <span class="c1"># 打开 Web 控制面板</span>
+</span></span></code></pre></div><hr>
+<h2 id="模型配置">模型配置<a hidden class="anchor" aria-hidden="true" href="#模型配置">#</a></h2>
+<h3 id="models---模型管理"><code>models</code> - 模型管理<a hidden class="anchor" aria-hidden="true" href="#models---模型管理">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw models                             <span class="c1"># 显示模型状态（等同于 models status）</span>
+</span></span><span class="line"><span class="cl">openclaw models status                      <span class="c1"># 模型状态</span>
+</span></span><span class="line"><span class="cl">openclaw models status --probe              <span class="c1"># 实时探测</span>
+</span></span><span class="line"><span class="cl">openclaw models list                        <span class="c1"># 列出可用模型</span>
+</span></span><span class="line"><span class="cl">openclaw models list --all                  <span class="c1"># 列出所有模型</span>
+</span></span><span class="line"><span class="cl">openclaw models <span class="nb">set</span> &lt;model&gt;                 <span class="c1"># 设置默认模型</span>
+</span></span><span class="line"><span class="cl">openclaw models set-image &lt;model&gt;           <span class="c1"># 设置图像模型</span>
+</span></span><span class="line"><span class="cl">openclaw models scan                        <span class="c1"># 扫描可用模型</span>
+</span></span></code></pre></div><h3 id="别名与回退">别名与回退<a hidden class="anchor" aria-hidden="true" href="#别名与回退">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw models aliases list                <span class="c1"># 列出别名</span>
+</span></span><span class="line"><span class="cl">openclaw models aliases add &lt;alias&gt; &lt;model&gt; <span class="c1"># 添加别名</span>
+</span></span><span class="line"><span class="cl">openclaw models aliases remove &lt;alias&gt;      <span class="c1"># 删除别名</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">openclaw models fallbacks list              <span class="c1"># 列出回退模型</span>
+</span></span><span class="line"><span class="cl">openclaw models fallbacks add &lt;model&gt;       <span class="c1"># 添加回退</span>
+</span></span><span class="line"><span class="cl">openclaw models fallbacks remove &lt;model&gt;    <span class="c1"># 删除回退</span>
+</span></span><span class="line"><span class="cl">openclaw models fallbacks clear             <span class="c1"># 清空回退</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">openclaw models image-fallbacks list        <span class="c1"># 图像模型回退</span>
+</span></span><span class="line"><span class="cl">openclaw models image-fallbacks add &lt;model&gt;
+</span></span></code></pre></div><h3 id="认证管理">认证管理<a hidden class="anchor" aria-hidden="true" href="#认证管理">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw models auth add                    <span class="c1"># 添加认证</span>
+</span></span><span class="line"><span class="cl">openclaw models auth login --provider &lt;id&gt;  <span class="c1"># 登录提供商</span>
+</span></span><span class="line"><span class="cl">openclaw models auth setup-token            <span class="c1"># 设置令牌</span>
+</span></span><span class="line"><span class="cl">openclaw models auth paste-token            <span class="c1"># 粘贴令牌</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">openclaw models auth order get              <span class="c1"># 获取认证顺序</span>
+</span></span><span class="line"><span class="cl">openclaw models auth order <span class="nb">set</span> &lt;profileIds...&gt;  <span class="c1"># 设置顺序</span>
+</span></span><span class="line"><span class="cl">openclaw models auth order clear            <span class="c1"># 清空顺序</span>
+</span></span></code></pre></div><hr>
+<h2 id="频道管理">频道管理<a hidden class="anchor" aria-hidden="true" href="#频道管理">#</a></h2>
+<h3 id="channels---频道操作"><code>channels</code> - 频道操作<a hidden class="anchor" aria-hidden="true" href="#channels---频道操作">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw channels list                      <span class="c1"># 列出频道</span>
+</span></span><span class="line"><span class="cl">openclaw channels status                    <span class="c1"># 频道状态</span>
+</span></span><span class="line"><span class="cl">openclaw channels status --probe            <span class="c1"># 深度探测</span>
+</span></span><span class="line"><span class="cl">openclaw channels capabilities              <span class="c1"># 查看能力</span>
+</span></span><span class="line"><span class="cl">openclaw channels logs                      <span class="c1"># 频道日志</span>
+</span></span><span class="line"><span class="cl">openclaw channels logs --channel telegram --lines <span class="m">100</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 添加/删除频道</span>
+</span></span><span class="line"><span class="cl">openclaw channels add --channel telegram --token &lt;bot-token&gt;
+</span></span><span class="line"><span class="cl">openclaw channels add --channel discord --token &lt;bot-token&gt;
+</span></span><span class="line"><span class="cl">openclaw channels remove --channel telegram --delete
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 登录/登出（WhatsApp Web）</span>
+</span></span><span class="line"><span class="cl">openclaw channels login --channel whatsapp
+</span></span><span class="line"><span class="cl">openclaw channels <span class="nb">logout</span> --channel whatsapp
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 解析名称到 ID</span>
+</span></span><span class="line"><span class="cl">openclaw channels resolve --channel slack <span class="s2">&#34;#general&#34;</span> <span class="s2">&#34;@jane&#34;</span>
+</span></span></code></pre></div><h3 id="directory---目录查询"><code>directory</code> - 目录查询<a hidden class="anchor" aria-hidden="true" href="#directory---目录查询">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw directory self --channel telegram           <span class="c1"># 查询自己</span>
+</span></span><span class="line"><span class="cl">openclaw directory peers list --channel slack        <span class="c1"># 列出联系人</span>
+</span></span><span class="line"><span class="cl">openclaw directory groups list --channel discord     <span class="c1"># 列出群组</span>
+</span></span><span class="line"><span class="cl">openclaw directory groups members --channel slack --group-id &lt;id&gt;  <span class="c1"># 群成员</span>
+</span></span></code></pre></div><h3 id="pairing---配对管理"><code>pairing</code> - 配对管理<a hidden class="anchor" aria-hidden="true" href="#pairing---配对管理">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw pairing list &lt;channel&gt;             <span class="c1"># 列出配对请求</span>
+</span></span><span class="line"><span class="cl">openclaw pairing approve &lt;channel&gt; &lt;code&gt;   <span class="c1"># 批准配对</span>
+</span></span></code></pre></div><hr>
+<h2 id="节点管理">节点管理<a hidden class="anchor" aria-hidden="true" href="#节点管理">#</a></h2>
+<h3 id="nodes---节点操作"><code>nodes</code> - 节点操作<a hidden class="anchor" aria-hidden="true" href="#nodes---节点操作">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw nodes list                         <span class="c1"># 列出节点</span>
+</span></span><span class="line"><span class="cl">openclaw nodes list --connected             <span class="c1"># 仅已连接</span>
+</span></span><span class="line"><span class="cl">openclaw nodes status                       <span class="c1"># 节点状态</span>
+</span></span><span class="line"><span class="cl">openclaw nodes pending                      <span class="c1"># 待批准请求</span>
+</span></span><span class="line"><span class="cl">openclaw nodes approve &lt;requestId&gt;          <span class="c1"># 批准节点</span>
+</span></span><span class="line"><span class="cl">openclaw nodes reject &lt;requestId&gt;           <span class="c1"># 拒绝节点</span>
+</span></span><span class="line"><span class="cl">openclaw nodes rename --node &lt;id&gt; --name <span class="s2">&#34;新名称&#34;</span>  <span class="c1"># 重命名</span>
+</span></span></code></pre></div><h3 id="远程执行">远程执行<a hidden class="anchor" aria-hidden="true" href="#远程执行">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw nodes run --node &lt;id&gt; &lt;command...&gt;           <span class="c1"># 运行命令</span>
+</span></span><span class="line"><span class="cl">openclaw nodes run --node &lt;id&gt; --raw <span class="s2">&#34;git status&#34;</span>     <span class="c1"># Shell 命令</span>
+</span></span><span class="line"><span class="cl">openclaw nodes invoke --node &lt;id&gt; --command &lt;cmd&gt; --params <span class="s1">&#39;{}&#39;</span>  <span class="c1"># 调用方法</span>
+</span></span></code></pre></div><h3 id="摄像头">摄像头<a hidden class="anchor" aria-hidden="true" href="#摄像头">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw nodes camera list --node &lt;id&gt;                <span class="c1"># 列出摄像头</span>
+</span></span><span class="line"><span class="cl">openclaw nodes camera snap --node &lt;id&gt; --facing front <span class="c1"># 拍照</span>
+</span></span><span class="line"><span class="cl">openclaw nodes camera clip --node &lt;id&gt; --duration 10s <span class="c1"># 录制视频</span>
+</span></span></code></pre></div><h3 id="画布与屏幕">画布与屏幕<a hidden class="anchor" aria-hidden="true" href="#画布与屏幕">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw nodes canvas snapshot --node &lt;id&gt;            <span class="c1"># 截图画布</span>
+</span></span><span class="line"><span class="cl">openclaw nodes canvas present --node &lt;id&gt; --target &lt;url&gt;  <span class="c1"># 展示内容</span>
+</span></span><span class="line"><span class="cl">openclaw nodes canvas hide --node &lt;id&gt;                <span class="c1"># 隐藏画布</span>
+</span></span><span class="line"><span class="cl">openclaw nodes canvas navigate &lt;url&gt; --node &lt;id&gt;      <span class="c1"># 导航</span>
+</span></span><span class="line"><span class="cl">openclaw nodes canvas <span class="nb">eval</span> <span class="s2">&#34;console.log(&#39;hi&#39;)&#34;</span> --node &lt;id&gt;  <span class="c1"># 执行 JS</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">openclaw nodes screen record --node &lt;id&gt; --duration 10s  <span class="c1"># 录屏</span>
+</span></span></code></pre></div><h3 id="位置">位置<a hidden class="anchor" aria-hidden="true" href="#位置">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw nodes location get --node &lt;id&gt;               <span class="c1"># 获取位置</span>
+</span></span></code></pre></div><h3 id="node---节点主机"><code>node</code> - 节点主机<a hidden class="anchor" aria-hidden="true" href="#node---节点主机">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw node run --host &lt;gateway-host&gt; --port <span class="m">18789</span>  <span class="c1"># 运行节点主机</span>
+</span></span><span class="line"><span class="cl">openclaw node install --host &lt;gateway-host&gt;           <span class="c1"># 安装服务</span>
+</span></span><span class="line"><span class="cl">openclaw node status                                  <span class="c1"># 状态</span>
+</span></span><span class="line"><span class="cl">openclaw node stop                                    <span class="c1"># 停止</span>
+</span></span><span class="line"><span class="cl">openclaw node restart                                 <span class="c1"># 重启</span>
+</span></span><span class="line"><span class="cl">openclaw node uninstall                               <span class="c1"># 卸载</span>
+</span></span></code></pre></div><h3 id="devices---设备管理"><code>devices</code> - 设备管理<a hidden class="anchor" aria-hidden="true" href="#devices---设备管理">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw devices list                       <span class="c1"># 列出设备</span>
+</span></span><span class="line"><span class="cl">openclaw devices approve &lt;requestId&gt;        <span class="c1"># 批准设备</span>
+</span></span><span class="line"><span class="cl">openclaw devices reject &lt;requestId&gt;         <span class="c1"># 拒绝设备</span>
+</span></span><span class="line"><span class="cl">openclaw devices rotate --device &lt;id&gt; --role operator  <span class="c1"># 轮换令牌</span>
+</span></span><span class="line"><span class="cl">openclaw devices revoke --device &lt;id&gt; --role node      <span class="c1"># 撤销令牌</span>
+</span></span></code></pre></div><hr>
+<h2 id="浏览器控制">浏览器控制<a hidden class="anchor" aria-hidden="true" href="#浏览器控制">#</a></h2>
+<h3 id="browser---浏览器操作"><code>browser</code> - 浏览器操作<a hidden class="anchor" aria-hidden="true" href="#browser---浏览器操作">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 管理</span>
+</span></span><span class="line"><span class="cl">openclaw browser status                     <span class="c1"># 状态</span>
+</span></span><span class="line"><span class="cl">openclaw browser start                      <span class="c1"># 启动</span>
+</span></span><span class="line"><span class="cl">openclaw browser stop                       <span class="c1"># 停止</span>
+</span></span><span class="line"><span class="cl">openclaw browser tabs                       <span class="c1"># 列出标签页</span>
+</span></span><span class="line"><span class="cl">openclaw browser open &lt;url&gt;                 <span class="c1"># 打开 URL</span>
+</span></span><span class="line"><span class="cl">openclaw browser focus &lt;targetId&gt;           <span class="c1"># 聚焦标签</span>
+</span></span><span class="line"><span class="cl">openclaw browser close &lt;targetId&gt;           <span class="c1"># 关闭标签</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 配置文件</span>
+</span></span><span class="line"><span class="cl">openclaw browser profiles                   <span class="c1"># 列出配置文件</span>
+</span></span><span class="line"><span class="cl">openclaw browser create-profile --name work --color <span class="s2">&#34;#FF5A36&#34;</span>
+</span></span><span class="line"><span class="cl">openclaw browser delete-profile --name work
+</span></span><span class="line"><span class="cl">openclaw browser --browser-profile chrome tabs  <span class="c1"># 使用指定配置</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 截图与快照</span>
+</span></span><span class="line"><span class="cl">openclaw browser screenshot                 <span class="c1"># 截图</span>
+</span></span><span class="line"><span class="cl">openclaw browser screenshot --full-page     <span class="c1"># 全页截图</span>
+</span></span><span class="line"><span class="cl">openclaw browser snapshot                   <span class="c1"># 获取页面快照</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 导航与交互</span>
+</span></span><span class="line"><span class="cl">openclaw browser navigate &lt;url&gt;             <span class="c1"># 导航</span>
+</span></span><span class="line"><span class="cl">openclaw browser click &lt;ref&gt;                <span class="c1"># 点击</span>
+</span></span><span class="line"><span class="cl">openclaw browser <span class="nb">type</span> &lt;ref&gt; <span class="s2">&#34;text&#34;</span>          <span class="c1"># 输入</span>
+</span></span><span class="line"><span class="cl">openclaw browser press &lt;key&gt;                <span class="c1"># 按键</span>
+</span></span><span class="line"><span class="cl">openclaw browser hover &lt;ref&gt;                <span class="c1"># 悬停</span>
+</span></span><span class="line"><span class="cl">openclaw browser drag &lt;startRef&gt; &lt;endRef&gt;   <span class="c1"># 拖拽</span>
+</span></span><span class="line"><span class="cl">openclaw browser <span class="k">select</span> &lt;ref&gt; &lt;values...&gt;   <span class="c1"># 选择</span>
+</span></span><span class="line"><span class="cl">openclaw browser upload &lt;paths...&gt;          <span class="c1"># 上传文件</span>
+</span></span><span class="line"><span class="cl">openclaw browser fill --fields &lt;json&gt;       <span class="c1"># 填充表单</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 其他</span>
+</span></span><span class="line"><span class="cl">openclaw browser dialog --accept            <span class="c1"># 处理对话框</span>
+</span></span><span class="line"><span class="cl">openclaw browser <span class="nb">wait</span> --time <span class="m">1000</span>           <span class="c1"># 等待</span>
+</span></span><span class="line"><span class="cl">openclaw browser evaluate --fn <span class="s2">&#34;document.title&#34;</span>  <span class="c1"># 执行 JS</span>
+</span></span><span class="line"><span class="cl">openclaw browser console                    <span class="c1"># 控制台日志</span>
+</span></span><span class="line"><span class="cl">openclaw browser pdf                        <span class="c1"># 导出 PDF</span>
+</span></span><span class="line"><span class="cl">openclaw browser resize <span class="m">1920</span> <span class="m">1080</span>           <span class="c1"># 调整大小</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Chrome 扩展</span>
+</span></span><span class="line"><span class="cl">openclaw browser extension install          <span class="c1"># 安装扩展</span>
+</span></span><span class="line"><span class="cl">openclaw browser extension path             <span class="c1"># 扩展路径</span>
+</span></span></code></pre></div><hr>
+<h2 id="定时任务">定时任务<a hidden class="anchor" aria-hidden="true" href="#定时任务">#</a></h2>
+<h3 id="cron---定时任务管理"><code>cron</code> - 定时任务管理<a hidden class="anchor" aria-hidden="true" href="#cron---定时任务管理">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw cron status                        <span class="c1"># 调度器状态</span>
+</span></span><span class="line"><span class="cl">openclaw cron list                          <span class="c1"># 列出任务</span>
+</span></span><span class="line"><span class="cl">openclaw cron list --all                    <span class="c1"># 包含禁用的</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 添加任务</span>
+</span></span><span class="line"><span class="cl">openclaw cron add --name <span class="s2">&#34;每日提醒&#34;</span> --every 24h --system-event <span class="s2">&#34;检查邮件&#34;</span>
+</span></span><span class="line"><span class="cl">openclaw cron add --name <span class="s2">&#34;定时任务&#34;</span> --cron <span class="s2">&#34;0 9 * * *&#34;</span> --system-event <span class="s2">&#34;早安&#34;</span>
+</span></span><span class="line"><span class="cl">openclaw cron add --name <span class="s2">&#34;一次性&#34;</span> --at <span class="s2">&#34;2024-01-01T10:00:00Z&#34;</span> --system-event <span class="s2">&#34;新年快乐&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 管理任务</span>
+</span></span><span class="line"><span class="cl">openclaw cron edit &lt;id&gt; --deliver --channel telegram --to <span class="s2">&#34;123456789&#34;</span>
+</span></span><span class="line"><span class="cl">openclaw cron <span class="nb">enable</span> &lt;id&gt;                   <span class="c1"># 启用</span>
+</span></span><span class="line"><span class="cl">openclaw cron disable &lt;id&gt;                  <span class="c1"># 禁用</span>
+</span></span><span class="line"><span class="cl">openclaw cron rm &lt;id&gt;                       <span class="c1"># 删除</span>
+</span></span><span class="line"><span class="cl">openclaw cron run &lt;id&gt;                      <span class="c1"># 立即运行</span>
+</span></span><span class="line"><span class="cl">openclaw cron runs --id &lt;id&gt;                <span class="c1"># 运行历史</span>
+</span></span></code></pre></div><hr>
+<h2 id="插件与技能">插件与技能<a hidden class="anchor" aria-hidden="true" href="#插件与技能">#</a></h2>
+<h3 id="plugins---插件管理"><code>plugins</code> - 插件管理<a hidden class="anchor" aria-hidden="true" href="#plugins---插件管理">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw plugins list                       <span class="c1"># 列出插件</span>
+</span></span><span class="line"><span class="cl">openclaw plugins info &lt;id&gt;                  <span class="c1"># 插件详情</span>
+</span></span><span class="line"><span class="cl">openclaw plugins install &lt;path-or-spec&gt;     <span class="c1"># 安装插件</span>
+</span></span><span class="line"><span class="cl">openclaw plugins install -l ./my-plugin     <span class="c1"># 链接本地插件</span>
+</span></span><span class="line"><span class="cl">openclaw plugins <span class="nb">enable</span> &lt;id&gt;                <span class="c1"># 启用</span>
+</span></span><span class="line"><span class="cl">openclaw plugins disable &lt;id&gt;               <span class="c1"># 禁用</span>
+</span></span><span class="line"><span class="cl">openclaw plugins update &lt;id&gt;                <span class="c1"># 更新插件</span>
+</span></span><span class="line"><span class="cl">openclaw plugins update --all               <span class="c1"># 更新所有</span>
+</span></span><span class="line"><span class="cl">openclaw plugins doctor                     <span class="c1"># 诊断问题</span>
+</span></span></code></pre></div><h3 id="skills---技能管理"><code>skills</code> - 技能管理<a hidden class="anchor" aria-hidden="true" href="#skills---技能管理">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw skills list                        <span class="c1"># 列出技能</span>
+</span></span><span class="line"><span class="cl">openclaw skills list --eligible             <span class="c1"># 仅可用的</span>
+</span></span><span class="line"><span class="cl">openclaw skills info &lt;name&gt;                 <span class="c1"># 技能详情</span>
+</span></span><span class="line"><span class="cl">openclaw skills check                       <span class="c1"># 检查就绪状态</span>
+</span></span></code></pre></div><hr>
+<h2 id="内存与搜索">内存与搜索<a hidden class="anchor" aria-hidden="true" href="#内存与搜索">#</a></h2>
+<h3 id="memory---语义内存"><code>memory</code> - 语义内存<a hidden class="anchor" aria-hidden="true" href="#memory---语义内存">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw memory status                      <span class="c1"># 内存状态</span>
+</span></span><span class="line"><span class="cl">openclaw memory status --deep               <span class="c1"># 深度检查</span>
+</span></span><span class="line"><span class="cl">openclaw memory index                       <span class="c1"># 重建索引</span>
+</span></span><span class="line"><span class="cl">openclaw memory index --verbose             <span class="c1"># 详细输出</span>
+</span></span><span class="line"><span class="cl">openclaw memory search <span class="s2">&#34;关键词&#34;</span>             <span class="c1"># 语义搜索</span>
+</span></span></code></pre></div><hr>
+<h2 id="沙箱管理">沙箱管理<a hidden class="anchor" aria-hidden="true" href="#沙箱管理">#</a></h2>
+<h3 id="sandbox---沙箱容器"><code>sandbox</code> - 沙箱容器<a hidden class="anchor" aria-hidden="true" href="#sandbox---沙箱容器">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw sandbox list                       <span class="c1"># 列出容器</span>
+</span></span><span class="line"><span class="cl">openclaw sandbox list --browser             <span class="c1"># 仅浏览器容器</span>
+</span></span><span class="line"><span class="cl">openclaw sandbox explain                    <span class="c1"># 解释沙箱策略</span>
+</span></span><span class="line"><span class="cl">openclaw sandbox recreate --all             <span class="c1"># 重建所有容器</span>
+</span></span><span class="line"><span class="cl">openclaw sandbox recreate --agent mybot     <span class="c1"># 重建指定代理的容器</span>
+</span></span><span class="line"><span class="cl">openclaw sandbox recreate --browser         <span class="c1"># 仅重建浏览器容器</span>
+</span></span></code></pre></div><hr>
+<h2 id="安全与审计">安全与审计<a hidden class="anchor" aria-hidden="true" href="#安全与审计">#</a></h2>
+<h3 id="security---安全工具"><code>security</code> - 安全工具<a hidden class="anchor" aria-hidden="true" href="#security---安全工具">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw security audit                     <span class="c1"># 安全审计</span>
+</span></span><span class="line"><span class="cl">openclaw security audit --deep              <span class="c1"># 深度审计</span>
+</span></span><span class="line"><span class="cl">openclaw security audit --fix               <span class="c1"># 自动修复</span>
+</span></span></code></pre></div><h3 id="approvals---执行审批"><code>approvals</code> - 执行审批<a hidden class="anchor" aria-hidden="true" href="#approvals---执行审批">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw approvals get                      <span class="c1"># 获取审批配置</span>
+</span></span><span class="line"><span class="cl">openclaw approvals get --node &lt;id&gt;          <span class="c1"># 节点审批</span>
+</span></span><span class="line"><span class="cl">openclaw approvals get --gateway            <span class="c1"># 网关审批</span>
+</span></span><span class="line"><span class="cl">openclaw approvals <span class="nb">set</span> --file ./approvals.json  <span class="c1"># 设置</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 白名单管理</span>
+</span></span><span class="line"><span class="cl">openclaw approvals allowlist add <span class="s2">&#34;~/Projects/**/bin/rg&#34;</span>
+</span></span><span class="line"><span class="cl">openclaw approvals allowlist add --node &lt;id&gt; <span class="s2">&#34;/usr/bin/uptime&#34;</span>
+</span></span><span class="line"><span class="cl">openclaw approvals allowlist remove <span class="s2">&#34;~/Projects/**/bin/rg&#34;</span>
+</span></span></code></pre></div><hr>
+<h2 id="系统工具">系统工具<a hidden class="anchor" aria-hidden="true" href="#系统工具">#</a></h2>
+<h3 id="system---系统事件"><code>system</code> - 系统事件<a hidden class="anchor" aria-hidden="true" href="#system---系统事件">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 系统事件</span>
+</span></span><span class="line"><span class="cl">openclaw system event --text <span class="s2">&#34;检查紧急事项&#34;</span> --mode now
+</span></span><span class="line"><span class="cl">openclaw system event --text <span class="s2">&#34;提醒&#34;</span> --mode next-heartbeat
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 心跳控制</span>
+</span></span><span class="line"><span class="cl">openclaw system heartbeat last              <span class="c1"># 最后心跳</span>
+</span></span><span class="line"><span class="cl">openclaw system heartbeat <span class="nb">enable</span>            <span class="c1"># 启用心跳</span>
+</span></span><span class="line"><span class="cl">openclaw system heartbeat disable           <span class="c1"># 禁用心跳</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 系统存在</span>
+</span></span><span class="line"><span class="cl">openclaw system presence                    <span class="c1"># 列出存在条目</span>
+</span></span></code></pre></div><h3 id="webhooks---webhook-工具"><code>webhooks</code> - Webhook 工具<a hidden class="anchor" aria-hidden="true" href="#webhooks---webhook-工具">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw webhooks gmail setup --account &lt;email&gt;  <span class="c1"># Gmail Pub/Sub 设置</span>
+</span></span><span class="line"><span class="cl">openclaw webhooks gmail run                      <span class="c1"># 运行 Gmail webhook</span>
+</span></span></code></pre></div><h3 id="dns---dns-工具"><code>dns</code> - DNS 工具<a hidden class="anchor" aria-hidden="true" href="#dns---dns-工具">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw dns setup                          <span class="c1"># DNS 设置</span>
+</span></span><span class="line"><span class="cl">openclaw dns setup --apply                  <span class="c1"># 应用配置</span>
+</span></span></code></pre></div><hr>
+<h2 id="其他命令">其他命令<a hidden class="anchor" aria-hidden="true" href="#其他命令">#</a></h2>
+<h3 id="docs---文档搜索"><code>docs</code> - 文档搜索<a hidden class="anchor" aria-hidden="true" href="#docs---文档搜索">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw docs &lt;query&gt;                       <span class="c1"># 搜索文档</span>
+</span></span><span class="line"><span class="cl">openclaw docs <span class="s2">&#34;how to configure&#34;</span>
+</span></span></code></pre></div><h3 id="hooks---钩子管理"><code>hooks</code> - 钩子管理<a hidden class="anchor" aria-hidden="true" href="#hooks---钩子管理">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw hooks list                         <span class="c1"># 列出钩子</span>
+</span></span><span class="line"><span class="cl">openclaw hooks info &lt;id&gt;                    <span class="c1"># 钩子详情</span>
+</span></span><span class="line"><span class="cl">openclaw hooks check                        <span class="c1"># 检查钩子</span>
+</span></span><span class="line"><span class="cl">openclaw hooks <span class="nb">enable</span> &lt;id&gt;                  <span class="c1"># 启用</span>
+</span></span><span class="line"><span class="cl">openclaw hooks disable &lt;id&gt;                 <span class="c1"># 禁用</span>
+</span></span><span class="line"><span class="cl">openclaw hooks install                      <span class="c1"># 安装钩子</span>
+</span></span><span class="line"><span class="cl">openclaw hooks update                       <span class="c1"># 更新钩子</span>
+</span></span></code></pre></div><h3 id="completion---shell-补全"><code>completion</code> - Shell 补全<a hidden class="anchor" aria-hidden="true" href="#completion---shell-补全">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw completion                         <span class="c1"># 生成补全脚本</span>
+</span></span><span class="line"><span class="cl">openclaw completion &gt;&gt; ~/.zshrc             <span class="c1"># 添加到 zsh</span>
+</span></span></code></pre></div><hr>
+<h2 id="常用组合示例">常用组合示例<a hidden class="anchor" aria-hidden="true" href="#常用组合示例">#</a></h2>
+<h3 id="快速开始">快速开始<a hidden class="anchor" aria-hidden="true" href="#快速开始">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 1. 初始化</span>
+</span></span><span class="line"><span class="cl">openclaw onboard --flow quickstart
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 2. 启动网关</span>
+</span></span><span class="line"><span class="cl">openclaw gateway start
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 3. 检查状态</span>
+</span></span><span class="line"><span class="cl">openclaw status
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 4. 打开控制面板</span>
+</span></span><span class="line"><span class="cl">openclaw dashboard
+</span></span></code></pre></div><h3 id="配置-telegram-机器人">配置 Telegram 机器人<a hidden class="anchor" aria-hidden="true" href="#配置-telegram-机器人">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 添加频道</span>
+</span></span><span class="line"><span class="cl">openclaw channels add --channel telegram --token &lt;BOT_TOKEN&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 检查状态</span>
+</span></span><span class="line"><span class="cl">openclaw channels status --probe
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 发送测试消息</span>
+</span></span><span class="line"><span class="cl">openclaw message send --channel telegram --target @username --message <span class="s2">&#34;测试&#34;</span>
+</span></span></code></pre></div><h3 id="远程节点执行">远程节点执行<a hidden class="anchor" aria-hidden="true" href="#远程节点执行">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 列出节点</span>
+</span></span><span class="line"><span class="cl">openclaw nodes list --connected
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 在节点上运行命令</span>
+</span></span><span class="line"><span class="cl">openclaw nodes run --node my-server --raw <span class="s2">&#34;uptime&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 截取节点屏幕</span>
+</span></span><span class="line"><span class="cl">openclaw nodes screen record --node my-server --duration 5s
+</span></span></code></pre></div><h3 id="定时提醒">定时提醒<a hidden class="anchor" aria-hidden="true" href="#定时提醒">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 每天早上 9 点提醒</span>
+</span></span><span class="line"><span class="cl">openclaw cron add --name <span class="s2">&#34;早安&#34;</span> --cron <span class="s2">&#34;0 9 * * *&#34;</span> --system-event <span class="s2">&#34;早上好！新的一天开始了&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 30 分钟后提醒</span>
+</span></span><span class="line"><span class="cl">openclaw cron add --name <span class="s2">&#34;提醒&#34;</span> --at <span class="s2">&#34;</span><span class="k">$(</span>date -v+30M +%Y-%m-%dT%H:%M:%S<span class="k">)</span><span class="s2">&#34;</span> --system-event <span class="s2">&#34;30分钟到了&#34;</span>
+</span></span></code></pre></div><hr>
+<h2 id="获取帮助">获取帮助<a hidden class="anchor" aria-hidden="true" href="#获取帮助">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw --help                             <span class="c1"># 主帮助</span>
+</span></span><span class="line"><span class="cl">openclaw &lt;command&gt; --help                   <span class="c1"># 子命令帮助</span>
+</span></span><span class="line"><span class="cl">openclaw docs &lt;query&gt;                       <span class="c1"># 搜索文档</span>
+</span></span></code></pre></div><p><strong>文档网站</strong>: <a href="https://docs.openclaw.ai">https://docs.openclaw.ai</a><br>
+<strong>GitHub</strong>: <a href="https://github.com/openclaw/openclaw">https://github.com/openclaw/openclaw</a><br>
+<strong>社区</strong>: <a href="https://discord.com/invite/clawd">https://discord.com/invite/clawd</a></p>
+<hr>
+<p><em>文档由阿拉 🧞 整理，如有遗漏欢迎补充！</em></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://getaibits.com/tags/openclaw/">OpenClaw</a></li>
+      <li><a href="https://getaibits.com/tags/cli/">CLI</a></li>
+      <li><a href="https://getaibits.com/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/">命令行</a></li>
+      <li><a href="https://getaibits.com/tags/%E6%95%99%E7%A8%8B/">教程</a></li>
+      <li><a href="https://getaibits.com/tags/%E6%8C%87%E5%8D%97/">指南</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://getaibits.com/">AI Bits</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<div class="reading-progress" id="reading-progress"></div>
+
+<script>
+
+window.addEventListener('scroll', function() {
+  const article = document.querySelector('.post-content');
+  if (!article) return;
+  
+  const scrollTop = window.scrollY;
+  const docHeight = article.offsetHeight;
+  const winHeight = window.innerHeight;
+  const scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
+  
+  document.getElementById('reading-progress').style.width = Math.min(scrollPercent, 100) + '%';
+});
+</script>
+
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
