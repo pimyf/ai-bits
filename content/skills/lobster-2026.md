@@ -153,7 +153,7 @@ url: "/skills/lobster-2026.html"
 </div>
 
 <div class="tool-card">
-<h4><a href="https://github.com/openclaw/ironclaw" target="_blank">IronClaw</a></h4>
+<h4><a href="https://ironclaw.io" target="_blank">IronClaw</a></h4>
 <div class="tool-meta">安全优先的开源AI代理运行时</div>
 <p>安全优先的开源AI代理运行时</p>
 </div>
