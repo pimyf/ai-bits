@@ -159,19 +159,19 @@ url: "/skills/lobster-2026.html"
 </div>
 
 <div class="tool-card">
-<h4><a href="https://github.com/openclaw/zeroclaw" target="_blank">ZeroClaw</a></h4>
+<h4><a href="https://github.com/zeroclaw-labs/zeroclaw" target="_blank">ZeroClaw</a></h4>
 <div class="tool-meta">Rust构建的超轻量AI Agent框架</div>
 <p>超轻量AI Agent框架，Rust构建</p>
 </div>
 
 <div class="tool-card">
-<h4><a href="https://github.com/openclaw/nanoclaw" target="_blank">NanoClaw</a></h4>
+<h4><a href="https://github.com/qwibitai/nanoclaw" target="_blank">NanoClaw</a></h4>
 <div class="tool-meta">容器隔离的安全开源个人AI代理助手</div>
 <p>容器隔离的安全开源个人AI代理助手</p>
 </div>
 
 <div class="tool-card">
-<h4><a href="https://github.com/openclaw/picoclaw" target="_blank">PicoClaw</a></h4>
+<h4><a href="https://github.com/sipeed/picoclaw" target="_blank">PicoClaw</a></h4>
 <div class="tool-meta">$10硬件可运行的超轻量AI Agent</div>
 <p>$10硬件可运行的超轻量AI Agent</p>
 </div>
@@ -192,14 +192,14 @@ url: "/skills/lobster-2026.html"
 </div>
 
 <div class="tool-card">
-<h4><a href="https://github.com/openclaw/qclaw" target="_blank">QClaw</a></h4>
+<h4><a href="https://github.com/qiuzhi2046/Qclaw" target="_blank">QClaw</a></h4>
 <div class="tool-meta">腾讯出品的微信直连本地AI智能体助手</div>
 <p>一键式安装，方便快捷</p>
 <div class="tool-quote">腾讯出品 · 微信直连</div>
 </div>
 
 <div class="tool-card">
-<h4><a href="https://github.com/stepagent/stepclaw" target="_blank">StepClaw</a></h4>
+<h4><a href="https://toolin.ai/tools/stepclaw" target="_blank">StepClaw</a></h4>
 <div class="tool-meta">阶跃星辰的桌面端AI Agent智能伙伴</div>
 <p>阶跃星辰的桌面端AI Agent智能伙伴</p>
 </div>
@@ -211,27 +211,27 @@ url: "/skills/lobster-2026.html"
 </div>
 
 <div class="tool-card">
-<h4><a href="https://github.com/didaquis/lobsterai" target="_blank">LobsterAI</a></h4>
+<h4><a href="https://github.com/netease-youdao/LobsterAI" target="_blank">LobsterAI</a></h4>
 <div class="tool-meta">网易有道推出的开源桌面全场景AI Agent</div>
 <p>独立开发，开源作品</p>
 <div class="tool-quote">网易有道出品</div>
 </div>
 
 <div class="tool-card">
-<h4><a href="https://github.com/qoderwork/qoderwork" target="_blank">QoderWork</a></h4>
+<h4><a href="https://toolin.ai/tools/qoderwork" target="_blank">QoderWork</a></h4>
 <div class="tool-meta">macOS本地AI办公助手</div>
 <p>macOS本地AI办公助手</p>
 </div>
 
 <div class="tool-card">
-<h4><a href="https://github.com/tencent/workbuddy" target="_blank">WorkBuddy</a></h4>
+<h4><a href="https://toolin.ai/tools/workbuddy" target="_blank">WorkBuddy</a></h4>
 <div class="tool-meta">腾讯AI桌面智能体办公助手</div>
 <p>腾讯版本的openclaw</p>
 <div class="tool-quote">腾讯出品</div>
 </div>
 
 <div class="tool-card">
-<h4><a href="https://github.com/qclawai/qclaw-ai" target="_blank">Qclaw AI</a></h4>
+<h4><a href="https://github.com/qiuzhi2046/Qclaw" target="_blank">Qclaw AI</a></h4>
 <div class="tool-meta">OpenClaw可视化管家</div>
 <p>秋芝2046推出</p>
 <div class="tool-quote">OpenClaw可视化管家</div>
