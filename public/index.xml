@@ -103,6 +103,14 @@
   box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
+.tool-card .tool-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+}
+
 .tool-card h4 {
   margin: 0 0 0.5rem 0;
   font-size: 1.1rem;
