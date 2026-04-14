@@ -91,11 +91,13 @@ url: "/skills/lobster-2026.html"
 }
 
 .tool-card .tool-logo {
-  width: 48px;
-  height: 48px;
+  width: 96px;
+  height: 96px;
   object-fit: contain;
-  margin-bottom: 0.5rem;
-  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  border-radius: 12px;
+  background: white;
+  padding: 8px;
 }
 
 .tool-card h4 {
