@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+nav{background:rgba(10,10,15,0.85)!important}
+.hero,.features-strip,.how-section,.demos,.bottom-cta,footer{animation:_cfi .3s ease-out both}
+@keyframes _cfi{from{opacity:0}to{opacity:1}}
+</style>
+<link rel="icon" type="image/png" href="https://cdn.qclaw.qq.com/qclaw/website/image/favicon.png">
+<link rel="apple-touch-icon" href="https://cdn.qclaw.qq.com/qclaw/website/image/apple-touch-icon.png">
+<title>QClaw - 微信远程办公 AI 助手 | 腾讯出品</title>
+<meta name="description" content="QClaw 是腾讯推出的个人AI助手，可微信远程整理文件、执行复杂任务、无需编程基础，适配办公 / 创作 / 开发等多场景，丰富技能生态越用越懂你。">
+<meta name="keywords" content="QClaw,腾讯 QClaw,AI助手,微信远程操控,腾讯AI Agent,本地AI,电脑助手,OpenClaw,AI Agent,小龙虾OpenClaw">
+<meta name="google-site-verification" content="jRupNPOOY90Am_5CX5t_tx9Yr8F1Cd4zAx9p7ZNHj84" />
+<meta name="baidu-site-verification" content="codeva-HEeLoWecYt" />
+<meta property="og:site_name" content=“腾讯 QClaw 官网” />
+<meta property="og:url" content="https://qclaw.qq.com/"/>
+<meta property="og:title" content="QClaw - 微信远程办公 AI 助手 | 腾讯出品"/>
+<meta property="og:description" content="QClaw 是腾讯推出的个人AI助手，可微信远程整理文件、执行复杂任务、无需编程基础，适配办公 / 创作 / 开发等多场景，丰富技能生态越用越懂你。 "/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "腾讯QClaw",
+  "url": "https://qclaw.qq.com/"
+}
+</script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --red-primary: #FF3B30;
+    --red-glow: #FF6B5E;
+    --gold-accent: #FFD700;
+    --bg-dark: #0A0A0F;
+    --bg-card: rgba(255,255,255,0.03);
+    --text-primary: #F0F0F5;
+    --text-secondary: rgba(240,240,245,0.6);
+    --border-subtle: rgba(255,255,255,0.06);
+    --gradient-red: linear-gradient(135deg, #FF3B30, #FF6B5E);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg-dark); color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+    overflow-x: hidden; -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== CURSOR ===== */
+  .cursor-dot, .cursor-ring, .cursor-glow { display: none !important; }
+
+  /* ===== BG ===== */
+  #particles-canvas { display: none !important; }
+  .grid-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; background-image: linear-gradient(rgba(255,59,48,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,59,48,0.02) 1px, transparent 1px); background-size: 60px 60px; }
+  .float-orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; filter: blur(80px); }
+  .orb-1 { width: 400px; height: 400px; background: rgba(255,59,48,0.06); top: 10%; left: 10%; animation: orbFloat1 20s ease-in-out infinite; }
+  .orb-2 { width: 350px; height: 350px; background: rgba(180,60,200,0.04); top: 60%; right: 5%; animation: orbFloat2 25s ease-in-out infinite; }
+  .orb-3 { width: 300px; height: 300px; background: rgba(255,100,50,0.05); bottom: 10%; left: 30%; animation: orbFloat3 18s ease-in-out infinite; }
+  @keyframes orbFloat1 { 0%,100% { transform: translate(0,0); } 33% { transform: translate(60px,-40px); } 66% { transform: translate(-30px,50px); } }
+  @keyframes orbFloat2 { 0%,100% { transform: translate(0,0); } 33% { transform: translate(-50px,30px); } 66% { transform: translate(40px,-60px); } }
+  @keyframes orbFloat3 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(70px,-30px); } }
+
+  /* ===== NAV ===== */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 60px; display: flex; align-items: center; gap: 0; background: rgba(10,10,15,0.7); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border-subtle); transition: all 0.3s; }
+  nav.scrolled { background: rgba(10,10,15,0.92); padding: 12px 60px; }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text-primary); margin-right: 40px; }
+  .nav-logo-combined { height: 32px; }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a {
+    color: rgba(255,255,255,0.85); text-decoration: none;
+    font-size: 16px; font-weight: 600;
+    transition: all 0.3s; position: relative;
+    letter-spacing: 0.5px;
+  }
+  .nav-links a:hover { color: #fff; text-shadow: 0 0 12px rgba(255,107,94,0.5); }
+  .nav-links a::after {
+    content: ''; position: absolute;
+    bottom: -4px; left: 0; width: 0; height: 2px;
+    background: var(--gradient-red); transition: width 0.3s;
+  }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-download-wrap { position: relative; margin-left: auto; flex-shrink: 0; }
+  .nav-cta { padding: 10px 28px; background: var(--gradient-red); border: none; border-radius: 10px; color: #fff; font-size: 15px; font-weight: 700; transition: transform 0.2s, box-shadow 0.2s; display: flex; align-items: center; justify-content: center; line-height: 1; }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(255,59,48,0.4); }
+  .nav-dropdown { position: absolute; top: calc(100% + 10px); right: 0; background: rgba(20,20,28,0.95); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 8px; min-width: 210px; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: all 0.25s ease; box-shadow: 0 16px 48px rgba(0,0,0,0.5); }
+  .nav-download-wrap:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+  .nav-dropdown a { cursor: default;display: flex; align-items: center; gap: 10px; padding: 11px 16px; border-radius: 10px; color: var(--text-primary); text-decoration: none; font-size: 14px; font-weight: 600; transition: background 0.2s; }
+  .nav-dropdown a::after { display: none; }
+  .nav-dropdown a:hover { background: rgba(255,255,255,0.08); }
+  .nav-dropdown a + a { margin-top: 2px; }
+
+  /* ===== HERO ===== */
+  .hero { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 40px 36px; }
+  .hero-glow { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,59,48,0.1) 0%, transparent 70%); top: 0; left: 50%; transform: translateX(-50%); pointer-events: none; animation: pulseGlow 4s ease-in-out infinite; }
+  @keyframes pulseGlow { 0%,100% { opacity: 0.5; transform: translateX(-50%) scale(1); } 50% { opacity: 1; transform: translateX(-50%) scale(1.15); } }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 7px 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; font-size: 13px; color: var(--text-secondary); font-weight: 500; margin-bottom: 24px; animation: fadeInUp 0.8s ease-out; }
+  .hero-badge .tencent-logo { width: 20px; height: 20px; border-radius: 5px; }
+  .hero-combined-logo { height: clamp(140px, 20vw, 200px); margin-bottom: 20px; animation: fadeInUp 0.8s ease-out 0.1s both; filter: drop-shadow(0 0 30px rgba(255,59,48,0.2)); }
+
+  /* Slogan with glow */
+  .hero-slogan {
+    font-size: clamp(17px, 2.2vw, 22px);
+    max-width: 640px; line-height: 1.8;
+    font-weight: 500;
+    margin-bottom: 24px;
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+    background: linear-gradient(90deg, rgba(255,255,255,0.95), var(--red-glow), rgba(255,255,255,0.95));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+  }
+
+  /* Apply button */
+  .hero-apply-row { margin-bottom: 28px; animation: fadeInUp 0.8s ease-out 0.35s both; }
+  .hero-status-tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 12px 32px; border-radius: 100px;
+    font-size: 16px; font-weight: 700;
+    background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,59,48,0.08));
+    border: 1px solid rgba(255,215,0,0.25);
+    color: var(--gold-accent);
+  }
+
+  .hero-apply-dot { display: inline-block; width: 8px; height: 8px; background: #4ade80; border-radius: 50%; animation: applyPulse 2s ease-in-out infinite; }
+  @keyframes applyPulse { 0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74,222,128,0.4); } 50% { opacity: 0.8; box-shadow: 0 0 0 6px rgba(74,222,128,0); } }
+
+  /* QR code hover */
+  .qr-trigger {
+    position: relative;
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 28px;
+    background: transparent;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    font-size: 15px; color: #fff; font-weight: 700;
+    transition: all 0.3s;
+  }
+  .qr-trigger:hover { border-color: #07C160; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(7,193,96,0.15); }
+  .qr-popup {
+    position: absolute;
+    bottom: calc(100% + 12px); left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background: rgba(20,20,28,0.95);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 16px;
+    opacity: 0; visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+    z-index: 10;
+    text-align: center;
+  }
+  .qr-trigger:hover .qr-popup {
+    opacity: 1; visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+  .qr-popup img { width: 160px; height: 160px; border-radius: 10px; background: #fff; }
+  .qr-popup p { font-size: 12px; color: var(--text-secondary); margin-top: 8px; }
+  .qr-popup::after {
+    content: ''; position: absolute;
+    bottom: -6px; left: 50%; transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid rgba(20,20,28,0.95);
+  }
+
+  .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; animation: fadeInUp 0.8s ease-out 0.4s both; }
+  .btn-download { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 32px; border-radius: 12px; font-size: 15px; font-weight: 700; line-height: 1; transition: all 0.3s; text-decoration: none; border: none; cursor: default}
+  .btn-mac, .btn-mac-intel { background: #fff; color: #0A0A0F; }
+  .btn-mac:hover, .btn-mac-intel:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,255,255,0.15); }
+  .btn-win { background: #fff; color: #0A0A0F; border: 1.5px solid rgba(255,255,255,0.2); }
+  .btn-win:hover { border-color: var(--red-glow); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,59,48,0.15); }
+  .btn-win.disabled { opacity: 0.4; pointer-events: none; border-color: rgba(255,255,255,0.08); }
+
+  /* Mac dropdown for hero & CTA */
+  .hero-mac-wrap { position: relative; }
+  .hero-mac-dropdown {
+    position: absolute; top: calc(100% + 8px); left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    background: rgba(20,20,28,0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px; padding: 8px; min-width: 260px;
+    opacity: 0; visibility: hidden;
+    transition: all 0.25s ease;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+    z-index: 10;
+  }
+  .hero-mac-wrap:hover .hero-mac-dropdown {
+    opacity: 1; visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+  .hero-mac-dropdown a {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 16px; border-radius: 10px;
+    color: var(--text-primary); text-decoration: none;
+    font-size: 14px; font-weight: 600;
+    transition: background 0.2s;
+  }
+  .hero-mac-dropdown a::after { display: none; }
+  .hero-mac-dropdown a:hover { background: rgba(255,255,255,0.08); }
+  .hero-mac-dropdown a + a { margin-top: 2px; }
+
+  /* ===== FEATURES (5 cards, glassy) ===== */
+  .features-strip { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; max-width: 1300px; margin: 0 auto; padding: 48px 40px 0; animation: fadeInUp 0.8s ease-out 0.55s both; }
+  .feature-card {
+    position: relative; padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    transition: all 0.5s; overflow: hidden;
+    backdrop-filter: blur(10px);
+  }
+  .feature-card::before {
+    content: ''; position: absolute; inset: 0;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(255,59,48,0.08), transparent 60%);
+    opacity: 0; transition: opacity 0.5s;
+  }
+  .feature-card:hover::before { opacity: 1; }
+  .feature-card::after {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--red-glow), transparent);
+    opacity: 0; transition: opacity 0.4s;
+  }
+  .feature-card:hover::after { opacity: 1; }
+  .feature-card:hover {
+    border-color: rgba(255,59,48,0.25);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(255,59,48,0.08), 0 0 30px rgba(255,59,48,0.04);
+  }
+  .feature-icon-wrap {
+    width: 50px; height: 50px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px; font-size: 22px;
+    background: linear-gradient(135deg, rgba(255,59,48,0.12), rgba(255,100,80,0.04));
+    border: 1px solid rgba(255,59,48,0.1);
+    transition: all 0.4s;
+    position: relative; z-index: 1;
+  }
+  .feature-card:hover .feature-icon-wrap {
+    background: linear-gradient(135deg, rgba(255,59,48,0.25), rgba(255,100,80,0.1));
+    transform: scale(1.1) rotate(-3deg);
+    box-shadow: 0 4px 20px rgba(255,59,48,0.2);
+  }
+  .feature-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 6px; color: #fff; position: relative; z-index: 1; }
+  .feature-card p { font-size: 12px; color: var(--text-secondary); line-height: 1.6; position: relative; z-index: 1; }
+  .feature-tag { display: inline-block; margin-top: 10px; padding: 3px 10px; background: rgba(255,59,48,0.08); border: 1px solid rgba(255,59,48,0.12); border-radius: 6px; font-size: 11px; color: var(--red-glow); font-weight: 500; position: relative; z-index: 1; }
+
+  /* ===== HOW IT WORKS ===== */
+  .how-section { position: relative; z-index: 2; padding: 100px 40px; max-width: 1000px; margin: 0 auto; }
+  .steps-row { display: flex; align-items: flex-start; justify-content: center; }
+  .step-item { flex: 1; text-align: center; padding: 0 24px; position: relative; max-width: 280px; }
+  .step-icon-wrap { width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 36px; background: rgba(255,59,48,0.08); border: 2px solid rgba(255,59,48,0.15); position: relative; z-index: 2; transition: all 0.4s; }
+  .step-item:hover .step-icon-wrap { background: rgba(255,59,48,0.15); border-color: rgba(255,59,48,0.35); transform: scale(1.08); }
+  .step-num { position: absolute; top: -6px; right: -2px; width: 24px; height: 24px; background: var(--gradient-red); border-radius: 50%; font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif; font-size: 11px; font-weight: 900; display: flex; align-items: center; justify-content: center; color: #fff; }
+  .step-item h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #fff; }
+  .step-item p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+  .step-connector { flex: 0 0 60px; display: flex; align-items: center; justify-content: center; padding-top: 36px; }
+  .step-connector svg { color: rgba(255,59,48,0.3); }
+  /* Make step 1 clickable */
+  .step-item a { text-decoration: none; color: inherit; }
+
+  /* ===== SECTION TITLE ===== */
+  .section-header { text-align: center; margin-bottom: 56px; }
+  .section-label { display: flex; align-items: center; justify-content: center; gap: 14px; font-family: 'SF Mono', 'Fira Code', Consolas, 'Courier New', monospace; font-size: 12px; letter-spacing: 3px; color: var(--red-glow); text-transform: uppercase; margin-bottom: 14px; }
+  .section-label .line { width: 30px; height: 1px; background: rgba(255,59,48,0.3); }
+  .section-header h2 { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif; font-size: clamp(26px,4vw,40px); font-weight: 900; letter-spacing: 2px; margin-bottom: 14px; }
+  .section-header p { color: var(--text-secondary); font-size: 15px; max-width: 520px; margin: 0 auto; }
+
+  /* ===== DEMOS ===== */
+  .demos { position: relative; z-index: 2; padding: 100px 60px; max-width: 1400px; margin: 0 auto; }
+  .demos-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
+  .demo-card { position: relative; border-radius: 20px; overflow: hidden; background: var(--bg-card); border: 1px solid var(--border-subtle); transition: all 0.5s; }
+  .demo-card:hover { border-color: rgba(255,59,48,0.2); box-shadow: 0 30px 80px rgba(0,0,0,0.4), 0 0 60px rgba(255,59,48,0.05); }
+  .demo-card-image { width: 100%; height: 240px; position: relative; overflow: hidden; }
+  .demo-visual { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative; }
+  .scene-remote { background: linear-gradient(135deg,#0a1628,#0a2818); }
+  .scene-social { background: linear-gradient(135deg,#1a0a2e,#2e0a1a); }
+  .scene-github { background: linear-gradient(135deg,#0a0f1e,#1e0a28); }
+  .scene-paper { background: linear-gradient(135deg,#0a1e1e,#0a0f28); }
+  .scene-weather { background: linear-gradient(135deg,#0a1628,#1a0a2e); }
+  .hex-pattern { position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ff3b30' fill-opacity='0.03'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity: 0.5; }
+  .demo-scene-icon { font-size: 64px; opacity: 0.12; position: absolute; color: var(--red-glow); }
+  .demo-mockup { display: flex; flex-direction: column; gap: 10px; padding: 20px; width: 100%; position: relative; z-index: 2; }
+  .demo-mockup.horizontal { flex-direction: row; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .chat-bubble { max-width: 80%; padding: 11px 15px; border-radius: 14px; font-size: 13px; line-height: 1.5; }
+  .chat-bubble.user { align-self: flex-end; background: linear-gradient(135deg,rgba(255,59,48,0.12),rgba(255,100,80,0.08)); border: 1px solid rgba(255,59,48,0.15); color: var(--text-primary); }
+  .chat-bubble.bot { align-self: flex-start; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.06); color: var(--text-secondary); }
+  .chat-bubble .wechat-tag { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; color: #07c160; margin-bottom: 4px; }
+  .typing-cursor { display: inline-block; width: 2px; height: 14px; background: var(--red-glow); animation: blink 1s infinite; vertical-align: middle; margin-left: 2px; }
+  .demo-card-content { padding: 24px 28px; }
+  .demo-tag { display: inline-block; padding: 4px 12px; border-radius: 6px; font-size: 11px; font-weight: 600; margin-bottom: 12px; }
+  .demo-card:nth-child(1) .demo-tag { background: rgba(255,59,48,0.1); color: var(--red-glow); }
+  .demo-card:nth-child(2) .demo-tag { background: rgba(0,180,255,0.1); color: #00b4ff; }
+  .demo-card:nth-child(3) .demo-tag { background: rgba(255,45,117,0.1); color: #ff2d75; }
+  .demo-card:nth-child(4) .demo-tag { background: rgba(123,47,255,0.1); color: #7b2fff; }
+  .demo-card:nth-child(5) .demo-tag { background: rgba(255,165,0,0.1); color: #ffa500; }
+  .demo-card:nth-child(6) .demo-tag { background: rgba(255,80,50,0.1); color: #ff6b5e; }
+  .demo-card-content h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+  .demo-card-content p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+
+  /* ===== CTA ===== */
+  .bottom-cta { position: relative; z-index: 2; padding: 100px 40px; text-align: center; }
+  .cta-inner { max-width: 800px; margin: 0 auto; padding: 64px 48px; border-radius: 24px; background: linear-gradient(135deg,rgba(255,59,48,0.08),rgba(255,59,48,0.02)); border: 1px solid rgba(255,59,48,0.12); position: relative; overflow: hidden; }
+  .cta-inner::before { content: ''; position: absolute; width: 300px; height: 300px; background: radial-gradient(circle,rgba(255,59,48,0.1),transparent 70%); top: -100px; right: -80px; pointer-events: none; }
+  .cta-inner .cta-logo { width: 56px; height: 56px; border-radius: 14px; margin-bottom: 20px; }
+  .cta-inner h2 { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif; font-size: clamp(24px,3.5vw,36px); font-weight: 900; letter-spacing: 2px; margin-bottom: 12px; }
+  .cta-inner p { font-size: 16px; color: var(--text-secondary); margin-bottom: 36px; line-height: 1.7; }
+  .cta-buttons { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+
+  /* ===== FOOTER ===== */
+  footer { position: relative; z-index: 2; border-top: 1px solid var(--border-subtle); padding: 48px 40px 36px; text-align: center; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-brand { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 18px; }
+  .footer-logo-combined { height: 28px; }
+  .footer-copyright { font-size: 13px; color: rgba(255,255,255,0.35); margin-bottom: 10px; }
+  .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+  .footer-links a { font-size: 13px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--red-glow); }
+  .footer-links a::after { display: none; }
+  .footer-links span { color: rgba(255,255,255,0.15); }
+
+  /* ===== ANIM ===== */
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1100px) { .features-strip { grid-template-columns: repeat(3,1fr); } }
+  @media (max-width: 900px) {
+    .demos-grid { grid-template-columns: 1fr; }
+.cursor-dot,.cursor-ring,.cursor-glow { display: none !important; }
+    nav { padding: 14px 24px; } .nav-links { display: none; }
+    .features-strip { grid-template-columns: repeat(2,1fr); gap: 10px; }
+    .steps-row { flex-direction: column; align-items: center; gap: 32px; } .step-connector { display: none; }
+    .hero { padding: 100px 24px 30px; } .demos { padding: 60px 24px; }
+    .how-section,.bottom-cta { padding: 60px 24px; }
+  }
+  @media (max-width: 600px) {
+    .features-strip { grid-template-columns: 1fr; }
+    .hero-buttons,.cta-buttons { flex-direction: column; align-items: center; }
+    .btn-download { width: 100%; max-width: 280px; justify-content: center; }
+    .hero-status-tag { font-size: 14px; padding: 10px 24px; }
+  }
+  </style>
+</head>
+<body>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+<div class="grid-bg"></div>
+<div class="float-orb orb-1"></div>
+<div class="float-orb orb-2"></div>
+<div class="float-orb orb-3"></div>
+<canvas id="particles-canvas"></canvas>
+
+<nav id="navbar">
+  <a href="#" class="nav-logo"><img src="https://cdn.qclaw.qq.com/qclaw/website/image/logo-nav.png" alt="QClaw" class="nav-logo-combined"></a>
+  <div class="nav-links">
+    <a href="#features">功能优势</a>
+    <a href="#how">快速上手</a>
+    <a href="#demos">使用场景</a>
+    <a href="/docs.html">产品文档</a>
+    <a href="/news.html">新闻资讯</a>
+  </div>
+  <div class="nav-download-wrap">
+    <span class="nav-cta">立即下载</span>
+    <div class="nav-dropdown">
+      <a href="" class="btn-download-mac"><i class="fa-brands fa-apple"></i> macOS (Apple 芯片)</a>
+      <a href="" class="btn-download-mac-intel"><i class="fa-brands fa-apple"></i> macOS (Intel 芯片)</a>
+      <a href="" class="btn-download-win"><i class="fa-brands fa-windows"></i> Windows</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-badge"><img src="https://cdn.qclaw.qq.com/qclaw/website/image/tencent-logo.png" alt="腾讯电脑管家" class="tencent-logo">腾讯电脑管家官方出品</div>
+  <img src="https://cdn.qclaw.qq.com/qclaw/website/image/logo-combined.png" alt="QClaw" class="hero-combined-logo">
+  <p class="hero-slogan">随时随地，微信一下，QClaw 帮你高效干活</p>
+  <div class="hero-buttons" id="download">
+    <a  class="btn-download btn-mac btn-download-mac"><i class="fa-brands fa-apple" style="font-size:18px;"></i> macOS (Apple 芯片)</a>
+    <a  class="btn-download btn-mac-intel btn-download-mac-intel"><i class="fa-brands fa-apple" style="font-size:18px;"></i> macOS (Intel 芯片)</a>
+    <a  class="btn-download btn-win btn-download-win"><i class="fa-brands fa-windows" style="font-size:18px;"></i> Windows</a>
+  </div>
+</section>
+
+<section class="features-strip" id="features">
+  <div class="feature-card"><div class="feature-icon-wrap"><i class="fa-solid fa-bolt-lightning"></i></div><h3>自动部署，打开即用</h3><p>支持 Mac & Windows，内置国产优质大模型，支持切换自定义模型</p><span class="feature-tag">开箱即用</span></div>
+  <div class="feature-card"><div class="feature-icon-wrap"><i class="fa-brands fa-weixin" style="color:#07C160;"></i></div><h3>微信直接对话，远程操控</h3><p>直接关联微信，零配置，随时随地远程让 AI 干活</p><span class="feature-tag">微信直联</span></div>
+  <div class="feature-card"><div class="feature-icon-wrap"><i class="fa-solid fa-puzzle-piece"></i></div><h3>丰富 Skills 生态</h3><p>支持Skills市场，如ClawHub、GitHub 等丰富生态，Skills 随取随用</p><span class="feature-tag">丰富生态</span></div>
+  <div class="feature-card"><div class="feature-icon-wrap"><span style="font-size:22px;">🦞</span></div><h3>持续记忆，你的专属龙虾</h3><p>记住偏好和上下文，持续成长，越来越懂你的 AI</p><span class="feature-tag">懂你所想</span></div>
+  <div class="feature-card"><div class="feature-icon-wrap"><i class="fa-solid fa-shield-halved" style="color:#07C160;"></i></div><h3>本地部署，办公更高效</h3><p>直接操控文件、浏览器、邮件，不是只会聊天</p><span class="feature-tag">高效操控</span></div>
+</section>
+
+<section class="how-section" id="how">
+  <div class="section-header reveal"><div class="section-label"><span class="line"></span>HOW IT WORKS<span class="line"></span></div><h2>三步上手</h2><p>从下载到开始干活，几分钟即可上手</p></div>
+  <div class="steps-row reveal">
+    <div class="step-item"><a href="#home"><div class="step-icon-wrap"><div class="step-num">1</div>📥</div><h3>下载安装</h3><p>支持 Mac & Windows<br>一键安装，无需配置环境</p></a></div>
+    <div class="step-connector"><svg width="40" height="20" viewBox="0 0 40 20" fill="none"><path d="M0 10h32m0 0l-6-6m6 6l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="step-item"><div class="step-icon-wrap"><div class="step-num">2</div>📱</div><h3>扫码绑定微信</h3><p>打开 QClaw 扫码关联微信<br>立即关联</p></div>
+    <div class="step-connector"><svg width="40" height="20" viewBox="0 0 40 20" fill="none"><path d="M0 10h32m0 0l-6-6m6 6l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="step-item"><div class="step-icon-wrap"><div class="step-num">3</div>🚀</div><h3>微信或电脑发指令，开干</h3><p>通过微信或电脑发消息<br>QClaw 立刻帮你执行任务</p></div>
+  </div>
+</section>
+
+<section class="demos" id="demos">
+  <div class="section-header reveal"><div class="section-label"><span class="line"></span>USE CASES<span class="line"></span></div><h2>真实场景，即刻体验</h2><p>从日常提醒到自动化开发，QClaw 帮你解锁无限可能</p></div>
+  <div class="demos-grid">
+    <div class="demo-card reveal"><div class="demo-card-image"><div class="demo-visual scene-remote"><div class="hex-pattern"></div><i class="demo-scene-icon fa-solid fa-desktop"></i><div class="demo-mockup"><div class="chat-bubble user"><div class="wechat-tag"><i class="fa-brands fa-weixin"></i> 微信</div>帮我打开桌面的"Q3报告.xlsx"，把第3列数据求和</div><div class="chat-bubble bot">📂 已打开文件<br>✅ Q3总销售额为 ¥2,847,600，已保存！<span class="typing-cursor"></span></div></div></div></div><div class="demo-card-content"><span class="demo-tag">💻 远程操控</span><h3>远程操作电脑文件/网页</h3><p>不带电脑也能随时改文档、查数据、处理工作</p></div></div>
+    <div class="demo-card reveal"><div class="demo-card-image"><div class="demo-visual scene-social"><div class="hex-pattern"></div><i class="demo-scene-icon fa-solid fa-folder-open"></i><div class="demo-mockup"><div class="chat-bubble user"><div class="wechat-tag"><i class="fa-brands fa-weixin"></i> 微信</div>帮我整理桌面上所有文档，按项目分类，每个项目提炼一页摘要</div><div class="chat-bubble bot">📂 已扫描桌面 86 个文件<br>🗂 已按 5 个项目自动归类<br>📝 每个项目摘要已生成 → summary.pdf<span class="typing-cursor"></span></div></div></div></div><div class="demo-card-content"><span class="demo-tag">📁 资料整理</span><h3>整理电脑资料并提炼</h3><p>自动归类文件、提炼关键信息，告别杂乱桌面</p></div></div>
+    <div class="demo-card reveal"><div class="demo-card-image"><div class="demo-visual scene-weather"><div class="hex-pattern"></div><i class="demo-scene-icon fa-solid fa-cloud-sun-rain"></i><div class="demo-mockup"><div class="chat-bubble user"><div class="wechat-tag"><i class="fa-brands fa-weixin"></i> 微信</div>帮我设置每天早上 8 点推送天气</div><div class="chat-bubble bot">✅ 已设置！明早 8 点准时播报<br>🌤 明天晴，23°C，建议穿薄外套~<br>🌧 后天有雨，记得带伞哦</div></div></div></div><div class="demo-card-content"><span class="demo-tag">☀️ 智能提醒</span><h3>每日天气定时提醒</h3><p>自动推送天气状况，给出穿衣 & 出行建议</p></div></div>
+    <div class="demo-card reveal"><div class="demo-card-image"><div class="demo-visual" style="background:linear-gradient(135deg,#1e0a0a,#2e1a0a);"><div class="hex-pattern"></div><i class="demo-scene-icon fa-solid fa-shrimp"></i><div class="demo-mockup"><div class="chat-bubble user"><div class="wechat-tag"><i class="fa-brands fa-weixin"></i> 微信</div>以后帮我写的邮件都用正式语气，结尾加"此致敬礼"</div><div class="chat-bubble bot">🦞 收到，已更新你的邮件风格偏好<br>✍️ 以后写邮件自动按这个风格来<br>📈 你的龙虾已学会 12 个偏好，持续进化中</div></div></div></div><div class="demo-card-content"><span class="demo-tag">🦞 养虾</span><h3>你的龙虾，越养越聪明</h3><p>持续学习你的风格和偏好，从通用助手进化为你的专属搭档</p></div></div>
+    <div class="demo-card reveal"><div class="demo-card-image"><div class="demo-visual scene-github"><div class="hex-pattern"></div><i class="demo-scene-icon fa-brands fa-github"></i><div class="demo-mockup"><div class="chat-bubble user"><div class="wechat-tag"><i class="fa-brands fa-weixin"></i> 微信</div>帮我创建一个 Chrome 插件项目，自动提交到 GitHub</div><div class="chat-bubble bot">🛠 项目已创建：qclaw-chrome-ext<br>📦 已 push 到 GitHub，自动生成 README<br>⭐ 已自动生成 README 和文档</div></div></div></div><div class="demo-card-content"><span class="demo-tag">🚀 自动开发</span><h3>GitHub 项目自动开发</h3><p>你出创意，我来实现，自动建库写代码</p></div></div>
+    <div class="demo-card reveal"><div class="demo-card-image"><div class="demo-visual scene-paper"><div class="hex-pattern"></div><i class="demo-scene-icon fa-solid fa-graduation-cap"></i><div class="demo-mockup"><div class="chat-bubble user"><div class="wechat-tag"><i class="fa-brands fa-weixin"></i> 微信</div>搜近3年 LLM Agent 综述论文，整理成文献综述</div><div class="chat-bubble bot">🔍 已检索到相关论文<br>📋 已按引用量筛选核心文献<br>📝 综述草稿已完成，引用格式：APA<br>✅ 已导出 PDF & LaTeX<span class="typing-cursor"></span></div></div></div></div><div class="demo-card-content"><span class="demo-tag">📚 学术研究</span><h3>学术论文自动整理</h3><p>自动找文献、整理引用、写综述、提升发文效率</p></div></div>
+  </div>
+</section>
+
+
+<section class="bottom-cta">
+  <div class="cta-inner reveal">
+    <img src="https://cdn.qclaw.qq.com/qclaw/website/image/logo-cta.png" alt="QClaw" class="cta-logo">
+    <h2>开始使用 QClaw</h2>
+    <p>随时随地，微信一下，QClaw 帮你高效干活</p>
+    <div class="cta-buttons">
+      <a href="" class="btn-download btn-mac btn-download-mac"><i class="fa-brands fa-apple" style="font-size:18px;"></i> macOS (Apple 芯片)</a>
+      <a href="" class="btn-download btn-mac-intel btn-download-mac-intel"><i class="fa-brands fa-apple" style="font-size:18px;"></i> macOS (Intel 芯片)</a>
+      <a href="" class="btn-download btn-win btn-download-win"><i class="fa-brands fa-windows" style="font-size:18px;"></i> Windows</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><img src="https://cdn.qclaw.qq.com/qclaw/website/image/logo-footer.png" alt="QClaw" class="footer-logo-combined"></div>
+    <p class="footer-copyright">Copyright &copy; 1998 - 2026 Tencent. All Rights Reserved.</p>
+    <div class="footer-links">
+      <a href="https://www.tencent.com/zh-cn/index.shtml" target="_blank">腾讯公司</a><span>|</span>
+      <a href="https://www.tencent.com/zh-cn/statement.html" target="_blank">版权所有</a><span>|</span>
+      <a href="https://rule.tencent.com/rule/202603060002" target="_blank">使用协议</a><span>|</span>
+      <a href="https://privacy.qq.com/document/preview/4a7ba3f82ff042c1aafbec6e7341d713" target="_blank">隐私条款</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://beacon.cdn.qq.com/sdk/4.7.5/beacon_web.min.js"></script>
+<script src="https://beacon.cdn.qq.com/auto_tracker/js/autotracker-beacon-oa-4.4.3.min.js"></script>
+<script src="./report.obf.js"></script>
+<script src="./download.obf.js"></script>
+
+<script>
+  // 埋点初始化：所有上报逻辑由 report.js 统一管理
+  window.addEventListener('DOMContentLoaded', () => {
+    if (window.QclawReport) {
+      window.QclawReport.init();
+    }
+  });
+</script>
+
+<script>
+let mouseX=-100,mouseY=-100;
+window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);});
+
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*60);});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+document.querySelectorAll('.demo-card').forEach(card=>{card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const rx=(e.clientY-r.top-r.height/2)/(r.height/2)*-3;const ry=(e.clientX-r.left-r.width/2)/(r.width/2)*3;card.style.transform=`translateY(-8px) perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg)`;});card.addEventListener('mouseleave',()=>{card.style.transform='translateY(0) perspective(800px) rotateX(0) rotateY(0)';});});
+</script>
+</body>
+</html>
+

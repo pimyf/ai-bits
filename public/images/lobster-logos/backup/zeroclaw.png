@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/images/zeroclawlabs.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Deployed: 2026-03-29 — Core release line: v0.6.7 -->
+
+    <!-- Primary Meta Tags - SEO Optimized -->
+    <title>ZeroClaw — Private AI Assistant | Local, Secure</title>
+    <meta name="description" content="ZeroClaw is a private AI assistant that runs 100% locally on your machine. Connect to Telegram, Discord, WhatsApp. Your data never leaves your computer. No cloud, no subscriptions, complete privacy." />
+    <meta name="keywords" content="AI agent, personal AI assistant, open source AI, local AI, private AI, autonomous agents, Telegram AI bot, Discord AI bot, WhatsApp AI, Claude agent, AI automation, self-hosted AI, AI framework, agent framework, private AI assistant, local LLM, on-premise AI" />
+    <meta name="author" content="ZeroClaw Labs" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://www.zeroclawlabs.ai/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.zeroclawlabs.ai/" />
+    <meta property="og:title" content="ZeroClaw — Private AI Assistant | Local, Secure" />
+    <meta property="og:description" content="ZeroClaw is a private AI assistant that runs 100% locally on your machine. Connect to Telegram, Discord, WhatsApp. Your data never leaves your computer." />
+    <meta property="og:image" content="https://www.zeroclawlabs.ai/images/zeroclaw-logos.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="ZeroClaw" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@zeroclaw" />
+    <meta name="twitter:creator" content="@zeroclaw" />
+    <meta name="twitter:url" content="https://www.zeroclawlabs.ai/" />
+    <meta name="twitter:title" content="ZeroClaw — Private AI Assistant" />
+    <meta name="twitter:description" content="ZeroClaw is a private AI assistant that runs 100% locally. Connect to Telegram, Discord, WhatsApp. Your data never leaves your computer." />
+    <meta name="twitter:image" content="https://www.zeroclawlabs.ai/images/zeroclaw-logos.png" />
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#050810" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="apple-touch-icon" href="/images/zeroclawlabs.png" />
+
+    <!-- JSON-LD Structured Data - Enhanced for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.zeroclawlabs.ai/#organization",
+          "name": "ZeroClaw Labs",
+          "url": "https://www.zeroclawlabs.ai",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.zeroclawlabs.ai/images/zeroclawlabs.png",
+            "width": 512,
+            "height": 512
+          },
+          "sameAs": [
+            "https://github.com/zeroclaw-labs",
+            "https://twitter.com/zeroclaw"
+          ],
+          "description": "ZeroClaw Labs builds private AI assistants for local, secure automation."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.zeroclawlabs.ai/#website",
+          "name": "ZeroClaw",
+          "url": "https://www.zeroclawlabs.ai",
+          "description": "Private AI Assistant. Local, secure automation that connects to Telegram, Discord, WhatsApp.",
+          "publisher": { "@id": "https://www.zeroclawlabs.ai/#organization" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.zeroclawlabs.ai/docs?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://www.zeroclawlabs.ai/#software",
+          "name": "ZeroClaw",
+          "url": "https://www.zeroclawlabs.ai",
+          "softwareVersion": "0.6.7",
+          "applicationCategory": "DeveloperApplication, BusinessApplication",
+          "operatingSystem": "macOS, Linux, Windows",
+          "description": "Private AI Assistant for local automation. Connect to Telegram, Discord, WhatsApp with complete data privacy.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "19736",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "featureList": [
+            "100% Local Processing",
+            "Telegram Integration",
+            "Discord Integration",
+            "WhatsApp Integration",
+            "Persistent Memory",
+            "Multi-Agent Support",
+            "Open Source",
+            "Self-Hosted",
+            "No Cloud Required",
+            "Complete Data Privacy"
+          ],
+          "publisher": { "@id": "https://www.zeroclawlabs.ai/#organization" }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.zeroclawlabs.ai/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is ZeroClaw?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "ZeroClaw is a private AI assistant that runs 100% locally on your machine. It allows you to create autonomous AI agents that can connect to Telegram, Discord, WhatsApp, and other platforms while keeping all your data private."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is ZeroClaw free to use?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, ZeroClaw is completely free and open-source. There are no subscriptions, no cloud fees, and no hidden costs. You run it on your own hardware."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does ZeroClaw send my data to the cloud?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. ZeroClaw runs entirely on your local machine. Your data, conversations, and files never leave your computer unless you explicitly choose to share them."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What platforms does ZeroClaw support?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "ZeroClaw integrates with Telegram, Discord, WhatsApp, Slack, and many other communication platforms. It also supports various LLM providers including Claude, OpenAI, and local models."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "HowTo",
+          "@id": "https://www.zeroclawlabs.ai/#howto",
+          "name": "How to Install ZeroClaw",
+          "description": "Get started with ZeroClaw in under 2 minutes",
+          "totalTime": "PT2M",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "name": "Run the installer",
+              "text": "Open your terminal and run: curl -fsSL https://zeroclawlabs.ai/install.sh | bash",
+              "position": 1
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Configure your agent",
+              "text": "Follow the interactive setup to connect your preferred LLM and communication platforms.",
+              "position": 2
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Start using ZeroClaw",
+              "text": "Your AI agent is now ready! Message it from Telegram, Discord, or WhatsApp.",
+              "position": 3
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <script type="module" crossorigin src="/assets/index-BmIPsSkv.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-BbMJZ7Lp.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-CslUmR0w.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-B0OhPTb9.css">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+  </head>
+  <body class="bg-black text-white antialiased">
+    <div id="root"></div>
+  <!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c4312e39f4ad4a96b3c8e36cf9c913a1"}'></script><!-- Cloudflare Pages Analytics --></body>
+</html>
