@@ -270,7 +270,7 @@ url: "/skills/lobster-2026.html"
 
 <div class="tool-card">
 <img src="/images/lobster-logos/feishu_openclaw.png" class="tool-logo" alt="飞书 OpenClaw" onerror="this.style.display='none'">
-<h4><a href="https://openclaw.feishu.cn" target="_blank">飞书 OpenClaw</a></h4>
+<h4><a href="https://openclaw.feishu.cn/" target="_blank">飞书 OpenClaw</a></h4>
 <div class="tool-meta">飞书官方OpenClaw一键部署方案</div>
 <p>工作用最合适</p>
 <div class="tool-quote">飞书官方</div>
@@ -278,7 +278,7 @@ url: "/skills/lobster-2026.html"
 
 <div class="tool-card">
 <img src="/images/lobster-logos/aily.png" class="tool-logo" alt="飞书 aily" onerror="this.style.display='none'">
-<h4><a href="https://aily.feishu.cn" target="_blank">飞书 aily</a></h4>
+<h4><a href="https://aily.feishu.cn/" target="_blank">飞书 aily</a></h4>
 <div class="tool-meta">字节豆包驱动的企业级AI智能体开发平台</div>
 <p>字节豆包驱动的企业级AI智能体开发平台</p>
 </div>
