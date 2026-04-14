@@ -80,9 +80,10 @@ url: "/skills/lobster-2026.html"
 .tool-card {
   background: var(--code-bg);
   border-radius: 12px;
-  padding: 1.25rem;
+  padding: 1.5rem;
   border: 1px solid var(--border);
   transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
 }
 
 .tool-card:hover {
@@ -91,18 +92,20 @@ url: "/skills/lobster-2026.html"
 }
 
 .tool-card .tool-logo {
-  width: 96px;
-  height: 96px;
+  width: 144px;
+  height: 144px;
   object-fit: contain;
-  margin-bottom: 0.75rem;
-  border-radius: 12px;
+  margin-bottom: 1rem;
+  border-radius: 16px;
   background: white;
-  padding: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .tool-card h4 {
   margin: 0 0 0.5rem 0;
   font-size: 1.1rem;
+  text-align: center;
 }
 
 .tool-card h4 a {
